@@ -7,7 +7,7 @@ export default defineConfig({
   base: "/dm/",
   description: "Interactive script",
   srcDir: 'docs',
-  srcExclude: ['3-sets-relations-functions/**', '4-number-theory/**', '5-algebra/**', '6-logic/**'],
+  srcExclude: ['intro/**', '3-sets-relations-functions/**', '4-number-theory/**', '5-algebra/**', '6-logic/**'],
   markdown: {
     math: true,
     config: (md) => {
