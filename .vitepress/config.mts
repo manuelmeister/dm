@@ -8,6 +8,7 @@ export default defineConfig({
   description: "Interactive script",
   srcDir: 'docs',
   srcExclude: ['intro/**', '3-sets-relations-functions/**', '4-number-theory/**', '5-algebra/**', '6-logic/**'],
+  ignoreDeadLinks: true,
   markdown: {
     math: true,
     config: (md) => {
