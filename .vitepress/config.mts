@@ -4,6 +4,7 @@ import footnote from 'markdown-it-footnote'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Diskrete Mathematik",
+  base: "/dm/",
   description: "Interactive script",
   srcDir: 'docs',
   markdown: {
