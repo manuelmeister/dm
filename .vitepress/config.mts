@@ -18,9 +18,9 @@ export default defineConfig({
     nav: [
       { text: 'Reasoning & Proofs', link: '/2-reasoning-proofs' },
       { text: 'Sets, Relations and Functions', link: '/3-sets-relations-functions' },
-      { text: 'Number Theory', link: '/4-number-theory' },
-      { text: 'Algebra', link: '/5-algebra' },
-      { text: 'Logic', link: '/6-logic' },
+      //{ text: 'Number Theory', link: '/4-number-theory' },
+      //{ text: 'Algebra', link: '/5-algebra' },
+      //{ text: 'Logic', link: '/6-logic' },
     ],
 
     aside: "left",
