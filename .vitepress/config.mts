@@ -17,7 +17,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Reasoning & Proofs', link: '/2-reasoning-proofs' },
-      { text: 'Sets, Relations and Functions', link: '/3-sets-relations-functions' },
+      //{ text: 'Sets, Relations and Functions', link: '/3-sets-relations-functions' },
       //{ text: 'Number Theory', link: '/4-number-theory' },
       //{ text: 'Algebra', link: '/5-algebra' },
       //{ text: 'Logic', link: '/6-logic' },
