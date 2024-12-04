@@ -164,7 +164,10 @@ sup.footnote-ref {
   flex-wrap: wrap;
   column-gap: 8px;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 22px;
+  @media (min-width: 768px) {
+    margin-bottom: 8px;
+  }
 }
 
 @media (min-width: 1440px) {
