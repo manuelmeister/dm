@@ -164,11 +164,14 @@ sup.footnote-ref {
     max-width: 420px !important; /* <-- update your values */
   }
 
-  .VPDoc:not(.has-sidebar) .container {
-
-    max-width: 1404px !important;
-
+  .VPDoc:not(.has-sidebar) .content {
+    max-width: 954px !important;
   }
+
+  .VPDoc:not(.has-sidebar) .container {
+    max-width: 1404px !important;
+  }
+
   .VPDoc.has-aside .content-container {
     max-width: 1188px !important;
   }
