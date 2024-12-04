@@ -19,7 +19,7 @@ We often simply say "statement" instead of "mathematical statement". A mathemati
 - If p is a prime number, then 2 p − 1 is also a prime number.
 - Every natural number is the sum of at most four square numbers. (Example: 22 = 42 + 22 + 12 + 12 and 74 = 62 + 52 + 32 + 22 .)
 - Every even natural number greater than 2 can be expressed as the sum of two primes.[^3] For example, 108 = 37 + 71 and 162 = 73 + 89.
-- Any $n$ lines $ℓ_1$, … , $ℓ_n$ in the plane, no two of which are parallel, intersect in one point (see [Example 2.4]()).
+- Any $n$ lines $ℓ_1$, … , $ℓ_n$ in the plane, no two of which are parallel, intersect in one point (see [Example 2.4](#example-2-4)).
 - For the chess game there exists a winning strategy for the player making the first move (playing "white").
 
 The first statement is easily shown to be true. The second statement is false, and this can be proved by giving a counter-example: 11 is prime but 2 11 − 1 = 2047 = 23·89 is not prime.[^4] The third statement is true but by no means obvious (and requires a sophisticated proof). The fourth statement is not known to be true (or false). The fifth statement is false. The sixth statement is not known to be true (or false).
