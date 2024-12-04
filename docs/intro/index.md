@@ -8,17 +8,17 @@ There are (at least) three major reasons why discrete mathematics is of central 
 
 - 1. **Discrete structures.** Many objects studied in Computer Science are discrete mathematical objects, for example a graph modeling a computer network or an algebraic group used in cryptography or coding theory. Many applications exploit sophisticated properties of the involved structures.
 - 2. **Abstraction.** Abstraction is of paramount importance in Computer Science. A computer system can only be understood by considering a number of layers of abstraction, from application programs via the operating system layer down to the physical hardware. Discrete mathematics, especially the way we present it, can teach us the art of abstraction. We refer to Section 1.3 for a discussion.
-- 3. **Mathematical derivations.** Mathematical reasoning is essential in any engineering discipline, and especially in Computer Science. In many disciplines (e.g.2 mechanical engineering), mathematical reasoning happens in
+- 3. **Mathematical derivations.** Mathematical reasoning is essential in any engineering discipline, and especially in Computer Science. In many disciplines (e.g.[^2] mechanical engineering), mathematical reasoning happens in
 
-<sup>1</sup>We also refer to the preface to these lecture notes where the special role of mathematics for Computer Science is mentioned.
+[^1]:We also refer to the preface to these lecture notes where the special role of mathematics for Computer Science is mentioned.
 
-<sup>2&</sup>quot;e.g.", the abbreviation of the Latin "exempli gratia" should be read as "for example".
+[^2]:quot;e.g.", the abbreviation of the Latin "exempli gratia" should be read as "for example".
 
 the form of *calculations* (e.g. calculating the wing profile for an airplane). In contrast, in Computer Science, mathematical reasoning often happens in the form of a *derivation* (or, more mathematically stated, a *proof*). For example, understanding a computer program means to understand it as a well-defined discrete mathematical object, and making a desirable statement about the program (e.g. that it terminates within a certain number of steps) means to prove (or derive) this statement. Similarly, the statement that a system (e.g. a block-chain system) is secure is a mathematical statement that requires a proof.
 
 ## **1.2 Discrete Mathematics: A Selection of Teasers**
 
-We present a number of examples as teasers for this course. Each example is representative for one or several of the topics treated in this course.3
+We present a number of examples as teasers for this course. Each example is representative for one or several of the topics treated in this course.[^3]
 
 **Example 1.1.** Consider a k × k chess board (ignoring the black/white coloring). Prove or disprove the following statement: No matter which of the squares is marked, the remaining area of the board (consisting of k 2 − 1 squares) can be covered completely with (non-overlapping) L-shaped pieces of paper each consisting of three squares.
 
@@ -34,9 +34,9 @@ for this condition, read as "k 2 is congruent to 1 modulo 3." This condition is 
 
 $$k\equiv_{3}1\;\;\;\mathrm{or}\;\;\;k\equiv_{3}2.$$
 
-<sup>3</sup>The reader should not worry too much if he or she is not familiar with some of the concepts discussed in this section, for example the interpolation of a polynomial, computation modulo a number n, Euclid's algorithm for computing greatest common divisors, or matrices.
+[^3]:The reader should not worry too much if he or she is not familiar with some of the concepts discussed in this section, for example the interpolation of a polynomial, computation modulo a number n, Euclid's algorithm for computing greatest common divisors, or matrices.
 
-Hence we have P(k) = 0 for all k with k ≡3 0 (i.e.,4 the k divisible by 3).5
+Hence we have P(k) = 0 for all k with k ≡3 0 (i.e.,[^4] the k divisible by 3).[^5]
 
 The case k = 4 can be solved easily by finding a solution for each of the three types of squares (corner, edge, interior of board) that could be marked. Hence we have proved P(4) = 1. This proof type will later be called a *proof by case distinction*.
 
@@ -62,9 +62,9 @@ One can easily check that 2 n−1 ≡n 1 holds for the primes n = 3, 5, 7, 11, 1
 
 **Example 1.3.** The well-known cancellation law for real numbers states that if ab = ac and a 6= 0, then b = c. In other words, one can divide both sides by a. How general is this law? Does it hold for the polynomials over R, i.e., does
 
-<sup>4&</sup>quot;i.e.", the abbreviation of the Latin "id est", should be read as "that is" (German: "das heisst").
+[^4]:quot;i.e.", the abbreviation of the Latin "id est", should be read as "that is" (German: "das heisst").
 
-<sup>5</sup>The fact that the equation k 2 ≡p 1 has two solutions modulo p, for any prime p, not just for p = 3, will be obvious once we understand that computing modulo p is a *field* (see Chapter 5) and that every element of a field has either two square roots or none.
+[^5]:The fact that the equation k 2 ≡p 1 has two solutions modulo p, for any prime p, not just for p = 3, will be obvious once we understand that computing modulo p is a *field* (see Chapter 5) and that every element of a field has either two square roots or none.
 
 a(x)b(x) = a(x)c(x) imply b(x) = c(x) if a(x) 6= 0? Does it hold for the integers modulo m, i.e., does ab ≡m ac imply b ≡m c if a 6= 0? Does it hold for the permutations, when multiplication is defined as composition of permutations? What does the condition a 6= 0 mean in this case? Which abstraction lies behind the cancellation law? This is a typical algebraic question (see Chapter 5).
 
@@ -96,7 +96,7 @@ Figure 1.1: A shape to be cut into identical pieces.
 
 **Example 1.8.** Euclid's well-known algorithm for computing the greatest common divisor of two positive integers a and b works as follows: In each step,
 
-<sup>6</sup>Unfortunately, this also leads to over-simplifications and inappropriate generalizations.
+[^6]:Unfortunately, this also leads to over-simplifications and inappropriate generalizations.
 
 the larger integer is divided by the smaller integer, and the pair of integers is replaced by the pair consisting of the smaller integer and the remainder of the division. This step is repeated until the remainder is 0. The greatest common divisor is the last non-zero remainder.
 

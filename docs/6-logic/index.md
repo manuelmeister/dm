@@ -1,111 +1,132 @@
-# **Chapter 6**: Logic
+# <small>Chapter 6</small><br> Logic
 
-### **6.1 Introduction**
+## 6.1. Introduction
 
 In Chapter 2 we have introduced some basic concepts of logic, but the treatment was quite informal. In this chapter we discuss the foundations of logic in a mathematically rigorous manner. In particular, we clearly distinguish between the syntax and the semantics of a logic and between syntactic derivations of formulas and logical consequences they imply. We also introduce the concept of a logical calculus and define soundness and completeness of a calculus. Moreover, we discuss in detail a concrete calculus for propositional logic, the so-called resolution calculus.
 
 At a very general level, the goal of logic is to provide a framework for expressing mathematical statements and for expressing and verifying proofs for such statements. A more ambitious, secondary goal can be to provide tools for *automatically* or semi-automatically generating a proof for a given statement.
 
-A treatment of logic usually begins with a chapter on propositional logic1 (see Section 6.5), followed by a chapter on predicate (or first-order) logic2 (see Section 6.6), which can be seen as an extension of propositional logic. There are several other logics which are useful in Computer Science and in mathematics, including temporal logic, modal logic, intuitionistic logic, and logics for reasoning about knowledge and about uncertainty. Most if not all relevant logics contain the logical operators from propositional logic, i.e., ∧, ∨, ¬ (and the derived operators → and ↔), as well as the quantifiers (∀ and ∃) from predicate logic.
+A treatment of logic usually begins with a chapter on propositional logic1 [(see Section 6.5)](#_6-5-propositional-logic), followed by a chapter on predicate (or first-order) logic[^2] [(see Section 6.6)](#_6-6-predicate-logic-first-order-logic), which can be seen as an extension of propositional logic. There are several other logics which are useful in Computer Science and in mathematics, including temporal logic, modal logic, intuitionistic logic, and logics for reasoning about knowledge and about uncertainty. Most if not all relevant logics contain the logical operators from propositional logic, i.e., $,$ $∨$, $¬$ (and the derived operators $→$ and $↔$), as well as the quantifiers ($∀$ and $∃$) from predicate logic.
 
-Our goal is to present the general concepts that apply to all types of logics in a unified manner, and then to discuss the specific instantiations of these
+[^1]:German: Aussagenlogik
 
-<sup>1</sup>German: Aussagenlogik
+[^2]:German: Prädikatenlogik
 
-<sup>2</sup>German: Prädikatenlogik
+Our goal is to present the general concepts that apply to all types of logics in a unified manner, and then to discuss the specific instantiations of these concepts for each logic individually. Therefore we begin with such a general treatment (see Sections 6.2, 6.3, and 6.4) before discussing propositional and predicate logic. From a didactic viewpoint, however, it will be useful to switch back and forth between the generic concepts of Sections 6.2, 6.3, and 6.4 and the concrete instantiations of Sections 6.5 and 6.6.
 
-concepts for each logic individually. Therefore we begin with such a general treatment (see Sections 6.2, 6.3, and 6.4) before discussing propositional and predicate logic. From a didactic viewpoint, however, it will be useful to switch back and forth between the generic concepts of Sections 6.2, 6.3, and 6.4 and the concrete instantiations of Sections 6.5 and 6.6.
-
-We give a general warning: Different treatments of logic often use slightly or sometimes substantially different notation.3 Even at the conceptual level there are significant differences. One needs to be prepared to adopt a particular notation used in a particular application context. However, the general principles explained here are essentially standard.
+We give a general warning: Different treatments of logic often use slightly or sometimes substantially different notation.[^3] Even at the conceptual level there are significant differences. One needs to be prepared to adopt a particular notation used in a particular application context. However, the general principles explained here are essentially standard.
 
 We also refer to the book by Kreuzer and Kühling and that by Schönisng mentioned in the preface of these lecture notes.
 
-### **6.2 Proof Systems**
+## 6.2. Proof Systems
 
-#### **6.2.1 Definition**
+### 6.2.1. Definition
 
-In a formal treatment of mathematics, all objects of study must be described in a well-defined syntax. Typically, syntactic objects are finite strings over some alphabet Σ, for example the symbols allowed by the syntax of a logic or simply the alphabet {0, 1}, in which case syntactic objects are bit-strings. Recall that Σ ∗ denotes the set of finite strings of symbols from Σ.
+In a formal treatment of mathematics, all objects of study must be described in a well-defined syntax. Typically, syntactic objects are finite strings over some alphabet $Σ$, for example the symbols allowed by the syntax of a logic or simply the alphabet $\{0, 1\}$, in which case syntactic objects are bit-strings. Recall that $Σ^∗$ denotes the set of finite strings of symbols from $Σ$.
 
-In this section, the two types of mathematical objects we study are
+In this section, the two types of mathematical objects we study are:
+- **mathematical statements** of a certain type and
+- **proofs** for this type of statements.
 
-- *mathematical statements* of a certain type and
-- *proofs* for this type of statements.
+By a statement type we mean for example the class of statements of the form that a given number $n$ is prime, or the class of statements of the form that a given graph $G$ has a Hamiltonian cycle (see below), or the class of statements of the form that a given formula $F$ in propositional logic is satisfiable.
 
-By a statement type we mean for example the class of statements of the form that a given number n is prime, or the class of statements of the form that a given graph G has a Hamiltonian cycle (see below), or the class of statements of the form that a given formula F in propositional logic is satisfiable.
+Consider a fixed type of statements. Let $\mathcal{S} ⊆ Σ^∗$ be the set of (syntactic representations of) mathematical statements of this type, and let $\mathcal{P} ⊆ Σ^∗$ be the set of (syntactic representations of) proof strings.[^4]
 
-Consider a fixed type of statements. Let S ⊆ Σ ∗ be the set of (syntactic representations of) mathematical statements of this type, and let P ⊆ Σ ∗ be the set of (syntactic representations of) proof strings.4
+[^3]:For example, in some treatments the symbol $⇒$ is used for $→$, which can be confusing.
 
-Every statement s ∈ S is either true or false. The *truth function*
+[^4]:Membership in $\mathcal{S}$ and also in $\mathcal{P}$ is assumed to be efficiently checkable (for some notion of efficiency).
 
-$$\tau:\,S\to\{0,1\}$$
+Every statement $s ∈ \mathcal{S}$ is either true or false. The **truth function**
 
-<sup>3</sup>For example, in some treatments the symbol ⇒ is used for →, which can be confusing.
+$$\tau:\,\mathcal{S}\to\{0,1\}$$
 
-<sup>4</sup>Membership in S and also in P is assumed to be efficiently checkable (for some notion of efficiency).
+assigns to each $s ∈ \mathcal{S}$ its truth value $τ(s)$. This function $τ$ defines the meaning, called the *semantics*, of objects in $\mathcal{S}$. [^5]
 
-assigns to each s ∈ S its truth value τ(s). This function τ defines the meaning, called the *semantics*, of objects in S. 5
+An element $p ∈ \mathcal{P}$ is either a (valid) proof for a statement $s ∈ \mathcal{S}$, or it is not. This can be defined via a **verification function**
 
-An element p ∈ P is either a (valid) proof for a statement s ∈ S, or it is not. This can be defined via a *verification function*
+<center>
 
-φ : S × P → {0, 1},
+$\phi : \mathcal{S} × \mathcal{P} → \{0, 1\}$,
 
-where φ(s, p) = 1 means that p is a valid proof for statement s.
+</center>
+
+where $\phi(s, p) = 1$ means that $p$ is a valid proof for statement $s$.
 
 Without strong loss of generality we can in this section consider
 
-S = P = {0, 1} ∗ ,
+<center>
 
-with the understanding that any string in {0, 1} ∗ can be interpreted as a statement by defining syntactically wrong statements as being false statements.
+$\mathcal{S} = \mathcal{P} = \{0, 1\}^∗$,
 
-**Definition 6.1.** A *proof system*6 is a quadruple Π = (S,P, τ, φ), as above.
+</center>
+
+with the understanding that any string in $\{0, 1\}^∗$ can be interpreted as a statement by defining syntactically wrong statements as being false statements.
+
+::: info Definition 6.1.
+A **proof system**[^6] is a quadruple $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$, as above.
+:::
 
 We now discuss the two fundamental requirements for proof systems.
 
-**Definition 6.2.** A proof system Π = (S,P, τ, φ) is *sound*7 if no false statement has a proof, i.e., if for all s ∈ S for which there exists p ∈ P with φ(s, p) = 1, we have τ(s) = 1.
+::: info Definition 6.2.
+A proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ is **sound**[^7] if no false statement has a proof, i.e., if for all $s ∈ \mathcal{S}$ for which there exists $p ∈ \mathcal{P}$ with $\phi(s, p) = 1$, we have $τ(s) = 1$.
+:::
 
-**Definition 6.3.** A proof system Π = (S,P, τ, φ) is *complete*8 if every true statement has a proof, i.e., if for all s ∈ S with τ(s) = 1, there exists p ∈ P with φ(s, p) = 1.
+:::info Definition 6.3.
+A proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ is **complete**[^8] if every true statement has a proof, i.e., if for all $s ∈ \mathcal{S}$ with $τ(s) = 1$, there exists $p ∈ \mathcal{P}$ with $\phi(s, p) = 1$.
+:::
 
-In addition to soundness and completeness, one requires that the function φ be *efficiently computable* (for some notion of efficiency).9 We will not make this formal, but it is obvious that a proof system is useless if proof verification is computationally infeasible. Since the verification has to generally examine the entire proof, the length of the proof cannot be infeasibly long.10
+In addition to soundness and completeness, one requires that the function $\phi$ be *efficiently computable* (for some notion of efficiency).[^9] We will not make this formal, but it is obvious that a proof system is useless if proof verification is computationally infeasible. Since the verification has to generally examine the entire proof, the length of the proof cannot be infeasibly long.[^10]
 
-<sup>5</sup> In the context of logic discussed from the next section onwards, the term semantics is used in a specific restricted manner that is compatible with its use here.
+[^5]: In the context of logic discussed from the next section onwards, the term semantics is used in a specific restricted manner that is compatible with its use here.
 
-<sup>6</sup>The term proof system is also used in different ways in the mathematical literature.
+[^6]:The term proof system is also used in different ways in the mathematical literature.
 
-<sup>7</sup>German: korrekt
+[^7]:German: korrekt
 
-<sup>8</sup>German: vollständig
+[^8]:German: vollständig
 
-<sup>9</sup>The usual efficiency notion in Computer Science is so-called *polynomial-time computable* which we do not discuss further.
+[^9]:The usual efficiency notion in Computer Science is so-called *polynomial-time computable* which we do not discuss further.
 
-<sup>10</sup>An interesting notion introduced in 1998 by Arora et al. is that of a *probabilistically checkable proof (PCP)*. The idea is that the proof can be very long (i.e., exponentially long), but that the verification only examines a very small random selection of the bits of the proof and nevertheless can decide correctness, except with very small error probability.
+[^10]:An interesting notion introduced in 1998 by Arora et al. is that of a *probabilistically checkable proof (PCP)*. The idea is that the proof can be very long (i.e., exponentially long), but that the verification only examines a very small random selection of the bits of the proof and nevertheless can decide correctness, except with very small error probability.
 
-#### **6.2.2 Examples**
+### 6.2.2. Examples
 
-**Example 6.1.** An undirected *graph* consists of a set V of nodes and a set E of edges between nodes. Suppose that V = {0, . . . , n − 1}. A graph can then be described by the so-called *adjacency matrix*, an n×n-matrix M with {0, 1}-entries, where Mi,j = 1 if and only if there is an edge between nodes i and j. A graph with n nodes can hence be represented by a bit-string of length n 2 , by reading out the entries of the matrix row by row.
+::: tip Example 6.1.
+An undirected *graph* consists of a set V of nodes and a set E of edges between nodes. Suppose that $V = \{0,$ … $, n − 1\}$. A graph can then be described by the so-called *adjacency matrix*, an $n×n$-matrix $M$ with $\{0, 1\}$-entries, where $M_{i,j} = 1$ if and only if there is an edge between nodes $i$ and $j$. A graph with $n$ nodes can hence be represented by a bit-string of length $n^2$ , by reading out the entries of the matrix row by row.
 
-We are now interested in proving that a given graph has a so-called *Hamiltonian cycle*, i.e., that there is a closed path from node 1 back to node 1, following edges between nodes, and visiting every node exactly once. We are also interested in the problem of proving the negation of this statement, i.e., that a given graph has no Hamiltonian cycle. Deciding whether or not a given graph has a Hamiltonian cycle is considered a computationally very hard decision problem (for large graphs).11
+We are now interested in proving that a given graph has a so-called *Hamiltonian cycle*, i.e., that there is a closed path from $node~1$ back to $node~1$, following edges between nodes, and visiting every node exactly once. We are also interested in the problem of proving the negation of this statement, i.e., that a given graph has no Hamiltonian cycle. Deciding whether a given graph has a Hamiltonian cycle or not is considered a computationally very hard decision problem (for large graphs).[^11]
 
-To prove that a graph has a Hamiltonian cycle, one can simply provide the sequence of nodes visited by the cycle. A value in V = {0, . . . , n − 1} can be represented by a bit-string of length ⌈log2 n⌉, and a sequence of n such numbers can hence be represented by a bit-string of length n⌈log2 n⌉. We can hence define S = P = {0, 1} ∗ .
+To prove that a graph has a Hamiltonian cycle, one can simply provide the sequence of nodes visited by the cycle. A value in $V = \{0,$ … $, n − 1\}$ can be represented by a bit-string of length $⌈log_2~n⌉$, and a sequence of $n$ such numbers can hence be represented by a bit-string of length $n⌈log_2~n⌉$. We can hence define $\mathcal{S} = \mathcal{P} = \{0, 1\}^∗$.
 
-Now we can let τ be the function defined by τ(s) = 1 if and only if |s| = n 2 for some n and the n 2 bits of s encode the adjacency matrix of a graph containing a Hamiltonian cycle. If |s| is not a square or if s encodes a graph without a Hamiltonian cycle, then τ(s) = 0. 12 Moreover, we can let φ be the function defined by φ(s, p) = 1 if and only if, when s is interpreted as an n × n-matrix M and when p is interpreted as a sequence of n different numbers (a1, . . . , an) with ai ∈ {0, . . . , n − 1} (each encoded by a bit-string of length ⌈log2 n⌉), then the following is true:
+Now we can let $τ$ be the function defined by $τ(s) = 1$ if and only if $|s| = n^2$ for some $n$ and the $n^2$ bits of s encode the adjacency matrix of a graph containing a Hamiltonian cycle. If $|s|$ is not a square or if s encodes a graph without a Hamiltonian cycle, then $τ(s) = 0$. [^12] Moreover, we can let $\phi$ be the function defined by $\phi(s, p) = 1$ if and only if, when $s$ is interpreted as an $n × n$-matrix $M$ and when $p$ is interpreted as a sequence of $n$ different numbers $(a_1,…, a_n)$ with $a_i ∈ \{0,…, n − 1\}$ (each encoded by a bit-string of length $⌈log_2~n⌉$), then the following is true:
 
 $$M_{a_{i},a_{i+1}}=1$$
 
-for i = 1, . . . , n − 1 and
+for $i = 1,…, n − 1$ and
 
-$M_{a_n,a_1}=1$..
+<center>
 
-This function φ is efficiently computable. The proof system is sound because a graph without Hamiltonian cycle has no proof, and it is complete because every graph with a Hamiltonian cycle has a proof. Note that each s with τ(s) = 1 has at least n different proofs because the starting point in the cycle is arbitrary.
+$M_{a_n,a_1}=1$.
 
-**Example 6.2.** Let us now consider the opposite problem of proving the inexistence of a Hamiltonian cycle in a given graph. In other words, in the above example we define τ(s) = 1 if and only if |s| = n 2 for some n and the n 2 bits
+</center>
 
-<sup>11</sup>The best known algorithm has running time exponential in n. The problem is actually NPcomplete, a concept that will be discussed in a later course on theoretical Computer Science.
+This function $\phi$ is efficiently computable. The proof system is sound because a graph without Hamiltonian cycle has no proof, and it is complete because every graph with a Hamiltonian cycle has a proof. Note that each $s$ with $τ(s) = 1$ has at least $n$ different proofs because the starting point in the cycle is arbitrary.
+:::
 
-<sup>12</sup>Note that τ defines the meaning of the strings in S, namely that they are meant to encode graphs and that we are interested in whether a given graph has a Hamiltonian cycle.
+[^11]:The best known algorithm has running time exponential in n. The problem is actually NPcomplete, a concept that will be discussed in a later course on theoretical Computer Science.
+
+[^12]:Note that τ defines the meaning of the strings in S, namely that they are meant to encode graphs and that we are interested in whether a given graph has a Hamiltonian cycle.
+
+::: tip Example 6.2.
+Let us now consider the opposite problem of proving the inexistence of a Hamiltonian cycle in a given graph. In other words, in the above example we define $τ(s) = 1$ if and only if $|s| = n^2$ for some $n$ and the $n^2$ bits
 
 of s encode the adjacency matrix of a graph not containing Hamiltonian cycle. In this case, no sound and complete proof system (with reasonably short and efficiently verifiable proofs) is known. It is believed that no such proof system exists.
+:::
 
-**Example 6.3.** Let again S = P = {0, 1} ∗ , and for s ∈ {0, 1} ∗ let n(s) denote the natural number whose (standard) binary representation is s, with the convention that leading 0's are ignored. (For example, n(101011) = 43 and n(00101) = 5.) Now, let τ be the function defined as follows: τ(s) = 1 if and only if n(s) is not a prime number. Moreover, let φ be the function defined by φ(s, p) = 1 if and only if n(s) = 0, or if n(s) = 1, or if n(p) divides n(s) and 1 < n(p) < n(s). This function φ is efficiently computable. This is a proof system for the non-primality (i.e., compositeness) of natural numbers. It is sound because every s corresponding to a prime number n(s) has no proof since n(s) 6= 0 and n(s) 6= 1 and n(s) has no divisor d satisfying 1 < d < n(s). The proof system is complete because every natural number n greater than 1 is either prime or has a prime factor q satisfying 1 < q < n (whose binary representation can serve as a proof).
+::: tip Example 6.3.
+Let again $\mathcal{S} = \mathcal{P} = \{0, 1\}^∗$ , and for $s ∈ \{0, 1\}^∗$ let $n(s)$ denote the natural number whose (standard) binary representation is $s$, with the convention that leading $0$'s are ignored. (For example, $n(101011) = 43$ and $n(00101) = 5$.) Now, let $τ$ be the function defined as follows: $τ(s) = 1$ if and only if $n(s)$ is not a prime number. Moreover, let $\phi$ be the function defined by $\phi(s, p) = 1$ if and only if $n(s) = 0$, or if $n(s) = 1$, or if $n(p)$ divides $n(s)$ and $1 < n(p) < n(s)$. This function $\phi$ is efficiently computable. This is a proof system for the non-primality (i.e., compositeness) of natural numbers. It is sound because every $s$ corresponding to a prime number $n(s)$ has no proof since $n(s) ≠ 0$ and $n(s) ≠ 1$ and $n(s)$ has no divisor $d$ satisfying $1 < d < n(s)$. The proof system is complete because every natural number $n$ greater than $1$ is either prime or has a prime factor $q$ satisfying $1 < q < n$ (whose binary representation can serve as a proof).
+:::
 
 **Example 6.4.** Let us consider the opposite problem, i.e., proving primality of a number n(s) represented by s. In other words, in the previous example we replace "not a prime" by "a prime". It is far from clear how one can define a verification function φ such that the proof system is sound and complete. However, such an efficiently computable function φ indeed exists. Very briefly, the proof that a number n(s) (henceforth we simply write n) is prime consists of (adequate representations of):
 
@@ -120,9 +141,9 @@ The verification of a proof (i.e., the computation of the function φ) works as 
 - If n = 2 or n = 3, then the verification stops and returns 1. 14
 - It is tested whether p1, . . . , pk all divide n − 1 and whether n − 1 can be written as a product of powers of p1, . . . , pk (i.e., whether n − 1 contains no other prime factor).
 
-<sup>13</sup>recursive means that the same principle is applied to prove the primality of every pi, and again for every prime factor of pi − 1, etc.
+[^13]:recursive means that the same principle is applied to prove the primality of every pi, and again for every prime factor of pi − 1, etc.
 
-<sup>14</sup>One could also consider a longer list of small primes for which no recursive primality proof is required.
+[^14]:One could also consider a longer list of small primes for which no recursive primality proof is required.
 
 - It is verified that g
 
@@ -137,7 +158,7 @@ $$g^{(n-1)/p_{i}}\neq_{n}1.$$
 - For every pi , an analogous proof of its primality is verified (recursively).
   This proof system for primality is sound because if n is not a prime, then there is no element of Z ∗ n of order n − 1 since the order of any element is at most ϕ(n), which is smaller than n − 1. The proof system is complete because if n is prime, then GF(n) is a finite field and the multiplicative group of any finite field, i.e., Z ∗ n, is cyclic and has a generator g. (We did not prove this statement in this course.)15
 
-#### **6.2.3 Discussion**
+### **6.2.3 Discussion**
 
 The examples demonstrate the following important points:
 
@@ -146,9 +167,9 @@ The examples demonstrate the following important points:
 - Proof verification can in principle proceed in very different ways. The proof verification method of logic, based on checking a sequence of rule applications, is (only) a special case.
 - Asymmetry of statements and their negation: Even if a proof system exists for a certain type of statements, it is quite possible that for the negation of the statements, no proof system (with efficient verification) exists.
 
-<sup>15</sup>Actually, a quite efficient deterministic primality test was recently discovered by Agrawal et al., and this means that primality can be checked without a proof. In other words, there exists a trivial proof system for primality with empty proofs. However, this fact is mathematically considerably more involved than the arguments presented here for the soundness and completeness of the proof system for primality.
+[^15]:Actually, a quite efficient deterministic primality test was recently discovered by Agrawal et al., and this means that primality can be checked without a proof. In other words, there exists a trivial proof system for primality with empty proofs. However, this fact is mathematically considerably more involved than the arguments presented here for the soundness and completeness of the proof system for primality.
 
-#### **6.2.4 Proof Systems in Theoretical Computer Science**
+### **6.2.4 Proof Systems in Theoretical Computer Science**
 
 The concept of a proof system appears in a more concrete form in theoretical computer science (TCS), as follows. Statements and proofs are bit-strings, i.e., S = P = {0, 1} ∗ . The predicate τ defines the set L ⊆ {0, 1} ∗ of strings that correspond to true statements:
 
@@ -166,13 +187,13 @@ An important extension of the concept of proof systems are so-called *interactiv
 - Such interactive proofs can have a special property, called *zero-knowledge*, which means that the verifier learns absolutely nothing (in a well-defined sense) during the protocol, except that the statement is true. In particular, the verifier cannot prove the statement to somebody else.
 - Zero-knowledge proofs (especially non-interactive versions, so-called NIZK's) are of crucial importance in a large number of applications, for example in sophisticated block-chain systems.
 
-### **6.3 Elementary General Concepts in Logic**
+## **6.3 Elementary General Concepts in Logic**
 
 The purpose of this section is to introduce the most basic concepts in logic in a general manner, not specific to a particular logic. However, this section is best appreciated by considering concrete examples of logics, in particular propositional logic and predicate logic. Without discussing such examples in parallel to introducing the concepts, this section will be hard to appreciate. We will discuss the general concepts and the concrete examples in parallel, going back and forth between Section 6.3 and Sections 6.5 and 6.6.
 
-<sup>16</sup>This topic is discussed in detail in the Master-level course *Cryptographic Protocols* taught by Martin Hirt and Ueli Maurer.
+[^16]:This topic is discussed in detail in the Master-level course *Cryptographic Protocols* taught by Martin Hirt and Ueli Maurer.
 
-#### **6.3.1 The General Goal of Logic**
+### **6.3.1 The General Goal of Logic**
 
 A goal of logic is to provide a specific proof system Π = (S,P, τ, φ) for which a very large class of mathematical statements can be expressed as an element of S.
 
@@ -182,7 +203,7 @@ In logic, an element s ∈ S consists of one or more formulas (e.g. a formula, o
 
 In standard treatments of logic, the syntax of S and the semantics (the function τ) are carefully defined. In contrast, the function φ, which consists of verifying the correctness of each rule application step, is not completely explicitly defined. One only defines rules, but for example one generally does not define a syntax for expressing how the place-holders of the rules are instantiated.17
 
-#### **6.3.2 Syntax**
+### **6.3.2 Syntax**
 
 A *logic* is defined by the *syntax* and the *semantics*. The basic concept in any logic is that of a *formula*18 .
 
@@ -192,13 +213,13 @@ The semantics (see below) defines under which "conditions" a formula is *true* (
 
 Some of the symbols in Λ (e.g. the symbols A and B in propositional logic or the symbols P and Q in predicate logic) are understood as variables, each of which can take on a value in a certain domain associated to the symbol.
 
-<sup>17</sup>In a fully computerized system, this must of course be (and indeed is) defined.
+[^17]:In a fully computerized system, this must of course be (and indeed is) defined.
 
-<sup>18</sup>German: Formel
+[^18]:German: Formel
 
-<sup>19</sup>There are logics (not considered here) with more than two truth values, for example a logic with confidence or belief values indicating the degree of confidence in the truth of a statement.
+[^19]:There are logics (not considered here) with more than two truth values, for example a logic with confidence or belief values indicating the degree of confidence in the truth of a statement.
 
-#### **6.3.3 Semantics**
+### **6.3.3 Semantics**
 
 **Definition 6.5.** The *semantics* of a logic defines (among other things, see below) a function free which assigns to each formula F = (f1, f2, . . . , fk) ∈ Λ ∗ a subset free(F) ⊆ {1, . . . , k} of the indices. If i ∈ free(F), then the symbol fi is said to occur *free* in F. 20
 
@@ -214,19 +235,19 @@ Often (but not in propositional logic), the domains are defined in terms of a so
 
 **Definition 6.8.** The *semantics* of a logic also defines a function24 σ assigning to each formula F, and each interpretation A suitable for F, a truth value σ(F, A) in {0, 1}. 25 In treatments of logic one often writes A(F) instead of σ(F, A) and calls A(F) *the truth value of* F *under interpretation* A. 26
 
-<sup>20</sup>The term "free" is not standard in the literature which instead uses special terms for each specific logic, but as we see later it coincides for the notion of free variables in predicate logic.
+[^20]:The term "free" is not standard in the literature which instead uses special terms for each specific logic, but as we see later it coincides for the notion of free variables in predicate logic.
 
-<sup>21</sup>There may be restrictions for what is an allowed interpretation.
+[^21]:There may be restrictions for what is an allowed interpretation.
 
-<sup>22</sup>German: passend
+[^22]:German: passend
 
-<sup>23</sup>A suitable interpretation can also assign values to symbols β ∈ Λ not occurring free in F.
+[^23]:A suitable interpretation can also assign values to symbols β ∈ Λ not occurring free in F.
 
-<sup>24</sup>We assume that the set of formulas and the set of interpretations are well-defined.
+[^24]:We assume that the set of formulas and the set of interpretations are well-defined.
 
-<sup>25</sup>Note that different free occurrences of a symbol β ∈ Λ in F are assigned the same value, namely that determined by the interpretation.
+[^25]:Note that different free occurrences of a symbol β ∈ Λ in F are assigned the same value, namely that determined by the interpretation.
 
-<sup>26</sup>This notation in the literature is unfortunately a bit ambiguous since A is used for two different things, namely for an interpretation as well as for the function induced by the interpretation which assigns to every formula the truth value (under that interpretation). We nevertheless use the notation A(F) instead of σ(F, A) in order to be compatible with most of the literature.
+[^26]:This notation in the literature is unfortunately a bit ambiguous since A is used for two different things, namely for an interpretation as well as for the function induced by the interpretation which assigns to every formula the truth value (under that interpretation). We nevertheless use the notation A(F) instead of σ(F, A) in order to be compatible with most of the literature.
 
 **Definition 6.9.** A (suitable) interpretation A for which a formula F is true, (i.e., A(F) = 1) is called a *model* for F, and one also writes
 
@@ -238,7 +259,7 @@ A |= M.
 
 If A is not a model for M one writes A 6|= M.
 
-#### **6.3.4 Connection to Proof Systems**
+### **6.3.4 Connection to Proof Systems**
 
 We now explain how the semantics of a logic (the function σ in Definition 6.8) is connected to the semantics of a proof systems (the function τ in Definition 6.1).
 
@@ -247,15 +268,15 @@ First we should remark that one can treat logic in a similarly informal manner a
 - In addition to formulas, also interpretations are considered to be formal objects, i.e., there is a syntax for writing (at least certain types of) interpretations. In this case, statements can correspond to pairs (F, A), and the function σ corresponds to the function τ (in the sense of proof systems).
 - Only formulas are formal objects and interpretations are treated informally, e.g. in words or some other informal notation. This is the typical approach in treatments of logic (also in this course). This makes perfect sense if the formal statements one wants to prove only refer to formulas, and not to specific interpretations. Indeed, many statements about formulas are of this form, for example the statement that a formula F is a tautology, the statement that F is satisfiable (or unsatisfiable), or the statement that a formula G is a logical consequence of a formula F, i.e., F |= G. Note that to prove such statements it is not necessary to formalize interpretations.
 
-#### **6.3.5 Satisfiability, Tautology, Consequence, Equivalence**
+### **6.3.5 Satisfiability, Tautology, Consequence, Equivalence**
 
 **Definition 6.10.** A formula F (or set M of formulas) is called *satisfiable*27 if there exists a model for F (or M),28 and *unsatisfiable* otherwise. The symbol ⊥ is used for an unsatisfiable formula.29
 
-<sup>27</sup>German: erfüllbar
+[^27]:German: erfüllbar
 
-<sup>28</sup>Note that the statement that M is satisfiable is not equivalent to the statement that every formula in M is satisfiable.
+[^28]:Note that the statement that M is satisfiable is not equivalent to the statement that every formula in M is satisfiable.
 
-<sup>29</sup>The symbol ⊥ is not a formula itself, i.e., it is not part of the syntax of a logic, but if used in expressions like F ≡ ⊥ it is to be understood as standing for an arbitrary unsatisfiable formula. For example, F ≡ ⊥ means that F is unsatisfiable.
+[^29]:The symbol ⊥ is not a formula itself, i.e., it is not part of the syntax of a logic, but if used in expressions like F ≡ ⊥ it is to be understood as standing for an arbitrary unsatisfiable formula. For example, F ≡ ⊥ means that F is unsatisfiable.
 
 **Definition 6.11.** A formula F is called a *tautology*30 or *valid*31 if it is true for every suitable interpretation. The symbol ⊤ is used for a tautology.
 
@@ -277,21 +298,21 @@ A set M of formulas can be interpreted as the conjunction (AND) of all formulas 
 
 That F is unsatisfiable can be written as F |= ⊥.
 
-#### **6.3.6 The Logical Operators** ∧, ∨**, and** ¬
+### **6.3.6 The Logical Operators** ∧, ∨**, and** ¬
 
 Essentially all logics contain the following recursive definitions as part of the syntax definition.
 
 **Definition 6.15.** If F and G are formulas, then also ¬F, (F ∧ G), and (F ∨ G) are formulas.
 
-<sup>30</sup>German: Tautologie
+[^30]:German: Tautologie
 
-<sup>31</sup>German: gültig, allgemeingültig
+[^31]:German: gültig, allgemeingültig
 
-<sup>32</sup>German: (logische) Folgerung, logische Konsequenz
+[^32]:German: (logische) Folgerung, logische Konsequenz
 
-<sup>33</sup>The symbol |= is used in two slightly different ways: with a formula (or set of formulas), and also with an interpretation on the left side. This makes sense because one can consider a set M of formulas as defining a set of interpretations, namely the set of models for M.
+[^33]:The symbol |= is used in two slightly different ways: with a formula (or set of formulas), and also with an interpretation on the left side. This makes sense because one can consider a set M of formulas as defining a set of interpretations, namely the set of models for M.
 
-<sup>34</sup>More formally, let G be any formula (one of the many equivalent ones) that corresponds to the conjunction of all formulas in M. Then M |= F if and only if G |= F.
+[^34]:More formally, let G be any formula (one of the many equivalent ones) that corresponds to the conjunction of all formulas in M. Then M |= F if and only if G |= F.
 
 A formula of the form (F ∧ G) is called a conjunction, and a formula of the form (F ∨ G) is called a disjunction.
 
@@ -301,7 +322,7 @@ The implication introduced in Section 2.3 can be understood simply as a notation
 
 The semantics of the logical operators ∧, ∨, and ¬ is defined as follows (in any logic where these operators exist):
 
-#### **Definition 6.16.**
+### **Definition 6.16.**
 
 A((F ∧ G)) = 1 if and only if A(F) = 1 and A(G) = 1. A((F ∨ G)) = 1 if and only if A(F) = 1 or A(G) = 1. A(¬F) = 1 if and only if A(F) = 0.
 
@@ -333,11 +354,11 @@ Some basic equivalences were already discussed in Section 2.3.2 and are now stat
 
 *Proof.* The proofs follow directly from Definition 6.16. For example, the claim
 
-<sup>35</sup>Alternatively, one could also define → to be a symbol of the syntax, in which case one would also need to extend the semantics to provide an interpretation for →. This subtle distinction between notational convention or syntax extension is not really relevant for us. We can simply use the symbol →.
+[^35]:Alternatively, one could also define → to be a symbol of the syntax, in which case one would also need to extend the semantics to provide an interpretation for →. This subtle distinction between notational convention or syntax extension is not really relevant for us. We can simply use the symbol →.
 
 ¬(F ∧ G) ≡ ¬F ∨ ¬G follows from the fact that for any suitable interpretation, we have A(¬(F ∧ G)) = 1 if and only if A(F ∧ G) = 0, and hence if and only if either A(F) = 0 or A(G) = 0, i.e., if and only if either A(¬F) = 1 or A(¬G) = 1, and hence if and only if A(¬F ∨ ¬G) = 1.
 
-#### **6.3.7 Logical Consequence vs. Unsatisfiability**
+### **6.3.7 Logical Consequence vs. Unsatisfiability**
 
 We state the following facts without proofs, which are rather obvious. These lemmas are needed for example to make use of the resolution calculus (see Section 6.5.5), which allows to prove the unsatisfiability of a set of formulas, to also be able to prove that a formula F is a tautology, or to prove that a formula G is logical consequence of a given set {F1, F2, . . . , Fk} of formulas.
 
@@ -349,7 +370,7 @@ We state the following facts without proofs, which are rather obvious. These lem
 - 2. (F1 ∧ F2 ∧ · · · ∧ Fk) → G *is a tautology,*
 - 3. {F1, F2, . . . , Fk, ¬G} *is unsatisfiable.*
 
-#### **6.3.8 Theorems and Theories**
+### **6.3.8 Theorems and Theories**
 
 We can consider at least four types of statements one may want to prove in the context of using a logic:
 
@@ -366,9 +387,9 @@ Consider two theories T and T ′ , where T ′ contains all the axioms of T plu
 
 **Example 6.5.** The formula ¬∃x∀y P(y, x) ↔ ¬P(y, y) is a tautology in predicate logic, as proved in Section 6.6.9.
 
-### **6.4 Logical Calculi**
+## **6.4 Logical Calculi**
 
-#### **6.4.1 Introduction**
+### **6.4.1 Introduction**
 
 As mentioned in Section 6.3.1, the goal of logic is to provide a framework for expressing and verifying proofs of mathematical statements. A proof of a theorem should be a purely syntactic derivation consisting of simple and easily verifiable steps. In each step, a new syntactic object (typically a formula, but it can also be a more general object involving formulas) is derived by application of a derivation rule or inference rule, and at the end of the derivation, the desired theorem appears. The syntactic verification of a proof does not require any intelligence or "reasoning between the lines", and it can in particular be performed by a computer.
 
@@ -380,7 +401,7 @@ When defining a calculus, there is a trade-off between simplicity (e.g. a small 
 
 It is beyond the scope of this course to provide an extensive treatment of various logical calculi.
 
-#### **6.4.2 Hilbert-Style Calculi**
+### **6.4.2 Hilbert-Style Calculi**
 
 As mentioned, there are different types of logical calculi. For the perhaps most intuitive type of calculus, the syntactic objects that are manipulated are formulas. This is sometimes called a Hilbert-style calculus. There is also another type of calculi, often called *sequent calculi* (which we will not discuss in this course), where the syntactic objects are more complex objects than just formulas. The following refers to Hilbert-style calculi.
 
@@ -405,11 +426,11 @@ Derivation is a purely syntactic concept. Derivation rules apply to syntacticall
 
 **Definition 6.19.** A (logical) *calculus*37 K is a finite set of derivation rules: K = {R1, . . . , Rm}. 38
 
-<sup>36</sup>German: Schlussregel
+[^36]:German: Schlussregel
 
-<sup>37</sup>German: Kalkül
+[^37]:German: Kalkül
 
-<sup>38</sup>A calculus also corresponds to a relation from the power set of the set of formulas to the set of formulas, namely the union of the relations corresponding the the rules of the calculus.
+[^38]:A calculus also corresponds to a relation from the power set of the set of formulas to the set of formulas, namely the union of the relations corresponding the the rules of the calculus.
 
 **Definition 6.20.** A *derivation*39 of a formula G from a set M of formulas in a calculus K is a finite sequence (of some length n) of applications of rules in K (see Def. 6.18), leading to G. More precisely, we have
 
@@ -437,11 +458,11 @@ $$\{A\lor B,\,C\lor D\}\ \vdash\ (A\lor B)\land(C\lor D),$$
 
 where F is instantiated as A ∨ B and G is instantiated as C ∨ D. More rules are discussed in Section 6.4.4.
 
-#### **6.4.3 Soundness and Completeness of a Calculus**
+### **6.4.3 Soundness and Completeness of a Calculus**
 
 A main goal of logic is to formalize reasoning and proofs. One wants to perform purely syntactic manipulations on given formulas, defined by a calculus, to arrive at a new formula which is a logical consequence. In other words, if we use a calculus, the syntactic concept of derivation (using the calculus) should be related to the semantic concept of logical consequence.
 
-<sup>39</sup>German: Herleitung
+[^39]:German: Herleitung
 
 **Definition 6.21.** A derivation rule R is *correct* if for every set M of formulas and every formula F, M ⊢R F implies M |= F:
 
@@ -467,7 +488,7 @@ $$M\vdash_{K}F\iff M\vDash F,$$
 
 i.e., if logical consequence and derivability are identical. Clearly, a calculus is sound if and only if every derivation rule is correct. One writes ⊢K F if F can be derived in K from the empty set of formulas. Note that if ⊢K F for a sound calculus, then |= F, i.e., F is a tautology.
 
-#### **6.4.4 Some Derivation Rules**
+### **6.4.4 Some Derivation Rules**
 
 In this section we discuss a few derivation rules for propositional logic and any logic which contains propositional logic. We do not provide a complete and compactly defined calculus, just a few rules. For singleton sets of formulas we omit the brackets "{" and "}".
 
@@ -479,9 +500,9 @@ Other natural and correct rules, which capture logical consequences, not equival
 
 F ∧ G ⊢ F F ∧ G ⊢ G {F, G} ⊢ F ∧ G
 
-<sup>40</sup>German: widerspruchsfrei
+[^40]:German: widerspruchsfrei
 
-<sup>41</sup>German: vollständig
+[^41]:German: vollständig
 
 $F\,\vdash F\lor G$$F\,\vdash G\lor F$$\{F,\,F\to G\}\,\vdash G$$\{F\lor G,\,F\to H,\,G\to H\}\,\vdash H$.
 
@@ -505,13 +526,13 @@ The reader can prove the correctness as an exercise.
 
 Which set of rules constitutes an adequate calculus is generally not clear, but some calculi have received special attention. One could argue both for a small set of rules (which are considered the fundamental ones from which everything else is derived) or for a large library of rules (so there is a large degree of freedom in finding a short derivation).
 
-#### **6.4.5 Derivations from Assumptions**
+### **6.4.5 Derivations from Assumptions**
 
 If in a sound calculus K one can derive G under the assumption F, i.e., one can prove F ⊢K G, then one has proved that F → G is a tautology, i.e., we have
 
 $$F\;\vdash_{K}G\;\;\;\Longrightarrow\;\;\models(F\to G).$$
 
-<sup>42</sup>However, in so-called constructive or intuitionistic logic, this rule is not considered correct because its application does not require explicit knowledge of whether F or ¬F is true.
+[^42]:However, in so-called constructive or intuitionistic logic, this rule is not considered correct because its application does not require explicit knowledge of whether F or ¬F is true.
 
 One could therefore also extend the calculus by the new rule
 
@@ -523,28 +544,28 @@ which is sound. Here F and G can be expressions involving place-holders for form
 
 More generally, we can derive a formula G from several assumptions, for example {F1, F2} ⊢K G =⇒ |= (F1 ∧ F2) → G .
 
-#### **6.4.6 Connection to Proof Systems**
+### **6.4.6 Connection to Proof Systems**
 
 Let us briefly explain the connection between logical calculi and the general concept of proof systems (Definition 6.2).
 
 In a proof system allowing to prove statements of the form M |= G, one can let the set S of statements be the set of pairs (M, G). One further needs a precise syntax for expressing derivations. Such a syntax would, for example, have to include a way to express how place-holders in rules are instantiated. This aspect of a calculus is usually not made precise and therefore a logical calculus (alone) does not completely constitute a proof system in the sense of Definition 6.2. However, in a computerized system this needs to be made precise, in a language specific to that system, and such computerized system is hence a proof system in the strict sense of Section 6.2.
 
-### **6.5 Propositional Logic**
+## **6.5 Propositional Logic**
 
 We also refer to Section 2.3 where some basics of propositional logic were introduced informally and many examples were already given. This section concentrates on the formal aspects and the connection to Section 6.3.
 
-#### **6.5.1 Syntax**
+### **6.5.1 Syntax**
 
 **Definition 6.23.** (Syntax.) An *atomic formula* is a symbol of the form Ai with i ∈ N. 43 A *formula* is defined as follows, where the second point is a restatement (for convenience) of Definition 6.15:
 
 - An atomic formula is a formula.
 - If F and G are formulas, then also ¬F, (F ∧G), and (F ∨G) are formulas.
 
-<sup>43</sup>A0 is usually not used. This definition guarantees an unbounded supply of atomic formulas,
+[^43]:A0 is usually not used. This definition guarantees an unbounded supply of atomic formulas,
 
 A formula built according to this inductive definition corresponds naturally to a tree where the leaves correspond to atomic formulas and the inner nodes correspond to the logical operators.
 
-#### **6.5.2 Semantics**
+### **6.5.2 Semantics**
 
 Recall Definitions 6.5 and 6.6. *In propositional logic, the free symbols of a formula are all the atomic formulas.* For example, the truth value of the formula A ∧ B is determined only after we specify the truth values of A and B. In propositional logic, an interpretation is called a truth assignment (see below).
 
@@ -558,7 +579,7 @@ F = (A ∧ ¬B) ∨ (B ∧ ¬C)
 
 already discussed in Section 2.3. The truth assignment A : Z → {0, 1} for Z = {A, B} that assigns A(A) = 0 and A(B) = 1 is not suitable for F because no truth value is assigned to C, and the truth assignment A : Z → {0, 1} for Z = {A, B, C, D} that assigns A(A) = 0, A(B) = 1, A(C) = 0, and A(D) = 1 is suitable and also a model for F. F is satisfiable but not a tautology.
 
-#### **6.5.3 Brief Discussion of General Logic Concepts**
+### **6.5.3 Brief Discussion of General Logic Concepts**
 
 We briefly discuss the basic concepts from Section 6.3.5 in the context of propositional logic.
 
@@ -566,7 +587,7 @@ Specializing Definition 6.13 to the case of propositional logic, we confirm Defi
 
 but as a notational convention we can also write A, B, C, . . . instead of A1, A2, A3, . . ..
 
-<sup>44</sup>German: (Wahrheits-)Belegung
+[^44]:German: (Wahrheits-)Belegung
 
 Specializing Definition 6.12 to the case of propositional logic, we see that G is a logical consequence of F, i.e., F |= G, if the function table of G contains a 1 for at least all argument for which the function table of F contains a 1. 45
 
@@ -574,7 +595,7 @@ Specializing Definition 6.12 to the case of propositional logic, we see that G i
 
 The basic equivalences of Lemma 6.1 apply in particular to propositional logic.
 
-#### **6.5.4 Normal Forms**
+### **6.5.4 Normal Forms**
 
 **Definition 6.25.** A *literal* is an atomic formula or the negation of an atomic formula.
 
@@ -598,7 +619,7 @@ for some literals Lij .
 
 *Proof.* Consider a formula F with atomic formulas A1, . . . , An with a truth table of size 2 n.
 
-<sup>45</sup>If the truth values 0 and 1 were interpreted as numbers, then F |= G means that G is greater or equal to F for all arguments. This also explains why F |= G and G |= H together imply F |= H.
+[^45]:If the truth values 0 and 1 were interpreted as numbers, then F |= G means that G is greater or equal to F for all arguments. This also explains why F |= G and G |= H together imply F |= H.
 
 Given such a formula F, one can use the truth table of F to derive an equivalent formula in DNF, as follows. For every row of the function table evaluating to 1 one takes the conjunction of the n literals defined as follows: If Ai = 0 in the row, one takes the literal ¬Ai , otherwise the literal Ai . This conjunction is a formula whose function table is 1 exactly for the row under consideration (and 0 for all other rows). Then one takes the disjunction of all these conjunctions. F is true if and only if one of the conjunctions is true, i.e., the truth table of this formula in DNF is identical to that of F.
 
@@ -642,7 +663,7 @@ $$
 
 In the first step we have used F ∧ G ≡ ¬(¬F ∨ ¬G), which is a direct consequence of rule 8) of Lemma 6.1. In the second step we have applied rule 8) twice, etc.
 
-#### **6.5.5 The Resolution Calculus for Propositional Logic**
+### **6.5.5 The Resolution Calculus for Propositional Logic**
 
 Resolution is an important logical calculus that is used in certain computer algorithms for automated reasoning. The calculus is very simple in that it consists of a single derivation rule. The purpose of a derivation is to prove that a given set M of formulas (or, equivalently, their conjunction) is unsatisfiable.
 
@@ -652,17 +673,21 @@ The resolution calculus assumes that all formulas of M are given in conjunctive 
 
 Recall (Definition 6.25) that a literal is an atomic formula or the negation of an atomic formula. For example A and ¬B are literals.
 
-#### **Definition 6.28.** A *clause* is a set of literals.
+### **Definition 6.28.** A *clause* is a set of literals.
 
 **Example 6.16.** {A, ¬B, ¬D} and {B, C, ¬C, ¬D, E} are clauses, and the empty set ∅ is also a clause.
 
 **Definition 6.29.** The set of clauses associated to a formula
 
-$F=(L_{11}\vee\cdots\lor L_{1m_{1}})\wedge\cdots\wedge(L_{n1}\vee\cdots\lor L_{nm_{n}})$
+$$
+F=(L_{11}\vee\cdots\lor L_{1m_{1}})\wedge\cdots\wedge(L_{n1}\vee\cdots\lor L_{nm_{n}})
+$$
 
 in CNF, denoted as K(F), is the set
 
-$\mathcal{K}(F)\ \stackrel{{\text{def}}}{{=}}\ \{\{L_{11},\ldots,L_{1m_{1}}\}\,\ldots,\ \{L_{n1},\ldots,L_{nm_{n}}\}\}\}$.
+$$
+\mathcal{K}(F)\ \stackrel{{\text{def}}}{{=}}\ \{\{L_{11},\ldots,L_{1m_{1}}\}\,\ldots,\ \{L_{n1},\ldots,L_{nm_{n}}\}\}\}
+$$.
 
 The set of clauses associated with a set M = {F1, . . . , Fk} of formulas is the union of their clause sets:
 
@@ -680,9 +705,9 @@ $K=(K_{1}\setminus\{L\})\cup(K_{2}\setminus\{-L\})$. (6.1)
 
 It is important to point out that resolution steps must be carried out one by one; one cannot perform two steps at once. For instance, in the above example, {¬B, D, ¬E} is not a resolvent and can also not be obtained by two resolution steps, even though {¬B, D, ¬E} would result from {A, ¬B, ¬C} and {¬A, C, D, ¬E} by eliminating A and ¬C from the first clause and ¬A and C from the second clause.47
 
-<sup>46</sup>For a literal L, ¬L is the negation of L, for example if L = ¬A, then ¬L = A.
+[^46]:For a literal L, ¬L is the negation of L, for example if L = ¬A, then ¬L = A.
 
-<sup>47</sup>A simpler example illustrating this is that {{A, B}, {¬A, ¬B}} is satisfiable, but a "double" resolution step would falsely yield ∅, indicating that {{A, B}, {¬A, ¬B}} is unsatisfiable.
+[^47]:A simpler example illustrating this is that {{A, B}, {¬A, ¬B}} is satisfiable, but a "double" resolution step would falsely yield ∅, indicating that {{A, B}, {¬A, ¬B}} is unsatisfiable.
 
 Given a set K of clauses, a resolution step takes two clauses K1 ∈ K and K2 ∈ K, computes a resolvent K, and adds K to K. To be consistent with Section 6.4.2, one can write the resolution rule (6.1) as follows:48
 
@@ -710,11 +735,11 @@ The goal of a derivation in the resolution calculus is to derive the empty claus
 
 *Proof.* The "if" part (soundness) follows from Lemma 6.5: If K(M) ⊢Res ∅, then K(M) |= ∅, i.e., every model for K(M) is a model for ∅. Since ∅ has no model, K(M) also does not have a model. This means that K(M) is unsatisfiable.
 
-<sup>48</sup>In the literature, one usually does not use the symbol ⊢ in the context of resolution.
+[^48]:In the literature, one usually does not use the symbol ⊢ in the context of resolution.
 
-<sup>49</sup>In the lecture we introduce a natural graphical notation for writing a sequence of resolution steps.
+[^49]:In the lecture we introduce a natural graphical notation for writing a sequence of resolution steps.
 
-<sup>50</sup>For convenience, the clause K is understood to mean the singleton clause set {K}. In other words, the truth value of a clause K is understood to be the same as the truth value of {K}.
+[^50]:For convenience, the clause K is understood to mean the singleton clause set {K}. In other words, the truth value of a clause K is understood to be the same as the truth value of {K}.
 
 It remains to prove the "only if" part (completeness with respect to unsatisfiability). We need to show that if a clause set K is unsatisfiable, then ∅ can be derived by some sequence of resolution steps. The proof is by induction over the number n of atomic formulas appearing in K. The induction basis (for n = 1) is as follows. A clause set K involving only literals A1 and ¬A1 is unsatisfiable if and only if it contains the clauses {A1} and {¬A1}. One can derive ∅ exactly if this is the case.
 
@@ -733,11 +758,11 @@ Analogously, the derivation of ∅ from K1 corresponds to a derivation of ∅ fr
 
 If in any of the two cases we have a derivation of ∅ from K, we are done (since ∅ can be derived from K, i.e., K ⊢Res ∅). If this is not the case, then we have a derivation of {An+1} from K, i.e., K ⊢Res {An+1} as well as a derivation of {¬An+1} from K, i.e., K ⊢Res {¬An+1}. From these two clauses one can derive ∅ by a final resolution step. This completes the proof.
 
-### **6.6 Predicate Logic (First-order Logic)**
+## **6.6 Predicate Logic (First-order Logic)**
 
 We also refer to Section 2.4 where some basics of predicate logic were introduced informally. Predicate logic is an extension of propositional logic, i.e., propositional logic is embedded in predicate logic as a special case.
 
-#### **6.6.1 Syntax**
+### **6.6.1 Syntax**
 
 **Definition 6.31.** (Syntax of predicate logic.)
 
@@ -756,13 +781,13 @@ A formula constructed according to this inductive definition corresponds natural
 
 To simplify notation, one usually uses function symbols f, g, h, where the number of arguments is implicit, and for constants one uses the symbols a, b, c. Similarly, one uses predicate symbols P, Q, R, where the number of arguments is implicit. Moreover, one uses variable names x, y, z instead of xi , and sometimes also u, v, w or k, m, n. To avoid confusion one can also use (∀x F) and (∃x F) instead of ∀x F and ∃x F.
 
-#### **6.6.2 Free Variables and Variable Substitution**
+### **6.6.2 Free Variables and Variable Substitution**
 
 **Definition 6.32.** Every occurrence of a variable in a formula is either *bound* or *free*. If a variable x occurs in a (sub-)formula of the form ∀x G or ∃x G, then it is bound, otherwise it is free.52 A formula is *closed*53 if it contains no free variables.
 
-<sup>51</sup>x0 is usually not used.
+[^51]:x0 is usually not used.
 
-<sup>52</sup>The occurrence of a variable x immediately following a quantifier is also bound.
+[^52]:The occurrence of a variable x immediately following a quantifier is also bound.
 
 Note that the same variable can occur bound and free in a formula. One can draw the construction tree (see lecture) of a formula showing how a formula is constructed according to the rules of Definition 6.31. Within the subtree corresponding to ∀x or ∃x, all occurrences of x are bound.
 
@@ -778,7 +803,7 @@ the first two occurrences of x are free, the other occurrences are bound. The la
 
 F[x/g(a, z)] = Q(g(a, z)) ∨ ∀y P(f(g(a, z), y)) ∧ ∃x R(x, y) .
 
-#### **6.6.3 Semantics**
+### **6.6.3 Semantics**
 
 Recall Definitions 6.5 and 6.6. *In predicate logic, the free symbols of a formula are all predicate symbols, all function symbols, and all occurrences of free variables.* An interpretation, called *structure* in the context of predicate logic, must hence define a universe and the meaning of all these free symbols.
 
@@ -791,7 +816,7 @@ Recall Definitions 6.5 and 6.6. *In predicate logic, the free symbols of a formu
 
 For notational convenience, for a structure A = (U, φ, ψ, ξ) and a function symbol f one usually writes f A instead of φ(f). Similarly, one writes P A instead of ψ(P) and x A instead of ξ(x). One also writes U A rather than U to make A explicit.
 
-<sup>53</sup>German: geschlossen
+[^53]:German: geschlossen
 
 We instantiate Definition 6.7 for predicate logic:
 
@@ -827,11 +852,11 @@ The basic concepts discussed in Section 6.3 such as satisfiable, tautology, mode
 
 Note that the syntax of predicate logic does not require nested quantified variables in a formula to be distinct, but we will avoid such overload of variable names to avoid any confusion. For example, the formula ∀x (P(x) ∨ ∃y Q(y)) is equivalent to ∀x (P(x) ∨ ∃x Q(x)).
 
-#### **6.6.4 Predicate Logic with Equality**
+### **6.6.4 Predicate Logic with Equality**
 
 Reexamining the syntax of predicate logic it may surprise that the equality symbol "=" is not allowed. For example, ∃x f(x) = g(x) is not a formula. However, one can extend the syntax and the semantics of predicate logic to include the equality symbol "=" with its usual meaning. This is left as an exercise.
 
-#### **6.6.5 Some Basic Equivalences Involving Quantifiers**
+### **6.6.5 Some Basic Equivalences Involving Quantifiers**
 
 In addition to the equivalences stated in Lemma 6.1), we have:
 
@@ -862,7 +887,7 @@ $$\exists x\;(P(x)\;\vee\;\forall y\;Q(x,y))\;\;\equiv\;\;\exists x\;(P(x)\;\vee
 
 because ∀y Q(x, y) ≡ ¬∃y ¬Q(x, y).
 
-#### **6.6.6 Substitution of Bound Variables**
+### **6.6.6 Substitution of Bound Variables**
 
 The following lemma states that the name of a bound variable carries no semantic meaning and can therefore be replaced by any other variable name that does not occur elsewhere. This is called *bound substitution*.
 
@@ -875,7 +900,7 @@ The following lemma states that the name of a bound variable carries no semantic
 
 $${\mathcal A}_{[x\to u]}(G)\;=\;{\mathcal A}_{[y\to u]}(G[x/y]).$$
 
-<sup>54</sup>according to the semantics of ∧, see Definition 6.36
+[^54]:according to the semantics of ∧, see Definition 6.36
 
 Therefore ∀x G is true for exactly the same structures for which ∀y G[x/y] is true.
 
@@ -885,7 +910,7 @@ Therefore ∀x G is true for exactly the same structures for which ∀y G[x/y] i
 
 By appropriately renaming quantified variables one can transform any formula into an equivalent formula in rectified form.
 
-#### **6.6.7 Normal Forms**
+### **6.6.7 Normal Forms**
 
 It is often useful to transform a formula into an equivalent formula of a specific form, called a normal form. This is analogous to the conjunctive and disjunctive normal forms for formulas in propositional logic.
 
@@ -921,9 +946,9 @@ $$
 \]
 $$
 
-<sup>55</sup>German: bereinigt
+[^55]:German: bereinigt
 
-<sup>56</sup>German: Pränexform
+[^56]:German: Pränexform
 
 (10) ≡ ∃u ¬P(u, y) ∨ ∀v ¬ Q(x, v, z) ≡ ∃u ∀v ¬ Q(x, v, z) ∨ ¬P(u, y) (8) ≡ ∃u ∀v ¬Q(x, v, z) ∨ ¬P(u, y) ≡ ∃u ∀v ¬Q(x, v, z) ∨ ¬P(u, y) ≡ ∃u ∀v ¬P(u, y) ∨ ¬ Q(x, v, z) .
 
@@ -931,7 +956,7 @@ In the first step we have renamed the bound variables, in the second step we mad
 
 One can also transform every formula F into a formula G in prenex form that only contains universal quantifiers (∀). However, such a formula is in general not equivalent to F, but only equivalent with respect to satisfiability. In other words, F is satisfiable if and only if G is satisfiable. Such a normal form is called *Skolem normal form*. This topic is beyond the scope of this course.
 
-#### **6.6.8 Derivation Rules**
+### **6.6.8 Derivation Rules**
 
 It is beyond the scope of this course to systematically discuss derivation rules for predicate logic, let alone an entire calculus. But, as an example, we discuss one such rule, called *universal instantiation* (or also *universal elimination*). It states that for any formula F and any term t, one can derive from the formula ∀xF the formula F[x/t], thus eliminating the quantifier ∀: 57
 
@@ -943,11 +968,11 @@ This rule is justified by the following lemma (proof left as an exercise).
 
 ∀xF |= F[x/t].
 
-#### **6.6.9 An Example Theorem and its Interpretations**
+### **6.6.9 An Example Theorem and its Interpretations**
 
 The following apparently innocent theorem is a powerful statement from which several important corollaries follow as special cases. The example illustrates
 
-<sup>57</sup>Note that if x does not occur free in F, the statement still holds but in this case is trivial.
+[^57]:Note that if x does not occur free in F, the statement still holds but in this case is trivial.
 
 that one can prove a general theorem in predicate logic and, because it is a tautology, it can then be instantiated for different structures (i.e., interpretations), for each of which it is true.
 
@@ -1018,9 +1043,9 @@ Note that the proof of this corollary contains Cantor's diagonalization argument
 
 We discuss a further use of the theorem. If we understand a program as describable by a finite bit-string, or, equivalently, a natural number (since there is a bijection between finite bit-strings and natural numbers), and if we consider programs that take a natural number as input and output 0 or 1, then we obtain the following theorem. (Here we ignore programs that do not halt (i.e.,
 
-<sup>58</sup>The universe of all sets is not a set itself. Formally, the universe in predicate logic need not be a set (in the sense of set theory), it can be a "collection" of objects.
+[^58]:The universe of all sets is not a set itself. Formally, the universe in predicate logic need not be a set (in the sense of set theory), it can be a "collection" of objects.
 
-<sup>59</sup>The particular variable names (R and S) are not relevant and are chosen simply to be compatible with the chapter on set theory where sets were denoted by capital letters and Russel's proposed set was called R. Here we have deviated from the convention to use only small letters for variables.
+[^59]:The particular variable names (R and S) are not relevant and are chosen simply to be compatible with the chapter on set theory where sets were denoted by capital letters and Russel's proposed set was called R. Here we have deviated from the convention to use only small letters for variables.
 
 loop forever), or, equivalently, we interpret looping as output 0.) The following corollary was already stated as Corollary 3.24.60
 
@@ -1034,7 +1059,7 @@ The above corollary was already discussed as Corollary 3.24, as a direct consequ
 
 We point out that the corollary does not exclude the existence of a program that computes the function for an overwhelming fraction of the y, it excludes only the existence of a program that computes the function for all but finitely many arguments.
 
-### **6.7 Beyond Predicate Logic**
+## **6.7 Beyond Predicate Logic**
 
 The expressiveness of every logic is limited. For example, one can not express metatheorems about the logic as formulas within the logic. It is therefore no surprise that the expressiveness of predicate logic is also limited.
 
@@ -1046,9 +1071,9 @@ Predicate logic is actually more limited than one might think. As an example, co
 
 ∀w ∀x ∃y ∃z P(w, x, y, z).
 
-<sup>60</sup>Explaining the so-called Halting problem, namely to decide whether a given program halts for a given input, would require a more general theorem than Theorem 6.12, but it could be explained in the same spirit.
+[^60]:Explaining the so-called Halting problem, namely to decide whether a given program halts for a given input, would require a more general theorem than Theorem 6.12, but it could be explained in the same spirit.
 
-<sup>61</sup>This function of course depends on the concrete programming language which determines the exact meaning of a program and hence determines P.
+[^61]:This function of course depends on the concrete programming language which determines the exact meaning of a program and hence determines P.
 
 In this formula, y and z can depend on both w and x. It is not possible to express, as a formula in predicate logic, that in the above formula, y must only depend on w and z must only depend on x. This appears to be an artificial restriction that is not desirable.
 

@@ -33,4 +33,5 @@ features:
   - icon: 🧠
     title: Chapter 6
     details: Logic
+    link: 6-logic
 ---
