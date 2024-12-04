@@ -7,7 +7,7 @@ export default defineConfig({
   base: "/dm/",
   description: "Interactive script",
   srcDir: 'docs',
-  srcExclude: ['intro/**', '3-sets-relations-functions/**', '4-number-theory/**', '5-algebra/**', '6-logic/**'],
+  srcExclude: ['intro/**', '3-sets-relations-functions/**', '4-number-theory/**', '5-algebra/**'],
   ignoreDeadLinks: true,
   markdown: {
     math: true,
@@ -22,7 +22,7 @@ export default defineConfig({
       //{ text: 'Sets, Relations and Functions', link: '/3-sets-relations-functions' },
       //{ text: 'Number Theory', link: '/4-number-theory' },
       //{ text: 'Algebra', link: '/5-algebra' },
-      //{ text: 'Logic', link: '/6-logic' },
+      { text: 'Logic', link: '/6-logic' },
     ],
 
     aside: "left",
@@ -30,6 +30,10 @@ export default defineConfig({
       label: "In this chapter",
       level: [2,3],
     },
+    footer: {
+      message: "No guarantee for correctness or completeness. Use at your own risk.<br> All rights belong to the Ueli Maurer and respective authors.",
+    },
+
 
     sidebar: false,
 
