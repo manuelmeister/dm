@@ -20,6 +20,7 @@ features:
   - icon: 🔮
     title: Chapter 2
     details: Mathematical Reasoning, Proofs, and a First Approach to Logic
+    link: 2-reasoning-proofs
   - icon: "{}"
     title: Chapter 3
     details: Sets, Relations, and Functions
