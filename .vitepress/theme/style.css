@@ -154,6 +154,19 @@ sup.footnote-ref {
   gap: 16px;
 }
 
+.grid-rows {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.grid-rows > div {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
 @media (min-width: 1440px) {
 
   .VPDoc:not(.has-sidebar) .aside-container {

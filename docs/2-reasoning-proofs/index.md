@@ -128,12 +128,13 @@ is a *false* statement, even though it may appear at first sight to follow from 
 An integer n is called a *square* if $n = m · m$ for some integer $m$. Prove that if $a$ and $b$ are squares, then so is $a · b$.
 
 
-<div style="display: grid; grid-template-columns: minmax(0,1fr) auto; column-gap: 8px">
-<div>
+<div class="grid-rows">
+<div><div>
 
 $a$ and $b$ are squares
 
-</div><div></div>
+</div><div></div></div>
+<div>
 <div>
 
 $\dot\implies\quad a=u\cdot u$ and $\ b=v\cdot v$ for some $u$ and $v$
@@ -143,7 +144,8 @@ $\dot\implies\quad a=u\cdot u$ and $\ b=v\cdot v$ for some $u$ and $v$
 
 (def. of squares)
 
-</div>
+</div></div>
+<div>
 <div>
 
 $\dot\implies\quad a\cdot b=(u\cdot u)\cdot(v\cdot v)$
@@ -153,7 +155,8 @@ $\dot\implies\quad a\cdot b=(u\cdot u)\cdot(v\cdot v)$
 
 (replace $a$ by $u\cdot u$ and $b$ by $v\cdot v$)
 
-</div>
+</div></div>
+<div>
 <div>
 
 $\dot\implies\quad a\cdot b=(u\cdot v)\cdot(u\cdot v)$.
@@ -163,7 +166,8 @@ $\dot\implies\quad a\cdot b=(u\cdot v)\cdot(u\cdot v)$.
 
 (commutative and associative laws)
 
-</div>
+</div></div>
+<div>
 <div>
 
 $\dot\implies\quad a\cdot b$ is a square
@@ -173,8 +177,7 @@ $\dot\implies\quad a\cdot b$ is a square
 
 (def. of squares)
 
-</div>
-</div>
+</div></div></div>
 
 The above proof follows a standard pattern of proofs as a sequence of implications, each step using the symbol $\dot\implies$. Such a proof step requires that the justification for doing the step is clear. Often one justifies the proof step either in the accompanying text or as a remark on the same line as the implication statement (as in the above proof). But even more often the justification for the step is simply assumed to be understood from the context and not explicitly stated, which can sometimes make proofs hard to follow or even ambiguous.
 :::
