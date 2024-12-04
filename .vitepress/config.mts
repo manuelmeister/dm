@@ -27,6 +27,7 @@ export default defineConfig({
 
     aside: "left",
     outline: {
+      label: "In this chapter",
       level: [2,3],
     },
 

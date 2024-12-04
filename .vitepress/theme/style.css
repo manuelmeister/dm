@@ -153,3 +153,24 @@ sup.footnote-ref {
   align-items: center;
   gap: 16px;
 }
+
+@media (min-width: 1440px) {
+
+  .VPDoc:not(.has-sidebar) .aside-container {
+    width: 420px !important; /* <-- update your values */
+  }
+
+  .VPDoc:not(.has-sidebar) .aside {
+    max-width: 420px !important; /* <-- update your values */
+  }
+
+  .VPDoc:not(.has-sidebar) .container {
+
+    max-width: 1404px !important;
+
+  }
+  .VPDoc.has-aside .content-container {
+    max-width: 1188px !important;
+  }
+
+}
