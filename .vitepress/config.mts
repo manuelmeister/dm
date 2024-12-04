@@ -33,7 +33,7 @@ export default defineConfig({
     sidebar: false,
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/manuelmeister/dm' }
     ]
   }
 })
