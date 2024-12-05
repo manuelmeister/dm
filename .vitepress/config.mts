@@ -12,7 +12,20 @@ export default defineConfig({
   markdown: {
     math: true,
     config: (md) => {
-      md.use(footnote)
+      md.use(footnote);
+      const originalRender = md.renderer.rules.math_inline!;
+
+      md.renderer.rules.math_inline = (tokens, idx, options, env, self) => {
+        const latex = tokens[idx].content.replaceAll('\\', '&#92;').replaceAll('{', '&#123;').replaceAll('}', '&#125;'); // Raw LaTeX
+        return originalRender(tokens, idx, options, env, self).replace('</mjx-container>', '<mjx-fallback aria-hidden="true">&dollar;'+latex+'&dollar;</mjx-fallback></mjx-container>');
+      };
+
+      const originalRenderBlock = md.renderer.rules.math_block!
+
+      md.renderer.rules.math_block = (tokens, idx, options, env, self) => {
+        const latex = tokens[idx].content.replaceAll('\\', '&#92;').replaceAll('{', '&#123;').replaceAll('}', '&#125;');
+        return originalRenderBlock(tokens, idx, options, env, self).replace('</mjx-container>', '<mjx-fallback aria-hidden="true">&dollar;&dollar;'+latex+'&dollar;&dollar;</mjx-fallback></mjx-container>');
+      };
     }
   },
   themeConfig: {

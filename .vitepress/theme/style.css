@@ -193,3 +193,31 @@ sup.footnote-ref {
   }
 
 }
+
+mjx-container {
+  overflow-x: auto;
+  display: inline-flex;
+  min-height: 1lh;
+  overflow-y: hidden;
+  line-height: 1lh;
+  vertical-align: top;
+  user-select: all;
+}
+
+mjx-assistive-mml {
+  width: 100%!important;
+}
+
+mjx-fallback {
+  display: inline;
+  position: absolute;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-width: 0;
+  inset: 0;
+  color: transparent;
+  z-index: -1;
+  line-height: 1lh;
+  max-width: 100%;
+}

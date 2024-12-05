@@ -6,7 +6,7 @@ In Chapter 2 we have introduced some basic concepts of logic, but the treatment 
 
 At a very general level, the goal of logic is to provide a framework for expressing mathematical statements and for expressing and verifying proofs for such statements. A more ambitious, secondary goal can be to provide tools for *automatically* or semi-automatically generating a proof for a given statement.
 
-A treatment of logic usually begins with a chapter on propositional logic1 [(see Section 6.5)](#_6-5-propositional-logic), followed by a chapter on predicate (or first-order) logic[^2] [(see Section 6.6)](#_6-6-predicate-logic-first-order-logic), which can be seen as an extension of propositional logic. There are several other logics which are useful in Computer Science and in mathematics, including temporal logic, modal logic, intuitionistic logic, and logics for reasoning about knowledge and about uncertainty. Most if not all relevant logics contain the logical operators from propositional logic, i.e., $,$ $∨$, $¬$ (and the derived operators $→$ and $↔$), as well as the quantifiers ($∀$ and $∃$) from predicate logic.
+A treatment of logic usually begins with a chapter on propositional logic1 [(see Section 6.5)](#_6-5-propositional-logic), followed by a chapter on predicate (or first-order) logic[^2] [(see Section 6.6)](#_6-6-predicate-logic-first-order-logic), which can be seen as an extension of propositional logic. There are several other logics which are useful in Computer Science and in mathematics, including temporal logic, modal logic, intuitionistic logic, and logics for reasoning about knowledge and about uncertainty. Most if not all relevant logics contain the logical operators from propositional logic, i.e., $\land$, $\lor$, $¬$ (and the derived operators $→$ and $↔$), as well as the quantifiers ($∀$ and $∃$) from predicate logic.
 
 [^1]:German: Aussagenlogik
 
@@ -124,15 +124,16 @@ Let us now consider the opposite problem of proving the inexistence of a Hamilto
 of s encode the adjacency matrix of a graph not containing Hamiltonian cycle. In this case, no sound and complete proof system (with reasonably short and efficiently verifiable proofs) is known. It is believed that no such proof system exists.
 :::
 
-::: tip Example 6.3.
+::: tip Example 6.3.{#example-6-3}
 Let again $\mathcal{S} = \mathcal{P} = \{0, 1\}^∗$ , and for $s ∈ \{0, 1\}^∗$ let $n(s)$ denote the natural number whose (standard) binary representation is $s$, with the convention that leading $0$'s are ignored. (For example, $n(101011) = 43$ and $n(00101) = 5$.) Now, let $τ$ be the function defined as follows: $τ(s) = 1$ if and only if $n(s)$ is not a prime number. Moreover, let $\phi$ be the function defined by $\phi(s, p) = 1$ if and only if $n(s) = 0$, or if $n(s) = 1$, or if $n(p)$ divides $n(s)$ and $1 < n(p) < n(s)$. This function $\phi$ is efficiently computable. This is a proof system for the non-primality (i.e., compositeness) of natural numbers. It is sound because every $s$ corresponding to a prime number $n(s)$ has no proof since $n(s) ≠ 0$ and $n(s) ≠ 1$ and $n(s)$ has no divisor $d$ satisfying $1 < d < n(s)$. The proof system is complete because every natural number $n$ greater than $1$ is either prime or has a prime factor $q$ satisfying $1 < q < n$ (whose binary representation can serve as a proof).
 :::
 
-**Example 6.4.** Let us consider the opposite problem, i.e., proving primality of a number n(s) represented by s. In other words, in the previous example we replace "not a prime" by "a prime". It is far from clear how one can define a verification function φ such that the proof system is sound and complete. However, such an efficiently computable function φ indeed exists. Very briefly, the proof that a number n(s) (henceforth we simply write n) is prime consists of (adequate representations of):
+::: tip Example 6.4.{#example-6-4}
+Let us consider the opposite problem, i.e., proving primality of a number $n(s)$ represented by $s$. In other words, in the previous example we replace "not a prime" by "a prime". It is far from clear how one can define a verification function $\phi$ such that the proof system is sound and complete. However, such an efficiently computable function $\phi$ indeed exists. Very briefly, the proof that a number $n(s)$ (henceforth we simply write $n$) is prime consists of (adequate representations of):
 
-- 1) the list p1, . . . , pk of distinct prime factors of n − 1,
-- 2) a (recursive) proof of primality for each of p1, . . . , pk 13
-- 3) a generator g of the group Z ∗ n .
+1. the list $p_1, … , p_k$ of distinct prime factors of $n − 1$, 
+2. a (recursive) proof of primality for each of $p_1, . . . , p_k$ [^13] 
+3. a generator $g$ of the group $Z^∗_n$ .
 
 The exact representation of these three parts of the proof would have to be made precise, but we omit this here as it is obvious how this could be done.
 
@@ -157,6 +158,7 @@ $$g^{(n-1)/p_{i}}\neq_{n}1.$$
 
 - For every pi , an analogous proof of its primality is verified (recursively).
   This proof system for primality is sound because if n is not a prime, then there is no element of Z ∗ n of order n − 1 since the order of any element is at most ϕ(n), which is smaller than n − 1. The proof system is complete because if n is prime, then GF(n) is a finite field and the multiplicative group of any finite field, i.e., Z ∗ n, is cyclic and has a generator g. (We did not prove this statement in this course.)15
+:::
 
 ### **6.2.3 Discussion**
 
@@ -504,7 +506,7 @@ F ∧ G ⊢ F F ∧ G ⊢ G {F, G} ⊢ F ∧ G
 
 [^41]:German: vollständig
 
-$F\,\vdash F\lor G$$F\,\vdash G\lor F$$\{F,\,F\to G\}\,\vdash G$$\{F\lor G,\,F\to H,\,G\to H\}\,\vdash H$.
+$F\,\vdash F\lor G$ $F\,\vdash G\lor F$ $\{F,\,F\to G\}\,\vdash G$ $\{F\lor G,\,F\to H,\,G\to H\}\,\vdash H$.
 
 Such rules are not necessarily independent. For example, the rule F ∧ G ⊢ G ∧ F could be derived from the above three rules as follows: F can be derived from F ∧ G and G can also be derived from F ∧ G, resulting in the set {F ∧ G, F, G}. {G, F} is a subset of {F ∧ G, F, G} and hence one of the above rules yields {G, F} ⊢ G ∧ F.
 
@@ -687,7 +689,7 @@ in CNF, denoted as K(F), is the set
 
 $$
 \mathcal{K}(F)\ \stackrel{{\text{def}}}{{=}}\ \{\{L_{11},\ldots,L_{1m_{1}}\}\,\ldots,\ \{L_{n1},\ldots,L_{nm_{n}}\}\}\}
-$$.
+$$
 
 The set of clauses associated with a set M = {F1, . . . , Fk} of formulas is the union of their clause sets:
 
