@@ -14,9 +14,9 @@ The benefit of identifying the highest level of generality and abstraction is th
 
 **Definition 5.1.** An *operation* on a set S is a function1 S n → S, where n ≥ 0 is called the *"arity"*2 of the operation.
 
-<sup>1</sup> In some cases, the function is only partial.
+[^1]: In some cases, the function is only partial.
 
-<sup>2</sup>German: Stelligkeit
+[^2]:German: Stelligkeit
 
 Operations with arity 1 and 2 are called unary and binary operations, respectively. An operation with arity 0 is called a constant; it is a fixed element from the set S, for instance the special element 1 in Z. In many cases, only binary operations are actually listed explicitly,
 
@@ -40,9 +40,9 @@ In this section we look at algebras hS; ∗i with one binary operation and possi
 
 We discuss three special properties that hS; ∗i can have, (1) neutral elements, (2) associativity, and (3) inverse elements, as well as combinations of these.
 
-<sup>3</sup>German: Trägermenge
+[^3]:German: Trägermenge
 
-<sup>4</sup>This definition, though very general, does not capture all algebraic systems one might be interested in. A more general type of algebraic system, called *heterogeneous* algebraic systems, can have several carrier sets.
+[^4]:This definition, though very general, does not capture all algebraic systems one might be interested in. A more general type of algebraic system, called *heterogeneous* algebraic systems, can have several carrier sets.
 
 #### **5.2.1 Neutral Elements**
 
@@ -100,7 +100,7 @@ where we have omitted the justifications for the steps.
 
 **Example 5.8.** Consider again hAA; ◦, idi. A function f ∈ AA has a left inverse only if it is injective, and it has a right inverse only if it is surjective. Hence f has an inverse f −1 if and only if f is bijective. In this case, f ◦ f −1 = f −1 ◦ f = id.
 
-<sup>5</sup>or simply *left [right] inverse*.
+[^5]:or simply *left [right] inverse*.
 
 Now follows one of the most fundamental definitions of algebra.
 
@@ -133,7 +133,7 @@ In mathematics, one generally wants the axioms of a theory to be minimal. One ca
 
 > ba ∗ a = (ba ∗ a) ∗ e (**G2'** ) = (ba ∗ a) ∗ (ba ∗ bba) (**G3'**, i.e., def. of right inverse of ba)
 
-<sup>6</sup>Named after the Norwegian mathematician Niels Henrik Abel.
+[^6]:Named after the Norwegian mathematician Niels Henrik Abel.
 
 $=\quad\widehat{a}*(a*(\widehat{a}*\widehat{\widehat{a}}))$ (G1)
 
@@ -183,7 +183,7 @@ $(a_{1},\ldots,a_{n})\star(b_{1},\ldots,b_{n})=(a_{1}\ast_{1}b_{1},\ldots,a_{n}\
 
 $\boxed{\begin{array}{c}\blacksquare\end{array}}$
 
-<sup>7</sup>We point out that one can consider the described operations also as bijections of the real plane, i.e., as functions R 2 → R 2 .
+[^7]:We point out that one can consider the described operations also as bijections of the real plane, i.e., as functions R 2 → R 2 .
 
 #### **5.3.2 Group Homomorphisms**
 
@@ -267,9 +267,9 @@ $$a^{m}=a^{R_{\mathrm{ord}\,(a)}\,(m)}.$$
 
 $$\langle a\rangle\ {\stackrel{\mathrm{def}}{=}}\ \{a^{n}|\ n\in\mathbb{Z}\}.$$
 
-<sup>8</sup>German: Ordnung
+[^8]:German: Ordnung
 
-<sup>9</sup>Note that the term "order" has two different (but related) meanings.
+[^9]:Note that the term "order" has two different (but related) meanings.
 
 It is easy to see that hai is a group, actually the smallest subgroup of a group G containing the element a ∈ G. For finite groups we have
 
@@ -325,7 +325,7 @@ We noted earlier that the set Zm = {0, . . . , m − 1} is a group with respect 
 
 **Definition 5.16.** Z ∗ m def = {a ∈ Zm | gcd(a, m) = 1}.
 
-<sup>10</sup>i.e., |G| = p for some prime p.
+[^10]:i.e., |G| = p for some prime p.
 
 **Definition 5.17.** The *Euler function* ϕ : Z + → Z + is defined as the cardinality of Z ∗ m:
 
@@ -357,7 +357,7 @@ $\underset{p\text{\hspace{0.17em}}\mathrm{lim}}{p|m}$
 
 p primero
 
-<sup>11</sup>Alternatively, ϕ(m) could be defined as ϕ(m) = m · Y 1 − 1 p .
+[^11]:Alternatively, ϕ(m) could be defined as ϕ(m) = m · Y 1 − 1 p .
 
 **Example 5.31.** In Z ∗ 11 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10} we have 4 ⊙ 6 = 2 and 7 −1 = 8 since 7 ⊙ 8 = 1.
 
@@ -385,9 +385,9 @@ We state the following theorem about the structure of Z ∗ m without proof. Of 
 
 The RSA public-key cryptosystem, invented in 1977 by Rivest, Shamir, and Adleman13, is used in many security protocols on the Internet, for instance in TLS/SSL. Like the Diffie-Hellman protocol it allows two parties to communicate securely, even if the communication channel is insecure, provided only that
 
-<sup>12</sup>This result can be used as a primality test. Actually, the term "compositeness test" is more appropriate. To test whether a number n is prime one chooses a base a and checks whether a n−1 ≡n 1. If the condition is violated, then n is clearly composite, otherwise n could be a prime. Unfortunately, it is not guaranteed to be a prime. In fact, there are composite integers n for which a n−1 ≡n 1 for all a with gcd(a, n) = 1. The smallest such n is 561 = 3·11·17. For more sophisticated versions of such a probabilistic test one can prove that for every composite n, the fraction of test values for which the corresponding condition is satisfied is at most 1/4. Thus, by repeating the test sufficiently many times, the confidence that n is prime can be increased beyond any doubt. This is useful in practice, but it does not provide a proof that n is prime.
+[^12]:This result can be used as a primality test. Actually, the term "compositeness test" is more appropriate. To test whether a number n is prime one chooses a base a and checks whether a n−1 ≡n 1. If the condition is violated, then n is clearly composite, otherwise n could be a prime. Unfortunately, it is not guaranteed to be a prime. In fact, there are composite integers n for which a n−1 ≡n 1 for all a with gcd(a, n) = 1. The smallest such n is 561 = 3·11·17. For more sophisticated versions of such a probabilistic test one can prove that for every composite n, the fraction of test values for which the corresponding condition is satisfied is at most 1/4. Thus, by repeating the test sufficiently many times, the confidence that n is prime can be increased beyond any doubt. This is useful in practice, but it does not provide a proof that n is prime.
 
-<sup>13</sup>R. L. Rivest, A. Shamir, and L. Adleman, A method for obtaining digital signatures and publickey cryptosystems, *Communications of the ACM*, Vol. 21, No. 2, pp. 120–126, 1978.
+[^13]:R. L. Rivest, A. Shamir, and L. Adleman, A method for obtaining digital signatures and publickey cryptosystems, *Communications of the ACM*, Vol. 21, No. 2, pp. 120–126, 1978.
 
 they can authenticate each other's public keys (respectively the Diffie-Hellman values). Moreover, the RSA system can be used as a digital signature scheme (see below). RSA was the first cryptographic system offering this important functionality.
 
@@ -452,11 +452,11 @@ The na¨ıve15 RSA public-key cryptosystem16 is summarized in Figure 5.1.
 
 The RSA system is usually (for instance in the TLS/SSL protocol) used only for *key management*, not for encrypting actual application data. The message
 
-<sup>14</sup>One can show that one can efficiently compute p and q when given (p − 1)(q − 1). (How?)
+[^14]:One can show that one can efficiently compute p and q when given (p − 1)(q − 1). (How?)
 
-<sup>15</sup>The described version of using RSA is not secure, for several reasons. One reason is that it is deterministic and therefore an attacker can check potential messages by encrypting them himself and comparing the result with the ciphertext.
+[^15]:The described version of using RSA is not secure, for several reasons. One reason is that it is deterministic and therefore an attacker can check potential messages by encrypting them himself and comparing the result with the ciphertext.
 
-<sup>16</sup>The RSA encryption was defined above as a permutation on Z ∗ n. But one can show that encryption and decryption work for all m ∈ Zn. Thus the condition gcd(m, n) = 1 need not be checked.
+[^16]:The RSA encryption was defined above as a permutation on Z ∗ n. But one can show that encryption and decryption work for all m ∈ Zn. Thus the condition gcd(m, n) = 1 need not be checked.
 
 m is an encryption key (typically a short-term session key) for a conventional cryptosystem which is used to encrypt the actual application data (e.g. of a TLS session).
 
@@ -476,13 +476,13 @@ $$s=R_{n}(z^{d})\;\;\;\;\;\;\mathrm{for}\;\;\;\;\;z=m||h(m),$$
 
 where || denotes concatenation and h is a suitable function introducing redundancy into the message and the string z is naturally understood as an element of Zn. 20 A signature can be verified by raising it to the e-th power modulo n and checking that it is of the correct form m||h(m). The message is recovered from the signature.
 
-<sup>17</sup>But note that a cryptographic security analysis is much more involved.
+[^17]:But note that a cryptographic security analysis is much more involved.
 
-<sup>18</sup>In fact, for a generic model of computation, this equivalence was proved in: D. Aggarwal and U. Maurer, *Breaking RSA generically is equivalent to factoring*, IEEE Transactions on Information Theory, vol. 62, pp. 6251–6259, 2016.
+[^18]:In fact, for a generic model of computation, this equivalence was proved in: D. Aggarwal and U. Maurer, *Breaking RSA generically is equivalent to factoring*, IEEE Transactions on Information Theory, vol. 62, pp. 6251–6259, 2016.
 
-<sup>19</sup>The scientific field of finding public-key cryptographic schemes not known to be breakable by quantum computers is called *post-quantum cryptography*.
+[^19]:The scientific field of finding public-key cryptographic schemes not known to be breakable by quantum computers is called *post-quantum cryptography*.
 
-<sup>20</sup>This can be a so-called cryptographic hash function. Without such additional redundancy, every s ∈ Z∗ n would be a legitimate signature, and hence forging a signature would be trivial.
+[^20]:This can be a so-called cryptographic hash function. Without such additional redundancy, every s ∈ Z∗ n would be a legitimate signature, and hence forging a signature would be trivial.
 
 ### **5.5 Rings and Fields**
 
@@ -519,7 +519,7 @@ $${\mathrm{(ii)}}\quad(-a)b=-(a b).$$
   0 = −(a0) + a0 (0 = −b + b for all b ∈ R, e.g. for b = a0)
 
 -
-<sup>21</sup>One can show (as an exercise) that ring addition must be commutative, i.e., commutativity of addition follows from the remaining ring axioms. The stated ring axioms are hence not minimal. The word "commutative" in (i) could be dropped.
+[^21]:One can show (as an exercise) that ring addition must be commutative, i.e., commutativity of addition follows from the remaining ring axioms. The stated ring axioms are hence not minimal. The word "commutative" in (i) could be dropped.
 
 The dual equation 0a = 0 is proved similarly.22
 
@@ -549,13 +549,13 @@ This lemma makes explicit that in a non-trivial ring, 0 has no multiplicative in
 
 $\square$
 
-<sup>22</sup>This also follows from commutativity of multiplication, but the proof shows that the statement holds even for non-commutative rings.
+[^22]:This also follows from commutativity of multiplication, but the proof shows that the statement holds even for non-commutative rings.
 
-<sup>23</sup>German: Einheit
+[^23]:German: Einheit
 
-<sup>24</sup>The inverse, if it exists, is unique.
+[^24]:The inverse, if it exists, is unique.
 
-<sup>25</sup>In fact, we now see the justification for the notation Z ∗m already introduced in Definition 5.16.
+[^25]:In fact, we now see the justification for the notation Z ∗m already introduced in Definition 5.16.
 
 #### **5.5.3 Divisors**
 
@@ -590,15 +590,15 @@ $d\mid a\ \wedge\ d\mid b\ \wedge\ \forall c\ ((c\mid a\ \wedge\ c\mid b)\ \righ
 
 $\boxed{\begin{array}{c}\blacksquare\end{array}}$
 
-<sup>26</sup>Recall that this definition was already stated as Definition 4.1 for the special case of integers. 27German: Teiler
+[^26]:Recall that this definition was already stated as Definition 4.1 for the special case of integers. 27German: Teiler
 
-<sup>28</sup>German: Vielfaches
+[^28]:German: Vielfaches
 
-<sup>29</sup>German: Nullteiler
+[^29]:German: Nullteiler
 
-<sup>30</sup>German: Integritätsbereich
+[^30]:German: Integritätsbereich
 
-<sup>31</sup>i.e., 1 6= 0
+[^31]:i.e., 1 6= 0
 
 **Example 5.40.** Z, Q, R, and C are integral domains.
 
@@ -626,9 +626,9 @@ Addition and multiplication in R[x] are defined as usual. Consider polynomials a
 
 $$a(x)+b(x)\ =\ \sum_{i=0}^{\operatorname*{max}(d,d^{\prime})}(a_{i}+b_{i})\;x^{i},$$
 
-<sup>32</sup>Note that the terms b a (or b/a) are defined only if a | b.
+[^32]:Note that the terms b a (or b/a) are defined only if a | b.
 
-<sup>33</sup>The interpretation of "minus infinity" is that it is a quantity which remains unchanged when an arbitrary integer is added to it.
+[^33]:The interpretation of "minus infinity" is that it is a quantity which remains unchanged when an arbitrary integer is added to it.
 
 where here and in the following coefficients with index greater than the degree are understood to be 0. The product of a(x) and b(x) is defined as34
 
@@ -658,7 +658,7 @@ Condition (ii) requires that R[x] is a monoid with respect to (polynomial) multi
 
 $$\begin{array}{r c l}{{\big(a(x)b(x)\big)c(x)}}&{{=}}&{{\sum_{i=0}^{d+d^{\prime}+d^{\prime\prime}}\left(\sum_{j=0}^{i}\left(\sum_{u+v=j}a_{u}b_{v}\right)c_{i-j}\right)\ x^{i}}}\end{array}$$
 
-<sup>34</sup>Note that, for example, the highest coefficient Pd+d ′ k=0 akbi−k is in the formula defined as a sum of d + d ′ + 1 terms, but all but one of them (namely for k = d) are zero.
+[^34]:Note that, for example, the highest coefficient Pd+d ′ k=0 akbi−k is in the formula defined as a sum of d + d ′ + 1 terms, but all but one of them (namely for k = d) are zero.
 
 $ =\quad\sum_{i=0}^{d+d'+d'^{\prime\prime}}\left(\sum_{u+v+w=i}(a_u b_v)c_w\right)\;x^i$.
 
@@ -691,7 +691,7 @@ In other words, a ring F is a field if and only if hF \ {0}; ·, −1 , 1i is an
 
 In the following we denote the field with p elements by GF(p) rather than Zp. As explained later, "GF" stands for Galois field. Galois discovered finite fields around 1830.
 
-<sup>35</sup>German: Körper
+[^35]:German: Körper
 
 Fields are of crucial importance because in a field one can not only add, subtract, and multiply, but one can also divide by any nonzero element. This is the abstraction underlying many algorithms like those for solving systems of linear equations (e.g. by Gaussian elimination) or for polynomial interpolation. Also, a vector space, a crucial concept in mathematics, is defined over a field, the so-called base field. Vector spaces over R are just a special case.
 
@@ -761,7 +761,7 @@ $x^6+x^5+x^4+x^3+1\;=\;(x^2+x+1)(x^4+x+1)$.
 
 The notion of irreducibility in F[x] corresponds to the notion of primality in Z, in a sense to be made more precise in Section 5.6.3.
 
-<sup>36</sup>German: monisch, normiert
+[^36]:German: monisch, normiert
 
 It follows immediately from the definition (and from the fact that the degrees are added when polynomials are multiplied) that every polynomial of degree 1 is irreducible. Moreover, a polynomial of degree 2 is either irreducible or the product of two polynomials of degree 1. A polynomial of degree 3 is either irreducible or it has at least one factor of degree 1. Similarly, a polynomial of degree 4 is either irreducible, has a factor of degree 1, or has an irreducible factor of degree 2.
 
@@ -807,9 +807,9 @@ In analogy to the notation Rm(a), we will denote the remainder r(x) of the above
 
 > (x 3 + 2x 2 + 5x + 4) = (2x 2 + x + 1) · (4x + 6) + (2x + 5),
 
-<sup>37</sup>Note that here it is important that F is a field since otherwise the existence of b −1 n is not guaranteed.
+[^37]:Note that here it is important that F is a field since otherwise the existence of b −1 n is not guaranteed.
 
-<sup>38</sup>Note that here we have made use of the fact that deg(u(x)v(x)) = deg(u(x)) + deg(v(x)). We point out that this only holds in an integral domain. (Why?) Recall that a field is an integral domain (Theorem 5.24).
+[^38]:Note that here we have made use of the fact that deg(u(x)v(x)) = deg(u(x)) + deg(v(x)). We point out that this only holds in an integral domain. (Why?) Recall that a field is an integral domain (Theorem 5.24).
 
 **Example 5.55.** In GF(2)[x] we have
 
@@ -846,9 +846,9 @@ There is one more crucial property shared by both integral domains Z and F[x] (f
 
 One can prove that in a Euclidean domain, the greatest (according to the degree function) common divisor is well-defined, up to taking associates, i.e., up to multiplication
 
-<sup>39</sup>In other words, p is divisible only by units and associates of p.
+[^39]:In other words, p is divisible only by units and associates of p.
 
-<sup>40</sup>There is a notion of a *prime* element of a ring, which is different from the notion of an irreducible element, but for the integers Z the two concepts coincide.
+[^40]:There is a notion of a *prime* element of a ring, which is different from the notion of an irreducible element, but for the integers Z the two concepts coincide.
 
 by a unit. The condition d(r) < d(b) guarantees that the gcd can be computed in the well-known manner by continuous division. This procedure terminates because d(r) decreases monotonically in each division step.
 
@@ -879,7 +879,7 @@ The following lemma is easy to prove:
 
 **Lemma 5.29.** *For a field* F, α ∈ F *is a root of* a(x) *if and only if* x − α *divides* a(x).
 
-<sup>41</sup>German: Nullstelle oder Wurzel
+[^41]:German: Nullstelle oder Wurzel
 
 *Proof.* (=⇒) Assume that α is a root, i.e., a(α) = 0. Then, according to Theorem 5.25, we can write a(x) as
 
@@ -911,9 +911,9 @@ Lemma 5.29 implies that an irreducible polynomial of degree ≥ 2 has no roots.
 
 It is well-known that a polynomial of degree d over R can be interpolated from any d + 1 values. Since the proof requires only the properties of a field (rather than the special properties of R), this interpolation property holds for polynomials over any field F. This fact is of crucial importance in many applications.
 
-<sup>42</sup>Note that this statement is not true for polynomials of degree ≥ 4.
+[^42]:Note that this statement is not true for polynomials of degree ≥ 4.
 
-<sup>43</sup>Note that every α ∈ F is a root of the polynomial 0.
+[^43]:Note that every α ∈ F is a root of the polynomial 0.
 
 **Lemma 5.32.** *A polynomial* a(x) ∈ F[x] *of degree at most* d *is uniquely determined by* any d+1 *values of* a(x)*, i.e., by* a(α1), . . . , a(αd+1) *for any distinct* α1, . . . , αd+1 ∈ F.
 
@@ -939,7 +939,7 @@ We continue to explore the analogies between the rings Z and F[x]. In the same w
 
 $$a(x)\equiv_{m(x)}\,b(x)\ \ \ \stackrel{\mathrm{def}}{\Longleftarrow}\ \ m(x)\ |\ \big(a(x)-b(x)\big).$$
 
-<sup>44</sup>The degree can be smaller than d.
+[^44]:The degree can be smaller than d.
 
 The proof of the following lemma is analogous to the proof that congruence modulo m is an equivalence relation on Z.
 
@@ -979,7 +979,7 @@ F[x]m(x) is derived from F[x] in close analogy to how the ring Zm is derived fro
 
 $\boxed{\begin{array}{c}\blacksquare\end{array}}$
 
-<sup>45</sup>It is important to point out that we are considering three algebraic systems, namely F, F[x], and F[x]m(x) . Each system has an addition and a multiplication operation, and we use the same symbols "+" and "·" in each case, letting the context decide which one we mean. This should cause no confusion. The alternative would have been to always use different symbols, but this would be too cumbersome. Note that, as mentioned above, addition (but not multiplication) in F[x] and F[x]m(x) are identical.
+[^45]:It is important to point out that we are considering three algebraic systems, namely F, F[x], and F[x]m(x) . Each system has an addition and a multiplication operation, and we use the same symbols "+" and "·" in each case, letting the context decide which one we mean. This should cause no confusion. The alternative would have been to always use different symbols, but this would be too cumbersome. Note that, as mentioned above, addition (but not multiplication) in F[x] and F[x]m(x) are identical.
 
 F[x]m(x) is a monoid with respect to polynomial multiplication. The neutral element is the polynomial 1. Associativity of multiplication is inherited from F[x], as is the distributive law.
 
@@ -1009,9 +1009,9 @@ In Computer Science, the fields of most interest are finite fields, i.e., F[x]m(
 
 (ax + b) + (cx + d) = (a + c)x + (b + d)
 
-<sup>47</sup>This b(x) (if it exists) is called the inverse of a(x) modulo m(x).
+[^47]:This b(x) (if it exists) is called the inverse of a(x) modulo m(x).
 
-<sup>48</sup>F[x]m(x) is called an *extension field* of F.
+[^48]:F[x]m(x) is called an *extension field* of F.
 
 and
 
@@ -1091,7 +1091,7 @@ Finite fields are of great importance in Computer Science and have many applicat
 
 Error-correcting codes are used in many communication protocols and other applications. For example, the digital information on a CD is stored in such a manner that even if some of the information is lost (e.g. because of a scratch or dirt on the disc), the entire information can still be reconstructed without quality degradation, as long as sufficiently much of the data is still available.
 
-<sup>49</sup>His interest was in proving that polynomial equations over R of fifth or higher degree have in general no closed form solution in radicals (while equations of up to fourth degree do). His major contributions to mathematics were recognized by the leading mathematicians only many years after his death. He died in a duel at the age of 21. The story goes that he wrote down major parts of his theory during the last night before the duel.
+[^49]:His interest was in proving that polynomial equations over R of fifth or higher degree have in general no closed form solution in radicals (while equations of up to fourth degree do). His major contributions to mathematics were recognized by the leading mathematicians only many years after his death. He died in a duel at the age of 21. The story goes that he wrote down major parts of his theory during the last night before the duel.
 
 There are two types of problems that can occur in data transmission or when reading data from a storage medium. First, data can be erased, meaning that when reading (or receiving) it one realizes that it is missing. Second, data can contain errors. The second type of problem is more severe because it is not even known where in a data stream the errors occurred. A good error-correcting scheme can handle both problems.
 
@@ -1145,7 +1145,7 @@ for any (r0, . . . , rn−1) with Hamming distance at most t from E (a0, . . . ,
 
 A very powerful class of codes is obtained by polynomial interpolation if A has a field structure, i.e., A = GF(q) for some q:
 
-<sup>50</sup>For example the list of symbols received after transmission of a codeword over a noisy channel or read from a storage medium like a CD.
+[^50]:For example the list of symbols received after transmission of a codeword over a noisy channel or read from a storage medium like a CD.
 
 **Theorem 5.42.** Let A = GF(q) *and let* α0, . . . , αn−1 *be arbitrary distinct elements of* GF(q)*. Consider the encoding function*
 

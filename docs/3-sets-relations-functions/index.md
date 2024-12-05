@@ -14,9 +14,9 @@ The reader is certainly familiar with statements like
 - −3 6∈ N,
 - {3, 5, 7} ⊆ N, and
 
-<sup>1</sup>German: Menge
+[^1]:German: Menge
 
-<sup>2</sup> In fact, almost all of mathematics is based on the notion of sets.
+[^2]: In fact, almost all of mathematics is based on the notion of sets.
 
 • {a, b} ∪ {b, c} = {a, b, c},
 
@@ -47,7 +47,7 @@ This calls for a precise mathematical treatment with clear definitions, lemmas, 
 
 The set concept introduced by Cantor and axiomatized further by Frege seemed very innocent and safe to work with. But in 1903, Bertrand Russell3 (1872-1970) showed that set theory as understood at that point in time is inherently contradictory. This came as a shock to the mathematics community. As a consequence, set theory had to be based on much more rigorous grounds, on an axiomatic foundation, a process started by Ernst Zermelo. It is still an active area of research in mathematics which axioms can and should be used as the foundation of set theory. The most widely considered set of axioms is called Zermelo-Fraenkel (ZF) set theory. Axiomatic set theory is beyond the scope of this course.
 
-<sup>3</sup>Russell was a very remarkable person. He was not only an outstanding philosopher and mathematician, but also politically active as a pacifist. Because of his protests against World War I he was dismissed from his position at Trinity College in Cambridge and imprisoned for 6 months. In 1961, at the age of 89, he was arrested again for his protests against nuclear armament. In 1950 he received the Nobel Prize for literature.
+[^3]:Russell was a very remarkable person. He was not only an outstanding philosopher and mathematician, but also politically active as a pacifist. Because of his protests against World War I he was dismissed from his position at Trinity College in Cambridge and imprisoned for 6 months. In 1961, at the age of 89, he was arrested again for his protests against nuclear armament. In 1950 he received the Nobel Prize for literature.
 
 The problem with Cantor's intuitive set theory is that, because it was not clearly axiomatized, it makes the following apparently innocent (yet false) assumption. Whenever one specifies a precise condition (i.e., a logical predicate P), allowing to distinguish between objects that satisfy the predicate and objects that don't, then {x | P(x)}, the set of objects satisfying the predicate is well-defined. Russell proposed the set
 
@@ -67,7 +67,7 @@ In set theory one postulates that there is a universe of possible sets and a uni
 
 Now we can postulate certain properties that the elementhood predicate E should satisfy, capturing the essence of set theory. This makes explicit that E is not some arbitrary predicate, but that it really captures natural properties of sets. In a systematic mathematical approach, one carefully chooses a list of axioms
 
-<sup>4</sup> In fact, in Zermelo-Fraenkel (ZF) set theory, the axioms exclude that a set can be an element of itself.
+[^4]: In fact, in Zermelo-Fraenkel (ZF) set theory, the axioms exclude that a set can be an element of itself.
 
 and develops a theory (set theory) based on these axioms. There are indeed several different (but related) axiom systems for set theory, and it is beyond the scope of this course to discuss set theory in a formal sense.5 However, we will informally introduce some of these properties/axioms in order to arrive at a sufficiently precise treatment of sets.
 
@@ -87,11 +87,11 @@ Since a set is specified by its elements, we can conclude that if two sets, each
 
 *Proof.* Consider any fixed a and b. The statement is an implication, which we prove indirectly. Assume that a 6= b. Then {a} 6= {b} because there exists an
 
-<sup>5</sup> Indeed, mathematicians are still working on fundamental questions regarding the theory of sets (but not questions relevant to us).
+[^5]: Indeed, mathematicians are still working on fundamental questions regarding the theory of sets (but not questions relevant to us).
 
-<sup>6</sup>For example, the set containing exactly the three natural numbers 1, 2, and 3 has many different descriptions, including {1, 2, 3}, {3, 1, 2}, {1, 1 + 1, 1 + 1 + 1}, etc. All these descriptions refer to the *same* set.
+[^6]:For example, the set containing exactly the three natural numbers 1, 2, and 3 has many different descriptions, including {1, 2, 3}, {3, 1, 2}, {1, 1 + 1, 1 + 1 + 1}, etc. All these descriptions refer to the *same* set.
 
-<sup>7</sup> In axiomatic set theory this is guaranteed by appropriate axioms.
+[^7]: In axiomatic set theory this is guaranteed by appropriate axioms.
 
 element, namely a, that is contained in the first set, but not in the second. Thus we have proved that a 6= b =⇒ {a} 6= {b}. According to Definition 2.14, this proves {a} = {b} =⇒ a = b.
 
@@ -119,7 +119,7 @@ The following lemma states an alternative way for capturing the equality of sets
 
 *Proof.* The proof first makes use (twice) of Definition 3.3, then uses the fact from predicate logic that ∀F ∧ ∀G ≡ ∀(F ∧ G), then uses the fact from propositional
 
-<sup>8</sup>We briefly address this question, although we will not make use of this later and will continue to think about ordered pairs and lists in a conventional sense and with conventional notation.
+[^8]:We briefly address this question, although we will not make use of this later and will continue to think about ordered pairs and lists in a conventional sense and with conventional notation.
 
 logic that (C → D)∧(D → C) ≡ C ↔ D, 9 and then makes use of Definitions 3.2. For any sets A and B we have the following equivalences of statements about A and B:
 
@@ -157,7 +157,7 @@ Similarly, we define the intersection of all sets in A as the set of all x that 
 
 $$\bigcap{\mathcal{A}}\ \ {\stackrel{\mathrm{def}}{=}}\ \ \{x|\ x\in A\ {\mathrm{for~all}}\ \ A\in{\mathcal{A}}\}.$$
 
-<sup>9</sup>Here we use C and D rather than A and B to avoid confusion because A and B are used here to denotes sets.
+[^9]:Here we use C and D rather than A and B to avoid confusion because A and B are used here to denotes sets.
 
 **Example 3.2.** Consider the set of sets
 
@@ -209,7 +209,7 @@ which is false, and hence we have arrived at a contradiction.
 
 At this point, the only set we know to exist, because we have postulated it, is the empty set. We can hence construct new sets ∅. The set {∅} is a set with a single element (namely ∅). It is important to note that {∅} is not the empty set
 
-<sup>10</sup>We take it for granted that ∅ is actually a set. But in an axiomatic treatment of set theory, this must be stated as an axiom.
+[^10]:We take it for granted that ∅ is actually a set. But in an axiomatic treatment of set theory, this must be stated as an axiom.
 
 ∅, i.e., {∅} 6= ∅. Note that |{∅}| = 1 while |∅| = 0. One can thus define a whole sequence of such sets:
 
@@ -282,7 +282,7 @@ $${\mathrm{(i)}}\;\;\varnothing\times A=\varnothing\ .$$
 
 $\times_{i=1}^{k}A_{i}=\{(a_{1},...,a_{k})|\ a_{i}\in A_{i}\ \ \mbox{for}\ 1\leq i\leq k\}$
 
-<sup>11</sup>In axiomatic set theory, the existence of the power set of every set must be postulated as an axiom.
+[^11]:In axiomatic set theory, the existence of the power set of every set must be postulated as an axiom.
 
 We point out that the Cartesian product is not associative, and in particular
 
@@ -314,7 +314,7 @@ $$a\equiv_{m}b\quad{\stackrel{\mathrm{def}}{\Longleftrightarrow}}\quad a-b=k m\;
 
 i.e., a ≡m b if and only if a and b have the same remainder when divided by m. (See Section 4.2.)
 
-<sup>12</sup>Note that the relation takes can change over time, and in such an example we consider the relation at a certain point in time.
+[^12]:Note that the relation takes can change over time, and in such an example we consider the relation at a certain point in time.
 
 **Example 3.12.** The relation {(x, y)| x 2 + y 2 = 1} on R is the set of points on the unit circle, which is a subset of R × R.
 
@@ -346,7 +346,7 @@ For relations on a set A, the matrix is an |A| × |A| square matrix.
 
 **Example 3.16.** For the set A = {1, 2, 3, 4, 5}, the relations =, ≥, and ≤ correspond to the identity matrix,13 the lower triangular matrix, and the upper triangular matrix, respectively.
 
-<sup>13</sup>The identity relation (=) on any finite set corresponds to the identity matrix.
+[^13]:The identity relation (=) on any finite set corresponds to the identity matrix.
 
 An alternative representation of a relation ρ from A to B is by a directed graph with |A| + |B| vertices14 labeled by the elements of A and B. The graph contains the edge15 from a to b if and only if a ρ b. For a relation on a set A, the graph contains only |A| vertices, but it can contain loops (edges from a vertex to itself).
 
@@ -374,9 +374,9 @@ Note that for all a and b we have b ρ a b ⇐⇒ a ρ b. An alternative notatio
 
 In the matrix representation, taking the inverse of a relation corresponds to the transposition of the matrix. In the graph representation, taking the inverse corresponds to inverting the direction of all edges.
 
-<sup>14</sup>German: Knoten
+[^14]:German: Knoten
 
-<sup>15</sup>German: Kante
+[^15]:German: Kante
 
 #### **3.3.5 Composition of Relations**
 
@@ -396,7 +396,7 @@ Now comes the more formal version of the same proof, where the justification for
 
 (a, d) ∈ ρ(σφ) . =⇒ ∃b (a, b) ∈ ρ ∧ (b, d) ∈ σφ . =⇒ ∃b (a, b) ∈ ρ ∧ ∃c (b, c) ∈ σ ∧ (c, d) ∈ φ . =⇒ ∃b∃c (a, b) ∈ ρ ∧ (b, c) ∈ σ ∧ (c, d) ∈ φ . =⇒ ∃b∃c (a, b) ∈ ρ ∧ (b, c) ∈ σ ∧ (c, d) ∈ φ . =⇒ ∃c∃b (a, b) ∈ ρ ∧ (b, c) ∈ σ ∧ (c, d) ∈ φ . =⇒ ∃c ∃b (a, b) ∈ ρ ∧ (b, c) ∈ σ ∧ (c, d) ∈ φ . =⇒ ∃c (a, c) ∈ ρσ ∧ (c, d) ∈ φ . =⇒ (a, d) ∈ (ρσ)φ.
 
-<sup>16</sup>The justifications should be obvious, except perhaps for the following fact from predicate logic (explained in Chapter 6) used several times in the proof: ∃x(F ∧G) ≡ F ∧ ∃xG if x does not appear in F.
+[^16]:The justifications should be obvious, except perhaps for the following fact from predicate logic (explained in Chapter 6) used several times in the proof: ∃x(F ∧G) ≡ F ∧ ∃xG if x does not appear in F.
 
 **Example 3.22.** Consider the ownership relation π and the parenthood relation φ as above. Then the relation φπ from H to O can be interpreted as follows: a φπ b if and only if person a has a child who owns object b.
 
@@ -425,11 +425,11 @@ In other words, a relation is reflexive if it contains the identity relation id.
 
 **Definition 3.14.** A relation ρ on a set A is called *irreflexive* if a6ρ a for all a ∈ A, i.e., if ρ ∩ id = ∅. 19
 
-<sup>17</sup>Note that the notation φ 2 is actually ambiguous; it could also denote the Cartesian product φ × φ. But in these lecture notes no ambiguity will arise.
+[^17]:Note that the notation φ 2 is actually ambiguous; it could also denote the Cartesian product φ × φ. But in these lecture notes no ambiguity will arise.
 
-<sup>18</sup>If the matrices are considered as Boolean matrices, then for multiplying two matrices one takes the OR of all product terms contributing to an entry in the product matrix.
+[^18]:If the matrices are considered as Boolean matrices, then for multiplying two matrices one takes the OR of all product terms contributing to an entry in the product matrix.
 
-<sup>19</sup>Note that irreflexive is not the negation of reflexive, i.e., a relation that is not reflexive is not necessarily irreflexive.
+[^19]:Note that irreflexive is not the negation of reflexive, i.e., a relation that is not reflexive is not necessarily irreflexive.
 
 **Definition 3.15.** A relation ρ on a set A is called *symmetric* if
 
@@ -471,7 +471,7 @@ is true for all a, b, c ∈ A.
 
 *Proof.* The "if" part of the theorem (⇐=) follows from the definition of composition: If a ρ b and b ρ c, then a ρ2 c. Therefore also a ρ c since ρ 2 ⊆ ρ. 20 This
 
-<sup>20</sup>In set-theoretic notation: (a, c) ∈ ρ 2 ∧ ρ 2 ⊆ ρ =⇒ (a, c) ∈ ρ.
+[^20]:In set-theoretic notation: (a, c) ∈ ρ 2 ∧ ρ 2 ⊆ ρ =⇒ (a, c) ∈ ρ.
 
 means transitivity.
 
@@ -497,7 +497,7 @@ In the graph representation of a relation ρ on A, we have a ρk b if and only i
 
 **Example 3.31.** The relation ≡m is an equivalence relation on Z.
 
-<sup>21</sup>Such a relation will be defined below as a partial order relation.
+[^21]:Such a relation will be defined below as a partial order relation.
 
 **Definition 3.20.** For an equivalence relation θ on a set A and for a ∈ A, the set of elements of A that are equivalent to a is called the *equivalence class of* a and is denoted as [a]θ: 22
 
@@ -524,9 +524,9 @@ $S_{i}\cap S_{j}=\varnothing$ for $i\neq j$ and $\bigcup S_{i}=A$.
 
 Consider any partition of a set A and define the relation ≡ such that two elements are ≡-related if and only if they are in the same set of the partition. It is easy to see that this relation is an equivalence relation. The following theorem states that the converse also holds. In other words, partitions and equivalence relations capture the same (simple) abstraction.
 
-<sup>22</sup>When the relation θ is understood, we can drop the subscript θ.
+[^22]:When the relation θ is understood, we can drop the subscript θ.
 
-<sup>23</sup>A singleton is a set with one element.
+[^23]:A singleton is a set with one element.
 
 **Definition 3.22.** The set of equivalence classes of an equivalence relation θ, denoted by
 
@@ -560,7 +560,7 @@ $$(a,b)\sim(c,d)\;\;\;{\stackrel{\mathrm{def}}{\longleftrightarrow}}\;\;\;a d=b 
 
 This relation is reflexive ((a, b) ∼ (a, b) since ab = ba), symmetric (since ad = bc =⇒ cb = da), and transitive. For the latter, assume (a, b) ∼ (c, d) and
 
-<sup>24</sup>Recall that ¬(A → B) ≡ A ∧ ¬B.
+[^24]:Recall that ¬(A → B) ≡ A ∧ ¬B.
 
 (c, d) ∼ (e, f). Then ad = bc and cf = de, and thus adcf = bcde. Canceling d (which is 6= 0) gives acf = bce.
 
@@ -588,11 +588,11 @@ In a graph representation of relations, a partial order has no cycles (but this 
 
 **Example 3.37.** The subset relation on the power set of a set A is a partial order. In other words, for any set A, (P(A); ⊆) is a poset.
 
-<sup>25</sup>This is a more fancy way of saying that two rational numbers a/b and c/d are the same number if and only if the ratio is the same. But actually, this is the definition of the rational numbers. If the reader is surprised, he or she is challenged to come up with a simpler definition.
+[^25]:This is a more fancy way of saying that two rational numbers a/b and c/d are the same number if and only if the ratio is the same. But actually, this is the definition of the rational numbers. If the reader is surprised, he or she is challenged to come up with a simpler definition.
 
-<sup>26</sup>German: Ordnungsrelation
+[^26]:German: Ordnungsrelation
 
-<sup>27</sup>Partial orders are often denoted by ≤ or by a similar symbol like or ⊑.
+[^27]:Partial orders are often denoted by ≤ or by a similar symbol like or ⊑.
 
 **Example 3.38.** The covering relation on convex polygons (see Example 3.30) is a partial order.
 
@@ -620,9 +620,9 @@ The Hasse diagram is a graph with directed edges. It is usually drawn such that 
 
 **Example 3.42.** The Hasse diagram of the poset ({2, 3, 4, 5, 6, 7, 8, 9}; |) is shown in Figure 3.1 on the left.
 
-<sup>28</sup>German: vergleichbar
+[^28]:German: vergleichbar
 
-<sup>29</sup>German:überdecken
+[^29]:German:überdecken
 
 **Example 3.43.** A nicer diagram is obtained when A is the set of all divisors of an integer n. The Hasse diagram of the poset ({1, 2, 3, 4, 6, 8, 12, 24}; |)is shown in Figure 3.1 in the middle.
 
@@ -640,7 +640,7 @@ Figure 3.2: Two Hasse diagrams.
 
 **Example 3.46.** Consider the covering30 relation on the convex polygons discussed in Example 3.30. A polygon a is covered by a polygon b if b can be placed on top of a such that a disappears completely. Are there sets of six polygons resulting in a poset with the left (or right) Hasse diagram in Figure 3.2?
 
-<sup>30</sup>The term "cover" is used here in a physical sense, not in the sense of Definition 3.26.
+[^30]:The term "cover" is used here in a physical sense, not in the sense of Definition 3.26.
 
 #### **3.5.3 Combinations of Posets and the Lexicographic Order**
 
@@ -692,17 +692,17 @@ The greatest lower bound and the least upper bound of a set S are sometimes deno
 
 Note that every totally ordered finite poset is well-ordered. The property of being well-ordered is of interest only for infinite posets. The natural numbers N are well-ordered by ≤. Any subset of the natural numbers is also well-ordered. More generally, any subset of a well-ordered set is well-ordered (by the same order relation).
 
-<sup>33</sup>Note that a least or a greatest element need not exist. However, there can be at most one least element, as suggested by the word "the" in the definition. This follows directly from the antisymmetry of . If there were two least elements, they would be mutually comparable, and hence must be equal.
+[^33]:Note that a least or a greatest element need not exist. However, there can be at most one least element, as suggested by the word "the" in the definition. This follows directly from the antisymmetry of . If there were two least elements, they would be mutually comparable, and hence must be equal.
 
-<sup>34</sup>German: untere (obere) Schranke
+[^34]:German: untere (obere) Schranke
 
-<sup>35</sup>Note that the definitions of the least element and of a lower bound differ only in that a lower bound can be outside of the considered subset S (and therefore need not be unique).
+[^35]:Note that the definitions of the least element and of a lower bound differ only in that a lower bound can be outside of the considered subset S (and therefore need not be unique).
 
-<sup>36</sup>Note that for a poset (A; ) and a subset S ⊆ A, restricting to S results in a poset (S; ).
+[^36]:Note that for a poset (A; ) and a subset S ⊆ A, restricting to S results in a poset (S; ).
 
-<sup>37</sup>German: wohlgeordnet
+[^37]:German: wohlgeordnet
 
-<sup>38</sup>The least element is defined naturally (see Definition 3.29).
+[^38]:The least element is defined naturally (see Definition 3.29).
 
 #### **3.5.5 Meet, Join, and Lattices**
 
@@ -727,13 +727,13 @@ f : a 7→ "expression in a"
 
 (e.g. f : a 7→ a 2 or, equivalently, f : x 7→ x 2 ) to define the function.
 
-<sup>39</sup>German: Verband
+[^39]:German: Verband
 
-<sup>40</sup>German: Definitionsbereich
+[^40]:German: Definitionsbereich
 
-<sup>41</sup>German: Bildbereich, Wertebereich
+[^41]:German: Bildbereich, Wertebereich
 
-<sup>42</sup>Here we use the convenient notation ∀a ∈A and ∃b ∈B.
+[^42]:Here we use the convenient notation ∀a ∈A and ∃b ∈B.
 
 **Definition 3.34.** The set of all functions A → B is denoted as BA. 43
 
@@ -757,11 +757,11 @@ $$f^{-1}(T)\ {\stackrel{\mathrm{def}}{=}}\ \{a\in A|\ f(a)\in T\}.$$
 
 **Example 3.54.** Consider again the function f(x) = x 2 . The preimage of the interval [4, 9] is [−3, −2] ∪ [2, 3].
 
-<sup>43</sup>This notation is motivated by the fact that if A and B are finite, then there are |B| |A| such functions.
+[^43]:This notation is motivated by the fact that if A and B are finite, then there are |B| |A| such functions.
 
-<sup>44</sup>German: Bild
+[^44]:German: Bild
 
-<sup>45</sup>German: Urbild
+[^45]:German: Urbild
 
 **Definition 3.39.** A function f : A → B is called
 
@@ -785,9 +785,9 @@ $$f^{-1}(T)\ {\stackrel{\mathrm{def}}{=}}\ \{a\in A|\ f(a)\in T\}.$$
 
 Countability is an important concept in Computer Science. A set that is countable can be enumerated by a program (even though this would take unbounded time), while an uncountable set can, in principle, not be enumerated.
 
-<sup>46</sup>It is easy to see that this is a function
+[^46]:It is easy to see that this is a function
 
-<sup>47</sup>Note that the composition of functions is the same as the composition of relations. However, unfortunately, different notation is used: The composition of relations f and g is denoted f ◦g while, if considered as functions, the same resulting composition is denoted as g ◦ f. (The reason is that one thinks of functions as mapping "from right to left".) Because of this ambiguity one must make explicit whether the symbol ◦ refers to function or relation composition.
+[^47]:Note that the composition of functions is the same as the composition of relations. However, unfortunately, different notation is used: The composition of relations f and g is denoted f ◦g while, if considered as functions, the same resulting composition is denoted as g ◦ f. (The reason is that one thinks of functions as mapping "from right to left".) Because of this ambiguity one must make explicit whether the symbol ◦ refers to function or relation composition.
 
 #### **Definition 3.42.**
 
@@ -817,17 +817,17 @@ A non-trivial theorem, called the Bernstein-Schröder theorem, is stated without
 
 For finite sets A and B, we have A ∼ B if and only if |A| = |B|. A finite set has never the same cardinality as one of its proper subsets. Somewhat surprisingly, for infinite sets this is possible.
 
-<sup>48</sup>German: gleich mächtig
+[^48]:German: gleich mächtig
 
-<sup>49</sup>German: abzählbar
+[^49]:German: abzählbar
 
-<sup>50</sup>German:überabzählbar
+[^50]:German:überabzählbar
 
-<sup>51</sup>Recall that N = {0, 1, 2, 3, . . .}.
+[^51]:Recall that N = {0, 1, 2, 3, . . .}.
 
-<sup>52</sup>Here ∼ and should be understood as relations on a given set of sets.
+[^52]:Here ∼ and should be understood as relations on a given set of sets.
 
-<sup>53</sup>An elegant proof of this theorem is given in *Proofs from THE BOOK* by M. Aigner and G. Ziegler.
+[^53]:An elegant proof of this theorem is given in *Proofs from THE BOOK* by M. Aigner and G. Ziegler.
 
 **Example 3.57.** Let O = {1, 3, 5, . . .} be the set of odd natural numbers. Of course, O is countable since the identity function is a (trivial) injection from O to N. Actually, there is even a *bijection* f : N → O, namely f(n) = 2n + 1. Indeed, Theorem 3.17 below states a more general fact.
 
@@ -849,9 +849,9 @@ More precisely, we define the bijection as follows. According to the wellorderin
 
 *Proof.* We could give an enumeration of the set {0, 1} ∗ , i.e., a bijection between {0, 1} ∗ and N, but to prove the theorem it suffices to provide an injection {0, 1} ∗ → N, which we define as follows. We put a "1" at the beginning of the string and then interpret it as an natural number using the usual binary representation of the natural numbers. For example, the string 0010 is mapped to the number 18. 55
 
-<sup>54</sup>Here ǫ denotes the empty string.
+[^54]:Here ǫ denotes the empty string.
 
-<sup>55</sup>Note that without prepending a 1, different strings (e.g. 0010 and 00010) would result in the same integer and hence the mapping would not be an injection.
+[^55]:Note that without prepending a 1, different strings (e.g. 0010 and 00010) would result in the same integer and hence the mapping would not be an injection.
 
 **Theorem 3.19.** *The set* N×N (= N 2 ) *of ordered pairs of natural numbers is countable.*
 
@@ -907,7 +907,7 @@ $$000100001101000101011100011101,$$
 
 which can uniquely be decomposed into the original four sequences.
 
-<sup>56</sup>Note that a simple concatenation of the sequences does not work because the concatenated sequences can not uniquely be decomposed into the original sequences, i.e., this is not an injection.
+[^56]:Note that a simple concatenation of the sequences does not work because the concatenated sequences can not uniquely be decomposed into the original sequences, i.e., this is not an injection.
 
 #### **3.7.4 Uncountability of** {0, 1} ∞
 
@@ -931,9 +931,9 @@ This proof technique is known as Cantor's *diagonalization argument*; it has als
 
 By interpreting the elements of {0, 1}∞ as the binary expansion of a real number in the interval [0, 1], and vice versa, one can show that the interval [0, 1] (and hence R itself), is uncountable.58
 
-<sup>57</sup>Here we make use of Theorem 3.17 which implies that {0, 1}∞ is countable if and only if such a bijection exists.
+[^57]:Here we make use of Theorem 3.17 which implies that {0, 1}∞ is countable if and only if such a bijection exists.
 
-<sup>58</sup>A subtlety, which is not a problem in the proof, is that some real numbers have two representations as bit-strings. For example, the number 0.5 has representations 10000000 · · · and 0111111 · · ·.
+[^58]:A subtlety, which is not a problem in the proof, is that some real numbers have two representations as bit-strings. For example, the number 0.5 has representations 10000000 · · · and 0111111 · · ·.
 
 #### **3.7.5 Existence of Uncomputable Functions**
 

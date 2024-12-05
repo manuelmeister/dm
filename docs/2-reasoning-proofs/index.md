@@ -503,7 +503,7 @@ Intuitively, if we would interpret the truth values 0 and 1 as the numbers 0 and
 
 (A ∧ B) ∨ (A ∧ C) |= ¬B → (A ∨ C).
 
-<sup>14</sup>German: (logische) Folgerung, logische Konsequenz
+[^14]:German: (logische) Folgerung, logische Konsequenz
 
 Note that the two formulas are not equivalent.
 
@@ -543,9 +543,9 @@ $$(F\to G)\land(G\to H)\ \ \vDash\ \ F\to H$$
 
 for any formulas F, G, and H.
 
-<sup>15</sup>The term "transitive" will be discussed in Chapter 3.
+[^15]:The term "transitive" will be discussed in Chapter 3.
 
-<sup>16</sup>Note that we DO NOT write F |= G ∧ G |= F because the symbol ∧ is used only between two formulas in order to form a new (combined) formula, and F |= G and G |= F are not formulas.
+[^16]:Note that we DO NOT write F |= G ∧ G |= F because the symbol ∧ is used only between two formulas in order to form a new (combined) formula, and F |= G and G |= F are not formulas.
 
 ### **2.3.6 Tautologies and Satisfiability**
 
@@ -571,11 +571,11 @@ The following lemmas state two simple facts that follow immediately from the def
 
 *Proof.* The lemma has two directions which we need to prove. To prove the first direction (=⇒), assume that F → G is a tautology. Then, for any truth assignment to the propositional symbols, the truth values of F and G are either both 0, or 0 and 1, or both 1 (but not 1 and 0). In each of the three cases it holds that G is true if F is true, i.e., F |= G. To prove the other direction (⇐=), assume F |= G. This means that for any truth assignment to the propositional symbols, the truth values of G is 1 if it is 1 for F. In other words, there is no
 
-<sup>17</sup>German: Tautologie
+[^17]:German: Tautologie
 
-<sup>18</sup>German: allgemeingültig
+[^18]:German: allgemeingültig
 
-<sup>19</sup>German: erfüllbar
+[^19]:German: erfüllbar
 
 truth assignment such that the truth value of F is 1 and that of G is 0. This means that the truth value of F → G is always 1, which means that F → G is a tautology.
 
@@ -601,15 +601,15 @@ $\text{prime}(x)\;=\;\left\{\begin{array}{cc}1&\text{if}x\text{is prime}\\ 0&\te
 
 .
 
-<sup>20</sup>German: Digitaltechnik
+[^20]:German: Digitaltechnik
 
-<sup>21</sup>German: Aussagenlogik
+[^21]:German: Aussagenlogik
 
-<sup>22</sup>German: Quantoren
+[^22]:German: Quantoren
 
-<sup>23</sup>German: Prädikatenlogik
+[^23]:German: Prädikatenlogik
 
-<sup>24</sup>German: Prädikat
+[^24]:German: Prädikat
 
 Similarly, one can naturally define the unary predicates even(x) and odd(x).
 
@@ -645,7 +645,7 @@ there _exists_ an $x$ in $U$ for which $P(x)$ is true.
 
 More generally, for a formula F with a variable x, which for each value x in U is either true or false, the formula ∀x F is true if and only if F is true for all x in U, and the formula ∃x F is true if and only if F is true for some x in U.
 
-<sup>25</sup>In the literature one also finds the notations ∀x: P(x) and ∀x. P(x) instead of ∀x P(x), and similarly for ∃.
+[^25]:In the literature one also finds the notations ∀x: P(x) and ∀x. P(x) instead of ∀x P(x), and similarly for ∃.
 
 **Example 2.17.** Consider the universe U = N. Then ∀x (x ≥ 0) is true.26 Also, ∀x (x ≥ 2) is false, and ∃x (x + 5 = 3) is false.
 
@@ -715,7 +715,7 @@ $$\forall x\ {\big(}P(x)\to Q(x){\big)}$$
 
 contains the predicate symbols P and Q which can be interpreted in different ways. Depending on the choice of universe and on the interpretation of P and Q, the formula can either be true or false. For example let the universe be N and let P(x) mean that "x is divisible by 4". Now, if Q(x) is interpreted as "x is odd", then ∀x (P(x) → Q(x)) is false, but if Q(x) is interpreted as "x is even", then ∀x (P(x) → Q(x)) is true. However, the precise definition of an interpretation is quite involved and deferred to Chapter 6.
 
-<sup>29</sup>In formulas with sequences of quantifiers of the same type one sometimes omits parentheses or even multiple copies of the quantifier. For example one writes ∃xyz instead of ∃x ∃y ∃z. We will not use such a convention in this course.
+[^29]:In formulas with sequences of quantifiers of the same type one sometimes omits parentheses or even multiple copies of the quantifier. For example one writes ∃xyz instead of ∃x ∃y ∃z. We will not use such a convention in this course.
 
 ### **2.4.6 Tautologies and Satisfiability**
 
@@ -749,7 +749,7 @@ It holds because if P(x) is true for all x in the universe, then it is also true
 
 Some more involved examples of equivalences and logical consequences are stated in the next section.
 
-<sup>30</sup>We will see in Chapter 6 that predicate logic also involves function symbols, and an interpretation also instantiates the function symbols by concrete functions.
+[^30]:We will see in Chapter 6 that predicate logic also involves function symbols, and an interpretation also instantiates the function symbols by concrete functions.
 
 ### **2.4.8 Some Useful Rules**
 
@@ -757,7 +757,7 @@ We list a few useful rules for predicate logic. This will be discussed in more d
 
 ∀x P(x) ∧ ∀x Q(x) ≡ ∀x P(x) ∧ Q(x)
 
-since if P(x) is true for all x and also Q(x) is true for all x, then P(x) ∧ Q(x) is true for all x, and vice versa. Also,31
+since if P(x) is true for all x and also Q(x) is true for all x, then P(x) ∧ Q(x) is true for all x, and vice versa. Also,[^31]
 
 > ∃x P(x) ∧ Q(x) |= ∃x P(x) ∧ ∃x Q(x)
 
@@ -789,7 +789,7 @@ A logical formula is generally not a mathematical statement because the symbols 
 
 If for a formula F the interpretation (including the universe and the meaning of the predicate and function symbols) is fixed, then this can be a mathematical
 
-<sup>31</sup>We point out that defining logical consequence for predicate logic is quite involved (see Chapter 6), but intuitively it should be quite clear.
+[^31]:We point out that defining logical consequence for predicate logic is quite involved (see Chapter 6), but intuitively it should be quite clear.
 
 statement that is either true or false. Therefore, if an interpretation is understood, we can use formulas as mathematical statements, for example in a proof with implication steps. In this case (but only if a fixed interpretation is understood) it is also meaningful to say that a formula is true or that it is false.
 
@@ -813,7 +813,7 @@ as a mathematical statement about the formulas F and G. This statement is differ
 
 *Proof.* F |= G states that for every interpretation, if F is true (for that interpretation), then also G is true (for that interpretation). Therefore, if F is true for every interpretation, then also G is true for every interpretation, which is statement (2.1).
 
-## **2.6 Some Proof Patterns**
+## 2.6. Some Proof Patterns
 
 In this section we discuss a few important proof patterns (which we could also call proof methods or proof techniques). Such a proof pattern can be used to prove one step within a longer proof, or sometimes also to directly prove a theorem of interest. Many proof patterns correspond to logical deduction rules. One can define a logical calculus consisting of such deduction rules, but we will defer the discussion of this topic to Chapter 6. Often, a given statement can be proved in different ways, i.e., by using different proof patterns.
 
@@ -847,7 +847,7 @@ The soundness of this principle is explained by the following simple lemma of pr
 
 **Example 2.26.** Prove the following claim: If x > 0 is irrational, then also √ x is irrational. The indirect proof proceeds by assuming that √ x is not irrational and
 
-<sup>32</sup>Recall Section 2.1.2.
+[^32]:Recall Section 2.1.2.
 
 showing that then x is also not irrational. Here "not irrational" means rational, i.e., we prove √ x is rational =⇒ x is rational
 
@@ -925,12 +925,13 @@ The proof by contradiction starts by assuming that S is false and deriving, from
 $$
 \begin{aligned}
     & A \subseteq B \land B \subseteq C \\
-    \dot\iff & \left( \forall x (x \in A \to x \in B) \right) \land \left( \forall x (x \in B \to x \in C) \right) && \text{Def. $A \subseteq B$} \\
+    \dot\iff & \left( \forall x (x \in A \to x \in B) \right) \land \left( \forall x (x \in B \to x \in C) \right) && \text{Def. A \subseteq B} \\
     \dot\iff & \forall x \left( (x \in A \to x \in B) \land (x \in B \to x \in C) \right) && \left( \forall x P(x) \right) \land \left( \forall x Q(x) \right) \equiv \forall x \left( P(x) \land Q(x) \right) \\
     \dot\implies & \forall x (x \in A \to x \in C) && \text{Example 2.13} \\
-    \dot\iff & A \subseteq C && \text{Def. $A \subseteq B$}
+    \dot\iff & A \subseteq C && \text{Def. A \subseteq B}
 \end{aligned}
 $$
+
 | **Statement**          | **Condition**                                                                                      |
 |:-----------------------|----------------------------------------------------------------------------------------------------|
 | \( \text{ is false} \) | \( \iff \sqrt{2} \text{ is rational} \)                                                            |
@@ -956,11 +957,11 @@ $$\begin{array}{r l}{\bot}&{{}\Longrightarrow\ \exists m\,\exists n\,\left(m^{2}
 
 This concludes the proof by contradiction.
 
-<sup>33</sup>German: teilerfremd
+[^33]:German: teilerfremd
 
-<sup>34</sup>gcd(m, n) denotes the greatest common divisor of m and n (see Section 4.2.3).
+[^34]:gcd(m, n) denotes the greatest common divisor of m and n (see Section 4.2.3).
 
-<sup>35</sup>We can write . ⇐⇒ if the implication holds in both directions, but it would be sufficient to always replace . ⇐⇒ by . =⇒.
+[^35]:We can write . ⇐⇒ if the implication holds in both directions, but it would be sufficient to always replace . ⇐⇒ by . =⇒.
 
 ### **2.6.7 Existence Proofs**
 
@@ -984,15 +985,15 @@ To prove this, we use the known fact (which has been proved) that every natural 
 
 The following simple but powerful fact is known as the *pigeonhole principle*39 . This principle is used as a proof technique for certain existence proofs.40
 
-<sup>36</sup>Recall that prime(n) is the predicate that is true if and only if n is a prime number.
+[^36]:Recall that prime(n) is the predicate that is true if and only if n is a prime number.
 
-<sup>37</sup>See also Example 2.21, where different variable names are used.
+[^37]:See also Example 2.21, where different variable names are used.
 
-<sup>38</sup>Note that p is not known explicitly, it is only known to exist. In particular, p is generally not equal to m! + 1.
+[^38]:Note that p is not known explicitly, it is only known to exist. In particular, p is generally not equal to m! + 1.
 
-<sup>39</sup>German: *Schubfachprinzip*
+[^39]:German: *Schubfachprinzip*
 
-<sup>40</sup>This principle is often described as follows: If there are more pigeons than pigeon holes, then there must be at least one pigeon hole with more than one pigeon in it. Hence the name of the principle.
+[^40]:This principle is often described as follows: If there are more pigeons than pigeon holes, then there must be at least one pigeon hole with more than one pigeon in it. Hence the name of the principle.
 
 **Theorem 2.10.** *If a set of* n *objects is partitioned into* k < n *sets, then at least one of these sets contains at least* ⌈ n k ⌉ *objects.*41
 
@@ -1016,9 +1017,9 @@ For example, in the set {2, 3, 5, 7, 9, 10} we see that 3 | 9.
 
 *Proof.* We can associate with every position (1 ≤ ℓ ≤ m2 + 1) a pair (iℓ, dℓ), where iℓ (dℓ) is the length of the longest increasing (decreasing) subsequence beginning at position ℓ. The proof is by contradiction. Suppose the claim is false, i.e., 1 ≤ iℓ ≤ m and 1 ≤ dℓ ≤ m for all ℓ. Then there are at most m2 pairs
 
-<sup>41</sup>In the literature, the pigeon hole principle often states only that there must be a set containing at least two elements.
+[^41]:In the literature, the pigeon hole principle often states only that there must be a set containing at least two elements.
 
-<sup>42</sup>Note that this is tight. If we lower |A| from n + 1 to n, then the set A = {n, n + 1, . . . , 2n − 1} contains no a, b ∈ A such that a | b.
+[^42]:Note that this is tight. If we lower |A| from n + 1 to n, then the set A = {n, n + 1, . . . , 2n − 1} contains no a, b ∈ A such that a | b.
 
 (iℓ, dℓ) that can occur. Thus the pigeonhole principle guarantees that there must be two indices s < t with (is, ds) = (it, dt). But this leads to a contradiction. Because the numbers are distinct, either as < at or as > at. If as < at, then, since is = it, an increasing subsequence of length it + 1 can be built starting at position s, taking as followed by the increasing subsequence beginning at at. This is a contradiction. A similar contradiction is obtained if as > at.
 
@@ -1077,10 +1078,10 @@ Obviously 1, 2, 3, 6, 7, and 11 cents cannot be obtained, while 4, 5, 8 = 4 + 4,
 
 Let P(n) be the predicate that is true if and only if there exists a decomposition of n + 15 into summands 4 and 5. We have just seen that P(0) is true. To prove the induction step, i.e., ∀n(P(n) → P(n + 1)), assume that P(n) is true for an
 
-<sup>43</sup>German: Verankerung
+[^43]:German: Verankerung
 
-<sup>44</sup>This theorem is actually one of the Peano axioms used to axiomatize the natural numbers. In this view, it is an axiom and not a theorem. However, one can also define the natural numbers from axiomatic set theory and then prove the Peano axioms as theorems. This topic is beyond the scope of this course.
+[^44]:This theorem is actually one of the Peano axioms used to axiomatize the natural numbers. In this view, it is an axiom and not a theorem. However, one can also define the natural numbers from axiomatic set theory and then prove the Peano axioms as theorems. This topic is beyond the scope of this course.
 
 arbitrary n. We distinguish two cases,45 namely whether or not the decomposition of n + 15 contains a 4. If this is the case, then one can replace the 4 in the decomposition by a 5, resulting in the sum n + 16. If the decomposition of n + 15 contains no 4, then it contains at least three times the 5. We can therefore obtain a decomposition of n + 16 by replacing the three 5 by four 4. In both cases, P(n + 1) is true, hence we have proved P(n) → P(n + 1) and can apply Theorem 2.11.
 
-<sup>45</sup>Note that this proof step is a proof by case distinction.
+[^45]:Note that this proof step is a proof by case distinction.
