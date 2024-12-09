@@ -62,17 +62,17 @@ $\mathcal{S} = \mathcal{P} = \{0, 1\}^∗$,
 
 with the understanding that any string in $\{0, 1\}^∗$ can be interpreted as a statement by defining syntactically wrong statements as being false statements.
 
-::: info Definition 6.1.
+::: info Definition 6.1.{#definition-6-1}
 A **proof system**[^6] is a quadruple $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$, as above.
 :::
 
 We now discuss the two fundamental requirements for proof systems.
 
-::: info Definition 6.2.
+::: info Definition 6.2.{#definition-6-2}
 A proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ is **sound**[^7] if no false statement has a proof, i.e., if for all $s ∈ \mathcal{S}$ for which there exists $p ∈ \mathcal{P}$ with $\phi(s, p) = 1$, we have $τ(s) = 1$.
 :::
 
-:::info Definition 6.3.
+:::info Definition 6.3.{#definition-6-3}
 A proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ is **complete**[^8] if every true statement has a proof, i.e., if for all $s ∈ \mathcal{S}$ with $τ(s) = 1$, there exists $p ∈ \mathcal{P}$ with $\phi(s, p) = 1$.
 :::
 
@@ -114,9 +114,9 @@ $M_{a_n,a_1}=1$.
 This function $\phi$ is efficiently computable. The proof system is sound because a graph without Hamiltonian cycle has no proof, and it is complete because every graph with a Hamiltonian cycle has a proof. Note that each $s$ with $τ(s) = 1$ has at least $n$ different proofs because the starting point in the cycle is arbitrary.
 :::
 
-[^11]:The best known algorithm has running time exponential in n. The problem is actually NPcomplete, a concept that will be discussed in a later course on theoretical Computer Science.
+[^11]:The best known algorithm has running time exponential in n. The problem is actually NP-complete, a concept that will be discussed in a later course on theoretical Computer Science.
 
-[^12]:Note that τ defines the meaning of the strings in S, namely that they are meant to encode graphs and that we are interested in whether a given graph has a Hamiltonian cycle.
+[^12]:Note that $τ$ defines the meaning of the strings in $S$, namely that they are meant to encode graphs and that we are interested in whether a given graph has a Hamiltonian cycle.
 
 ::: tip Example 6.2.
 Let us now consider the opposite problem of proving the inexistence of a Hamiltonian cycle in a given graph. In other words, in the above example we define $τ(s) = 1$ if and only if $|s| = n^2$ for some $n$ and the $n^2$ bits
@@ -137,83 +137,86 @@ Let us consider the opposite problem, i.e., proving primality of a number $n(s)$
 
 The exact representation of these three parts of the proof would have to be made precise, but we omit this here as it is obvious how this could be done.
 
-The verification of a proof (i.e., the computation of the function φ) works as follows.
+The verification of a proof (i.e., the computation of the function $\phi$) works as follows.
 
-- If n = 2 or n = 3, then the verification stops and returns 1. 14
-- It is tested whether p1, . . . , pk all divide n − 1 and whether n − 1 can be written as a product of powers of p1, . . . , pk (i.e., whether n − 1 contains no other prime factor).
+- If $n = 2$ or $n = 3$, then the verification stops and returns 1. [^14]
+- It is tested whether $p_1, … , p_k$ all divide $n − 1$ and whether $n − 1$ can be written as a product of powers of $p_1, … , p_k$ (i.e., whether $n − 1$ contains no other prime factor).
 
-[^13]:recursive means that the same principle is applied to prove the primality of every pi, and again for every prime factor of pi − 1, etc.
+[^13]:recursive means that the same principle is applied to prove the primality of every $p_i$, and again for every prime factor of $p_i − 1$, etc.
 
 [^14]:One could also consider a longer list of small primes for which no recursive primality proof is required.
 
-- It is verified that g
+- It is verified that
 
-$$g^{n-1}\equiv_{n}1$$
+  $$g^{n-1}\equiv_{n}1$$
 
-and, for all i ∈ {1, . . . , k}, that
+  and, for all $i ∈ \{1, . . . , k\}$, that
 
-$$g^{(n-1)/p_{i}}\neq_{n}1.$$
+  $$g^{(n-1)/p_{i}}\not\equiv_{n}1.$$
 
-(This means that g has order n − 1 in Z ∗ n ).
+  (This means that $g$ has order $n − 1$ in $Z^∗_n$ ).
 
-- For every pi , an analogous proof of its primality is verified (recursively).
-  This proof system for primality is sound because if n is not a prime, then there is no element of Z ∗ n of order n − 1 since the order of any element is at most ϕ(n), which is smaller than n − 1. The proof system is complete because if n is prime, then GF(n) is a finite field and the multiplicative group of any finite field, i.e., Z ∗ n, is cyclic and has a generator g. (We did not prove this statement in this course.)15
+- For every $p_i$, an analogous proof of its primality is verified (recursively).
+
+This proof system for primality is sound because if $n$ is not a prime, then there is no element of $Z^∗_n$ of order $n − 1$ since the order of any element is at most $\phi(n)$, which is smaller than $n − 1$. The proof system is complete because if $n$ is prime, then $GF(n)$ is a finite field and the multiplicative group of any finite field, i.e., $Z^∗_n$, is cyclic and has a generator $g$. (We did not prove this statement in this course.)[^15]
 :::
 
-### **6.2.3 Discussion**
+### 6.2.3. Discussion
 
 The examples demonstrate the following important points:
 
-- While proof verification must be efficient (in some sense not defined here), *proof generation* is generally not (or at least not known to be) efficient. For example, finding a proof for the Hamiltonian cycle example requires to find such a cycle, a problem that, as mentioned, is believed to be very hard. Similarly, finding a primality proof as discussed would require the factorization of n − 1, and the factoring problem is believed to be hard. In general, finding a proof (if it exists) is a process requiring insight and ingenuity, and it cannot be efficiently automated.
-- A proof system is always restricted to a certain type of mathematical statement. For example, the proof system of Example 6.1 is very limited in the sense that it only allows to prove statements of the form "graph G has a Hamiltonian cycle".
+- While proof verification must be efficient (in some sense not defined here), **proof generation** is generally not (or at least not known to be) efficient. For example, finding a proof for the Hamiltonian cycle example requires to find such a cycle, a problem that, as mentioned, is believed to be very hard. Similarly, finding a primality proof as discussed would require the factorization of $n − 1$, and the factoring problem is believed to be hard. In general, finding a proof (if it exists) is a process requiring insight and ingenuity, and it cannot be efficiently automated.
+- A proof system is always restricted to a certain type of mathematical statement. For example, the proof system of [Example 6.1](#example-6-1) is very limited in the sense that it only allows to prove statements of the form "graph $G$ has a Hamiltonian cycle".
 - Proof verification can in principle proceed in very different ways. The proof verification method of logic, based on checking a sequence of rule applications, is (only) a special case.
 - Asymmetry of statements and their negation: Even if a proof system exists for a certain type of statements, it is quite possible that for the negation of the statements, no proof system (with efficient verification) exists.
 
 [^15]:Actually, a quite efficient deterministic primality test was recently discovered by Agrawal et al., and this means that primality can be checked without a proof. In other words, there exists a trivial proof system for primality with empty proofs. However, this fact is mathematically considerably more involved than the arguments presented here for the soundness and completeness of the proof system for primality.
 
-### **6.2.4 Proof Systems in Theoretical Computer Science**
+### 6.2.4. Proof Systems in Theoretical Computer Science
 
-The concept of a proof system appears in a more concrete form in theoretical computer science (TCS), as follows. Statements and proofs are bit-strings, i.e., S = P = {0, 1} ∗ . The predicate τ defines the set L ⊆ {0, 1} ∗ of strings that correspond to true statements:
+The concept of a proof system appears in a more concrete form in theoretical computer science (TCS), as follows. Statements and proofs are bit-strings, i.e., $\mathcal{S} = \mathcal{P} = \{0, 1\}^∗$ . The predicate $τ$ defines the set $L ⊆ \{0, 1\}^∗$ of strings that correspond to true statements:
 
-L = {s | τ (s) = 1}.
+$L = \{s~|~τ (s) = 1\}$.
 
-Conversely, every subset L ⊆ {0, 1} ∗ defines a predicate τ . In TCS, such a set L of strings is called a *formal language*, and one considers the problem of proving that a given string s is in the language, i.e., s ∈ L. A proof for s ∈ L is called a *witness* of s, often denoted as w, and the verification function φ(s, w) defines whether a string w is a witness for s ∈ L.
+Conversely, every subset $L ⊆ \{0, 1\}^∗$ defines a predicate $τ$. In TCS, such a set $L$ of strings is called a *formal language*, and one considers the problem of proving that a given string $s$ is in the language, i.e., $s ∈ L$. A proof for $s ∈ L$ is called a *witness* of $s$, often denoted as $w$, and the verification function $\phi(s, w)$ defines whether a string $w$ is a witness for $s ∈ L$.
 
-One then considers the special case where the length of w is bounded by a polynomial of the length of s and where the function φ must be computable in polynomial time, i.e., by a program with worst-case running time polynomial in the length of s. Then, the important class NP of languages is the set of languages for which such a polynomialtime computable verification function exists.
+One then considers the special case where the length of $w$ is bounded by a polynomial of the length of $s$ and where the function $\phi$ must be computable in polynomial time, i.e., by a program with worst-case running time polynomial in the length of $s$. Then, the important class $\mathsf{NP}$ of languages is the set of languages for which such a polynomialtime computable verification function exists.
 
 As mentioned in a footnote, a type of proof system of special interest are so-called *probabilistically checkable proofs (PCP)*.
 
-An important extension of the concept of proof systems are so-called *interactive proofs*. 16 In such a system, the proof is not a bit-string, but it consists of an interaction (a protocol) between the prover and the verifier, where one tolerates an immensely small (e.g. exponentially small) probability that a verifier accepts a "proof" for a false statement. The reason for considering such interactive proofs are:
+An important extension of the concept of proof systems are so-called *interactive proofs*.[^16] In such a system, the proof is not a bit-string, but it consists of an interaction (a protocol) between the prover and the verifier, where one tolerates an immensely small (e.g. exponentially small) probability that a verifier accepts a "proof" for a false statement. The reason for considering such interactive proofs are:
 
 - Such interactive proofs can exist for statements for which a classical (noninteractive) proof does not exist. For example, there exists an interactive proof system for the *non-*Hamiltonicity of graphs.
 - Such interactive proofs can have a special property, called *zero-knowledge*, which means that the verifier learns absolutely nothing (in a well-defined sense) during the protocol, except that the statement is true. In particular, the verifier cannot prove the statement to somebody else.
-- Zero-knowledge proofs (especially non-interactive versions, so-called NIZK's) are of crucial importance in a large number of applications, for example in sophisticated block-chain systems.
+- Zero-knowledge proofs (especially non-interactive versions, so-called NIZK's) are of crucial importance in a large number of applications, for example in sophisticated blockchain systems.
 
-## **6.3 Elementary General Concepts in Logic**
+## 6.3. Elementary General Concepts in Logic
 
 The purpose of this section is to introduce the most basic concepts in logic in a general manner, not specific to a particular logic. However, this section is best appreciated by considering concrete examples of logics, in particular propositional logic and predicate logic. Without discussing such examples in parallel to introducing the concepts, this section will be hard to appreciate. We will discuss the general concepts and the concrete examples in parallel, going back and forth between Section 6.3 and Sections 6.5 and 6.6.
 
 [^16]:This topic is discussed in detail in the Master-level course *Cryptographic Protocols* taught by Martin Hirt and Ueli Maurer.
 
-### **6.3.1 The General Goal of Logic**
+### 6.3.1. The General Goal of Logic
 
-A goal of logic is to provide a specific proof system Π = (S,P, τ, φ) for which a very large class of mathematical statements can be expressed as an element of S.
+A goal of logic is to provide a specific proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ for which a very large class of mathematical statements can be expressed as an element of $\mathcal{S}$.
 
-However, such a proof system Π = (S,P, τ, φ) can never capture all possible mathematical statements. For example, it usually does not allow to capture (self-referential) statements about Π, such as "Π is complete", as an element of S. The use of common language is therefore unavoidable in mathematics and logic (see also Section 6.7).
+However, such a proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ can never capture all possible mathematical statements. For example, it usually does not allow to capture (self-referential) statements about $Π$, such as "$Π$ is complete", as an element of $\mathcal{S}$. The use of common language is therefore unavoidable in mathematics and logic ([see also Section 6.7.](#_6-7-beyond-predicate-logic)).
 
-In logic, an element s ∈ S consists of one or more formulas (e.g. a formula, or a set of formulas, or a set of formulas and a formula), and a proof consists of applying a certain sequence of syntactic steps, called a *derivation* or a *deduction*. Each step consists of applying one of a set of allowed syntactic rules, and the set of allowed rules is called a *calculus*. A rule generally has some place-holders that must be instantiated by concrete values.
+In logic, an element $s ∈ \mathcal{S}$ consists of one or more formulas (e.g. a formula, or a set of formulas, or a set of formulas and a formula), and a proof consists of applying a certain sequence of syntactic steps, called a *derivation* or a *deduction*. Each step consists of applying one of a set of allowed syntactic rules, and the set of allowed rules is called a *calculus*. A rule generally has some place-holders that must be instantiated by concrete values.
 
-In standard treatments of logic, the syntax of S and the semantics (the function τ) are carefully defined. In contrast, the function φ, which consists of verifying the correctness of each rule application step, is not completely explicitly defined. One only defines rules, but for example one generally does not define a syntax for expressing how the place-holders of the rules are instantiated.17
+In standard treatments of logic, the syntax of $\mathcal{S}$ and the semantics (the function $τ$) are carefully defined. In contrast, the function $\phi$, which consists of verifying the correctness of each rule application step, is not completely explicitly defined. One only defines rules, but for example one generally does not define a syntax for expressing how the place-holders of the rules are instantiated.[^17]
 
 ### **6.3.2 Syntax**
 
-A *logic* is defined by the *syntax* and the *semantics*. The basic concept in any logic is that of a *formula*18 .
+A *logic* is defined by the *syntax* and the *semantics*. The basic concept in any logic is that of a *formula*[^18] .
 
-**Definition 6.4.** The *syntax* of a logic defines an alphabet Λ (of allowed symbols) and specifies which strings in Λ ∗ are formulas (i.e., are syntactically correct).
+::: info Definition 6.4.{#definition-6-4}
+The **syntax** of a logic defines an alphabet $\Lambda$ (of allowed symbols) and specifies which strings in $\Lambda^*$ are formulas (i.e., are syntactically correct).
+:::
 
-The semantics (see below) defines under which "conditions" a formula is *true* (denoted as 1) or *false* (denoted as 0).19 What we mean by "conditions" needs to be made more precise and requires a few definitions.
+The semantics (see below) defines under which "conditions" a formula is *true* (denoted as $1$) or *false* (denoted as 0).[^19] What we mean by "conditions" needs to be made more precise and requires a few definitions.
 
-Some of the symbols in Λ (e.g. the symbols A and B in propositional logic or the symbols P and Q in predicate logic) are understood as variables, each of which can take on a value in a certain domain associated to the symbol.
+Some of the symbols in $\Lambda$ (e.g. the symbols A and B in propositional logic or the symbols $P$ and $Q$ in predicate logic) are understood as variables, each of which can take on a value in a certain domain associated to the symbol.
 
 [^17]:In a fully computerized system, this must of course be (and indeed is) defined.
 
@@ -221,21 +224,29 @@ Some of the symbols in Λ (e.g. the symbols A and B in propositional logic or th
 
 [^19]:There are logics (not considered here) with more than two truth values, for example a logic with confidence or belief values indicating the degree of confidence in the truth of a statement.
 
-### **6.3.3 Semantics**
+### 6.3.3. Semantics
 
-**Definition 6.5.** The *semantics* of a logic defines (among other things, see below) a function free which assigns to each formula F = (f1, f2, . . . , fk) ∈ Λ ∗ a subset free(F) ⊆ {1, . . . , k} of the indices. If i ∈ free(F), then the symbol fi is said to occur *free* in F. 20
+::: info Definition 6.5.{#definition-6-5}
+The **semantics** of a logic defines (among other things, see below) a function free which assigns to each formula $F = (f_1, f_2, … , f_k) ∈ \Lambda^∗$ a subset $free(F) ⊆ \{1, … , k\}$ of the indices. If $i ∈ free(F)$, then the symbol f_i is said to occur *free* in F. [^20]
+:::
 
-The same symbol β ∈ Λ can occur free in one place of F (say f3 = β where 3 ∈ free(F)) and not free in another place (say f5 = β where 5 6∈ free(F)).
+The same symbol $β ∈ Λ$ can occur free in one place of $F$ (say $f_3 = β$ where $3 ∈ free(F)$) and not free in another place (say $f_5 = β$ where $5 \not∈ free(F)$).
 
 The free symbols of a formula denote kind of variables which need to be assigned fixed values in their respective associated domains before the formula has a truth value. This assignment of values is called an interpretation:
 
-**Definition 6.6.** An *interpretation* consists of a set Z ⊆ Λ of symbols of Λ, a domain (a set of possible values) for each symbol in Z, and a function that assigns to each symbol in Z a value in its associated domain.21
+::: info Definition 6.6.{#definition-6-6}
+An **interpretation** consists of a set $\mathcal{Z} ⊆ Λ$ of symbols of $Λ$, a domain (a set of possible values) for each symbol in $\mathcal{Z}$, and a function that assigns to each symbol in $\mathcal{Z}$ a value in its associated domain.[^21]
+::: 
 
-Often (but not in propositional logic), the domains are defined in terms of a so-called *universe* U, and the domain for a symbol in Λ can for example be U, or a function U k → U (for some k), or a function U k → {0, 1} (for some k).
+Often (but not in propositional logic), the domains are defined in terms of a so-called *universe* $U$, and the domain for a symbol in $Λ$ can for example be $U$, or a function $U^k → U$ (for some $k$), or a function $U^k → \{0, 1\}$ (for some $k$).
 
-**Definition 6.7.** An interpretation is *suitable*22 for a formula F if it assigns a value to all symbols β ∈ Λ occurring free in F. 23
+::: info Definition 6.7.{#definition-6-7}
+An interpretation is *suitable*[^22] for a formula $F$ if it assigns a value to all symbols $β ∈ Λ$ occurring free in $F$. [^23]
+:::
 
-**Definition 6.8.** The *semantics* of a logic also defines a function24 σ assigning to each formula F, and each interpretation A suitable for F, a truth value σ(F, A) in {0, 1}. 25 In treatments of logic one often writes A(F) instead of σ(F, A) and calls A(F) *the truth value of* F *under interpretation* A. 26
+::: info Definition 6.8.{#definition-6-8}
+The **semantics** of a logic also defines a function[^24] $σ$ assigning to each formula $F$, and each interpretation $\mathcal{A}$ suitable for $F$, a truth value $σ(F, \mathcal{A})$ in {0, 1}. [^25] In treatments of logic one often writes $\mathcal{A}(F)$ instead of $σ(F, \mathcal{A})$ and calls $\mathcal{A}(F)$ *the truth value of* $F$ *under interpretation* $\mathcal{A}$. [^26]
+:::
 
 [^20]:The term "free" is not standard in the literature which instead uses special terms for each specific logic, but as we see later it coincides for the notion of free variables in predicate logic.
 
@@ -243,25 +254,27 @@ Often (but not in propositional logic), the domains are defined in terms of a so
 
 [^22]:German: passend
 
-[^23]:A suitable interpretation can also assign values to symbols β ∈ Λ not occurring free in F.
+[^23]:A suitable interpretation can also assign values to symbols $β ∈ Λ$ not occurring free in $F$.
 
 [^24]:We assume that the set of formulas and the set of interpretations are well-defined.
 
-[^25]:Note that different free occurrences of a symbol β ∈ Λ in F are assigned the same value, namely that determined by the interpretation.
+[^25]:Note that different free occurrences of a symbol $β ∈ Λ$ in $F$ are assigned the same value, namely that determined by the interpretation.
 
-[^26]:This notation in the literature is unfortunately a bit ambiguous since A is used for two different things, namely for an interpretation as well as for the function induced by the interpretation which assigns to every formula the truth value (under that interpretation). We nevertheless use the notation A(F) instead of σ(F, A) in order to be compatible with most of the literature.
+[^26]:This notation in the literature is unfortunately a bit ambiguous since $\mathcal{A}$ is used for two different things, namely for an interpretation as well as for the function induced by the interpretation which assigns to every formula the truth value (under that interpretation). We nevertheless use the notation $\mathcal{A}(F)$ instead of $σ(F, \mathcal{A})$ in order to be compatible with most of the literature.
 
-**Definition 6.9.** A (suitable) interpretation A for which a formula F is true, (i.e., A(F) = 1) is called a *model* for F, and one also writes
+::: info Definition 6.9.
+A (suitable) interpretation $\mathcal{A}$ for which a formula $F$ is true, (i.e., $\mathcal{A}(F) = 1$) is called a *model* for $F$, and one also writes
 
-A |= F.
+$\mathcal{A} \models F$.
 
-More generally, for a set M of formulas, a (suitable) interpretation for which all formulas in M are true is called a model for M, denoted as
+More generally, for a set M of formulas, a (suitable) interpretation for which all formulas in $M$ are true is called a model for $M$, denoted as
 
-A |= M.
+$\mathcal{A} \models M$.
 
-If A is not a model for M one writes A 6|= M.
+If $\mathcal{A}$ is not a model for M one writes $\mathcal{A} \not\models M$.
+:::
 
-### **6.3.4 Connection to Proof Systems**
+### 6.3.4. Connection to Proof Systems
 
 We now explain how the semantics of a logic (the function σ in Definition 6.8) is connected to the semantics of a proof systems (the function τ in Definition 6.1).
 
