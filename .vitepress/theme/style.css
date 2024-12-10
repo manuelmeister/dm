@@ -155,8 +155,8 @@ sup.footnote-ref {
 }
 
 .grid-rows {
-    display: grid;
-    grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .grid-rows > div {
@@ -168,6 +168,14 @@ sup.footnote-ref {
   @media (min-width: 768px) {
     margin-bottom: 8px;
   }
+}
+
+.grid-cols {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 16px;
+  row-gap: 8px;
+  margin: 8px 0;
 }
 
 @media (min-width: 1440px) {
@@ -196,11 +204,11 @@ sup.footnote-ref {
 
 mjx-container {
   overflow-x: auto;
-  display: inline-flex;
+  display: inline;
   min-height: 1lh;
   overflow-y: hidden;
   line-height: 1lh;
-  vertical-align: top;
+  vertical-align: baseline;
   user-select: all;
 }
 
