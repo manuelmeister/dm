@@ -970,15 +970,15 @@ For an interpretation (structure) $\mathcal{A} = (U, φ, ψ, ξ)$, we define the
   - If $F$ is of the form $F = P(t_1, . . . , t_k)$ for terms $t_1, … , t_k$ and a $k$-ary predicate symbol $P$, then $\mathcal{A}(F) = ψ(P)(\mathcal{A}(t_1), … , \mathcal{A}(t_k))$.
   - If F is of the form $∀x~G$ or $∃x~G$, then let $A_{[x→u]}$ for $u$ in $U$ be the same structure as $\mathcal{A}$ except that $ξ(x)$ is overwritten by u (i.e., $ξ(x) = u$):  
      
-     $A(\forall x\,G) =
+     $\mathcal{A}(\forall x\,G) =
      \begin{cases}
-     1 & \text{if } A_{[x \to u]}(G) = 1 \text{ for all } u \text{ in } U \\
+     1 & \text{if } \mathcal{A}_{[x \to u]}(G) = 1 \text{ for all } u \text{ in } U \\
      0 & \text{else}
      \end{cases}$
      
-     $A(\exists x\,G) = 
+     $\mathcal{A}(\exists x\,G) = 
      \begin{cases}
-       1 & \text{if } A_{[x \to u]}(G) = 1 \text{ for some } u\text{ in }U \\
+       1 & \text{if } \mathcal{A}_{[x \to u]}(G) = 1 \text{ for some } u\text{ in }U \\
        0 & \text{else}
      \end{cases}$
 :::
