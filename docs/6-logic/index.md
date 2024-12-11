@@ -953,7 +953,13 @@ $P^{\mathcal{A}}$ is the "evenness" predicate (i.e., $P^{\mathcal{A}}(x) = 1$ if
 
 For obvious reasons, we will say (see below) that the formula evaluates to true for this structure.
 
-Another suitable structure $\mathcal{A}$ for $F$ is defined by $U^{\mathcal{A}} = ℝ$, $a^{\mathcal{A}} = 2$, $f^{\mathcal{A}}(x, y) = xy$ and by $P^{\mathcal{A}}(x) = 1$ if and only if $x ≥ 0$ (i.e., $P^{\mathcal{A}}$ is the "positiveness" predicate). For this structure, $F$ evaluates to false (since, for example, $x = −2$ makes $P(x)$ and $P(f(x, a)) = P(2x)$ false).
+Another suitable structure $\mathcal{A}$ for $F$ is defined by <br>
+$U^{\mathcal{A}} = ℝ$,<br>
+$a^{\mathcal{A}} = 2$,<br>
+$f^{\mathcal{A}}(x, y) = xy$,<br>
+$P^{\mathcal{A}}(x) = 1$ if and only if $x ≥ 0$ (i.e., $P^{\mathcal{A}}$ is the "positiveness" predicate).
+
+For this structure, $F$ evaluates to false (since, for example, $x = −2$ makes $P(x)$ and $P(f(x, a)) = P(2x)$ false).
 :::
 
 The semantics of a formula is now defined in the natural way as already implicitly discussed in [Section 2.4]().
