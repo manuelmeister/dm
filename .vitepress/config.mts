@@ -63,6 +63,10 @@ export default defineConfig({
     footer: {
       message: "No guarantee for correctness or completeness. Use at your own risk.<br> All rights belong to the Ueli Maurer and respective authors.",
     },
+    lastUpdated: true,
+    editLink: {
+      pattern: 'https://github.com/manuelmeister/dm/edit/main/docs/:path'
+    },
 
 
     sidebar: false,
