@@ -43,6 +43,10 @@ export default defineConfig({
       { text: 'Logic', link: '/6-logic' },
     ],
 
+    search: {
+      provider: 'local'
+    },
+
     aside: "left",
     outline: {
       label: "In this chapter",
