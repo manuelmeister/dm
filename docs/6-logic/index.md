@@ -989,7 +989,7 @@ For an interpretation (structure) $\mathcal{A} = (U, φ, ψ, ξ)$, we define the
      \end{cases}$
 :::
 
-This definition defines the function $σ(F, \mathcal{A})$ of [Definition 6.8](#definition-6-8). Note that the definition is recursive not only on formulas (see the second bullet of the definition), but also on structures. Namely, $\mathcal{A}(∀x G)$ and $\mathcal{A}(∃x G)$ are defined in terms of all structures $\mathcal{A}[x→u](G)$ for $u$ in $U$. To evaluate the truth value of a formula $F = ∀x~G$ one needs to apply [Definition 6.36](#definition-6-36) recursively, for formula $G$ and all structures $\mathcal{A}[x→u]$ .
+This definition defines the function $σ(F, \mathcal{A})$ of [Definition 6.8](#definition-6-8). Note that the definition is recursive not only on formulas (see the second bullet of the definition), but also on structures. Namely, $\mathcal{A}(∀x G)$ and $\mathcal{A}(∃x G)$ are defined in terms of all structures $\mathcal{A}_{[x→u]}(G)$ for $u$ in $U$. To evaluate the truth value of a formula $F = ∀x~G$ one needs to apply [Definition 6.36](#definition-6-36) recursively, for formula $G$ and all structures $\mathcal{A}_{[x→u]}$ .
 
 The basic concepts discussed in [Section 6.3](#_6-3-elementary-general-concepts-in-logic) such as satisfiable, tautology, model, logical consequence, and equivalence, are now immediately instantiated for predicate logic.
 
