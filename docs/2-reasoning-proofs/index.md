@@ -472,7 +472,7 @@ The following example shows a distributive law for ∧ and ∨. Such laws will b
 
 We summarize the basic equivalences of propositional logic:
 
-#### **Lemma 2.1.**
+**Lemma 2.1.**
 
 - 1) A ∧ A ≡ A and A ∨ A ≡ A *(idempotence);*
 - 2) A ∧ B ≡ B ∧ A and A ∨ B ≡ B ∨ A *(commutativity of* ∧ and ∨);
@@ -1053,7 +1053,7 @@ One of the most important proof technique in discrete mathematics are proofs by 
 
 A proof by induction consists of two steps:
 
-### **Proof by induction:**
+#### **Proof by induction:**
 
 - 1. *Basis step.*43 Prove P(0).
 - 2. *Induction step.* Prove that for any arbitrary n we have P(n) =⇒ P(n+1).
