@@ -18,12 +18,13 @@ export default {
     enhanceApp({app, router, siteData}) {
         if (typeof window !== 'undefined') {
             watch(() => router.route.path, (path) => {
-                if (tooltip.value && !Array.isArray(tooltip.value)) {
-                    tooltip.value.destroy();
-                }
                 setTimeout(() => {
-                    if (tooltip.value && !Array.isArray(tooltip.value)) {
-                        tooltip.value.destroy();
+                    if (tooltip.value) {
+                        if (Array.isArray(tooltip.value)) {
+                            tooltip.value.forEach((t) => t.destroy());
+                        } else {
+                            tooltip.value.destroy();
+                        }
                     }
                     tooltip.value = tippy('.footnote-ref>a', {
                         content(ref) {
@@ -48,8 +49,33 @@ export default {
                 interactive: true,
             })
         });
+        onContentUpdated(() => {
+            debugger
+            if (tooltip.value) {
+                if (Array.isArray(tooltip.value)) {
+                    tooltip.value.forEach((t) => t.unmount() && t.destroy());
+                } else {
+                    tooltip.value.unmount();
+                    tooltip.value.destroy();
+                }
+            }
+            tooltip.value = tippy('.footnote-ref>a', {
+                content(ref) {
+                    const id = ref.getAttribute('href')!;
+                    return document.querySelector(id).innerHTML.replace(/<a href="#fnref[^"]+" class="footnote-backref">↩︎<\/a>/g, '');
+                },
+                allowHTML: true,
+                interactive: true,
+            })
+        })
         onUnmounted(() => {
-            tooltip.value.destroy();
+            if (tooltip.value) {
+                if (Array.isArray(tooltip.value)) {
+                    tooltip.value.forEach((t) => t.destroy());
+                } else {
+                    tooltip.value.destroy();
+                }
+            }
         });
     }
 } satisfies Theme

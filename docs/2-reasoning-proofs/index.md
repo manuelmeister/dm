@@ -15,10 +15,10 @@ We often simply say "statement" instead of "mathematical statement". A mathemati
 
 [^1]:The term "theorem" is usually used for an important result, whereas a lemma is an intermediate, often technical result, possibly used in several subsequent proofs. A corollary is a simple consequence (e.g. a special case) of a theorem or lemma.
 
-- 71 is a prime number.
-- If p is a prime number, then 2 p − 1 is also a prime number.
-- Every natural number is the sum of at most four square numbers. (Example: 22 = 42 + 22 + 12 + 12 and 74 = 62 + 52 + 32 + 22 .)
-- Every even natural number greater than 2 can be expressed as the sum of two primes.[^3] For example, 108 = 37 + 71 and 162 = 73 + 89.
+- $71$ is a prime number.
+- If $p$ is a prime number, then $2^{p − 1}$ is also a prime number.
+- Every natural number is the sum of at most four square numbers. (Example: $22 = 42 + 22 + 12 + 12$ and $74 = 62 + 52 + 32 + 22$ .)
+- Every even natural number greater than $2$ can be expressed as the sum of two primes.[^3] For example, $108 = 37 + 71$ and $162 = 73 + 89$.
 - Any $n$ lines $ℓ_1$, … , $ℓ_n$ in the plane, no two of which are parallel, intersect in one point (see [Example 2.4](#example-2-4)).
 - For the chess game there exists a winning strategy for the player making the first move (playing "white").
 
