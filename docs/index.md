@@ -2,7 +2,7 @@
 layout: home
 hero:
   name: Diskrete Mathematik
-  text: Vorlesung HS2024
+  text: Skript 2024
   tagline: "von Ueli Maurer"
   image: /me.jpg
   actions:
