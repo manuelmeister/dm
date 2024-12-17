@@ -50,7 +50,7 @@ Here a is called the *dividend*, d is called the *divisor*, q is called the *quo
 
 We define S to be the set of possible nonnegative remainders:
 
-$S\ \stackrel{{\rm def}}{{=}}\ \{s|\ s\geq0\ \ \mbox{and}\ \ a=dt+s\ \ \mbox{for some}\ t\in\mathbb{Z}\}$.
+$S\ \stackrel{def}{=}\ \{s|\ s\geq0\ \ \mbox{and}\ \ a=dt+s\ \ \mbox{for some}\ t\in\mathbb{Z}\}$.
 
 We prove the following three claims by first proving 1), then proving that 1) implies 2), and then proving that 2) implies 3).
 

@@ -18,6 +18,30 @@ export default defineConfig({
     math: true,
     config: (md) => {
       md.use(footnote);
+      md.renderer.rules.footnote_caption = (tokens, idx/*, options, env, slf */) => {
+        let n = Number(tokens[idx].meta.label).toString()
+
+        if (tokens[idx].meta.subId > 0) n += `:${tokens[idx].meta.subId}`
+
+        return `[${n}]`
+      };
+      md.renderer.rules.footnote_anchor_name = (tokens, idx, options, env, slf) => {
+        const n = Number(tokens[idx].meta.label).toString()
+        let prefix = ''
+
+        if (typeof env.docId === 'string') prefix = `-${env.docId}-`
+
+        return prefix + n
+      };
+      md.renderer.rules.footnote_ref = (tokens, idx, options, env, slf) => {
+        const id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf)
+        const caption = slf.rules.footnote_caption(tokens, idx, options, env, slf)
+        let refid = id
+
+        if (tokens[idx].meta.subId > 0) refid += `:${tokens[idx].meta.subId}`
+
+        return `<sup class="footnote-ref"><a href="#fn${id}" id="fnref${refid}">${caption}</a></sup>`
+      };
       const originalRender = md.renderer.rules.math_inline!;
 
       md.renderer.rules.math_inline = (tokens, idx, options, env, self) => {
@@ -74,5 +98,12 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/manuelmeister/dm' }
     ]
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => ['center'].includes(tag)
+      }
+    }
   }
 })

@@ -191,6 +191,18 @@ sup.footnote-ref {
   float: right;
 }
 
+.tippy-content p {
+  line-height: 1.5;
+}
+
+.tippy-content p:last-child {
+  margin-bottom: 0;
+}
+
+.tippy-content p:first-child {
+  margin-top: 0;
+}
+
 @media (min-width: 1440px) {
 
   .VPDoc:not(.has-sidebar) .aside-container {

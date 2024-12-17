@@ -615,7 +615,7 @@ Similarly, one can naturally define the unary predicates even(x) and odd(x).
 
 For any universe U with an order relation ≤ (e.g. U = N or U = R), the binary (i.e., k = 2) predicate less(x, y) can be defined as
 
-$$\operatorname{\mathsf{less}}(x,y)\;=\;{\left\{\begin{array}{l l}{1}&{{\mathrm{if~}}x<y}\\ {0}&{{\mathrm{else.}}}\end{array}\right.}$$
+$$\operatorname{\mathsf{less}}(x,y)\;=\;{\left\{\begin{array}{l l}{1}&{\mathrm{if~}x<y}\\ {0}&{\mathrm{else.}}\end{array}\right.}$$
 
 However, in many cases we write binary predicates in a so-called "infix" notation, i.e., we simply write x < y instead of less(x, y).
 
