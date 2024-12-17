@@ -3,8 +3,8 @@ import {h, onBeforeUpdate, onMounted, onUnmounted, onUpdated, reactive, ref, wat
 import type {Theme} from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
-import 'tippy.js/dist/tippy.css';
 import tippy from "tippy.js";
+import {onContentUpdated} from "vitepress";
 
 const tooltip = ref(null);
 
@@ -32,7 +32,6 @@ export default {
                         },
                         allowHTML: true,
                         interactive: true,
-                        theme: 'light',
                     })
                 }, 0)
             })
@@ -47,7 +46,6 @@ export default {
                 },
                 allowHTML: true,
                 interactive: true,
-                theme: 'light',
             })
         });
         onUnmounted(() => {
