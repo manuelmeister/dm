@@ -178,6 +178,19 @@ sup.footnote-ref {
   margin: 8px 0;
 }
 
+.cells {
+  display: flex;
+  padding: 0 16px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  column-gap: 42px;
+  row-gap: 8px;
+}
+
+.right {
+  float: right;
+}
+
 @media (min-width: 1440px) {
 
   .VPDoc:not(.has-sidebar) .aside-container {

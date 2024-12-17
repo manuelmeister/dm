@@ -6,7 +6,7 @@ In Chapter 2 we have introduced some basic concepts of logic, but the treatment 
 
 At a very general level, the goal of logic is to provide a framework for expressing mathematical statements and for expressing and verifying proofs for such statements. A more ambitious, secondary goal can be to provide tools for *automatically* or semi-automatically generating a proof for a given statement.
 
-A treatment of logic usually begins with a chapter on propositional logic1 [(see Section 6.5)](#_6-5-propositional-logic), followed by a chapter on predicate (or first-order) logic[^2] [(see Section 6.6)](#_6-6-predicate-logic-first-order-logic), which can be seen as an extension of propositional logic. There are several other logics which are useful in Computer Science and in mathematics, including temporal logic, modal logic, intuitionistic logic, and logics for reasoning about knowledge and about uncertainty. Most if not all relevant logics contain the logical operators from propositional logic, i.e., $\land$, $\lor$, $¬$ (and the derived operators $→$ and $↔$), as well as the quantifiers ($∀$ and $∃$) from predicate logic.
+A treatment of logic usually begins with a chapter on propositional logic[^1] [(see Section 6.5)](#_6-5-propositional-logic), followed by a chapter on predicate (or first-order) logic[^2] [(see Section 6.6)](#_6-6-predicate-logic-first-order-logic), which can be seen as an extension of propositional logic. There are several other logics which are useful in Computer Science and in mathematics, including temporal logic, modal logic, intuitionistic logic, and logics for reasoning about knowledge and about uncertainty. Most if not all relevant logics contain the logical operators from propositional logic, i.e., $\land$, $\lor$, $¬$ (and the derived operators $→$ and $↔$), as well as the quantifiers ($∀$ and $∃$) from predicate logic.
 
 [^1]:German: Aussagenlogik
 
@@ -32,7 +32,7 @@ By a statement type we mean for example the class of statements of the form that
 
 Consider a fixed type of statements. Let $\mathcal{S} ⊆ Σ^∗$ be the set of (syntactic representations of) mathematical statements of this type, and let $\mathcal{P} ⊆ Σ^∗$ be the set of (syntactic representations of) proof strings.[^4]
 
-[^3]:For example, in some treatments the symbol $⇒$ is used for $→$, which can be confusing.
+[^3]:For example, in some treatments the symbol $\implies$ is used for $→$, which can be confusing.
 
 [^4]:Membership in $\mathcal{S}$ and also in $\mathcal{P}$ is assumed to be efficiently checkable (for some notion of efficiency).
 
@@ -186,7 +186,7 @@ As mentioned in a footnote, a type of proof system of special interest are so-ca
 
 An important extension of the concept of proof systems are so-called *interactive proofs*.[^16] In such a system, the proof is not a bit-string, but it consists of an interaction (a protocol) between the prover and the verifier, where one tolerates an immensely small (e.g. exponentially small) probability that a verifier accepts a "proof" for a false statement. The reason for considering such interactive proofs are:
 
-- Such interactive proofs can exist for statements for which a classical (noninteractive) proof does not exist. For example, there exists an interactive proof system for the *non-*Hamiltonicity of graphs.
+- Such interactive proofs can exist for statements for which a classical (noninteractive) proof does not exist. For example, there exists an interactive proof system for the *non-Hamiltonicity* of graphs.
 - Such interactive proofs can have a special property, called *zero-knowledge*, which means that the verifier learns absolutely nothing (in a well-defined sense) during the protocol, except that the statement is true. In particular, the verifier cannot prove the statement to somebody else.
 - Zero-knowledge proofs (especially non-interactive versions, so-called NIZK's) are of crucial importance in a large number of applications, for example in sophisticated blockchain systems.
 
@@ -323,7 +323,7 @@ $F ≡ G \overset{_{~def}}\iff F \models G$ and $G \overset{_~}\models F$.
 </center>
 :::
 
-A set $M$ of formulas can be interpreted as the conjunction (AND) of all formulas in M since an interpretation is a model for M if and only if it is a model for all formulas in M. 34 If M is the empty set, then, by definition, every interpretation is a model for M, i.e., the empty set of formulas corresponds to a tautology.
+A set $M$ of formulas can be interpreted as the conjunction (AND) of all formulas in M since an interpretation is a model for M if and only if it is a model for all formulas in M. [^34] If M is the empty set, then, by definition, every interpretation is a model for M, i.e., the empty set of formulas corresponds to a tautology.
 
 **Definition 6.14.** If $F$ is a tautology, one also writes $\models F$.
 
@@ -345,7 +345,7 @@ If $F$ and $G$ are formulas, then also $¬F$, $(F ∧ G)$, and $(F ∨ G)$ are f
 
 [^33]:The symbol $\models$ is used in two slightly different ways: with a formula (or set of formulas), and also with an interpretation on the left side. This makes sense because one can consider a set $M$ of formulas as defining a set of interpretations, namely the set of models for $M$.
 
-[^34]:More formally, let G be any formula (one of the many equivalent ones) that corresponds to the conjunction of all formulas in M. Then M |= F if and only if G |= F.
+[^34]:More formally, let $G$ be any formula (one of the many equivalent ones) that corresponds to the conjunction of all formulas in $M$. Then $M \models F$ if and only if $G \models F$.
 
 A formula of the form $(F ∧ G)$ is called a conjunction, and a formula of the form $(F ∨ G)$ is called a disjunction.
 
@@ -455,9 +455,9 @@ Consider two theories $T$ and $T^′$ , where $T^′$ contains all the axioms of
 The formula $¬∃x∀y( P(y, x) ↔ ¬P(y, y))$ is a tautology in predicate logic, as proved in [Section 6.6.9.](#_6-6-9-an-example-theorem-and-its-interpretations)
 :::
 
-## 6.4 Logical Calculi
+## 6.4. Logical Calculi
 
-### 6.4.1 Introduction
+### 6.4.1. Introduction
 
 As mentioned in [Section 6.3.1](#_6-3-1-the-general-goal-of-logic), the goal of logic is to provide a framework for expressing and verifying proofs of mathematical statements. A proof of a theorem should be a purely syntactic derivation consisting of simple and easily verifiable steps. In each step, a new syntactic object (typically a formula, but it can also be a more general object involving formulas) is derived by application of a derivation rule or inference rule, and at the end of the derivation, the desired theorem appears. The syntactic verification of a proof does not require any intelligence or "reasoning between the lines", and it can in particular be performed by a computer.
 
@@ -469,158 +469,230 @@ When defining a calculus, there is a trade-off between simplicity (e.g. a small 
 
 It is beyond the scope of this course to provide an extensive treatment of various logical calculi.
 
-### **6.4.2 Hilbert-Style Calculi**
+### 6.4.2. Hilbert-Style Calculi
 
 As mentioned, there are different types of logical calculi. For the perhaps most intuitive type of calculus, the syntactic objects that are manipulated are formulas. This is sometimes called a Hilbert-style calculus. There is also another type of calculi, often called *sequent calculi* (which we will not discuss in this course), where the syntactic objects are more complex objects than just formulas. The following refers to Hilbert-style calculi.
 
-**Definition 6.17.** A *derivation rule* or *inference rule*36 is a rule for deriving a formula from a set of formulas (called the precondition or premises). We write
+::: info Definition 6.17.{#definition-6-17}
+A **derivation rule** or **inference rule** [^36] is a rule for deriving a formula from a set of formulas (called the precondition or premises). We write
 
 $$\{F_{1},\ldots,F_{k}\}\;\;\vdash_{R}\;G$$
 
-if G can be derived from the set {F1, . . . , Fk} by rule R. Formally, a derivation rule R is a relation from the power set of the set of formulas to the set of formulas, and the symbol ⊢R can be understood as the relation symbol.
+if $G$ can be derived from the set $\{F_1, … , F_k\}$ by rule $R$. Formally, a derivation rule $R$ is a relation from the power set of the set of formulas to the set of formulas, and the symbol $⊢_R$ can be understood as the relation symbol.
+:::
 
-The derivation rule {F1, . . . , Fk} ⊢R G is sometimes also written as
+The derivation rule $\{F_1, … , F_k\} ⊢_R G$ is sometimes also written as
 
-$${\frac{F_{1}\;\;F_{2}\;\;\cdot\cdot\;\;F_{k}}{G}}\;\;\;\;(R),$$
+<center>
+
+${\frac{F_{1}\;\;F_{2}\;\;\cdots\;\;F_{k}}{G}}\;\;\;\;(R)$,
+
+</center>
 
 where spaces separate the formulas above the bar.
 
-Derivation is a purely syntactic concept. Derivation rules apply to syntactically correct (sets of) formulas. Some derivation rules (e.g. resolution, see Section 6.5.5) require the formulas to be in a specific format.
+Derivation is a purely syntactic concept. Derivation rules apply to syntactically correct (sets of) formulas. Some derivation rules (e.g. resolution, see [Section 6.5.5](#_6-5-5-the-resolution-calculus-for-propositional-logic)) require the formulas to be in a specific format.
 
-**Definition 6.18.** The *application of a derivation rule* R to a set M of formulas means
+::: info Definition 6.18.{#definition-6-18}
+The *application of a derivation rule* $R$ to a set $M$ of formulas means
 
-- 1. Select a subset N of M such that N ⊢R G for some formula G.
-- 2. Add G to the set M (i.e., replace M by M ∪ {G}).
+1. Select a subset $N$ of $M$ such that $N ⊢_R G$ for some formula $G$.
+2. Add $G$ to the set $M$ (i.e., replace $M$ by $M ∪ \{G\}$).
+:::
 
-**Definition 6.19.** A (logical) *calculus*37 K is a finite set of derivation rules: K = {R1, . . . , Rm}. 38
+::: info Definition 6.19.{#definition-6-19}
+A (logical) *calculus*[^37] $K$ is a finite set of derivation rules: $K = \{R_1, … , R_m\}$. [^38]
+:::
 
 [^36]:German: Schlussregel
 
 [^37]:German: Kalkül
 
-[^38]:A calculus also corresponds to a relation from the power set of the set of formulas to the set of formulas, namely the union of the relations corresponding the the rules of the calculus.
+[^38]:A calculus also corresponds to a relation from the power set of the set of formulas to the set of formulas, namely the union of the relations corresponding the rules of the calculus.
 
-**Definition 6.20.** A *derivation*39 of a formula G from a set M of formulas in a calculus K is a finite sequence (of some length n) of applications of rules in K (see Def. 6.18), leading to G. More precisely, we have
+::: info Definition 6.20.{#definition-6-20}
+A *derivation*[^39] of a formula $G$ from a set $M$ of formulas in a calculus $K$ is a finite sequence (of some length $n$) of applications of rules in $K$ (see [Def. 6.18](#definition-6-18)), leading to $G$. More precisely, we have
 
-- M0 := M,
-- Mi := Mi−1 ∪ {Gi} for 1 ≤ i ≤ n, where N ⊢Rj Gi for some N ⊆ Mi−1 and for some Rj ∈ K, and where
-- Gn = G.
+- $M_0 := M$,
+- $M_i := M_{i−1} ∪ \{G_i\}$ for $1 ≤ i ≤ n$, where $N ⊢_{R_j} G_i$ for some $N ⊆ M_{i−1}$ and for some $R_j ∈ K$, and where
+- $G_n = G$.
 
 We write
 
 $$M\ \vdash_{K}\ G$$
 
-if there is a derivation of G from M in the calculus K.
+if there is a derivation of $G$ from $M$ in the calculus $K$.
+:::
 
 The above treatment of syntactic derivation is not completely general. In some contexts (e.g. in so-called Natural Deduction for predicate logic, which is a so-called sequent calculus), one needs to keep track not only of the derived formulas, but also of the history of the derivation, i.e., the derivation steps that have led to a given formula.
 
-Typically such a derivation rule is defined as a rule that involves *place-holders* for formulas (such as F and G), which can be instantiated with any concrete formulas. In order to apply such a rule one must instantiate each place-holder with a concrete formula.
+Typically such a derivation rule is defined as a rule that involves *place-holders* for formulas (such as $F$ and $G$), which can be instantiated with any concrete formulas. In order to apply such a rule one must instantiate each place-holder with a concrete formula.
 
-**Example 6.6.** Two derivation rules for propositional and predicate logic are
+::: tip Example 6.6. {#example-6-6}
+Two derivation rules for propositional and predicate logic are
 
-$\{F\wedge G\}\ \ \vdash_{R}\ F$ and $\{F,G\}\ \ \vdash_{R^{\prime}}\ F\wedge G$
+<center>
 
-The left rule states that if one has already derived a formula of the form F ∧ G, where F and G are arbitrary formulas, then one can derive F. The second rule states that for any two formulas F and G that have been derived, one can also derive the formula F ∧ G. For example, an application of the right rule yields
+$\{F\wedge G\}\ \ \vdash_{R}\ F\quad$ and $\quad\{F,G\}\ \ \vdash_{R^{\prime}}\ F\wedge G$
 
-$$\{A\lor B,\,C\lor D\}\ \vdash\ (A\lor B)\land(C\lor D),$$
+</center>
 
-where F is instantiated as A ∨ B and G is instantiated as C ∨ D. More rules are discussed in Section 6.4.4.
+The left rule states that if one has already derived a formula of the form $F ∧ G$, where $F$ and $G$ are arbitrary formulas, then one can derive $F$. The second rule states that for any two formulas $F$ and $G$ that have been derived, one can also derive the formula $F ∧ G$. For example, an application of the right rule yields
 
-### **6.4.3 Soundness and Completeness of a Calculus**
+<center>
+
+$\{A\lor B,\,C\lor D\}\ \vdash\ (A\lor B)\land(C\lor D)$,
+
+</center>
+
+where $F$ is instantiated as $A ∨ B$ and $G$ is instantiated as $C ∨ D$. More rules are discussed in [Section 6.4.4.](#_6-4-4-some-derivation-rules)
+:::
+
+### 6.4.3. Soundness and Completeness of a Calculus
 
 A main goal of logic is to formalize reasoning and proofs. One wants to perform purely syntactic manipulations on given formulas, defined by a calculus, to arrive at a new formula which is a logical consequence. In other words, if we use a calculus, the syntactic concept of derivation (using the calculus) should be related to the semantic concept of logical consequence.
 
 [^39]:German: Herleitung
 
-**Definition 6.21.** A derivation rule R is *correct* if for every set M of formulas and every formula F, M ⊢R F implies M |= F:
+::: info Definition 6.21.{#definition-6-21}
+A derivation rule $R$ is *correct* if for every set $M$ of formulas and every formula $F$, $M ⊢_R F$ implies $M \models F$:
 
-M ⊢R F =⇒ M |= F.
+<center>
 
-**Example 6.7.** The two rules of Example 6.6 are correct, but the rule
+$M ⊢_R F \implies M \models F$.
 
-{F → G, G → F} ⊢ F ∧ G
+</center>
+:::
+
+::: tip Example 6.7. {#example-6-7}
+The two rules of [Example 6.6](#example-6-6) are correct, but the rule
+
+$${F → G, G → F} ⊢ F ∧ G$$
 
 is not correct. To see this, note that if F and G are both false, then F → G and G → F are true while F ∧ G is false.
+:::
 
-**Definition 6.22.** A calculus K is *sound*40 or *correct* if for every set M of formulas and every formula F, if F can be derived from M then F is also a logical consequence of M:
+::: info Definition 6.22.{#definition-6-22}
+A calculus $K$ is **sound**[^40] or **correct** if for every set $M$ of formulas and every formula $F$, if $F$ can be derived from $M$ then $F$ is also a logical consequence of $M$:
 
-$$M\vdash_{K}F\implies M\vDash F,$$
+<center>
 
-and K is *complete*41 if for every M and F, if F is a logical consequence of M, then F can also be derived from M:
+$M\vdash_{K}F\implies M\vDash F$,
 
-$$M\models F\implies M\vdash_{K}F.$$
+</center>
+
+and $K$ is **complete**[^41] if for every $M$ and $F$, if $F$ is a logical consequence of $M$, then $F$ can also be derived from $M$:
+
+<center>
+
+$M\models F\implies M\vdash_{K}F$.
+
+</center>
+:::
 
 A calculus is hence sound and complete if
 
-$$M\vdash_{K}F\iff M\vDash F,$$
+$$M\vdash_{K}F\iff M\models F,$$
 
-i.e., if logical consequence and derivability are identical. Clearly, a calculus is sound if and only if every derivation rule is correct. One writes ⊢K F if F can be derived in K from the empty set of formulas. Note that if ⊢K F for a sound calculus, then |= F, i.e., F is a tautology.
+i.e., if logical consequence and derivability are identical. Clearly, a calculus is sound if and only if every derivation rule is correct. One writes $⊢_K F$ if $F$ can be derived in $K$ from the empty set of formulas. Note that if $⊢_K F$ for a sound calculus, then $\models F$, i.e., $F$ is a tautology.
 
-### **6.4.4 Some Derivation Rules**
+### 6.4.4. Some Derivation Rules
 
-In this section we discuss a few derivation rules for propositional logic and any logic which contains propositional logic. We do not provide a complete and compactly defined calculus, just a few rules. For singleton sets of formulas we omit the brackets "{" and "}".
+In this section we discuss a few derivation rules for propositional logic and any logic which contains propositional logic. We do not provide a complete and compactly defined calculus, just a few rules. For singleton sets of formulas we omit the brackets "$\{$" and "$\}$".
 
-All equivalences, including the basic equivalences of Lemma 6.1, can be used as derivation rules. For example, the following derivation rules are correct:
+All equivalences, including the basic equivalences of [Lemma 6.1](#lemma-6.1), can be used as derivation rules. For example, the following derivation rules are correct:
 
-¬¬F ⊢ F F ∧ G ⊢ G ∧ F ¬(F ∨ G) ⊢ ¬F ∧ ¬G
+<div class="cells">
+
+$$¬¬F \;⊢\; F$$
+$$F ∧ G \;⊢\; G ∧ F$$
+$$¬(F ∨ G) \;⊢\; ¬F ∧ ¬G$$
+
+</div>
 
 Other natural and correct rules, which capture logical consequences, not equivalences, are:
 
-F ∧ G ⊢ F F ∧ G ⊢ G {F, G} ⊢ F ∧ G
+<div class="cells">
+
+$$F ∧ G \;⊢\; F$$
+$$F ∧ G \;⊢\; G$$
+$$\{F, G\} \;⊢\; F ∧ G$$
+$$F\,\;⊢\; F\lor G$$
+$$F\,\;⊢\; G\lor F$$
+$$\{F,\,F\to G\}\,\;⊢\; G$$ 
+$$\{F\lor G,\,F\to H,\,G\to H\}\,\;⊢\; H$$
+
+</div>
 
 [^40]:German: widerspruchsfrei
 
 [^41]:German: vollständig
 
-$F\,\vdash F\lor G$ $F\,\vdash G\lor F$ $\{F,\,F\to G\}\,\vdash G$ $\{F\lor G,\,F\to H,\,G\to H\}\,\vdash H$.
+Such rules are not necessarily independent. For example, the rule $F ∧ G \;⊢\; G ∧ F$ could be derived from the above three rules as follows: $F$ can be derived from $F ∧ G$ and $G$ can also be derived from $F ∧ G$, resulting in the set $\{F ∧ G, F, G\}$. $\{G, F\}$ is a subset of $\{F ∧ G, F, G\}$ and hence one of the above rules yields $\{G, F\} \;⊢\; G ∧ F$.
 
-Such rules are not necessarily independent. For example, the rule F ∧ G ⊢ G ∧ F could be derived from the above three rules as follows: F can be derived from F ∧ G and G can also be derived from F ∧ G, resulting in the set {F ∧ G, F, G}. {G, F} is a subset of {F ∧ G, F, G} and hence one of the above rules yields {G, F} ⊢ G ∧ F.
+The last rule discussed above captures case distinction (two cases). It states that if one knows that $F$ or $G$ is true and that each of them implies $H$, then we can conclude $H$. Such a proof step is in a sense non-constructive because it may not be known which of $F$ or $G$ is true.
 
-The last rule discussed above captures case distinction (two cases). It states that if one knows that F or G is true and that each of them implies H, then we can conclude H. Such a proof step is in a sense non-constructive because it may not be known which of F or G is true.
-
-To begin a derivation from the empty set of formulas, one can use any rule of the form ⊢ F, where F is a tautology. The best-known such rule is
+To begin a derivation from the empty set of formulas, one can use any rule of the form $⊢ F$, where $F$ is a tautology. The best-known such rule is
 
 $$\vdash\ F\lor\neg F$$
 
-called "tertium non datur (TND)" (in English: "there is no third [alternative]"), which captures the fact that a formula F can only be true or false (in which case ¬F is true); there is no option in between.42 Another rule for deriving a tautology is
+called "tertium non datur (TND)" (in English: "there is no third [alternative]"), which captures the fact that a formula $F$ can only be true or false (in which case $¬F$ is true); there is no option in between.[^42] Another rule for deriving a tautology is
 
 $$\vdash\ \lnot(F\leftrightarrow\lnot F).$$
 
-**Example 6.8.** The following rule can be understood as capturing the principle of proof by contradiction. (Why?)
+::: tip Example 6.8.{#example-6-8}
+The following rule can be understood as capturing the principle of proof by contradiction. (Why?)
 
-$$\{F\lor G,\;\neg G\}\;\;\vdash\;\;F.$$
+<center>
+
+$\{F\lor G,\;\neg G\}\;\;\vdash\;\;F$.
+
+</center>
 
 The reader can prove the correctness as an exercise.
+:::
 
 Which set of rules constitutes an adequate calculus is generally not clear, but some calculi have received special attention. One could argue both for a small set of rules (which are considered the fundamental ones from which everything else is derived) or for a large library of rules (so there is a large degree of freedom in finding a short derivation).
 
-### **6.4.5 Derivations from Assumptions**
+### 6.4.5. Derivations from Assumptions
 
-If in a sound calculus K one can derive G under the assumption F, i.e., one can prove F ⊢K G, then one has proved that F → G is a tautology, i.e., we have
+If in a sound calculus $K$ one can derive $G$ under the assumption $F$, i.e., one can prove $F ⊢_K G$, then one has proved that $F → G$ is a tautology, i.e., we have
 
-$$F\;\vdash_{K}G\;\;\;\Longrightarrow\;\;\models(F\to G).$$
+<center>
 
-[^42]:However, in so-called constructive or intuitionistic logic, this rule is not considered correct because its application does not require explicit knowledge of whether F or ¬F is true.
+$F\;\vdash_{K}G\;\;\;\Longrightarrow\;\;\models(F\to G)$.
+
+</center>
+
+[^42]:However, in so-called constructive or intuitionistic logic, this rule is not considered correct because its application does not require explicit knowledge of whether $F$ or $¬F$ is true.
 
 One could therefore also extend the calculus by the new rule
 
 $$\vdash(F\to G),$$
 
-which is sound. Here F and G can be expressions involving place-holders for formulas.
+which is sound. Here $F$ and $G$ can be expressions involving place-holders for formulas.
 
-**Example 6.9.** As a toy example, consider the rules ¬¬F ⊢ F and ¬(F∨G) ⊢ ¬F. Let H be an arbitrary formula. Using the second rule (and setting F = ¬H) we can obtain ¬(¬H ∨G) ⊢ ¬¬H. Thus, using the first rule (and setting F = H) we can obtain ¬¬H ⊢ H. Hence we have proved ¬(¬H ∨ G) ⊢ H. As usual, this holds for arbitrary formulas G and H and hence can be understood as a rule. When stated in the usual form (with place holders F and G, the rule would be stated as ¬(¬F ∨ G) ⊢ F.
+::: tip Example 6.9.{#example-6-9}
+As a toy example, consider the rules $¬¬F ⊢ F$ and $¬(F∨G) ⊢ ¬F$. Let $H$ be an arbitrary formula. Using the second rule (and setting $F = ¬H$) we can obtain $¬(¬H ∨G) ⊢ ¬¬H$. Thus, using the first rule (and setting $F = H$) we can obtain $¬¬H ⊢ H$. Hence we have proved $¬(¬H ∨ G) ⊢ H$. As usual, this holds for arbitrary formulas $G$ and $H$ and hence can be understood as a rule. When stated in the usual form (with place holders $F$ and $G$, the rule would be stated as $¬(¬F ∨ G) ⊢ F$.
 
-More generally, we can derive a formula G from several assumptions, for example {F1, F2} ⊢K G =⇒ |= (F1 ∧ F2) → G .
+More generally, we can derive a formula $G$ from several assumptions, for example
 
-### **6.4.6 Connection to Proof Systems**
+<center>
 
-Let us briefly explain the connection between logical calculi and the general concept of proof systems (Definition 6.2).
+$\{F_1, F_2\} ⊢_K G \implies \models (F_1 ∧ F_2) → G$.
 
-In a proof system allowing to prove statements of the form M |= G, one can let the set S of statements be the set of pairs (M, G). One further needs a precise syntax for expressing derivations. Such a syntax would, for example, have to include a way to express how place-holders in rules are instantiated. This aspect of a calculus is usually not made precise and therefore a logical calculus (alone) does not completely constitute a proof system in the sense of Definition 6.2. However, in a computerized system this needs to be made precise, in a language specific to that system, and such computerized system is hence a proof system in the strict sense of Section 6.2.
+</center>
+:::
+
+### 6.4.6. Connection to Proof Systems
+
+Let us briefly explain the connection between logical calculi and the general concept of proof systems ([Definition 6.2](#definition-6-2)).
+
+In a proof system allowing to prove statements of the form $M \models G$, one can let the set $S$ of statements be the set of pairs $(M, G)$. One further needs a precise syntax for expressing derivations. Such a syntax would, for example, have to include a way to express how place-holders in rules are instantiated. This aspect of a calculus is usually not made precise and therefore a logical calculus (alone) does not completely constitute a proof system in the sense of [Definition 6.2](#definition-6-2). However, in a computerized system this needs to be made precise, in a language specific to that system, and such computerized system is hence a proof system in the strict sense of [Section 6.2](#_6-2-proof-systems).
 
 ## 6.5. Propositional Logic
 
-We also refer to [Section 2.3]() where some basics of propositional logic were introduced informally and many examples were already given. This section concentrates on the formal aspects and the connection to [Section 6.3.](#_6-3-elementary-general-concepts-in-logic).
+We also refer to [Section 2.3]() where some basics of propositional logic were introduced informally and many examples were already given. This section concentrates on the formal aspects and the connection to [Section 6.3](#_6-3-elementary-general-concepts-in-logic).
 
 ### 6.5.1. Syntax
 
@@ -685,50 +757,69 @@ Specializing [Definition 6.13](#definition-6-13) to the case of propositional lo
 
 [^44]:German: (Wahrheits-)Belegung
 
-Specializing Definition 6.12 to the case of propositional logic, we see that G is a logical consequence of F, i.e., F |= G, if the function table of G contains a 1 for at least all argument for which the function table of F contains a 1. 45
+Specializing [Definition 6.12](#definition-6-12) to the case of propositional logic, we see that $G$ is a logical consequence of $F$, i.e., $F \models G$, if the function table of $G$ contains a $1$ for at least all argument for which the function table of $F$ contains a $1$. [^45]
 
-**Example 6.11.** F = (A ∧ ¬B) ∨ (B ∧ ¬C) is a logical consequence of A and ¬C, i.e., {A, ¬C} |= F. In contrast, F is not a logical consequence of A and B, i.e., {A, B} 6|= F.
+::: tip Example 6.11.{#example-6-11}
+$F = (A ∧ ¬B) ∨ (B ∧ ¬C)$ is a logical consequence of $A$ and $¬C$, i.e., $\{A, ¬C\} \models F$. In contrast, $F$ is not a logical consequence of $A$ and $B$, i.e., $\{A, B\} \not\models F$.
+:::
 
-The basic equivalences of Lemma 6.1 apply in particular to propositional logic.
+The basic equivalences of [Lemma 6.1](#lemma-6-1) apply in particular to propositional logic.
 
-### **6.5.4 Normal Forms**
+### 6.5.4. Normal Forms
 
-**Definition 6.25.** A *literal* is an atomic formula or the negation of an atomic formula.
+::: info Definition 6.25. {#definition-6-25}
+A **literal** is an atomic formula or the negation of an atomic formula.
+:::
 
-**Definition 6.26.** A formula F is in *conjunctive normal form (CNF)* if it is a conjunction of disjunctions of literals, i.e., if it is of the form
+::: info Definition 6.26. {#definition-6-26}
+A formula $F$ is in **conjunctive normal form (CNF)** if it is a conjunction of disjunctions of literals, i.e., if it is of the form
 
-F = (L11 ∨ · · · ∨ L1m1 ) ∧ · · · ∧ (Ln1 ∨ · · · ∨ Lnmn )
+$$F = (L_{11} ∨ \cdots ∨ L_{1m_1} ) ∧ \cdots ∧ (L_{n1} ∨ \cdots ∨ L_{nm_n} )$$
 
-for some literals Lij .
+for some literals $L_{ij}$.
+:::
 
-**Example 6.12.** The formula (A ∨ ¬B) ∧ (¬A ∨ B ∨ ¬D) ∧ ¬C is in CNF.
+::: tip Example 6.12.{#example-6-12}
+The formula $(A ∨ ¬B) ∧ (¬A ∨ B ∨ ¬D) ∧ ¬C$ is in CNF.
+:::
 
-**Definition 6.27.** A formula F is in *disjunctive normal form (DNF)* if it is a disjunction of conjunctions of literals, i.e., if it is of the form
+::: info Definition 6.27. {#definition-6-27}
+A formula F is in *disjunctive normal form (DNF)* if it is a disjunction of conjunctions of literals, i.e., if it is of the form
 
-F = (L11 ∧ · · · ∧ L1m1 ) ∨ · · · ∨ (Ln1 ∧ · · · ∧ Lnmn )
+$$F = (L_{11} ∧ \cdots ∧ L_{1m_1} ) ∨ \cdots ∨ (L_{n1} ∧ \cdots ∧ L_{nm_n} )$$
 
-for some literals Lij .
+for some literals $L_{ij}$.
+:::
 
-**Example 6.13.** The formula (B ∧ C) ∨ (¬A ∧ B ∧ ¬C) is in DNF.
+::: tip Example 6.13.{#example-6-13}
+The formula $(B ∧ C) ∨ (¬A ∧ B ∧ ¬C)$ is in DNF.
+:::
 
-**Theorem 6.4.** *Every formula is equivalent to a formula in CNF and also to a formula in DNF.*
+::: info Theorem 6.4. {#theorem-6-4}
+*Every formula is equivalent to a formula in CNF and also to a formula in DNF.*
+:::
 
-*Proof.* Consider a formula F with atomic formulas A1, . . . , An with a truth table of size 2 n.
+**Proof:** Consider a formula $F$ with atomic formulas $A_1, … , A_n$ with a truth table of size $2^n$.
 
-[^45]:If the truth values 0 and 1 were interpreted as numbers, then F |= G means that G is greater or equal to F for all arguments. This also explains why F |= G and G |= H together imply F |= H.
+[^45]:If the truth values $0$ and $1$ were interpreted as numbers, then $F \models G$ means that $G$ is greater or equal to $F$ for all arguments. This also explains why $F \models G$ and $G \models H$ together imply $F \models H$.
 
-Given such a formula F, one can use the truth table of F to derive an equivalent formula in DNF, as follows. For every row of the function table evaluating to 1 one takes the conjunction of the n literals defined as follows: If Ai = 0 in the row, one takes the literal ¬Ai , otherwise the literal Ai . This conjunction is a formula whose function table is 1 exactly for the row under consideration (and 0 for all other rows). Then one takes the disjunction of all these conjunctions. F is true if and only if one of the conjunctions is true, i.e., the truth table of this formula in DNF is identical to that of F.
+Given such a formula $F$, one can use the truth table of $F$ to derive an equivalent formula in DNF, as follows. For every row of the function table evaluating to $1$ one takes the conjunction of the $n$ literals defined as follows: If $A_i = 0$ in the row, one takes the literal $¬A_i$ , otherwise the literal $A_i$ . This conjunction is a formula whose function table is $1$ exactly for the row under consideration (and $0$ for all other rows). Then one takes the disjunction of all these conjunctions. $F$ is true if and only if one of the conjunctions is true, i.e., the truth table of this formula in DNF is identical to that of $F$.
 
-Given such a formula F, one can also use the truth table of F to derive an equivalent formula in CNF, as follows. For every row of the function table evaluating to 0 one takes the disjunction of the n literals defined as follows: If Ai = 0 in the row, one takes the literal Ai , otherwise the literal ¬Ai . This disjunction is a formula whose function table is 0 exactly for the row under consideration (and 1 for all other rows). Then one takes the conjunction of all these (row-wise) disjunctions. F is false if and only if all the disjunctions are false, i.e., the truth table of this formula in CNF is identical to that of F.
+Given such a formula $F$, one can also use the truth table of $F$ to derive an equivalent formula in CNF, as follows. For every row of the function table evaluating to $0$ one takes the disjunction of the $n$ literals defined as follows: If $A_i = 0$ in the row, one takes the literal $A_i$ , otherwise the literal $¬A_i$ . This disjunction is a formula whose function table is $0$ exactly for the row under consideration (and $1$ for all other rows). Then one takes the conjunction of all these (row-wise) disjunctions. $F$ is false if and only if all the disjunctions are false, i.e., the truth table of this formula in CNF is identical to that of $F$.
 
-**Example 6.14.** Consider the formula F = (A ∧ ¬B) ∨ (B ∧ ¬C) from above. The function table is
+::: tip Example 6.14.{#example-6-14}
+Consider the formula $F = (A ∧ ¬B) ∨ (B ∧ ¬C)$ from above. The function table is
 
-| A | B | C | (A | ∧ ¬B) | ∨ (B | ∧ ¬C) | 0 | 0 | 0 | 0 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 0 | 0 | 1 | 0 | 0 | 1 | 0 | 1 |  |  |  |
-| 0 | 1 | 1 | 0 | 1 | 0 | 0 | 1 |  |  |  |
-| 1 | 0 | 1 | 1 | 1 | 1 | 0 | 1 |  |  |  |
-| 1 | 1 | 1 | 0 |  |  |  |  |  |  |  |
+| $A$ | $B$ | $C$ | $(A ∧ ¬B) ∨ (B ∧ ¬C)$ |
+|:---:|:---:|:---:|:---------------------:|
+| $0$ | $0$ | $0$ |          $0$          |
+| $0$ | $0$ | $1$ |          $0$          |
+| $0$ | $1$ | $0$ |          $1$          |
+| $0$ | $1$ | $1$ |          $0$          |
+| $1$ | $0$ | $0$ |          $1$          |
+| $1$ | $0$ | $1$ |          $1$          |
+| $1$ | $1$ | $0$ |          $1$          |
+| $1$ | $1$ | $1$ |          $0$          |
 
 We therefore obtain the following DNF
 
@@ -739,12 +830,14 @@ as the disjunction of 4 conjunctions. And we obtain the following CNF
 $$F\;\equiv\;(A\lor B\lor C)\land(A\lor B\lor\neg C)\land(A\lor\neg B\lor\neg C)\land(\neg A\lor\neg B\lor\neg C).$$
 
 as the conjunction of 4 disjunctions.
+:::
 
-It is often useful to transform a given formula into an equivalent formula in a certain normal form, but the CNF and the DNF resulting from the truth table as described in the proof of Theorem 6.4 are generally exponentially long. In fact, in the above example F is already given in disjunctive normal form, and the procedure has resulted in a much longer (equivalent) formula in DNF.
+It is often useful to transform a given formula into an equivalent formula in a certain normal form, but the CNF and the DNF resulting from the truth table as described in the proof of [Theorem 6.4](#theorem-6-4) are generally exponentially long. In fact, in the above example $F$ is already given in disjunctive normal form, and the procedure has resulted in a much longer (equivalent) formula in DNF.
 
 A transformation to CNF or DNF can also be carried out by making use of the basic equivalences of propositional logic.
 
-**Example 6.15.** For the formula ¬ (A∧¬B)∨(B∧C) ∨D we derive an equivalent formula in CNF, using the basic equivalences of Lemma 6.1:
+::: tip Example 6.15.{#example-6-15}
+For the formula $¬((A∧¬B)∨(B∧C))∨D$ we derive an equivalent formula in CNF, using the basic equivalences of [Lemma 6.1](#lemma-6-1):
 
 $$
 \begin{aligned}
@@ -756,103 +849,129 @@ $$
 \end{aligned}
 $$
 
+In the first step we have used $F ∧ G ≡ ¬(¬F ∨ ¬G)$, which is a direct consequence of rule 8) of [Lemma 6.1](#lemma-6-1). In the second step we have applied rule 8) twice, etc.
+:::
 
-In the first step we have used F ∧ G ≡ ¬(¬F ∨ ¬G), which is a direct consequence of rule 8) of Lemma 6.1. In the second step we have applied rule 8) twice, etc.
+### 6.5.5. The Resolution Calculus for Propositional Logic
 
-### **6.5.5 The Resolution Calculus for Propositional Logic**
+Resolution is an important logical calculus that is used in certain computer algorithms for automated reasoning. The calculus is very simple in that it consists of a single derivation rule. The purpose of a derivation is to prove that a given set $M$ of formulas (or, equivalently, their conjunction) is unsatisfiable.
 
-Resolution is an important logical calculus that is used in certain computer algorithms for automated reasoning. The calculus is very simple in that it consists of a single derivation rule. The purpose of a derivation is to prove that a given set M of formulas (or, equivalently, their conjunction) is unsatisfiable.
+As mentioned earlier (see [Lemma 6.2](#lemma-6-2)), this also allows to prove that a formula $F$ is a tautology, which is the case if and only if $¬F$ is unsatisfiable. It also allows to prove that a formula $F$ is a logical consequence of a set $M$ of formulas (i.e., $M \models F$), as this is the case if and only if the set $M ∪ \{¬F\}$ is unsatisfiable (see [Lemma 6.3](#lemma-6-3)).
 
-As mentioned earlier (see Lemma 6.2), this also allows to prove that a formula F is a tautology, which is the case if and only if ¬F is unsatisfiable. It also allows to prove that a formula F is a logical consequence of a set M of formulas (i.e., M |= F), as this is the case if and only if the set M ∪ {¬F} is unsatisfiable (see Lemma 6.3).
+The resolution calculus assumes that all formulas of $M$ are given in conjunctive normal form (CNF, see [Definition 6.26](#definition-6-26)). This is usually not the case, and therefore the formulas of $M$ must first be transformed into equivalent formulas in CNF, as explained earlier. Moreover, instead of working with CNF-formulas (as the syntactic objects), one works with an equivalent object, namely sets of clauses.
 
-The resolution calculus assumes that all formulas of M are given in conjunctive normal form (CNF, see Definition 6.26). This is usually not the case, and therefore the formulas of M must first be transformed into equivalent formulas in CNF, as explained earlier. Moreover, instead of working with CNF-formulas (as the syntactic objects), one works with an equivalent object, namely sets of clauses.
+Recall ([Definition 6.25](#definition-6-25)) that a literal is an atomic formula or the negation of an atomic formula. For example $A$ and $¬B$ are literals.
 
-Recall (Definition 6.25) that a literal is an atomic formula or the negation of an atomic formula. For example A and ¬B are literals.
+::: info Definition 6.28. {#definition-6-28}
+A **clause** is a set of literals.
+:::
 
-### **Definition 6.28.** A *clause* is a set of literals.
+::: tip Example 6.16.{#example-6-16}
+$\{A, ¬B, ¬D\}$ and $\{B, C, ¬C, ¬D, E\}$ are clauses, and the empty set $∅$ is also a clause.
+:::
 
-**Example 6.16.** {A, ¬B, ¬D} and {B, C, ¬C, ¬D, E} are clauses, and the empty set ∅ is also a clause.
-
-**Definition 6.29.** The set of clauses associated to a formula
+::: info Definition 6.29. {#definition-6-29}
+The set of clauses associated to a formula
 
 $$
 F=(L_{11}\vee\cdots\lor L_{1m_{1}})\wedge\cdots\wedge(L_{n1}\vee\cdots\lor L_{nm_{n}})
 $$
 
-in CNF, denoted as K(F), is the set
+in CNF, denoted as $\mathcal{K}(F)$, is the set
 
 $$
 \mathcal{K}(F)\ \stackrel{{\text{def}}}{{=}}\ \{\{L_{11},\ldots,L_{1m_{1}}\}\,\ldots,\ \{L_{n1},\ldots,L_{nm_{n}}\}\}\}
 $$
 
-The set of clauses associated with a set M = {F1, . . . , Fk} of formulas is the union of their clause sets:
+The set of clauses associated with a set $M = \{F_1, … , F_k\}$ of formulas is the union of their clause sets:
 
 $${\mathcal{K}}(M)\ \stackrel{\mathrm{def}}{=}\ \bigcup_{i=1}^{k}{\mathcal{K}}(F_{i}).$$
+:::
 
-The idea behind this definition is that a clause is satisfied by a truth assignment if and only if it contains *some* literal that evaluates to true. In other words, a clause stands for the disjunction (OR) of its literals. Likewise, a set K(M) of clauses is satisfied by a truth assignment if *every* clause in K(M) is satisfied by it. In other words, a set of clauses stands for the conjunction (AND) of the clauses. The set M = {F1, . . . , Fk} is satisfied if and only if Vk i=1 Fi is satisfied, i.e., if and only if all clauses in K(M) are satisfied. Note that *the empty clause corresponds to an unsatisfiable formula and the empty set of clauses corresponds to a tautology.*
+The idea behind this definition is that a clause is satisfied by a truth assignment if and only if it contains *some* literal that evaluates to true. In other words, a clause stands for the disjunction (OR) of its literals. Likewise, a set $\mathcal{K}(M)$ of clauses is satisfied by a truth assignment if *every* clause in $\mathcal{K}(M)$ is satisfied by it. In other words, a set of clauses stands for the conjunction (AND) of the clauses. The set $M = \{F_1, … , F_k\}$ is satisfied if and only if $\bigwedge^k_{i=1} F_i$ is satisfied, i.e., if and only if all clauses in $\mathcal{K}(M)$ are satisfied. Note that *the empty clause corresponds to an unsatisfiable formula and the empty set of clauses corresponds to a tautology.*
 
-Note that for a given formula (not necessarily in CNF) there are many equivalent formulas in CNF and hence many equivalent sets of clauses. Conversely, to a given set K of clauses one can associate many formulas which are, however, all equivalent. Therefore, one can naturally think of a set of clauses as a (canonical) formula, and the notions of satisfiability, equivalence, and logical consequence carry over immediately from formulas to clause sets.
+Note that for a given formula (not necessarily in CNF) there are many equivalent formulas in CNF and hence many equivalent sets of clauses. Conversely, to a given set $\mathcal{K}$ of clauses one can associate many formulas which are, however, all equivalent. Therefore, one can naturally think of a set of clauses as a (canonical) formula, and the notions of satisfiability, equivalence, and logical consequence carry over immediately from formulas to clause sets.
 
-**Definition 6.30.** A clause K is a *resolvent* of clauses K1 and K2 if there is a literal L such that L ∈ K1, ¬L ∈ K2, and46
+::: info Definition 6.30. {#definition-6-30}
+A clause $K$ is a **resolvent** of clauses $K_1$ and $K_2$ if there is a literal $L$ such that $L ∈ K_1$, $¬L ∈ K_2$, and [^46]
 
 $K=(K_{1}\setminus\{L\})\cup(K_{2}\setminus\{-L\})$. (6.1)
+:::
 
-**Example 6.17.** The clauses {A, ¬B, ¬C} and {¬A, C, D, ¬E} have two resolvents: If A is eliminated, we obtain the clause {¬B, ¬C, C, D, ¬E}, and if C is eliminated, we obtain the clause {A, ¬B, ¬A, D, ¬E}. Note that clauses are sets and we can write the elements in arbitrary order. In particular, we could write the latter clause as {A, ¬A, ¬B, D, ¬E}.
+::: tip Example 6.17.{#example-6-17}
+The clauses $\{A, ¬B, ¬C\}$ and $\{¬A, C, D, ¬E\}$ have two resolvents: If $A$ is eliminated, we obtain the clause $\{¬B, ¬C, C, D, ¬E\}$, and if $C$ is eliminated, we obtain the clause $\{A, ¬B, ¬A, D, ¬E\}$. Note that clauses are sets and we can write the elements in arbitrary order. In particular, we could write the latter clause as $\{A, ¬A, ¬B, D, ¬E\}$.
 
-It is important to point out that resolution steps must be carried out one by one; one cannot perform two steps at once. For instance, in the above example, {¬B, D, ¬E} is not a resolvent and can also not be obtained by two resolution steps, even though {¬B, D, ¬E} would result from {A, ¬B, ¬C} and {¬A, C, D, ¬E} by eliminating A and ¬C from the first clause and ¬A and C from the second clause.47
+It is important to point out that resolution steps must be carried out one by one; one cannot perform two steps at once. For instance, in the above example, $\{¬B, D, ¬E\}$ is not a resolvent and can also not be obtained by two resolution steps, even though $\{¬B, D, ¬E\}$ would result from $\{A, ¬B, ¬C\}$ and $\{¬A, C, D, ¬E\}$ by eliminating $A$ and $¬C$ from the first clause and $¬A$ and $C$ from the second clause. [^47]
+:::
 
-[^46]:For a literal L, ¬L is the negation of L, for example if L = ¬A, then ¬L = A.
+[^46]:For a literal $L$, $¬L$ is the negation of $L$, for example if $L = ¬A$, then $¬L = A$.
 
-[^47]:A simpler example illustrating this is that {{A, B}, {¬A, ¬B}} is satisfiable, but a "double" resolution step would falsely yield ∅, indicating that {{A, B}, {¬A, ¬B}} is unsatisfiable.
+[^47]:A simpler example illustrating this is that $\{\{A, B\}, \{¬A, ¬B\}\}$ is satisfiable, but a "double" resolution step would falsely yield ∅, indicating that $\{\{A, B\}, \{¬A, ¬B\}\}$ is unsatisfiable.
 
-Given a set K of clauses, a resolution step takes two clauses K1 ∈ K and K2 ∈ K, computes a resolvent K, and adds K to K. To be consistent with Section 6.4.2, one can write the resolution rule (6.1) as follows:48
+Given a set $\mathcal{K}$ of clauses, a resolution step takes two clauses $K_1 ∈ \mathcal{K}$ and $K_2 ∈ \mathcal{K}$, computes a resolvent $\mathcal{K}$, and adds K to $\mathcal{K}$. To be consistent with [Section 6.4.2](#_6-4-2-hilbert-style-calculi), one can write the resolution rule (6.1) as follows: [^48]
 
-{K1, K2} ⊢res K,
+<center>
+
+$\{K_1, K_2\} ⊢_\mathsf{res} K$,
+
+</center>
 
 where equation (6.1) must be satisfied. The resolution calculus, denoted Res, consists of a single rule:
 
-Res = {res}.
+<center>
 
-Recall that we write K ⊢Res K if K can be derived from K using a finite number of resolution steps.49
+$\mathsf{Res} = \{\mathsf{res}\}$.
 
-**Lemma 6.5.** *The resolution calculus is sound, i.e., if* K ⊢Res K *then* K |= K. 50
+</center>
 
-*Proof.* We only need to show that the resolution rule is correct, i.e., that if K is a resolvent of clauses K1, K2 ∈ K, then K is logical consequence of {K1, K2}, i.e.,
+Recall that we write $\mathcal{K} ⊢_\mathsf{Res} K$ if $K$ can be derived from K using a finite number of resolution steps.[^49]
 
-{K1, K2} ⊢res K =⇒ {K1, K2} |= K.
+::: info Lemma 6.5. {#lemma-6-5}
+*The resolution calculus is sound, i.e., if* $K ⊢_\mathsf{Res} K$ *then* $K \models K$. [^50]
+:::
 
-Let A be an arbitrary truth assignment suitable for {K1, K2} (and hence also for K). Recall that A is a model for {K1, K2} if and only if A makes at least one literal in K1 true and also makes at least one literal in K2 true.
+**Proof:** We only need to show that the resolution rule is correct, i.e., that if $\mathcal{K}$ is a resolvent of clauses $K_1, K_2 ∈ \mathcal{K}$, then $K$ is logical consequence of $\{K_1, K_2\}$, i.e.,
 
-We refer to Definition 6.30 and distinguish two cases. If A(L) = 1, then A makes at least one literal in K2 \ {¬L} true (since ¬L is false). Similarly, if A(L) = 0, then A makes at least one literal in K1 \ {L} true (since L is false). Because one of the two cases occurs, A makes at least one literal in K = (K1 \ {L}) ∪ (K2 \ {¬L}) true, which means that A is a model for K.
+<center>
 
-The goal of a derivation in the resolution calculus is to derive the empty clause ∅ by an appropriate sequence of resolution steps. The following theorem states that the resolution calculus is complete with respect to the task of proving unsatisfiability.
+$\{K_1, K_2\} ⊢_\mathsf{res} K \implies \{K_1, K_2\} \models K$.
 
-**Theorem 6.6.** *A set* M *of formulas is unsatisfiable if and only if* K(M) ⊢Res ∅.
+</center>
 
-*Proof.* The "if" part (soundness) follows from Lemma 6.5: If K(M) ⊢Res ∅, then K(M) |= ∅, i.e., every model for K(M) is a model for ∅. Since ∅ has no model, K(M) also does not have a model. This means that K(M) is unsatisfiable.
+Let $\mathcal{A}$ be an arbitrary truth assignment suitable for $\{K_1, K_2\}$ (and hence also for $K$). Recall that $\mathcal{A}$ is a model for $\{K_1, K_2\}$ if and only if $\mathcal{A}$ makes at least one literal in $K_1$ true and also makes at least one literal in $K_2$ true.
 
-[^48]:In the literature, one usually does not use the symbol ⊢ in the context of resolution.
+We refer to [Definition 6.30](#definition-6-30) and distinguish two cases. If $\mathcal A(L) = 1$, then $\mathcal A$ makes at least one literal in $K_2 \ \{¬L\}$ true (since $¬L$ is false). Similarly, if $\mathcal A(L) = 0$, then $\mathcal A$ makes at least one literal in $K_1 \ \{L\}$ true (since $L$ is false). Because one of the two cases occurs, $\mathcal{A}$ makes at least one literal in $K = (K_1 \ \{L\}) ∪ (K_2 \ \{¬L\})$ true, which means that $\mathcal{A}$ is a model for $K$. <span class="right">$\Box$</span>
+
+The goal of a derivation in the resolution calculus is to derive the empty clause $∅$ by an appropriate sequence of resolution steps. The following theorem states that the resolution calculus is complete with respect to the task of proving unsatisfiability.
+
+::: info Theorem 6.6. {#theorem-6-6}
+*A set* $M$ *of formulas is unsatisfiable if and only if* $\mathcal{K}(M) ⊢_\mathsf{Res} \emptyset$.
+:::
+
+**Proof:** The "if" part (soundness) follows from [Lemma 6.5](#lemma-6-5): If $\mathcal{K}(M) ⊢_\mathsf{Res} ∅$, then $\mathcal{K}(M) \models ∅$, i.e., every model for $\mathcal{K}(M)$ is a model for $∅$. Since $∅$ has no model, $\mathcal{K}(M)$ also does not have a model. This means that $\mathcal{K}(M)$ is unsatisfiable.
+
+[^48]:In the literature, one usually does not use the symbol $⊢$ in the context of resolution.
 
 [^49]:In the lecture we introduce a natural graphical notation for writing a sequence of resolution steps.
 
-[^50]:For convenience, the clause K is understood to mean the singleton clause set {K}. In other words, the truth value of a clause K is understood to be the same as the truth value of {K}.
+[^50]:For convenience, the clause $K$ is understood to mean the singleton clause set $\{K\}$. In other words, the truth value of a clause $K$ is understood to be the same as the truth value of $\{K\}$.
 
-It remains to prove the "only if" part (completeness with respect to unsatisfiability). We need to show that if a clause set K is unsatisfiable, then ∅ can be derived by some sequence of resolution steps. The proof is by induction over the number n of atomic formulas appearing in K. The induction basis (for n = 1) is as follows. A clause set K involving only literals A1 and ¬A1 is unsatisfiable if and only if it contains the clauses {A1} and {¬A1}. One can derive ∅ exactly if this is the case.
+It remains to prove the "only if" part (completeness with respect to unsatisfiability). We need to show that if a clause set $\mathcal{K}$ is unsatisfiable, then $∅$ can be derived by some sequence of resolution steps. The proof is by induction over the number $n$ of atomic formulas appearing in $\mathcal{K}$. The induction basis (for $n = 1$) is as follows. A clause set $\mathcal{K}$ involving only literals $A_1$ and $¬A_1$ is unsatisfiable if and only if it contains the clauses $\{A_1\}$ and $\{¬A_1\}$. One can derive $∅$ exactly if this is the case.
 
-For the induction step, suppose that for every clause set K′ with n atomic formulas, K′ is unsatisfiable if and only if K′ ⊢Res ∅. Given an arbitrary clause set K for the atomic formulas A1, . . . , An+1, define the two clause sets K0 and K1 as follows. K0 is the clause set for atomic formulas A1, . . . , An obtained from K by setting An+1 = 0, i.e.,
+For the induction step, suppose that for every clause set $\mathcal K^\prime$ with $n$ atomic formulas, $\mathcal K^′$ is unsatisfiable if and only if $\mathcal K^′ ⊢_\mathsf{Res} ∅$. Given an arbitrary clause set $\mathcal K$ for the atomic formulas $A_1, … , A_{n+1}$, define the two clause sets $\mathcal K_0$ and $\mathcal K_1$ as follows. $\mathcal K_0$ is the clause set for atomic formulas $A_1, … , A_n$ obtained from $\mathcal K$ by setting $A_{n+1} = 0$, i.e.,
 
-- by eliminating all clauses from K containing ¬An+1 (which are satisfied since ¬An+1 = 1), and
-- by eliminating from each remaining clause the literal An+1 if it appears in it (since having An+1 in it can not contribute to the clause being satisfied).
+- by eliminating all clauses from $\mathcal K$ containing $¬A_{n+1}$ (which are satisfied since $¬A_{n+1} = 1$), and
+- by eliminating from each remaining clause the literal $A_{n+1}$ if it appears in it (since having $A_{n+1}$ in it can not contribute to the clause being satisfied).
 
-K is satisfiable under the constraint An+1 = 0 if and only if K0 is satisfiable.
+$\mathcal K$ is satisfiable under the constraint $A_{n+1} = 0$ if and only if $\mathcal K_0$ is satisfiable.
 
-Analogously, K1 is obtained from K by eliminating all clauses containing An+1 and by eliminating from each remaining clause the literal ¬An+1 if it appears in it. K is satisfiable under the constraint An+1 = 1 if and only if K1 is satisfiable.
+Analogously, $\mathcal K_1$ is obtained from $\mathcal K$ by eliminating all clauses containing $A_{n+1}$ and by eliminating from each remaining clause the literal $¬A_{n+1}$ if it appears in it. $\mathcal K$ is satisfiable under the constraint $A_{n+1} = 1$ if and only if $\mathcal K_1$ is satisfiable.
 
-If K is unsatisfiable, it is unsatisfiable both for An+1 = 0 and for An+1 = 1, i.e., both K0 and K1 are unsatisfiable. Therefore, by the induction hypothesis, we have K0 ⊢Res ∅ and K1 ⊢Res ∅. Now imagine that the same resolution steps leading from K0 to ∅ are carried out on K, i.e., with An+1. This derivation may or may not involve clauses (of K) that contain An+1. In the latter case (i.e., An+1 not contained), the derivation of ∅ from K0 is also a derivation of ∅ from K, and in the other case it corresponds to a derivation of {An+1} from K.
+If $\mathcal K$ is unsatisfiable, it is unsatisfiable both for $A_{n+1} = 0$ and for $A_{n+1} = 1$, i.e., both $\mathcal K_0$ and $\mathcal K_1$ are unsatisfiable. Therefore, by the induction hypothesis, we have $\mathcal K_0 ⊢_\mathsf{Res} ∅$ and $\mathcal K_1 ⊢_\mathsf{Res} ∅$. Now imagine that the same resolution steps leading from $\mathcal K_0$ to $∅$ are carried out on $\mathcal K$, i.e., with $A_{n+1}$. This derivation may or may not involve clauses (of $\mathcal K$) that contain $A_{n+1}$. In the latter case (i.e., $A_{n+1}$ not contained), the derivation of $∅$ from $\mathcal K_0$ is also a derivation of $∅$ from $\mathcal K$, and in the other case it corresponds to a derivation of $\{A_{n+1}\}$ from $\mathcal K$.
 
-Analogously, the derivation of ∅ from K1 corresponds to a derivation of ∅ from K or to a derivation of {¬An+1} from K.
+Analogously, the derivation of $∅$ from $\mathcal K_1$ corresponds to a derivation of $∅$ from $\mathcal K$ or to a derivation of $\{¬A_{n+1}\}$ from $\mathcal K$.
 
-If in any of the two cases we have a derivation of ∅ from K, we are done (since ∅ can be derived from K, i.e., K ⊢Res ∅). If this is not the case, then we have a derivation of {An+1} from K, i.e., K ⊢Res {An+1} as well as a derivation of {¬An+1} from K, i.e., K ⊢Res {¬An+1}. From these two clauses one can derive ∅ by a final resolution step. This completes the proof.
+If in any of the two cases we have a derivation of $∅$ from $\mathcal K$, we are done (since $∅$ can be derived from $\mathcal K$, i.e., $\mathcal K ⊢_\mathsf{Res} ∅$). If this is not the case, then we have a derivation of $\{A_{n+1}\}$ from $\mathcal K$, i.e., $\mathcal K ⊢_\mathsf{Res} \{A_{n+1}\}$ as well as a derivation of $\{¬A_{n+1}\}$ from $\mathcal K$, i.e., $\mathcal K ⊢_\mathsf{Res} \{¬A_{n+1}\}$. From these two clauses one can derive $∅$ by a final resolution step. This completes the proof. <span class="right">$\Box$</span>
 
 ## **6.6 Predicate Logic (First-order Logic)**
 
@@ -1066,7 +1185,7 @@ The following lemma states that the name of a bound variable carries no semantic
 
 $${\mathcal A}_{[x\to u]}(G)\;=\;{\mathcal A}_{[y\to u]}(G[x/y]).$$
 
-[^54]:according to the semantics of ∧, see Definition 6.36
+[^54]:according to the semantics of $∧$, see [Definition 6.36](#definition-6-36)
 
 Therefore $∀x~G$ is true for exactly the same structures for which $∀y~G[x/y]$ is true.
 
@@ -1089,7 +1208,7 @@ A formula of the form
 
 $$Q_{1}x_{1}\;Q_{2}x_{2}\;\cdots~Q_{n}x_{n}\;G,$$
 
-where the $Q_i$ are arbitrary quantifiers ($∀$ or $∃$) and $G$ is a formula free of quantifiers, is said to be in *prenex form*[^56].
+where the $Q_i$ are arbitrary quantifiers ($∀$ or $∃$) and $G$ is a formula free of quantifiers, is said to be in *prenex form* [^56].
 :::
 
 ::: info Theorem 6.10. {#theorem-6-10}
@@ -1150,7 +1269,7 @@ The following apparently innocent theorem is a powerful statement from which sev
 that one can prove a general theorem in predicate logic and, because it is a tautology, it can then be instantiated for different structures (i.e., interpretations), for each of which it is true.
 
 ::: info Theorem 6.12. {#theorem-6-12}
-$$¬∃x∀y P(y, x) ↔ ¬P(y, y)$$
+$$¬∃x∀y~(P(y, x) ↔ ¬P(y, y))$$
 :::
 
 Recall that the statement of the theorem means that the formula $¬∃x∀y P(y, x) ↔ ¬P(y, y)$ is a tautology, i.e., true for any suitable structure, i.e., for any universe and any choice of the predicate $P$.
@@ -1220,41 +1339,47 @@ We prove the equivalent statement: Every enumeration of elements of $\{0, 1\}^�
 
 **Proof:** We consider the universe $\mathbb{N}$ and a fixed enumeration of elements of $\{0, 1\}^∞$, and we interpret $P(y, x)$ as the $y$th bit of the $x$th sequence of the enumeration. Then [Theorem 6.12](#theorem-6-12), $¬∃x∀y P(y, x) ↔ ¬P(y, y)$, states that there exists no index $x$, i.e., no sequence in the enumeration, such that for all $y$, the $y$th bit on that sequence is equal to the negation of the $y$th bit on the yth sequence. But the sequence given by $y → ¬P(y, y)$ is a well-defined sequence in $\{0, 1\}^∞$, and we just proved that it does not occur in the enumeration.
 
-Note that the proof of this corollary contains Cantor's diagonalization argument, which is hence implicite in Theorem 6.12.
+Note that the proof of this corollary contains Cantor's diagonalization argument, which is hence implicite in [Theorem 6.12](#theorem-6-12).
 
-We discuss a further use of the theorem. If we understand a program as describable by a finite bit-string, or, equivalently, a natural number (since there is a bijection between finite bit-strings and natural numbers), and if we consider programs that take a natural number as input and output 0 or 1, then we obtain the following theorem. (Here we ignore programs that do not halt (i.e.,
+We discuss a further use of the theorem. If we understand a program as describable by a finite bit-string, or, equivalently, a natural number (since there is a bijection between finite bit-strings and natural numbers), and if we consider programs that take a natural number as input and output $0$ or $1$, then we obtain the following theorem. (Here we ignore programs that do not halt (i.e., loop forever), or, equivalently, we interpret looping as output $0$.) The following corollary was already stated as [Corollary 3.24](). [^60]
 
 [^58]:The universe of all sets is not a set itself. Formally, the universe in predicate logic need not be a set (in the sense of set theory), it can be a "collection" of objects.
 
-[^59]:The particular variable names (R and S) are not relevant and are chosen simply to be compatible with the chapter on set theory where sets were denoted by capital letters and Russel's proposed set was called R. Here we have deviated from the convention to use only small letters for variables.
+[^59]:The particular variable names ($R$ and $S$) are not relevant and are chosen simply to be compatible with the chapter on set theory where sets were denoted by capital letters and Russel's proposed set was called $R$. Here we have deviated from the convention to use only small letters for variables.
 
-loop forever), or, equivalently, we interpret looping as output 0.) The following corollary was already stated as Corollary 3.24.60
+::: info Corollary 6.15. {#corollary-6-15}
+*There are uncomputable functions* $ℕ → \{0, 1\}$.
+:::
 
-**Corollary 6.15.** *There are uncomputable functions* N → {0, 1}.
+**Proof:** We consider the universe $ℕ$, and a program is thought of as represented by a natural number. Let $P(y, x) = 1$ if and only if the bit that program $x$ outputs for input $y$ is $1$. [Theorem 6.12](#theorem-6-12), $¬∃x∀y~(P(y, x) ↔ ¬P(y, y))$, states that there exists no program $x$ that (for all inputs $y$) computes the function $y \mapsto ¬P(y, y)$, i.e., this function is uncomputable. <span class="right">$\Box$</span>
 
-*Proof.* We consider the universe N, and a program is thought of as represented by a natural number. Let P(y, x) = 1 if and only if the bit that program x outputs for input y is 1. Theorem 6.12, ¬∃x∀y P(y, x) ↔ ¬P(y, y) , states that there exists no program x that (for all inputs y) computes the function y 7→ ¬P(y, y), i.e., this function is uncomputable.
+The above corollary was already discussed as [Corollary 3.24](#corollary-3-24), as a direct consequence of [Corollary 6.14](#corollary-6-14) (i.e., of [Theorem 3.23]()). The proof given here is stronger in the sense that it provides a concrete function, namely the function $y ↦ ¬P(y, y)$, that is not computable.[^61] We state this as a corollary:
 
-The above corollary was already discussed as Corollary 3.24, as a direct consequence of Corollary 6.14 (i.e., of Theorem 3.23). The proof given here is stronger in the sense that it provides a concrete function, namely the function y 7→ ¬P(y, y), that is not computable.61 We state this as a corollary:
+::: info Corollary 6.16 {#corollary-6-16}
+*The function* $ℕ → \{0, 1\}$ *assigning to each* $y ∈ ℕ$ *the complement of what program* $y$ *outputs on input* $y$*, is uncomputable.*
+:::
 
-**Corollary 6.16.** *The function* N → {0, 1} *assigning to each* y ∈ N *the complement of what program* y *outputs on input* y*, is uncomputable.*
-
-We point out that the corollary does not exclude the existence of a program that computes the function for an overwhelming fraction of the y, it excludes only the existence of a program that computes the function for all but finitely many arguments.
+We point out that the corollary does not exclude the existence of a program that computes the function for an overwhelming fraction of the $y$, it excludes only the existence of a program that computes the function for all but finitely many arguments.
 
 ## **6.7 Beyond Predicate Logic**
 
 The expressiveness of every logic is limited. For example, one can not express metatheorems about the logic as formulas within the logic. It is therefore no surprise that the expressiveness of predicate logic is also limited.
 
-The formula F = ∀x∃y P(x, y) can equivalently be stated as follows: There exists a (unary) function f : U → U such that ∀x P(x, f(x)). The function f assigns to every x one of the y for which P(x, y). Such a y must exist according to F.
+The formula $F = ∀x∃y~P(x, y)$ can equivalently be stated as follows: There exists a (unary) function $f : U ↦ U$ such that $∀x~P(x, f(x))$. The function $f$ assigns to every $x$ one of the $y$ for which $P(x, y)$. Such a $y$ must exist according to $F$.
 
-In other words, the pair of quantifiers ∀x∃y is equivalent to the existence of a function. However, we can not write this as a formula since function symbols are not variables and can not be used with a quantifier. The formula ∃f P(x, f(x)) is not a formula in predicate (or first-order) logic. Such formulas exist only in second-order logic, which is substantially more involved and not discussed here.
+In other words, the pair of quantifiers $∀x∃y$ is equivalent to the existence of a function. However, we can not write this as a formula since function symbols are not variables and can not be used with a quantifier. The formula $∃f~P(x, f(x))$ is not a formula in predicate (or first-order) logic. Such formulas exist only in second-order logic, which is substantially more involved and not discussed here.
 
 Predicate logic is actually more limited than one might think. As an example, consider the formula
 
-∀w ∀x ∃y ∃z P(w, x, y, z).
+<center>
 
-[^60]:Explaining the so-called Halting problem, namely to decide whether a given program halts for a given input, would require a more general theorem than Theorem 6.12, but it could be explained in the same spirit.
+$∀w~∀x~∃y~∃z~P(w, x, y, z)$.
 
-[^61]:This function of course depends on the concrete programming language which determines the exact meaning of a program and hence determines P.
+</center>
 
-In this formula, y and z can depend on both w and x. It is not possible to express, as a formula in predicate logic, that in the above formula, y must only depend on w and z must only depend on x. This appears to be an artificial restriction that is not desirable.
+[^60]:Explaining the so-called Halting problem, namely to decide whether a given program halts for a given input, would require a more general theorem than [Theorem 6.12](#theorem-6-12), but it could be explained in the same spirit.
+
+[^61]:This function of course depends on the concrete programming language which determines the exact meaning of a program and hence determines $P$.
+
+In this formula, $y$ and $z$ can depend on both $w$ and $x$. It is not possible to express, as a formula in predicate logic, that in the above formula, $y$ must only depend on $w$ and $z$ must only depend on $x$. This appears to be an artificial restriction that is not desirable.
 
