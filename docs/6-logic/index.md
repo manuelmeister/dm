@@ -940,7 +940,7 @@ $\{K_1, K_2\} ⊢_\mathsf{res} K \implies \{K_1, K_2\} \models K$.
 
 Let $\mathcal{A}$ be an arbitrary truth assignment suitable for $\{K_1, K_2\}$ (and hence also for $K$). Recall that $\mathcal{A}$ is a model for $\{K_1, K_2\}$ if and only if $\mathcal{A}$ makes at least one literal in $K_1$ true and also makes at least one literal in $K_2$ true.
 
-We refer to [Definition 6.30](#definition-6-30) and distinguish two cases. If $\mathcal A(L) = 1$, then $\mathcal A$ makes at least one literal in $K_2 \\ \{¬L\}$ true (since $¬L$ is false). Similarly, if $\mathcal A(L) = 0$, then $\mathcal A$ makes at least one literal in $K_1 \\ \{L\}$ true (since $L$ is false). Because one of the two cases occurs, $\mathcal{A}$ makes at least one literal in $K = (K_1 \\ \{L\}) ∪ (K_2 \\ \{¬L\})$ true, which means that $\mathcal{A}$ is a model for $K$. <span class="right">$\Box$</span>
+We refer to [Definition 6.30](#definition-6-30) and distinguish two cases. If $\mathcal A(L) = 1$, then $\mathcal A$ makes at least one literal in $K_2 \setminus \{¬L\}$ true (since $¬L$ is false). Similarly, if $\mathcal A(L) = 0$, then $\mathcal A$ makes at least one literal in $K_1 \setminus \{L\}$ true (since $L$ is false). Because one of the two cases occurs, $\mathcal{A}$ makes at least one literal in $K = (K_1 \setminus \{L\}) ∪ (K_2 \setminus \{¬L\})$ true, which means that $\mathcal{A}$ is a model for $K$. <span class="right">$\Box$</span>
 
 The goal of a derivation in the resolution calculus is to derive the empty clause $∅$ by an appropriate sequence of resolution steps. The following theorem states that the resolution calculus is complete with respect to the task of proving unsatisfiability.
 
