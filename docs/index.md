@@ -3,15 +3,15 @@ layout: home
 hero:
   name: Diskrete Mathematik
   text: Skript 2024
-  tagline: "von Ueli Maurer"
+  tagline: "von Ueli Maurer, digitalisiert von Studierenden"
   image: /me.jpg
   actions:
     - theme: brand
       text: Introduction
-      link: /2024-01-release
+      link: /intro
     - theme: alt
       text: Get Started
-      link: /2024-01-release
+      link: /2-reasoning-proofs
 features:
   - icon: 🎯
     title: Chapter 1
