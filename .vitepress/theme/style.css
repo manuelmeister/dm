@@ -237,6 +237,10 @@ mjx-container {
     user-select: all;
 }
 
+mjx-container > svg {
+    max-width: 100%;
+}
+
 mjx-assistive-mml {
     width: 100% !important;
 }
