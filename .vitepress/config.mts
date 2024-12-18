@@ -14,6 +14,9 @@ export default defineConfig({
   srcDir: 'docs',
   srcExclude: ['intro/**', '3-sets-relations-functions/**', '4-number-theory/**', '5-algebra/**'],
   ignoreDeadLinks: true,
+  sitemap: {
+    hostname: 'https://manuelmeister.github.io/dm'
+  },
   markdown: {
     math: true,
     config: (md) => {
