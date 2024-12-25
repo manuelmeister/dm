@@ -4,7 +4,7 @@ hero:
   name: Diskrete Mathematik
   text: Skript 2024
   tagline: "von Ueli Maurer, digitalisiert von Studierenden"
-  image: /me.jpg
+  image: https://crypto.ethz.ch/~maurer/me.jpg
   actions:
     - theme: brand
       text: Introduction
