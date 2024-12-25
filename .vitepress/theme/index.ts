@@ -50,7 +50,6 @@ export default {
             })
         });
         onContentUpdated(() => {
-            debugger
             if (tooltip.value) {
                 if (Array.isArray(tooltip.value)) {
                     tooltip.value.forEach((t) => t.unmount() && t.destroy());
