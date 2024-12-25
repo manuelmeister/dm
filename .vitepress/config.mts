@@ -15,7 +15,17 @@ export default defineConfig({
   srcExclude: ['intro/**', '3-sets-relations-functions/**', '4-number-theory/**', '5-algebra/**'],
   ignoreDeadLinks: true,
   sitemap: {
-    hostname: 'https://manuelmeister.github.io/dm/'
+    hostname: 'https://manuelmeister.github.io/dm/',
+    transformItems: (items) => {
+        return items.map((item) => {
+          if (item.url.endsWith('/')) {
+            item.url += 'index.html'
+          } else if (item.url == '') {
+            item.url += 'index.html'
+          }
+          return item
+        })
+    }
   },
   markdown: {
     math: true,
