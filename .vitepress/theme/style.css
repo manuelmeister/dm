@@ -238,6 +238,10 @@ mjx-container {
 }
 
 mjx-container > svg {
+    max-width: 100%;
+}
+
+center mjx-container > svg {
     max-width: calc(100% - 1ch);
 }
 
