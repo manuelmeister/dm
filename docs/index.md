@@ -24,7 +24,7 @@ features:
   - icon: "{}"
     title: Chapter 3
     details: Sets, Relations, and Functions
-    link: javascript:alert('Coming soon!')
+    link: 3-sets-relations-functions
     target: _self
   - icon: 🔢
     title: Chapter 4

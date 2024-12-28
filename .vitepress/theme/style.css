@@ -191,6 +191,10 @@ sup.footnote-ref {
     float: right;
 }
 
+.center {
+    margin: auto;
+}
+
 .tippy-content p {
     line-height: 1.5;
 }
