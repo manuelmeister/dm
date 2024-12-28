@@ -28,7 +28,13 @@ export default defineConfig({
     }
   },
   markdown: {
-    math: true,
+    math: {
+      tex: {
+        macros: {
+          cf: ['\\mathcal{#1}', 1],
+        }
+      }
+    },
     config: (md) => {
       md.use(footnote);
       md.renderer.rules.footnote_caption = (tokens, idx/*, options, env, slf */) => {
