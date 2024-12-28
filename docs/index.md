@@ -25,7 +25,6 @@ features:
     title: Chapter 3
     details: Sets, Relations, and Functions
     link: 3-sets-relations-functions
-    target: _self
   - icon: 🔢
     title: Chapter 4
     details: Number Theory
