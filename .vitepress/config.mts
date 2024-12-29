@@ -39,7 +39,7 @@ export default defineConfig({
   base: "/dm/",
   description: "Interactive script",
   srcDir: 'docs',
-  srcExclude: ['intro/**', '4-number-theory/**','5-algebra/**'],
+  srcExclude: ['intro/**','5-algebra/**'],
   ignoreDeadLinks: true,
   sitemap: {
     hostname: 'https://manuelmeister.github.io/dm/',

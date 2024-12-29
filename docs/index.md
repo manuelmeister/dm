@@ -28,8 +28,7 @@ features:
   - icon: 🔢
     title: Chapter 4
     details: Number Theory
-    link: javascript:alert('Coming soon!')
-    target: _self
+    link: 4-number-theory
   - icon: 🧮
     title: Chapter 5
     details: Algebra
