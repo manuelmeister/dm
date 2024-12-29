@@ -22,7 +22,7 @@ as well as with simple definitions like the following:
 [^2]:In fact, almost all of mathematics is based on the notion of sets.
 
 
-::: info Definition 3.1 (Informal) {#definition-3-1}
+::: definition Definition 3.1 (Informal) {#definition-3-1}
 The number of elements of a finite set $A$ is called its *cardinality* and is denoted $|A|$.
 :::
 
@@ -77,7 +77,7 @@ When writing formulas, it will often be convenient to not only use the usual log
 
 A set is completely specified by its elements, regardless of how it is described.[^6] There is no other relevant information about a set than what its elements are. In other words, two sets $A$ and $B$ are equal ($A = B$) if (and only if) they contain the same elements, independently of how $A$ and $B$ are described. In other words, there can not be two different sets A and B which contain exactly the same elements. This is called the *axiom of extensionality* in set theory. Since we are not aiming for an axiomatic treatment of set theory, we state this simply as a definition.
 
-::: info Definition 3.2{#definition-3-2}
+::: definition Definition 3.2{#definition-3-2}
 $A=B   \stackrel{{\mbox{\scriptsize def}}}{{\Longleftrightarrow}}   \forall x\;(x\in A\;\leftrightarrow\;x\in B)$.
 :::
 
@@ -85,7 +85,7 @@ We postulate[^7] that if $a$ is a set, then the set containing exactly (and only
 
 Since a set is specified by its elements, we can conclude that if two sets, each containing a single element, are equal, then the elements are equal. This can be stated as a lemma (in set theory), and it actually requires a proof.
 
-::: info Lemma 3.1 {#lemma-3-1}
+::: proposition Lemma 3.1 {#lemma-3-1}
 _For any (sets) $a$ and $b$, $\{a\}=\{b\}\implies a=b$ ._
 
 **Proof:** Consider any fixed $a$ and $b$. The statement is an implication, which we prove indirectly. Assume that $a ≠ b$. Then $\{a\} ≠ \{b\}$ because there exists an element, namely $a$, that is contained in the first set, but not in the second. Thus we have proved that $a ≠ b \implies \{a\} ≠ \{b\}$. According to [Definition 2.14](/2-reasoning-proofs/#definition-2-14), this proves $\{a\} = \{b\} \implies a = b$.
@@ -109,7 +109,7 @@ However, in mathematics one wants to also define the concept of an (ordered) lis
 $(a,b)=(c,d)\ \ \stackrel{\mathrm{def}}{\Longleftrightarrow}\ \ a=c\wedge b=d$.
 </center>
 
-::: tip Example 3.1
+::: example Example 3.1
 This example shows that one can model ordered pairs by using only (unordered) sets?[^8] This means that the sets corresponding to two ordered pairs must be equal if and only if the ordered pairs are equal. A first approach is to define $(a, b) \stackrel{_{\text{def}}}{=} \{a, \{b\}\}$. However, this definition of an ordered pair fails because one could not distinguish whether the set $\{\{b\}, \{c\}\}$ denotes the ordered pair $(\{b\}, c)$ or the ordered pair $(\{c\}, b)$. The reader can verify as an exercise that the following definition is correct:
 
 $$(a,b)\ {\stackrel{\mathrm{def}}{=}}\ \{\{a\},\{a,b\}\}.$$
@@ -117,7 +117,7 @@ $$(a,b)\ {\stackrel{\mathrm{def}}{=}}\ \{\{a\},\{a,b\}\}.$$
 
 ### **3.2.3 Subsets**
 
-::: info Definition 3.3 {#definition-3-3}
+::: definition Definition 3.3 {#definition-3-3}
 The set $A$ is a subset of the set $B$, denoted $A ⊆ B$, if every element of $A$ is also an element of $B$, i.e.,
 
 $A\subseteq B\ \stackrel{\mathrm{def}}{\Longleftrightarrow}\ \forall x\ (x\in A\to x\in B)$.
@@ -125,7 +125,7 @@ $A\subseteq B\ \stackrel{\mathrm{def}}{\Longleftrightarrow}\ \forall x\ (x\in A\
 
 The following lemma states an alternative way for capturing the equality of sets, via the subset relation. In fact, this is often the best way to prove that two sets are equal.
 
-::: info Lemma 3.2 {#lemma-3-2}
+::: proposition Lemma 3.2 {#lemma-3-2}
 $A = B  \iff  (A ⊆ B) ∧ (B ⊆ A)$.
 
 **Proof:** The proof first makes use (twice) of [Definition 3.3](#definition-3-3), then uses the fact from predicate logic that $∀F~∧~∀G ≡ ∀(F ∧ G)$, then uses the fact from propositional logic that $(C → D)∧(D → C) ≡ C ↔ D$, [^9] and then makes use of [Definitions 3.2](#definition-3-2). For any sets $A$ and $B$ we have the following equivalences of statements about $A$ and $B$:
@@ -145,7 +145,7 @@ This concludes the proof. <span class=right>$\Box$</span>
 
 The next lemma states that the subset relation is transitive (a term discussed later). The proof is left as an exercise.
 
-::: info Lemma 3.3{#lemma-3-3}
+::: proposition Lemma 3.3{#lemma-3-3}
 *For any sets* $A$, $B$*, and* $C$,
 
 <center>
@@ -158,7 +158,7 @@ $A\subseteq B\,\land\,B\subseteq C\implies A\subseteq C$.
 
 Let us discuss a few well-known operations on sets and the laws for these operations.
 
-::: info Definition 3.4 Union & Intersection{#definition-3-4}
+::: definition Definition 3.4 Union & Intersection{#definition-3-4}
 The *union* of two sets $A$ and $B$ is defined as
 
 <center>
@@ -187,7 +187,7 @@ $\bigcap{\mathcal{A}} {\stackrel{\mathrm{def}}{=}} \ \{~x~|~x\in A\ {\mathrm
 
 [^9]:Here we use $C$ and $D$ rather than $A$ and $B$ to avoid confusion because $A$ and $B$ are used here to denotes sets.
 
-::: tip Example 3.1{#example-3-1}
+::: example Example 3.1{#example-3-1}
 Consider the set of sets
 
 $${\mathcal{A}}={\big\{}{\big\{}{a,b,c,d}{\big\}},{\big\{}{a,c,e}{\big\}},{\big\{}{a,b,c,f}{\big\}},{\big\{}{a,c,d}{\big\}}{\big\}}.$$
@@ -197,7 +197,7 @@ Then we have $\bigcup{\mathcal A} = \{a, b, c, d, e, f\}$ and $\bigcap{\mathcal 
 
 Typically, the sets (elements) in a set $\mathcal A$ of sets are indexed by some index set $I: \mathcal{A} = \{~A_i~ |~ i ∈ I\}$. In this case, one also writes $\{A_i\}_{i∈I}$, and for the intersection and union one writes $\bigcap_{i∈I}{A_i}$ and $\bigcup_{i∈I}{A_i}$, respectively.
 
-::: info Definition 3.5 Difference{#definition-3-5}
+::: definition Definition 3.5 Difference{#definition-3-5}
 The *difference* of sets $B$ and $A$, denoted $B\backslash A$ is the set of elements of $B$ without those that are elements of $A$:
 
 $$B\setminus A  {\stackrel{\mathrm{def}}{=}} \{~x\in B~|~x\notin A\}.$$
@@ -205,7 +205,7 @@ $$B\setminus A  {\stackrel{\mathrm{def}}{=}} \{~x\in B~|~x\notin A\}.$$
 
 Since union and intersection are defined by logical operations on set membership expressions (e.g. $a ∈ A$), these set operations satisfy the corresponding statements of [Lemma 2.1](/2-reasoning-proofs#lemma-2-1). This is stated as a theorem:
 
-::: info Theorem 3.4{#theorem-3-4}
+::: proposition Theorem 3.4{#theorem-3-4}
 *For any sets $A$, $B$, and* $C$*, the following laws hold:*
 
 <div class="grid-cols">
@@ -258,17 +258,17 @@ $A ⊆ B \iff A ∩ B = A \iff A ∪ B = B$.
 
 ### 3.2.5. The Empty Set
 
-::: info Definition 3.6 Empty Set{#definition-3-6}
+::: definition Definition 3.6 Empty Set{#definition-3-6}
 A set A is called *empty* if it contains no elements, i.e., if $∀x~¬(x ∈ A)$.
 :::
 
-::: info Lemma 3.5{#lemma-3-5}
+::: proposition Lemma 3.5{#lemma-3-5}
 *There is only one empty set (which is often denoted as* $∅$ or $\{\}$).[^10]
 
 **Proof:** Let $∅$ and $∅^′$ both be arbitrary empty sets. Since both are empty, every element that is in $∅$ (namely none) is also in $∅^′$ , and vice versa. This means according to [Definition 3.2](#definition-3-2) that $∅ = ∅^′$ , which means that there is only one empty set. <span class=right>$\Box$</span>
 :::
 
-::: info Lemma 3.6{#lemma-3-6}
+::: proposition Lemma 3.6{#lemma-3-6}
 *The empty set is a subset of every set, i.e.,* $∀A~(∅ ⊆ A)$
 
 **Proof:** The proof is by contradiction: Assume that there is a set $A$ for which $∅ \not⊆ A$. This means that there exists an $x$ for which $x ∈ ∅$ but $x \not∈ A$. But such an $x$ cannot exist because $∅$ contains no element, which is a contradiction. <span class=right>$\Box$</span>
@@ -302,7 +302,7 @@ Note that, except for the empty set, all these sets have cardinality 1.
 
 [^10]:We take it for granted that ∅ is actually a set. But in an axiomatic treatment of set theory, this must be stated as an axiom.
 
-::: tip Example 3.3{#example-3-3}
+::: example Example 3.3{#example-3-3}
 A few other sets constructed from the empty set are:
 
 $A = \{∅, \{∅\}\}$,  
@@ -312,7 +312,7 @@ $C = \{∅, \{∅\}, \{∅, \{∅\}\}\}$.
 Their cardinalities are $|A| = 2$, $|B| = 1$, and $|C| = 3$. Also, $A ⊆ C$ and $B ⊆ C$.
 :::
 
-::: tip Example 3.4{#example-3-4}
+::: example Example 3.4{#example-3-4}
 We have considered three relations between sets: $∈$, $=$, and $⊆$. Which of these relations hold for the following sets?
 
 $A = \{\{∅\}\}$,  
@@ -343,7 +343,7 @@ One can also define a multiplication operation and prove that these operations s
 
 ### 3.2.8. The Power Set of a Set
 
-::: info Definition 3.7 Power Set{#definition-3-7}
+::: definition Definition 3.7 Power Set{#definition-3-7}
 The *power set* of a set $A$, denoted $\cf P(A)$, is the set of all subsets of $A$: [^11]
 
 $${\mathcal{P}}(A)\ \stackrel{\mathrm{def}}{=}\ \{~S~|\ S\subseteq A\}$$
@@ -351,13 +351,13 @@ $${\mathcal{P}}(A)\ \stackrel{\mathrm{def}}{=}\ \{~S~|\ S\subseteq A\}$$
 
 For a finite set with cardinality $k$, the power set has cardinality $2^k$ (hence the name "power set" and the alternative notation $2^A$).
 
-::: tip Example 3.5{#example-3-5}
+::: example Example 3.5{#example-3-5}
 $\cf P(\{a, b, c\}) = \{∅, \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\}$ and
 
 $|\cf P(\{a, b, c\})| = 8$.
 :::
 
-::: tip Example 3.6{#example-3-6}
+::: example Example 3.6{#example-3-6}
 We have
 
 $\cf P(∅) = \{∅\}$,  
@@ -374,7 +374,7 @@ $$(a,b)=(c,d) {\stackrel{\mathrm{def}}{\iff}}  a=c\,\land\,b=d$$
 
 More generally, we denote an (ordered) list of $k$ objects $a_1, …, a_k$ as $(a_1, …, a_k)$. Two lists of the same length are equal if they agree in every component.
 
-::: info Definition 3.8 Cartesian Product{#definition-3-8}
+::: definition Definition 3.8 Cartesian Product{#definition-3-8}
 The *Cartesian product* $A × B$ of two sets $A$ and $B$ is the set of all ordered pairs with the first component from $A$ and the second component from $B$:
 
 <center>
@@ -385,7 +385,7 @@ $A\times B=\{~(a,b)~|~ a\in A~\land~b\in B\}$.
 
 For finite sets, the cardinality of the Cartesian product of some sets is the product of their cardinalities: $|A × B| = |A| · |B|$.
 
-::: tip Example 3.7{#example-3-7}
+::: example Example 3.7{#example-3-7}
 Prove or disprove the following statements:
 
 1. $\emptyset\times A=\emptyset$.
@@ -407,7 +407,7 @@ $$\bigtimes_{i=1}^{3}A_{i}≠(A_1 × A_2) × A_3$$
 Relations are a fundamental concept in discrete mathematics and Computer Science. Many special types of relations (e.g., equivalence relations, order relations, and lattices) capture concepts naturally arising in applications. Functions are also a special type of relation.
 
 ### 3.3.1. The Relation Concept
-::: info Definition 3.9{#definition-3-9}
+::: definition Definition 3.9{#definition-3-9}
 A *(binary) relation* $ρ$ *from a set* $A$ *to a set* $B$ (also called an $(A, B)$ *relation*) is a subset of $A × B$.  
 If $A = B$, then $ρ$ is called a relation on $A$.
 :::
@@ -421,19 +421,19 @@ $a \operatorname\rho b$,
 
 and sometimes we write $a \!\not\!\rho\; b$ if $(a, b) \not∈ ρ$.
 
-::: tip Example 3.8{#example-3-8}
+::: example Example 3.8{#example-3-8}
 Let $S$ be the set of students at ETH and let $C$ be the set of courses taught at ETH. Then a natural relation from $S$ to $C$ is the "takes" relation. If $s ∈ S$ is a student and $c ∈ C$ is a course, then $(s, c)$ is in the relation if and only if s takes course $c$. If we denote the relation by $\mathtt{takes}$, we can write $(s, c) ∈ \mathtt{takes}$ or $s~\mathtt{takes}~ y$.[^12] We can also consider the set $P$ of professors at ETH and the natural relation from $P$ to $C$.
 :::
 
-::: tip Example 3.9{#example-3-9}
+::: example Example 3.9{#example-3-9}
 Let $H$ be the set of all human beings (alive or dead). Then "child of" is a relation on $H$. If we denote the relation by $\mathtt{childof}$, then $(x, y) ∈~\mathtt{childof}$ (or equivalently $x~\mathtt{childof}~y$) means that $x$ is $y$'s child. Other relations on $H$ are "parent of", "grandparent of", "cousin of", "ancestor of", "married to", etc.
 :::
 
-::: tip Example 3.10{#example-3-10}
+::: example Example 3.10{#example-3-10}
 On the integers $ℤ$ we already know a number of very natural relations: $=$, $≠$, $≤$, $≥$, $<$, $>$, $|$ (the 'divides' relation), and $\mathord{\not}\,|$ (does not divide).
 :::
 
-::: tip Example 3.11{#example-3-11}
+::: example Example 3.11{#example-3-11}
 The relation $≡_m$ on $ℤ$ is defined as follows:
 
 <center>
@@ -446,19 +446,19 @@ i.e., $a ≡_m b$ if and only if $a$ and $b$ have the same remainder when divide
 
 [^12]:Note that the relation takes can change over time, and in such an example we consider the relation at a certain point in time.
 
-::: tip Example 3.12{#example-3-12}
+::: example Example 3.12{#example-3-12}
 The relation $\{(x, y)~|~x^2 + y^2 = 1\}$ on $ℝ$ is the set of points on the unit circle, which is a subset of $ℝ × ℝ$.
 :::
 
-::: tip Example 3.13{#example-3-13}
+::: example Example 3.13{#example-3-13}
 For any set $S$, the subset relation ($⊆$) is a relation on $\cf P(S)$.
 :::
 
-::: tip Example 3.14{#example-3-14}
+::: example Example 3.14{#example-3-14}
 Two special relations from $A$ to $B$ are the empty relation (i.e., the empty set $∅$) and the complete relation $A × B$ consisting of all pairs $(a, b)$.
 :::
 
-::: info Definition 3.10{#definition-3-10}
+::: definition Definition 3.10{#definition-3-10}
 For any set $A$, the *identity relation* on $A$, denoted $\mathsf{id}_A$ (or simply $\mathsf{id}$), is the relation $\mathsf{id}_A = \{(a, a)~|~a ∈ A\}$.
 :::
 
@@ -470,7 +470,7 @@ The relation concept can be generalized from binary to $k$-ary relations for giv
 
 For finite sets $A$ and $B$, a (binary) relation $ρ$ from $A$ to $B$ can be represented as a Boolean $|A|×|B|$ matrix $M^ρ$ with the rows and columns labeled by the elements of $A$ and $B$, respectively. For $a ∈ A$ and $b ∈ B$, the matrix entry $M^ρ_{a,b}$ is $1$ if $a ρ b$, and $0$ otherwise.
 
-::: tip Example 3.15{#example-3-15}
+::: example Example 3.15{#example-3-15}
 Let $A = \{a, b, c, d\}$ and $B = \{q, r, s, t, u\}$, and consider the relation $ρ = \{(a, r),(a, s),(a, u),(b, q),(b, s),(c, r),(c, t),(c, u),(d, s),(d, u)\}$. The matrix representation is
 
 $$
@@ -499,7 +499,7 @@ where the rows and columns are labeled by the elements of $A$ and $B$, respectiv
 
 For relations on a set $A$, the matrix is an $|A| × |A|$ square matrix.
 
-::: tip Example 3.16{#example-3-16}
+::: example Example 3.16{#example-3-16}
 For the set $A = \{1, 2, 3, 4, 5\}$, the relations $=$, $≥$, and $≤$ correspond to the identity matrix,[^13] the lower triangular matrix, and the upper triangular matrix, respectively.
 :::
 
@@ -511,17 +511,17 @@ An alternative representation of a relation $ρ$ from $A$ to $B$ is by a directe
 
 Relations from $A$ to $B$ are sets, and therefore we can apply any operation defined on sets: union, intersection, and complement. In the matrix representation of relations, these operations correspond to the position-wise logical $\text{OR}$, $\text{AND}$, and negation, respectively. A relation can also be a subset of another relation.
 
-::: tip Example 3.17{#example-3-17}
+::: example Example 3.17{#example-3-17}
 On the set $ℤ$, the relation $≤ ∪ ≥$ is the complete relation, $≤ ∩ ≥$ is the identity relation, and the complement of $≤$ is the relation $>$. Moreover, we have $<\operatorname ⊆ ≤$ and $=\operatorname ⊆ ≥$.
 :::
 
-::: tip Example 3.18{#example-3-18}
+::: example Example 3.18{#example-3-18}
 For any relatively prime integers $m$ and $n$, the relation $≡_m \operatorname ∩ ≡_n$ is $≡_{mn}$, as will be shown in Chapter 4. More generally, For general $m$ and $n$, the relation $≡_m ∩ ≡_n$ is $≡_{\operatorname{lcm}(m,n)}$, where $\operatorname{lcm}(m, n)$ denotes the least common multiple of $m$ and $n$.
 :::
 
 ### 3.3.4. The Inverse of a Relation
 
-::: info Definition 3.11 Inverse{#definition-3-11}
+::: definition Definition 3.11 Inverse{#definition-3-11}
 The *inverse* of a relation $ρ$ from $A$ to $B$ is the relation $\hat ρ$ from $B$ to $A$ defined by
 
 <center>
@@ -532,15 +532,15 @@ $\widehat ρ\ \stackrel{\text{def}}{=}\ \{(b, a)~|~(a, b) ∈ ρ\}$.
 
 Note that for all $a$ and $b$ we have $b \operatorname{\widehat\rho} a \iff a \operatorname\rho b$. An alternative notation for the inverse of $ρ$ is $ρ^{ −1}$ .
 
-::: tip Example 3.19{#example-3-19}
+::: example Example 3.19{#example-3-19}
 Let $H$ be the set of people, $O$ the set of objects, and $π$ the ownership relation from $H$ to $O$. The inverse $\widehat π$ is the "owned by" relation determining who owns an object.
 :::
 
-::: tip Example 3.20{#example-3-20}
+::: example Example 3.20{#example-3-20}
 If $\phi$ is the parenthood relation on the set $H$ of humans (i.e., $a \operatorname\phi  b$ if $a$ is a parent of $b$), then the inverse relation $\widehat\phi$ is the childhood relation.
 :::
 
-::: tip Example 3.21{#example-3-21}
+::: example Example 3.21{#example-3-21}
 On the set $ℤ$, the inverse of the relation $≤$ is the relation $≥$. The inverse of $\mathsf{id}$ is again $\mathsf{id}$.
 :::
 
@@ -552,7 +552,7 @@ In the matrix representation, taking the inverse of a relation corresponds to th
 
 ### 3.3.5. Composition of Relations
 
-::: info Definition 3.12 Composition{#definition-3-12}
+::: definition Definition 3.12 Composition{#definition-3-12}
 Let $ρ$ be a relation from $A$ to $B$ and let $σ$ be a relation from $B$ to $C$. Then the *composition* of $ρ$ and $σ$, denoted $ρ ◦ σ$ (or also $ρσ$), is the relation from $A$ to $C$ defined by
 
 <center>
@@ -563,7 +563,7 @@ $\rho\circ\sigma\ \stackrel{{\text{def}}}{{=}}\ \{(a,c)\mid\exists b\left((a,b)\
 The $n$-fold composition of a relation $ρ$ on a set $A$ with itself is denoted $ρ^n$.
 :::
 
-::: info Lemma 3.7{#lemma-3-7}
+::: proposition Lemma 3.7{#lemma-3-7}
 *The composition of relations is associative, i.e., we have* $ρ ◦ (σ ◦ \phi) = (ρ ◦ σ) ◦ \phi$.
 
 **Proof:** We use the short notation $ρσ$ instead of $ρ ◦ σ$. The claim of the lemma, $ρ(σ\phi) = (ρσ)\phi$, states an equality of sets, which can be proved by proving that each set is contained in the other (see [Section 3.2.3](#_3-2-3-subsets)). We prove $ρ(σ\phi) ⊆ (ρσ)\phi$; the other inclusion is proved analogously. Suppose that $(a, d) ∈ ρ(σ\phi)$. We need to prove that $(a, d) ∈ (ρσ)\phi$. For illustrative purposes, We provide two formulations of this proof, first as a text and then in logical formulas.
@@ -591,11 +591,11 @@ Both formulations prove the lemma. <span class=right>$\Box$</span>
 
 [^16]:The justifications should be obvious, except perhaps for the following fact from predicate logic (explained in Chapter 6) used several times in the proof: $∃x(F ∧G) ≡ F ∧ ∃xG$ if $x$ does not appear in $F$.
 
-::: tip Example 3.22{#example-3-22}
+::: example Example 3.22{#example-3-22}
 Consider the ownership relation $π$ and the parenthood relation $\phi$ as above. Then the relation $\phiπ$ from $H$ to $O$ can be interpreted as follows: $a \operatorname{\phi\pi} b$ if and only if person $a$ has a child who owns object $b$.
 :::
 
-::: tip Example 3.23{#example-3-23}
+::: example Example 3.23{#example-3-23}
 If $\phi$ is the parenthood relation on the set $H$ of humans, then the relation $\phi^2$ is the grand-parenthood relation.[^17]
 :::
 
@@ -603,12 +603,12 @@ In the matrix representation, composing two relations corresponds to a special t
 
 The proof of the following lemma is left as an exercise.
 
-::: info Lemma 3.8{#lemma-3-8}
+::: proposition Lemma 3.8{#lemma-3-8}
 Let $ρ$ *be a relation from* $A$ to $B$ *and let* $σ$ *be a relation from* $B$ to $C$*. Then the inverse* $\widehat{ρσ}$ of $ρσ$ *is the relation* $\widehat\sigma\widehat\rho$.
 :::
 
 ### 3.3.6. Special Properties of Relations
-::: info Definition 3.13 Reflexive Relation{#definition-3-13}
+::: definition Definition 3.13 Reflexive Relation{#definition-3-13}
 A relation $ρ$ on a set $A$ is called *reflexive* if
 
 $$a \operatorname\rho a$$
@@ -623,12 +623,12 @@ $\mathsf{id}\subseteq\rho$.
 
 In other words, a relation is reflexive if it contains the identity relation $\mathsf{id}$. In the matrix representation of relations, reflexive means that the diagonal is all $1$. In a graph representation, reflexive means that every vertex has a loop (an edge from the vertex to itself).
 
-::: tip Example 3.24{#example-3-24}
+::: example Example 3.24{#example-3-24}
 The relations $≤$, $≥$, and $|$ (divides) on $ℤ\backslash\{0\}$ are reflexive, but the relations $<$ and $>$ are not.
 :::
 
 
-::: info Definition 3.14 Irreflexive Relation{#definition-3-14}
+::: definition Definition 3.14 Irreflexive Relation{#definition-3-14}
 A relation $ρ$ on a set $A$ is called *irreflexive* if $a \operatorname{\not\!\rho} a$ for all $a ∈ A$, i.e., if $ρ ∩ \mathsf{id} = ∅$. [^19]
 :::
 
@@ -638,7 +638,7 @@ A relation $ρ$ on a set $A$ is called *irreflexive* if $a \operatorname{\not\!\
 
 [^19]:Note that irreflexive is not the negation of reflexive, i.e., a relation that is not reflexive is not necessarily irreflexive.
 
-::: info Definition 3.15 Symmetric Relation{#definition-3-15}
+::: definition Definition 3.15 Symmetric Relation{#definition-3-15}
 A relation $ρ$ on a set $A$ is called *symmetric* if
 
 $$a \operatorname\rho b\ \iff\ b\operatorname\rho a$$
@@ -655,15 +655,15 @@ In the matrix representation of relations, symmetric means that the matrix is sy
 
 A symmetric relation ρ on a set A can be represented as an undirected graph, possibly with loops from a node to itself.
 
-::: tip Example 3.25{#example-3-25}
+::: example Example 3.25{#example-3-25}
 The relation $≡_m$ on $ℤ$ is symmetric.
 :::
 
-::: tip Example 3.26{#example-3-26}
+::: example Example 3.26{#example-3-26}
 The "married to" relation on the set $H$ of humans is symmetric.
 :::
 
-::: info Definition 3.16 Antisymmetric Relation{#definition-3-16}
+::: definition Definition 3.16 Antisymmetric Relation{#definition-3-16}
 A relation $ρ$ on a set $A$ is called *antisymmetric* if
 
 $$a \operatorname\rho b \land b \operatorname\rho a\ \implies\ a = b$$
@@ -678,11 +678,11 @@ $ρ ∩ \widehat ρ ⊆ \mathsf{id}$.
 
 In a graph representation, antisymmetric means that there is no cycle of length $2$, i.e., no distinct vertices $a$ and $b$ with edges both from $a$ to $b$ and from $b$ to $a$. Note that antisymmetric is not the negation of symmetric.
 
-::: tip Example 3.27{#example-3-27}
+::: example Example 3.27{#example-3-27}
 The relations $≤$ and $≥$ are antisymmetric, and so is the division relation $|$ on $ℕ$: If $a | b$ and $b | a$, then $a = b$. But note that the division relation $|$ on $ℤ$ is not antisymmetric. Why?
 :::
 
-::: info Definition 3.17 Transitive Relation{#definition-3-17}
+::: definition Definition 3.17 Transitive Relation{#definition-3-17}
 A relation $ρ$ on a set $A$ is called *transitive* if
 
 $$a \operatorname\rho b \land b \operatorname\rho c\ \implies\ a \operatorname\rho c$$
@@ -690,15 +690,15 @@ $$a \operatorname\rho b \land b \operatorname\rho c\ \implies\ a \operatorname\r
 is true for all $a, b, c ∈ A$.
 :::
 
-::: tip Example 3.28{#example-3-28}
+::: example Example 3.28{#example-3-28}
 The relations $≤$, $≥$, $<$, $>$, $|$, and $≡_m$ on $ℤ$ are transitive.
 :::
 
-::: tip Example 3.29{#example-3-29}
+::: example Example 3.29{#example-3-29}
 Let $ρ$ be the ancestor relation on the set $H$ of humans, i.e., $a \operatorname\phi b$ if $a$ is an ancestor of $b$. This relation is transitive.
 :::
 
-::: info Lemma 3.9{#lemma-3-9}
+::: proposition Lemma 3.9{#lemma-3-9}
 *A relation* $ρ$ *is transitive if and only if* $ρ^2 ⊆ ρ$.
 
 **Proof:** The "if" part of the theorem ($\impliedby$) follows from the definition of composition: If $a \operatorname\rho b$ and $b \operatorname\rho c$, then $a \operatorname\rho^2 c$. Therefore also $a \operatorname\rho c$ since $ρ^2 ⊆ ρ$. [^20] This means transitivity.
@@ -712,7 +712,7 @@ Proof of the "only if" part ($\implies$): Assume that $ρ$ is transitive. To sho
 
 The reader can verify as an exercise that for a transitive relation $ρ$ we have $ρ^n ⊆ ρ$ for all $n > 1$.
 
-::: info Definition 3.18 Transitive Closure{#definition-3-18}
+::: definition Definition 3.18 Transitive Closure{#definition-3-18}
 The *transitive closure* of a relation $ρ$ on a set $A$, denoted $ρ^∗$, is
 
 <center>
@@ -723,24 +723,24 @@ $\rho^{*}\ =\ \displaystyle\bigcup_{n\in\mathbb{N}\backslash\{0\}}\rho^{n}$.
 
 In the graph representation of a relation $ρ$ on $A$, we have $a \operatorname\rho^k b$ if and only if there is a walk of length $k$ from $a$ to $b$ in the graph, where a walk may visit a node multiple times. The transitive closure is the reachability relation, i.e., $a \operatorname\rho^* b$ if and only if there is a path (of arbitrary finite length) from $a$ to $b$.
 
-::: tip Example 3.30{#example-3-30}
+::: example Example 3.30{#example-3-30}
 Consider the set $P$ of all convex polygons. We can think of them as being given as pieces of paper. By cutting a piece into two pieces with a straight cut one can obtain new polygons. Let $\succeq$ be the relation defined as follows: $a \succeq b$ if and only if with a single straight-line cut (or no cut) one can obtain $b$ from $a$. Moreover, consider the covering relation $⊒$, where $a ⊒ b$ if and only if $a$ can completely cover $b$ (if appropriately positioned). It is easy to see that $⊒$ is reflexive, anti-symmetric, and transitive[^21] whereas $\succeq$ is only reflexive and antisymmetric. Note that $⊒$ is the transitive closure of $\succeq$.
 :::
 
 ## 3.4. Equivalence Relations
 
 ### 3.4.1. Definition of Equivalence Relations
-::: info Definition 3.19 Equivalence Relation{#definition-3-19}
+::: definition Definition 3.19 Equivalence Relation{#definition-3-19}
 An *equivalence relation* is a relation on a set $A$ that is reflexive, symmetric, and transitive.
 :::
 
-::: tip Example 3.31{#example-3-31}
+::: example Example 3.31{#example-3-31}
 The relation $≡_m$ is an equivalence relation on $ℤ$.
 :::
 
 [^21]:Such a relation will be defined below as a partial order relation.
 
-::: info Definition 3.20 Equivalence Class{#definition-3-20}
+::: definition Definition 3.20 Equivalence Class{#definition-3-20}
 For an equivalence relation $θ$ on a set $A$ and for $a ∈ A$, the set of elements of $A$ that are equivalent to $a$ is called the *equivalence class of* $a$ and is denoted as $[a]_θ$: [^22]
 
 <center>
@@ -751,7 +751,7 @@ $[a]_{\theta}~{\stackrel{\mathrm{def}}{=}}~\{b\in A~|~b \operatorname\theta a\}$
 
 Two trivial equivalence relations on a set $A$ are the complete relation $A × A$, for which there is only one equivalence class $A$, and the identity relation for which the equivalence classes are all singletons[^23] $\{a\}$ for $a ∈ A$.
 
-::: tip Example 3.32{#example-3-32}
+::: example Example 3.32{#example-3-32}
 The equivalence classes of the relation $≡_3$ are the sets
 
 $[0] = \{. . . , −6, −3, 0, 3, 6, . . .\}$,  
@@ -759,23 +759,23 @@ $[1] = \{. . . , −5, −2, 1, 4, 7, . . .\}$,
 $[2] = \{. . . , −4, −1, 2, 5, 8, . . .\}$.
 :::
 
-::: tip Example 3.33{#example-3-33}
+::: example Example 3.33{#example-3-33}
 Consider the set $ℝ^2$ of points $(x, y)$ in the plane, and consider the relation $ρ$ defined by $(x, y)~\operatorname\rho~(x^′, y^′ ) \iff x+y = x^\prime +y^′$. Clearly, this relation is reflexive, symmetric, and transitive. The equivalence classes are the set of lines in the plane parallel to the diagonal of the second quadrant.
 
 :::
 The proof of the following theorem is left as an exercise.
 
-::: info Lemma 3.10{#lemma-3-10}
+::: proposition Lemma 3.10{#lemma-3-10}
 *The intersection of two equivalence relations (on the same set) is an equivalence relation.*
 :::
 
-::: tip Example 3.34{#example-3-34}
+::: example Example 3.34{#example-3-34}
 The intersection of $≡_5$ and $≡_3$ is $≡_{15}$.
 :::
 
 ### 3.4.2. Equivalence Classes Form a Partition
 
-::: info Definition 3.21 Partition{#definition-3-21}
+::: definition Definition 3.21 Partition{#definition-3-21}
 A *partition* of a set $A$ is a set of mutually disjoint subsets of $A$ that cover $A$, i.e., a set $\{S_i~|~i ∈ \cf I\}$ of sets $S_i$ (for some index set $\cf I$) satisfying
 
 <center>
@@ -790,7 +790,7 @@ Consider any partition of a set $A$ and define the relation $≡$ such that two 
 
 [^23]:A singleton is a set with one element.
 
-::: info Definition 3.22 Quotient Set{#definition-3-22}
+::: definition Definition 3.22 Quotient Set{#definition-3-22}
 The set of equivalence classes of an equivalence relation $θ$, denoted by
 
 <center>
@@ -801,7 +801,7 @@ $A/θ  \stackrel{\text{def}}{=}  \{[a]_θ~|~a ∈ A\}$,
 is called the *quotient set of* $A$ by $θ$, or simply $A$ *modulo* $θ$, or $A \operatorname{mod} θ$.
 :::
 
-::: info Theorem 3.11{#theorem-3-11}
+::: proposition Theorem 3.11{#theorem-3-11}
 *The set* $A/θ$ *of equivalence classes of an equivalence relation* $θ$ on $A$ is *a partition of* $A$.
 
 **Proof:** Since $a ∈ [a]$ for all $a ∈ A$ (reflexivity of $θ$), the union of all equivalence classes is equal to $A$. It remains to prove that equivalence classes are disjoint. This is proved by proving, for any fixed $a$ and $b$, that
@@ -863,21 +863,21 @@ $\mathbb{Q}\ \ {\stackrel{\mathrm{def}}{=}}\ \ \left(\mathbb{Z}\times\left(\math
 
 Taking the definition of an equivalence relation and simply replacing the symmetry condition by the anti-symmetry condition results in a completely different, but even more interesting type of relation.
 
-::: info Definition 3.23 Partial Order{#definition-3-23}
+::: definition Definition 3.23 Partial Order{#definition-3-23}
 A *partial order* (or simply an *order relation*[^26]) on a set $A$ is a relation that is reflexive, antisymmetric, and transitive. A set $A$ together with a partial order $\preceq$ on $A$ is called a *partially ordered set* (or simply *poset*) and is denoted as $(A;\preceq)$. [^27]
 :::
 
 In a graph representation of relations, a partial order has no cycles (but this is of course not a complete characterization).
 
-::: tip Example 3.35{#example-3-35}
+::: example Example 3.35{#example-3-35}
 The relations $≤$ and $≥$ are partial orders on $ℤ$, $ℚ$, or $ℝ$. The relations $<$ and $>$ are not partial orders because they are not reflexive (though they are both transitive and, in fact, also antisymmetric because $a < b ∧ b < a$ is never true, i.e., $< \operatorname ∩ \widehat< = ∅$).
 :::
 
-::: tip Example 3.36{#example-3-36}
+::: example Example 3.36{#example-3-36}
 The division relation ($|$) is a partial order on $ℕ\backslash \{0\}$ or any subset of $ℕ\backslash \{0\}$.
 :::
 
-::: tip Example 3.37{#example-3-37}
+::: example Example 3.37{#example-3-37}
 The subset relation on the power set of a set $A$ is a partial order. In other words, for any set $A$, $(\cf P(A); ⊆)$ is a poset.
 :::
 
@@ -887,7 +887,7 @@ The subset relation on the power set of a set $A$ is a partial order. In other w
 
 [^27]:Partial orders are often denoted by $≤$ or by a similar symbol like $\preceq$ or $⊑$.
 
-::: tip Example 3.38{#example-3-38}
+::: example Example 3.38{#example-3-38}
 The covering relation on convex polygons (see [Example 3.30](#example-3-30)) is a partial order.
 :::
 
@@ -895,39 +895,39 @@ For a partial order relation $\preceq$ we can define the relation $a ≺ b$ simi
 
 $$a\prec b\ \ \stackrel{\mathrm{def}}{\Longleftrightarrow}\ \ a\preceq b\ \land\ a\neq b.$$
 
-::: info Definition 3.24 Comparable{#definition-3-24}
+::: definition Definition 3.24 Comparable{#definition-3-24}
 For a poset $(A;\preceq)$, two elements $a$ and $b$ are called *comparable*[^28] if $a ⪯ b$ or $b ⪯ a$; otherwise they are called *incomparable*.
 :::
 
-::: info Definition 3.25 Total Order{#definition-3-25}
+::: definition Definition 3.25 Total Order{#definition-3-25}
 If any two elements of a poset $(A;⪯)$ are comparable, then $A$ is called *totally ordered* (or *linearly ordered*) by $\preceq$.
 :::
 
-::: tip Example 3.39{#example-3-39}
+::: example Example 3.39{#example-3-39}
 $(ℤ; ≤)$ and $(ℤ; ≥)$ are totally ordered posets (or simply totally ordered sets), and so is any subset of $ℤ$ with respect to $≤$ or $≥$. For instance, $(\{2, 5, 7, 10\}; ≤)$ is a totally ordered set.
 :::
 
-::: tip Example 3.40{#example-3-40}
+::: example Example 3.40{#example-3-40}
 The poset $(\cf P(A); ⊆)$ is not totally ordered if $|A| ≥ 2$, nor is the poset $(ℕ; |)$.
 :::
 
 ### 3.5.2. Hasse Diagrams
 
-::: info Definition 3.26 Cover{#definition-3-26}
+::: definition Definition 3.26 Cover{#definition-3-26}
 In a poset $(A;⪯)$ an element $b$ is said to *cover*[^29] an element $a$ if $a ≺ b$ and there exists no $c$ with $a ≺ c$ and $c ≺ b$ (i.e., between $a$ and $b$).
 :::
 
-::: tip Example 3.41{#example-3-41}
+::: example Example 3.41{#example-3-41}
 In a hierarchy (say of a company), if $a ≺ b$ means that $b$ is superior to $a$, then $b$ covers $a$ means that $b$ is the direct superior of $a$.
 :::
 
-::: info Definition 3.27 Hasse Diagram{#definition-3-27}
+::: definition Definition 3.27 Hasse Diagram{#definition-3-27}
 The *Hasse diagram* of a (finite) poset $(A; ⪯)$ is the directed graph whose vertices are labeled with the elements of $A$ and where there is an edge from $a$ to $b$ if and only if $b$ covers $a$.
 :::
 
 The Hasse diagram is a graph with directed edges. It is usually drawn such that whenever $a ≺ b$, then $b$ is placed higher than $a$. This means that all arrows are directed upwards and therefore can be omitted.
 
-::: tip Example 3.42{#example-3-42}
+::: example Example 3.42{#example-3-42}
 The Hasse diagram of the poset $(\{2, 3, 4, 5, 6, 7, 8, 9\}; |)$ is shown in Figure 3.1 on the left.
 
 <svg class="center" width="130" height="120" viewBox="0 0 391 364" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -956,7 +956,7 @@ The Hasse diagram of the poset $(\{2, 3, 4, 5, 6, 7, 8, 9\}; |)$ is shown in Fig
 
 [^29]:German: überdecken
 
-::: tip Example 3.43{#example-3-43}
+::: example Example 3.43{#example-3-43}
 A nicer diagram is obtained when $A$ is the set of all divisors of an integer $n$. The Hasse diagram of the poset $(\{1, 2, 3, 4, 6, 8, 12, 24\}; |)$ is shown in Figure 3.1 in the middle.
 
 <svg class="center" width="120" height="240" viewBox="0 0 341 677" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -981,7 +981,7 @@ A nicer diagram is obtained when $A$ is the set of all divisors of an integer $n
 </svg>
 :::
 
-::: tip Example 3.44{#example-3-44}
+::: example Example 3.44{#example-3-44}
 The Hasse diagram of the poset $(\cf P(\{a, b, c\}); ⊆)$ is shown in Figure 3.1 on the right.
 
 <svg class="center" width="180" height="220" viewBox="0 0 499 549" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1005,7 +1005,7 @@ The Hasse diagram of the poset $(\cf P(\{a, b, c\}); ⊆)$ is shown in Figure 3.
 </svg>
 :::
 
-::: tip Example 3.45{#example-3-45}
+::: example Example 3.45{#example-3-45}
 For the two Hasse diagrams in Figure 3.2, give a realization as the divisibility poset of a set of integers.
 
 <svg class="center" id="figure-3-2" width="280" height="180" viewBox="0 0 757 433" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1030,7 +1030,7 @@ For the two Hasse diagrams in Figure 3.2, give a realization as the divisibility
 
 :::
 
-::: tip Example 3.46{#example-3-46}
+::: example Example 3.46{#example-3-46}
 Consider the covering[^30] relation on the convex polygons discussed in [Example 3.30](#example-3-30). A polygon $a$ is covered by a polygon $b$ if $b$ can be placed on top of $a$ such that $a$ disappears completely. Are there sets of six polygons resulting in a poset with the left (or right) Hasse diagram in [Figure 3.2](#figure-3-2)?
 :::
 
@@ -1038,7 +1038,7 @@ Consider the covering[^30] relation on the convex polygons discussed in [Example
 
 ### 3.5.3. Combinations of Posets and the Lexicographic Order
 
-::: info Definition 3.28 Direct Product{#definition-3-28}
+::: definition Definition 3.28 Direct Product{#definition-3-28}
 The *direct product* of posets $(A;⪯)$ and $(B; ⊑)$, denoted $(A;⪯) × (B; ⊑)$, is the set $A × B$ with the relation $≤$ (on $A × B$) defined by
 
 <center>
@@ -1047,7 +1047,7 @@ $(a_1, b_1) ≤ (a_2, b_2) \stackrel{\text{def}}{\iff}  a_1 ⪯ a_2 \land b_
 </center>
 :::
 
-::: info Theorem 3.12{#theorem-3-12}
+::: proposition Theorem 3.12{#theorem-3-12}
 $(A;⪯) × (B; ⊑)$ *is a partially ordered set.*
 
 The proof is left as an exercise. The reader can verify that when replacing $∧$ by $∨$, the resulting relation is in general not a partial order relation.
@@ -1055,7 +1055,7 @@ The proof is left as an exercise. The reader can verify that when replacing $∧
 
 A more interesting order relation on $A × B$ is defined in the following theorem, whose proof is left as an exercise.
 
-::: info Theorem 3.13 Lexicographic Order{#theorem-3-13}
+::: proposition Theorem 3.13 Lexicographic Order{#theorem-3-13}
 *For given posets* $(A;⪯) and (B; ⊑)$*, the relation* $≤_{lex}$ *defined on* $A×B$ by
 
 $$(a_{1},b_{1})\leq_{\mathrm{lex}}(a_{2},b_{2})\quad\stackrel{\mathrm{def}}{\Longleftrightarrow}\quad a_{1}\prec a_{2}\ \vee\ (a_{1}=a_{2}\wedge b_{1}\sqsubseteq b_{2})$$
@@ -1071,7 +1071,7 @@ The lexicographic order can easily be generalized to the $k$-tuples over some al
 
 We define a few types of special elements that a poset can have.
 
-::: info Definition 3.29 Minimal, Maximal, Least, and Greatest Elements{#definition-3-29}
+::: definition Definition 3.29 Minimal, Maximal, Least, and Greatest Elements{#definition-3-29}
 Let $(A;⪯)$ be a poset, and let $S ⊆ A$ be some subset of $A$. Then
 
 1. $a ∈ A$ is a *minimal (maximal) element* of $A$ if there exists no $b ∈ A$ with $b ≺ a$ ($b ≻ a$).[^32]
@@ -1088,23 +1088,23 @@ Minimal, maximal, least, and greatest elements are easily identified in a Hasse 
 
 The greatest lower bound and the least upper bound of a set $S$ are sometimes denoted as $\operatorname{glb}(S)$ and $\operatorname{lub}(S)$, respectively.
 
-::: tip Example 3.47{#example-3-47}
+::: example Example 3.47{#example-3-47}
 Consider the poset $(\{2, 3, 4, 5, 6, 7, 8, 9\}; |)$ shown in [Figure 3.1](#example-3-42). It has no least or greatest elements, but $2$, $3$, $5$, and $7$ are minimal elements, and $5$, $6$, $7$, $8$ and $9$ are maximal elements. The number $2$ is a lower bound (actually the greatest lower bound) of the subset $\{4, 6, 8\}$, and the subset $\{4, 9\}$ has no lower (nor upper) bound.
 :::
 
-::: tip Example 3.48{#example-3-48}
+::: example Example 3.48{#example-3-48}
 The poset $(\{1, 2, 3, 4, 6, 8, 12, 24\}; |)$ shown in [Figure 3.1](#example-3-43) has both a least ($1$) and a greatest ($24$) element. The subset $\{8, 12\}$ has the three lower bounds $1$, $2$, and $4$, and $4$ is the greatest lower bound of $\{8, 12\}$. Actually, this poset is special in that any set of elements has a greatest lower bound and a least upper bound. How can $\operatorname{glb}(S)$ and $\operatorname{lub}(S)$ be defined?
 :::
 
-::: tip Example 3.49{#example-3-49}
+::: example Example 3.49{#example-3-49}
 The poset $(\cf P(\{a, b, c\}); ⊆)$ shown in [Figure 3.1](#example-3-44) has both a least element, namely $∅$, and a greatest element, namely $\{a, b, c\}$.
 :::
 
-::: tip Example 3.50{#example-3-50}
+::: example Example 3.50{#example-3-50}
 In the poset $(ℤ^+; |)$, $1$ is a least element but there is no greatest element.
 :::
 
-::: info Definition 3.30 Well-Ordered Poset{#definition-3-30}
+::: definition Definition 3.30 Well-Ordered Poset{#definition-3-30}
 A poset $(A;⪯)$ is *well-ordered*[^37] if it is totally ordered and if every non-empty subset of $A$ has a least element.[^38]
 :::
 
@@ -1124,19 +1124,19 @@ Note that every totally ordered finite poset is well-ordered. The property of be
 
 ### 3.5.5. Meet, Join, and Lattices
 
-::: info Definition 3.31 Meet and Join{#definition-3-31}
+::: definition Definition 3.31 Meet and Join{#definition-3-31}
 Let $(A;⪯)$ be a poset. If $a$ and $b$ (i.e., the set $\{a, b\} ⊆ A$) have a greatest lower bound, then it is called the *meet* of $a$ and $b$, often denoted $a ∧ b$. If $a$ and $b$ have a least upper bound, then it is called the *join* of $a$ and $b$, often denoted $a ∨ b$.
 :::
 
-::: info Definition 3.32 Lattice{#definition-3-32}
+::: definition Definition 3.32 Lattice{#definition-3-32}
 A poset $(A;⪯)$ in which every pair of elements has a meet and a join is called a *lattice*[^39].
 :::
 
-::: tip Example 3.51{#example-3-51}
+::: example Example 3.51{#example-3-51}
 The posets $(ℕ; ≤)$, $(ℕ \backslash \{0\}; | )$, and $(\cf P(S); ⊆)$ are lattices, as the reader can verify.
 :::
 
-::: tip Example 3.52{#example-3-52}
+::: example Example 3.52{#example-3-52}
 The poset $(\{1, 2, 3, 4, 6, 8, 12, 24\}; |)$ shown in [Figure 3.1](#example-3-43) is a lattice. The meet of two elements is their greatest common divisor, and their join is the least common multiple. For example, $6 ∧ 8 = 2$, $6 ∨ 8 = 24$, $3 ∧ 4 = 1$, and $3 ∨ 4 = 12$. In contrast, the poset $(\{2, 3, 4, 5, 6, 7, 8, 9\}; |)$ is not a lattice.
 :::
 
@@ -1144,7 +1144,7 @@ The poset $(\{1, 2, 3, 4, 6, 8, 12, 24\}; |)$ shown in [Figure 3.1](#example-3-4
 
 The concept of a function is perhaps the second most fundamental concept in mathematics (after the concept of a set). We discuss functions only now, after having introduced relations, because functions are a special type of relation, and several concepts defined for relations (e.g. inversion and composition) apply to functions as well.
 
-::: info Definition 3.33 Function{#definition-3-33}
+::: definition Definition 3.33 Function{#definition-3-33}
 A *function* $f : A \to B$ from a *domain*[^40] $A$ to a *codomain*[^41] $B$ is a relation from $A$ to $B$ with the special properties (using the relation notation $a\ f\ b$):[^42]
 
 1. $∀a ∈ A   ∃b ∈ B   a\ f\ b$ <span class=right>(the function is *totally defined*),</span>
@@ -1165,33 +1165,33 @@ $$f : a \mapsto \text{"expression in a"}$$
 
 [^42]:Here we use the convenient notation $∀a ∈A$ and $∃b ∈B$.
 
-::: info Definition 3.34 Function Set{#definition-3-34}
+::: definition Definition 3.34 Function Set{#definition-3-34}
 The set of all functions $A \to B$ is denoted as $B^A$. [^43]
 :::
 
 One can generalize the function concept by dropping the first condition (totally defined), i.e., allowing that there can exist elements $a ∈ A$ for which $f(a)$ is not defined.
 
-::: info Definition 3.35 Partial Function{#definition-3-35}
+::: definition Definition 3.35 Partial Function{#definition-3-35}
 A *partial function* $A \to B$ is a relation from $A$ to $B$ such that condition 2. above holds.
 :::
 
 Two (partial) functions with common domain $A$ and codomain $B$ are *equal* if they are equal as relations (i.e., as sets). $f = g$ is equivalent to saying that the function values of $f$ and $g$ agree for all arguments (including, in case of partial functions, whether or not it is defined).
 
-::: info Definition 3.36 Image{#definition-3-36}
+::: definition Definition 3.36 Image{#definition-3-36}
 For a function $f : A → B$ and a subset $S$ of $A$, the *image*[^44] of $S$ under $f$, denoted $f(S)$, is the set
 
 $$f(S)  {\stackrel{\mathrm{def}}{=}}  \{f(a)~|~a\in S\}.$$
 :::
 
-::: info Definition 3.37 Image{#definition-3-37}
+::: definition Definition 3.37 Image{#definition-3-37}
 The subset $f(A)$ of $B$ is called the *image* (or *range*) of $f$ and is also denoted $Im(f)$.
 :::
 
-::: tip Example 3.53{#example-3-53}
+::: example Example 3.53{#example-3-53}
 Consider the function $f : ℝ → ℝ$ defined by $f(x) = x^2$. The image of the interval $[2, 3]$ is the interval $[4, 9]$. The range of $f$ is the set $ℝ^{≥0}$ of non-negative real numbers.
 :::
 
-::: info Definition 3.38 Preimage{#definition-3-38}
+::: definition Definition 3.38 Preimage{#definition-3-38}
 For a subset $T$ of $B$, the *preimage*[^45] of $T$, denoted $f^{−1}(T)$, is the set of values in $A$ that map into $T$:
 
 <center>
@@ -1200,7 +1200,7 @@ $f^{-1}(T)  {\stackrel{\mathrm{def}}{=}}  \{a\in A~|~f(a)\in T\}$.
 </center>
 :::
 
-::: tip Example 3.54{#example-3-54}
+::: example Example 3.54{#example-3-54}
 Consider again the function $f(x) = x^2$. The preimage of the interval $[4, 9]$ is $[−3, −2] ∪ [2, 3]$.
 :::
 
@@ -1210,7 +1210,7 @@ Consider again the function $f(x) = x^2$. The preimage of the interval $[4, 9]$ 
 
 [^45]:German: Urbild
 
-::: info Definition 3.39 Injective, Surjective, Bijective{#definition-3-39}
+::: definition Definition 3.39 Injective, Surjective, Bijective{#definition-3-39}
 A function $f : A → B$ is called
 
 1. **injective** (or *one-to-one* or an *injection*) if for $a ≠ a^′$ we have $f(a) ≠ f(a^′)$, i.e., no two distinct values are mapped to the same function value (there are no "collisions").
@@ -1218,19 +1218,19 @@ A function $f : A → B$ is called
 3. **bijective** (or a *bijection*) if it is both injective and surjective.
 :::
 
-::: info Definition 3.40 Inverse Function{#definition-3-40}
+::: definition Definition 3.40 Inverse Function{#definition-3-40}
 For a bijective function $f$, the *inverse* (as a relation, see [Definition 3.11](#definition-3-11)) is called the inverse function[^46] of $f$, usually denoted as $f^{-1}$ .
 :::
 
-::: info Definition 3.41 Composition of Functions{#definition-3-41}
+::: definition Definition 3.41 Composition of Functions{#definition-3-41}
 The *composition* of a function $f : A → B$ and a function $g : B → C$, denoted by $g◦f$ or simply $gf$, is defined by $(g◦f)(a) = g(f(a))$. [^47]
 :::
 
-::: tip Example 3.55{#example-3-55}
+::: example Example 3.55{#example-3-55}
 Consider again the function $f(x) = x^ 3 + 3$ and $g(x) = 2x^ 2 + x$. Then $g ◦ f (x) = 2(f(x))2 + f(x) = 2x 6 + 13x 3 + 21$.
 :::
 
-::: info Lemma 3.14 Associativity{#lemma-3-14}
+::: proposition Lemma 3.14 Associativity{#lemma-3-14}
 *Function composition is associative, i.e.,* $(h ◦ g) ◦ f = h ◦ (g ◦ f)$.
 
 **Proof:** This is a direct consequence of the fact that relation composition is associative (see [Lemma 3.7](#lemma-3-7)). <span class=right>$\Box$</span>
@@ -1246,7 +1246,7 @@ Countability is an important concept in Computer Science. A set that is countabl
 
 [^47]:Note that the composition of functions is the same as the composition of relations. However, unfortunately, different notation is used: The composition of relations $f$ and $g$ is denoted $f ◦g$ while, if considered as functions, the same resulting composition is denoted as $g ◦ f$. (The reason is that one thinks of functions as mapping "from right to left".) Because of this ambiguity one must make explicit whether the symbol $◦$ refers to function or relation composition.
 
-::: info Definition 3.42.{#definition-3-42}
+::: definition Definition 3.42.{#definition-3-42}
 1. Two sets $A$ and $B$ **equinumerous**[^48], denoted $A ∼ B$, if there exists a bijection $A → B$.
 2. The set $B$ **dominates** the set $A$, denoted $A ⪯ B$, if $A ∼ C$ for some subset $C ⊆ B$ or, equivalently, if there exists an injective function $A → B$.
 3. A set $A$ is called **countable**[^49] if $A ⪯ ℕ$, and **uncountable**[^50] otherwise.[^51]
@@ -1254,11 +1254,11 @@ Countability is an important concept in Computer Science. A set that is countabl
 {.lower-roman}
 :::
 
-::: tip Example 3.56{#example-3-56}
+::: example Example 3.56{#example-3-56}
 The set $ℤ = \{…, −2, −1, 0, 1, 2, …\}$ of integers is countable, and $ℤ ∼ ℕ$. A bijection $f : ℕ → ℤ$ is given by $f(n) = (−1)^n⌈n/2⌉$.
 :::
 
-::: info Lemma 3.15{#lemma-3-15}
+::: proposition Lemma 3.15{#lemma-3-15}
 1. *The relation* $∼$ *is an equivalence relation.*
 2. *The relation* $\preceq$ *is transitive:* $A ⪯ B ∧ B ⪯ C \implies A ⪯ C$.
 3. $A ⊆ B \implies A ⪯ B$.
@@ -1275,7 +1275,7 @@ The set $ℤ = \{…, −2, −1, 0, 1, 2, …\}$ of integers is countable, and 
 
 A non-trivial theorem, called the Bernstein-Schröder theorem, is stated without proof.[^53] It is not needed in this course.
 
-::: info Theorem 3.16 Bernstein-Schröder{#theorem-3-16}
+::: proposition Theorem 3.16 Bernstein-Schröder{#theorem-3-16}
 $A ⪯ B ∧ B ⪯ A \implies A ∼ B$.
 :::
 
@@ -1295,11 +1295,11 @@ For finite sets $A$ and $B$, we have $A ∼ B$ if and only if $|A| = |B|$. A fin
 
 [^53]:An elegant proof of this theorem is given in *Proofs from THE BOOK* by M. Aigner and G. Ziegler.
 
-::: tip Example 3.57{#example-3-57}
+::: example Example 3.57{#example-3-57}
 Let $\bf{O} = \{1, 3, 5, . . .\}$ be the set of odd natural numbers. Of course, $\bf O$ is countable since the identity function is a (trivial) injection from $\bf O$ to $ℕ$. Actually, there is even a *bijection* $f : ℕ → \bf O$, namely $f(n) = 2n + 1$. Indeed, [Theorem 3.17](#theorem-3-17) below states a more general fact.
 :::
 
-::: info Theorem 3.17{#theorem-3-17}
+::: proposition Theorem 3.17{#theorem-3-17}
 *A set* $A$ *is countable if and only if it is finite or if* $A ∼ ℕ$.
 
 The theorem can be restated as follows: There is no cardinality level between finite and countably infinite.
@@ -1315,7 +1315,7 @@ More precisely, we define the bijection as follows. According to the wellorderin
 
 ### 3.7.3. Important Countable Sets
 
-::: info Theorem 3.18{#theorem-3-18}
+::: proposition Theorem 3.18{#theorem-3-18}
 *The set* $\{0, 1\}^*  \stackrel{\text{def}}{=}  \{\epsilon, 0, 1, 00, 01, 10, 11, 000, 001, . . .\}$ *of finite binary sequences is countable.*[^54]
 
 **Proof:** We could give an enumeration of the set $\{0, 1\}^*$ , i.e., a bijection between $\{0, 1\}^*$ and $ℕ$, but to prove the theorem it suffices to provide an injection $\{0, 1\}^* → ℕ$, which we define as follows. We put a "$1$" at the beginning of the string and then interpret it as an natural number using the usual binary representation of the natural numbers. For example, the string $0010$ is mapped to the number $18$.[^55] <span class=right>$\Box$</span>
@@ -1325,7 +1325,7 @@ More precisely, we define the bijection as follows. According to the wellorderin
 
 [^55]:Note that without prepending a $1$, different strings (e.g. $0010$ and $00010$) would result in the same integer and hence the mapping would not be an injection.
 
-::: info Theorem 3.19{#theorem-3-19}
+::: proposition Theorem 3.19{#theorem-3-19}
 *The set* $ℕ×ℕ (= ℕ^2)$ *of ordered pairs of natural numbers is countable.*
 
 **Proof:** A possible bijection $f : ℕ → ℕ^2$ is given by $f(n) = (k, m)$, where $k$ and $m$ are determined using the following equations: $k + m = t − 1$ and $m = n − {t \choose 2}$ , where $t > 0$ is the smallest integer such that ${t+1 \choose 2} > n$. This corresponds to the enumeration of the pairs $(k, m)$ along diagonals with constant sum $k + m$. More concretely, we enumerate the pairs as follows: $(0, 0), (1, 0), (0, 1),(2, 0),(1, 1),(0, 2),(3, 0), (2, 1), (1, 2), (0, 3), (4, 0), (3, 1),…$.  
@@ -1348,7 +1348,7 @@ $(a,b)\;\mapsto\;0^{|a|}||1||a||b$,
 i.e., we first encode the length $|a|$ of $a$ by a unary encoding, append $1$ to mark the end of this encoding of $|a|$, and then append $a$ and $b$.
 :::
 
-::: info Corollary 3.20{#corollary-3-20}
+::: proposition Corollary 3.20{#corollary-3-20}
 *The Cartesian product* $A× B$ *of two countable sets* $A$ and $B$ *is countable, i.e.,* $A ⪯ ℕ ∧ B ⪯ ℕ \implies A × B ⪯ ℕ$.
 
 **Proof:** We first prove $A×B ⪯ ℕ×ℕ$ by exhibiting an injection $g : A×B → ℕ×ℕ$, namely $g(a, b) = (f_1(a), f_2(b))$. That $g$ is an injection can be proved as follows:
@@ -1365,7 +1365,7 @@ $$
 Using $A × B ⪯ ℕ × ℕ$ (just proved) and $ℕ × N ⪯ N$ ([Theorem 3.19](#theorem-3-19)) now gives $A × B ⪯ ℕ$ because is transitive ([Lemma 3.15(i)](#lemma-3-15)). <span class=right>$\Box$</span>
 :::
 
-::: info Corollary 3.21{#corollary-3-21}
+::: proposition Corollary 3.21{#corollary-3-21}
 *The rational numbers* $ℚ$ *are countable.*
 
 **Proof:** Every rational number can be represented uniquely as a pair $(m, n)$ where $m ∈ ℤ$, $n ∈ ℕ \backslash \{0\}$, and where $m$ and $n$ are relatively prime. Hence $ℚ ⪯ ℤ × ℕ$. According to [Example 3.56](#example-3-56), $ℤ$ is countable, i.e., $ℤ ⪯ ℕ$. Thus, according to [Corollary 3.20](#corollary-3-20), $ℤ × ℕ ⪯ ℕ$. Hence, using transitivity of , we have $ℚ ⪯ ℕ$ (i.e., $ℚ$ is countable). <span class=right>$\Box$</span>
@@ -1373,7 +1373,7 @@ Using $A × B ⪯ ℕ × ℕ$ (just proved) and $ℕ × N ⪯ N$ ([Theorem 3.19]
 
 The next theorem provides some other important sets that are countable.
 
-::: info Theorem 3.22{#theorem-3-22}
+::: proposition Theorem 3.22{#theorem-3-22}
 Let $A$ and $A_i$ for $i ∈ ℕ$ *be countable sets.*
 1. *For any* $n ∈ ℕ$, *the set* $A^n$ *of $n$-tuples over* $A$ *is countable.*
 2. *The union* $∪_{i∈N}A_i$ *of a countable list* $A_0, A_1, A_2, …$ *of countable sets is countable.*
@@ -1402,7 +1402,7 @@ $(\{0,1\}^{*})^{*}\to\{0,1\}^{*}$,
 which can be achieved as follows.[^56] We replace every $0$-bit in a sequence by $00$ and every $1$-bit by $01$, which defines a (length-doubling) injection $\{0, 1\}^* → \{0, 1\}^*$. Then we concatenate all obtained expanded sequences, always separated by $11$. This is an injection because the separator symbols $11$ can be detected and removed and the extra $0$'s can also be removed. Hence a given sequence can be uniquely decomposed into the component sequences, and hence no two different sequences of binary (component) sequences can result in the same concatenated sequence. <span class=right>$\Box$</span>
 :::
 
-::: tip Example 3.58{#example-3-58}
+::: example Example 3.58{#example-3-58}
 We illustrate the above injection $(\{0, 1\}^*)^* → \{0, 1\}^*$ by an example. Consider the sequence $(0100, 10111, 01, 1)$ of bit-sequences. Now $0100$ is mapped to $00010000$, $10111$ is mapped to $0100010101$, etc. and the final concatenated sequence (with separators $11$) is
 
 <center>
@@ -1419,11 +1419,11 @@ which can uniquely be decomposed into the original four sequences.
 
 We now consider semi-infinite binary sequences $(s_0, s_1, s_2, s_3, …)$. One can interpret such a binary sequence as specifying a subset of $ℕ$: If $s_i = 1$, then $i$ is in the set, otherwise it is not. Equivalently, we can understand a semiinfinite sequence $(s_0, s_1, s_2, s_3, …)$ as a function $ℕ → \{0, 1\}$, i.e., as a predicate on $ℕ$. For example, the primality predicate $\mathtt{prime} : ℕ → \{0, 1\}$ (where $\mathtt{prime}(n) = 1$ if and only if $n$ is prime) corresponds to the semi-infinite sequence $001101010001010001010001000001010000001…$.
 
-::: info Definition 3.43{#definition-3-43}
+::: definition Definition 3.43{#definition-3-43}
 Let $\{0, 1\}^∞$ denote the set of semi-infinite binary sequences or, equivalently, the set of functions $ℕ → \{0, 1\}$.
 :::
 
-::: info Theorem 3.23{#theorem-3-23}
+::: proposition Theorem 3.23{#theorem-3-23}
 **Theorem 3.23.** *The set* $\{0, 1\}^∞$ *is uncountable.*
 
 **Proof:** This is a proof by contradiction. To arrive at a contradiction, assume that a bijection $f : ℕ → \{0, 1\}^∞$ exists.[^57] Let $β_{i,j}$ be the $j$th bit in the $i$-th sequence $f(i)$, where for convenience we begin numbering the bits with $j = 0$:
@@ -1449,11 +1449,11 @@ By interpreting the elements of $\{0, 1\}^∞$ as the binary expansion of a real
 
 The above theorem states that there are uncountably many functions $ℕ → \{0, 1\}$. On the other hand, every computer program, regardless of the programming language it is written in, corresponds to a *finite* string of symbols. Without loss of generality, one can think of a program as a finite binary sequence $p ∈ \{0, 1\}^*$). Hence the set of programs is countable, whereas the set of functions $ℕ → \{0, 1\}$ is uncountable. If every program computes at most one function, there must be functions $ℕ → \{0, 1\}$ not computed by a program. This for Computer Science fundamental consequence of [Theorem 3.23](#theorem-3-23) is stated below.
 
-::: info Definition 3.44{#definition-3-44}
+::: definition Definition 3.44{#definition-3-44}
 A function $f : N → \{0, 1\}$ is called *computable* if there is a program that, for every $n ∈ ℕ$, when given $n$ as input, outputs $f(n)$.
 :::
 
-::: info Corollary 3.24{#corollary-3-24}
+::: proposition Corollary 3.24{#corollary-3-24}
 *There are uncomputable functions* $ℕ → \{0, 1\}$.
 :::
 

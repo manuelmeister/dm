@@ -68,6 +68,12 @@
     --vp-c-danger-2: var(--vp-c-red-2);
     --vp-c-danger-3: var(--vp-c-red-3);
     --vp-c-danger-soft: var(--vp-c-red-soft);
+
+    --vp-c-blue-soft: rgba(3, 102, 214, 0.1);
+}
+
+.dark {
+    --vp-c-blue-soft: rgba(0, 119, 204, 0.1);
 }
 
 /**
@@ -137,6 +143,18 @@
     --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+.custom-block.info.definition {
+    --vp-custom-block-info-border: var(--vp-c-gray-soft);
+}
+
+.custom-block.info.proposition {
+    --vp-custom-block-info-bg: var(--vp-c-bg-alt);
+}
+
+.custom-block.info.example {
+    --vp-custom-block-info-bg: var(--vp-c-blue-soft);
+}
+
 sup.footnote-ref {
     line-height: normal;
     break-before: avoid;
@@ -144,6 +162,9 @@ sup.footnote-ref {
 
 .lower-roman {
     list-style-type: lower-roman !important;
+    ::marker {
+        font-weight: bold;
+    }
 }
 
 .flex-center {

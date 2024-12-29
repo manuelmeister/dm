@@ -7,7 +7,7 @@
 
 People make many statements in life, like "I love you", "tomorrow it will rain", "birds can fly", or "Roger Federer is the best tennis player". By making the statement, the person making it intends to claim that it is true. However, most such statements are not sufficiently precise to be considered true or false, and often they are subjective. This is in contrast to mathematical statements.
 
-::: info Definition 2.1.{#definition-2-1}
+::: definition Definition 2.1.{#definition-2-1}
 A *mathematical statement* (also called *proposition*) is a statement that is true or false in an absolute, indisputable sense, according to the laws of mathematics.
 :::
 
@@ -25,7 +25,7 @@ We often simply say "statement" instead of "mathematical statement". A mathemati
 
 The first statement is easily shown to be true. The second statement is false, and this can be proved by giving a counter-example: $11$ is prime but $2^{11} − 1 = 2047 = 23·89$ is not prime.[^4] The third statement is true but by no means obvious (and requires a sophisticated proof). The fourth statement is not known to be true (or false). The fifth statement is false. The sixth statement is not known to be true (or false).
 
-::: tip Example 2.1.
+::: example Example 2.1.
 Consider the following statement which sounds like a statement of interest in Computer Science: "There is no algorithm for factoring any $n$-bit integer in $n^3$ steps". This is not a precise mathematical statement because its truth (namely the complexity of the best algorithm) generally depends on the particular computational model one is considering. A goal of Theoretical Computer Science (TCS) is therefore to define precise models of computation and the complexity of algorithms, allowing to make such claims precise.
 :::
 
@@ -96,7 +96,7 @@ The purpose of a proof is to demonstrate (or prove) a mathematical statement $S$
 
 We already gave examples of proofs in Chapter 1. We give one more simple example.
 
-::: tip Example 2.2.{#example-2-2}
+::: example Example 2.2.{#example-2-2}
 **Claim**: The number $n = 2^{143} - 1$ is not a prime.
 
 **Proof:** $n$ is divisible by $2047$, as one can check by a (for a computer) simple calculation.
@@ -125,7 +125,7 @@ $n$ is prime $\quad\implies\quad2^n-1$ is prime
 is a *false* statement, even though it may appear at first sight to follow from the above claim. However, we observe that if $S \implies T$ is true, then generally it does not follow that if $S$ is false, then $T$ is false.
 :::
 
-::: tip Example 2.3. {#example-2-3}
+::: example Example 2.3. {#example-2-3}
 An integer $n$ is called a *square* if $n = m · m$ for some integer $m$. Prove that if $a$ and $b$ are squares, then so is $a · b$.
 
 
@@ -189,7 +189,7 @@ As a next motivating example, let us prove a quite surprising assertion.[^7]
 
 [^7]: This example is taken from the book by Matousek and Nesetril.
 
-::: tip Example 2.4.{#example-2-4}
+::: example Example 2.4.{#example-2-4}
 **Claim:** Any $n$ lines $ℓ_1,$ … $,ℓ_n$ in the plane, no two of which are parallel, intersect in one point (i.e., have one point in common).
 
 **Proof:** The proof proceeds by induction.[^8] The induction basis is the case $n = 2$: Any two non-parallel lines intersect in one point. The induction hypothesis is that any $n$ lines intersect in one point. The induction step states that then this must be true for any $n+1$ lines. The proof goes as follows. By the hypothesis, the $n$ lines $ℓ_1, … ,ℓ_n$ intersect in a point $P$. Similarly, the $n$ lines $ℓ_1, … ,ℓ_{n−1}$, $ℓ_{n+1}$ intersect in a point $Q$. The line $ℓ_1$ lies in both groups, so it contains both $P$ and $Q$. The same is true for line $ℓ_{n−1}$. But $ℓ_1$ and $ℓ_{n−1}$ intersect at a single point, hence $P = Q$. This is the common point of all lines $ℓ1, … ,ℓ_{n+1}$.
@@ -197,7 +197,7 @@ As a next motivating example, let us prove a quite surprising assertion.[^7]
 
 Something must be wrong! (What?) This example illustrates that proofs must be designed with care. Heuristics and intuition, though essential in any engineering discipline as well as in mathematics, can sometimes be wrong.
 
-:::tip Example 2.5.{#example-2-5}
+::: example Example 2.5.{#example-2-5}
 In the lecture we present a "proof" for the statement $2 = 1$.
 :::
 
@@ -229,7 +229,7 @@ A proof based on several implications often has a more general form: The implica
 - $S_1$ and $S_4 \dot\implies S_7$, as well as
 - $S_6$ and $S_7 \dot\implies T$.
 
-::: tip Example 2.6.{#example-2-6}
+::: example Example 2.6.{#example-2-6}
 In the lecture we demonstrate the proof of [Example 2.2](#example-2-2) in the above format, making every intermediate statement explicit.
 :::
 
@@ -237,7 +237,7 @@ In the lecture we demonstrate the proof of [Example 2.2](#example-2-2) in the ab
 
 There is a common informal understanding of what constitutes a proof of a mathematical statement S. Informally, we could define a proof as follows:
 
-::: info Definition 2.2. *(Informal.)*
+::: definition Definition 2.2. *(Informal.)*
 A *proof* of a statement $S$ is a sequence of simple, easily verifiable, consecutive steps. The proof starts from a set of axioms (things postulated to be true) and known (previously proved) facts. Each step corresponds to the application of a derivation rule to a few already proven statements, resulting in a newly proved statement, until the final step results in $S$.
 :::
 
@@ -294,7 +294,7 @@ We give a brief introduction to some elementary concepts of logic. We point out 
 
 ### 2.3.1. Logical Constants, Operators, and Formulas
 
-::: info Definition 2.3.{#definition-2-3}
+::: definition Definition 2.3.{#definition-2-3}
 
 The logical values (constants) "$true$" and "$false$" are usually denoted as $1$ and $0$, respectively [^11].
 
@@ -302,7 +302,7 @@ The logical values (constants) "$true$" and "$false$" are usually denoted as $1$
 
 One can define operations on logical values:
 
-::: info Definition 2.4.{#definition-2-4}
+::: definition Definition 2.4.{#definition-2-4}
 
 - The **negation** (logical $NOT$) of a propositional symbol $A$, denoted as $¬A$,  
  is true if and only if $A$ is false.
@@ -431,7 +431,7 @@ Since in propositional logic[^13] the domain is finite, a function can be comple
 
 Different arithmetic expressions can correspond to the same function. For example, the expressions $(a + b) · c$ and $(c · a) + (b · c)$ denote the same functions. Analogously, different logical formulas can correspond to the same function.
 
-::: info Definition 2.6.{#definition-2-6}
+::: definition Definition 2.6.{#definition-2-6}
 Two formulas $F$ and $G$ (in propositional logic) are called **equivalent**, denoted as $F ≡ G$, if they correspond to the same function, i.e., if the truth values are equal for all truth assignments to the propositional symbols appearing in $F$ or $G$.
 :::
 
@@ -487,11 +487,11 @@ $\neg(A\wedge B)~\equiv~\neg A\vee\neg B$.
 
 </center>
 
-::: tip Example 2.8.{#example-2-8}
+::: example Example 2.8.{#example-2-8}
 $A ↔ B ≡ (A → B) ∧ (B → A) ≡ (A ∧ B) ∨ (¬A ∧ ¬B)$.
 :::
 
-::: tip Example 2.9.{#example-2-9}
+::: example Example 2.9.{#example-2-9}
 Here is a more complicated example which the reader can verify as an exercise:
 
 $(A\land(\neg B))\lor(B\land(\neg C))\ \ \equiv\ \ (A\lor B)\land\neg(B\wedge C)$.
@@ -499,13 +499,13 @@ $(A\land(\neg B))\lor(B\land(\neg C))\ \ \equiv\ \ (A\lor B)\land\neg(B\wedge C)
 
 The following example shows a distributive law for $∧$ and $∨$. Such laws will be discussed more systematically in [Chapter 6](/6-logic).
 
-::: tip Example 2.10.{#example-2-10}
+::: example Example 2.10.{#example-2-10}
 $(A ∧ B) ∨ C ≡ (A ∨ C) ∧ (B ∨ C)$.
 :::
 
 We summarize the basic equivalences of propositional logic:
 
-::: info Lemma 2.1.{#lemma-2-1}
+::: proposition Lemma 2.1.{#lemma-2-1}
 1) $A ∧ A ≡ A$ and $A ∨ A ≡ A$ *(idempotence)*{.right}
 2) $A ∧ B ≡ B ∧ A$ and $A ∨ B ≡ B ∨ A$ *(commutativity of $∧$ and $∨$)*{.right}
 3) $(A ∧ B)∧ C ≡ A ∧(B ∧ C)$ and $(A ∨ B)∨ C ≡ A ∨(B ∨ C)$ *(associativity)*{.right}
@@ -522,7 +522,7 @@ For arithmetic expressions one can state relations between them that are more ge
 
 Analogously, one can state relations between formulas. The perhaps most important relation is logical consequence which is analogous to the relation $≤$ between arithmetic expressions.
 
-::: info Definition 2.7.{#definition-2-7}
+::: definition Definition 2.7.{#definition-2-7}
 A formula $G$ is a **logical consequence**[^14] of a formula $F$, denoted
 
 <center>
@@ -535,11 +535,11 @@ if for all truth assignments to the propositional symbols appearing in $F$ or $G
 
 Intuitively, if we would interpret the truth values $0$ and $1$ as the numbers $0$ and $1$ (which we don't!), then $F \models G$ would mean $F ≤ G$ (as functions).
 
-::: tip Example 2.11.{#example-2-11}
+::: example Example 2.11.{#example-2-11}
 $A ∧ B \models A ∨ B$.
 :::
 
-::: tip Example 2.12.{#example-2-12}
+::: example Example 2.12.{#example-2-12}
 Comparing the truth tables of the two formulas $(A∧B)∨(A∧C)$ and $¬B → (A ∨ C)$ one can verify that
 
 $(A ∧ B) ∨ (A ∧ C) \quad\models\quad ¬B → (A ∨ C)$.
@@ -549,7 +549,7 @@ Note that the two formulas are not equivalent.
 
 [^14]:German: (logische) Folgerung, logische Konsequenz
 
-::: tip Example 2.13.
+::: example Example 2.13.
 The following logical consequence, which the reader can prove as an exercise, captures a fact intuitively known to us, namely that implication is transitive:[^15]
 
 $(A\to B)\wedge(B\to C)\;\models\;A\to C$.
@@ -588,7 +588,7 @@ for any real numbers $a$, $b$, and $c$. Therefore, for any arithmetic expression
 $(f+g)\cdot h\ =\ (f\cdot h)+(g\cdot h)$.
 </center>
 
-::: tip Example 2.14.{#example-2-14}
+::: example Example 2.14.{#example-2-14}
 We give a more complex example of such a lifting. Because of the logical consequence stated in [Example 2.13](#example-2-13), we have
 
 $$(F\to G)\land(G\to H)\ \ \models\ \ F\to H$$
@@ -602,17 +602,17 @@ for any formulas $F$, $G$, and $H$.
 
 ### 2.3.6 Tautologies and Satisfiability
 
-::: info Definition 2.8.{#definition-2-8}
+::: definition Definition 2.8.{#definition-2-8}
 A formula $F$ (in propositional logic) is called a **tautology**[^17] or **valid**[^18] if it is true for all truth assignments of the involved propositional symbols. One often writes $\models F$ to say that $F$ is a tautology.
 :::
 
-::: tip Example 2.15.{#example-2-15}
+::: example Example 2.15.{#example-2-15}
 The formulas $A∨(¬A)$ and $(A∧(A → B)) → B$ are tautologies.
 :::
 
 One often wants to make statements of the form that some formula $F$ is a tautology. As stated in [Definition 2.8](#definition-2-8), one also says "$F$ is valid" instead of "$F$ is a tautology".
 
-::: info Definition 2.9.{#definition-2-9}
+::: definition Definition 2.9.{#definition-2-9}
 A formula $F$ (in propositional logic) is called **satisfiable**[^19] if it is true for at least one truth assignment of the involved propositional symbols, and it is called **unsatisfiable** otherwise.
 :::
 
@@ -623,7 +623,7 @@ The symbol $⊤$ is sometimes used to denote a tautology, and the symbol $⊥$ i
 $F\vee\neg F\ \equiv\ \top$ &emsp;and&emsp; $F\land\neg F\ \equiv\bot$.
 </center>
 
-::: tip Example 2.16.{#example-2-16}
+::: example Example 2.16.{#example-2-16}
 The formula $(A∧¬A)∧(B ∨C)$ is unsatisfiable, and the formula $A ∧ B$ is satisfiable.
 :::
 
@@ -657,7 +657,7 @@ The elements of logic we have discussed so far belong to the realm of so-called 
 
 Let us consider a non-empty set $U$ as the *universe* in which we want to reason. For example, $U$ could be the set $ℕ$ of natural numbers, the set $\mathbb{R}$ of real numbers, the set $\{0, 1\}^∗$ of finite-length bit-strings, or a finite set like $\{0, 1, 2, 3, 4, 5, 6\}$.
 
-::: info Definition 2.10.{#definition-2-10}
+::: definition Definition 2.10.{#definition-2-10}
 A $k$-ary *predicate*[^24] $P$ on $U$ is a function $U^k \mapsto \{0, 1\}$.
 :::
 
@@ -704,7 +704,7 @@ This is a true statement for *every* value $x$ in $U$. In the next section we se
 
 ### 2.4.3. The Quantifiers $∃$ and $∀$
 
-::: info Definition 2.11.{#definition-2-11}
+::: definition Definition 2.11.{#definition-2-11}
 For a universe $U$ and predicate $P(x)$ we define the following logical statements:[^25]
 
 <div class="grid-cols">
@@ -729,7 +729,7 @@ More generally, for a formula $F$ with a variable $x$, which for each value $x$ 
 
 [^25]:In the literature one also finds the notations $∀x$: $P(x)$ and $∀x$. $P(x)$ instead of $∀x~P(x)$, and similarly for $∃$.
 
-::: tip Example 2.17.{#example-2-17}
+::: example Example 2.17.{#example-2-17}
 Consider the universe $U = ℕ$. Then $∀x (x ≥ 0)$ is true.[^26] Also, $∀x (x ≥ 2)$ is false, and $∃x (x + 5 = 3)$ is false.
 :::
 
@@ -757,7 +757,7 @@ $$\forall x\;{\big(}P(x)\;\vee\;\exists y\;Q(x,y){\big)}$$
 
 is a logical formula.
 
-::: tip Example 2.18.{#example-2-18}
+::: example Example 2.18.{#example-2-18}
 The formula
 
 $$\forall x\;\exists y\;\;(y<x)$$
@@ -765,7 +765,7 @@ $$\forall x\;\exists y\;\;(y<x)$$
 states that for every $x$ there is a smaller $y$. In other words, it states that there is no smallest $x$ (in the universe under consideration). This formula is true for the universe of the integers or the universe of the real numbers, but it is false for the universe $U = ℕ$.
 :::
 
-::: tip Example 2.19.{#example-2-19}
+::: example Example 2.19.{#example-2-19}
 For the universe of the natural numbers, $U = ℕ$, the predicate $\mathtt{prime}(x)$ can be defined as follows:[^28]
 
 $$
@@ -779,13 +779,13 @@ $$
 
 [^28]:We use the symbol "$\stackrel{{\mathrm{def}}}{{\iff}}$" if the object on the left side is defined as being equivalent to the object on the right side.
 
-::: tip Example 2.20. {#example-2-20}
+::: example Example 2.20. {#example-2-20}
 Fermat's last theorem can be stated as follows: For universe $ℕ\backslash \{0\}$, [^29]
 
 $$\lnot\left(\exists x\ \exists y\ \exists z\ \exists n\ \left(n\geq3\ \land\ x^{n}+y^{n}\!=\!z^{n}\right)\right).$$
 :::
 
-::: tip Example 2.21.{#example-2-21}
+::: example Example 2.21.{#example-2-21}
 The statement "for every natural number there is a larger prime" can be phrased as
 
 $$\forall x\;\exists y\;(y>x\;\land\;\mathtt{prime}(y))$$
@@ -797,13 +797,13 @@ If the universe is $ℕ$, then one sometimes uses $m$, $n$, or $k$ instead of $x
 $$\forall m\ \exists n\ {\bigl(}n>m\ \land\ {\mathtt{p r i m e}}(n){\bigr)}.$$
 :::
 
-::: tip Example 2.22.{#example-2-22}
+::: example Example 2.22.{#example-2-22}
 Let $U = ℝ$. What is the meaning of the following formula, and does it correspond to a true statement?
 
 $$\forall x\;{\big(}x=0\;\vee\;\exists y\;{\big(}x y=1{\big)}{\big)}$$
 :::
 
-::: tip Example 2.23.{#example-2-23}
+::: example Example 2.23.{#example-2-23}
 What is the meaning of the following formula, and for which universes is it true (or false)?
 
 $$\forall x\;\forall y\;{\big(}\;(x<y)\to\exists z{\big(}(x<z)\land(z<y){\big)}\;{\big)}$$
@@ -835,7 +835,7 @@ is a tautology, or valid.
 
 One can define the equivalence of formulas and logical consequence for predicate logic analogously to propositional logic, but again the precise definition is quite involved and deferred to [Chapter 6](/6-logic). Intuitively, two formulas are equivalent if they evaluate to the same truth value for any interpretation of the symbols in the formula.
 
-::: tip Example 2.24.{#example-2-24}
+::: example Example 2.24.{#example-2-24}
 Recall [Example 2.22.](#example-2-22) The formula can be written in an equivalent form, as:
 
 <center>
@@ -907,7 +907,7 @@ If for a formula $F$ the interpretation (including the universe and the meaning 
 
 [^31]:We point out that defining logical consequence for predicate logic is quite involved (see [Chapter 6](/6-logic)), but intuitively it should be quite clear.
 
-::: tip Example 2.25.{#example-2-25}
+::: example Example 2.25.{#example-2-25}
 For the universe $ℕ$ and the usual interpretation of $<$ and $>$, the formula $∃n (n < 4 ∧ n > 5)$ is false and the formula $∀n (n > 0 → (∃m m < n))$ is true.
 :::
 
@@ -928,7 +928,7 @@ $F$ is valid $\implies G$ is valid, <span class=right>(2.1)</span>
 
 as a mathematical statement about the formulas $F$ and $G$. This statement is different from the statement $F \models G$. In fact, for any formulas $F$ and $G$, the statement $F \models G$ implies statement (2.1), but the converse is generally false:
 
-::: info Lemma 2.4.{#lemma-2-4}
+::: proposition Lemma 2.4.{#lemma-2-4}
 *For any two formulas* $F$ and $G$*, if* $F \models G$*, then [(2.1)](#2-1) is true.*
 
 **Proof:** $F \models G$ states that for every interpretation, if $F$ is true (for that interpretation), then also $G$ is true (for that interpretation). Therefore, if $F$ is true for every interpretation, then also $G$ is true for every interpretation, which is [statement (2.1)](#2-1). <span class="right">$\Box$</span>
@@ -942,13 +942,13 @@ In this section we discuss a few important proof patterns (which we could also c
 
 We first explain why the composition of implications, as occurring in many proofs, is sound.
 
-::: info Definition 2.12. Proof Composition{#definition-2-12}
+::: definition Definition 2.12. Proof Composition{#definition-2-12}
 The proof step of *composing implications* is as follows: If $S \implies T$ and $T \implies U$ are both true, then one concludes that $S \implies U$ is also true.
 :::
 
 The soundness of this principle is explained by the following lemma of propositional logic which was already stated in [Example 2.13.](#example-2-13)
 
-::: info Lemma 2.5.{#lemma-2-5}
+::: proposition Lemma 2.5.{#lemma-2-5}
 $(A → B) ∧ (B → C) \models A → C$.
 
 **Proof:** One writes down the truth tables of the formulas $(A → B) ∧ (B → C)$ and $A → C$ and checks that whenever the first evaluates to true, then also the second evaluates to true.
@@ -958,25 +958,25 @@ $(A → B) ∧ (B → C) \models A → C$.
 
 Many statements of interest (as intermediate steps or as the final statement of interest) are implications of the form $S \implies T$ for some statements $S$ and $T$. [^32]
 
-::: info Definition 2.13. Direct Proof{#definition-2-13}
+::: definition Definition 2.13. Direct Proof{#definition-2-13}
 A *direct proof* of an implication $S \implies T$ works by *assuming* $S$ and then proving $T$ under this assumption.
 :::
 
 ### 2.6.3. Indirect Proof of an Implication
 
-::: info Definition 2.14. Indirect Proof{#definition-2-14}
+::: definition Definition 2.14. Indirect Proof{#definition-2-14}
 An *indirect proof* of an implication $S \implies T$ proceeds by assuming that $T$ is false and proving that $S$ is false, under this assumption.
 :::
 
 The soundness of this principle is explained by the following simple lemma of propositional logic, where $A$ stands for "statement $S$ is true" and $B$ stands for "statement $T$ is true".
 
-::: info Lemma 2.6.{#lemma-2-6}
+::: proposition Lemma 2.6.{#lemma-2-6}
 $¬B → ¬A  \models  A → B$.
 
 **Proof:** One can actually prove the stronger statement, namely that $¬B → ¬A ≡ A → B$, simply by examination of the truth table which is identical for both formulas $¬B → ¬A$ and $A → B$. <span class="right">$\Box$</span>
 :::
 
-::: tip Example 2.26.{#example-2-26}
+::: example Example 2.26.{#example-2-26}
 Prove the following claim: If $x > 0$ is irrational, then also $\sqrt{x}$ is irrational. The indirect proof proceeds by assuming that $\sqrt{x}$ is not irrational and showing that then $x$ is also not irrational. Here "not irrational" means rational, i.e., we prove
 
 <center>
@@ -991,7 +991,7 @@ Assume hence that $\sqrt{x}$ is rational, i.e., that $\sqrt{x} = m/n$ for $m, n 
 
 ### 2.6.4. Modus Ponens
 
-::: info Definition 2.15. Modus Ponens{#definition-2-15}
+::: definition Definition 2.15. Modus Ponens{#definition-2-15}
 A proof of a statement $S$ by use of the so-called *modus ponens* proceeds in three steps:
 
 1. Find a suitable mathematical statement $R$.
@@ -1001,7 +1001,7 @@ A proof of a statement $S$ by use of the so-called *modus ponens* proceeds in th
 
 The soundness of this principle is explained by the following lemma of propositional logic. Again, the proof is by a simple comparison of truth tables.
 
-::: info Lemma 2.7.{#lemma-2-7}
+::: proposition Lemma 2.7.{#lemma-2-7}
 $A ∧ (A → B) \models B$.
 :::
 
@@ -1009,7 +1009,7 @@ Examples will be discussed in the lecture and the exercises.
 
 ### 2.6.5. Case Distinction
 
-::: info Definition 2.16. Case Distinction{#definition-2-16}
+::: definition Definition 2.16. Case Distinction{#definition-2-16}
 A proof of a statement $S$ by *case distinction* proceeds in three steps:
 
 1. Find a finite list $R_1, … , R_k$ of mathematical statements (the *cases*).
@@ -1021,7 +1021,7 @@ More informally, one proves for a *complete list* of cases that the statement $S
 
 The soundness of this principle is explained by the following lemma of propositional logic.
 
-::: info Lemma 2.8.{#lemma-2-8}
+::: proposition Lemma 2.8.{#lemma-2-8}
 *For every* $k$ *we have*
 
 <center>
@@ -1034,7 +1034,7 @@ $(A_1 ∨ \cdots ∨ A_k) ∧ (A_1 → B) ∧ \cdots ∧ (A_k → B) \models B$.
 Note that for $k = 1$ (i.e., there is only one case), case distinction corresponds to the modus ponens discussed above.
 :::
 
-::: tip Example 2.27.{#example-2-27}
+::: example Example 2.27.{#example-2-27}
 Prove the following statement $S$: The $4$th power of every natural number $n$, which is not divisible by $5$, is one more than a multiple of $5$.
 
 To prove the statement, let $n = 5k + c$, where $1 ≤ c ≤ 4$. Using the usual binomial formula $(a + b)^4 = a^4 + 4a^3 b + 6a^2 b^2 + 4ab^3 + b^4$ we obtain:
@@ -1050,7 +1050,7 @@ With a few insights from number theory and algebra we will see later that the ab
 
 ### 2.6.6. Proofs by Contradiction
 
-::: info Definition 2.17. Proof by Contradiction{#definition-2-17}
+::: definition Definition 2.17. Proof by Contradiction{#definition-2-17}
 A *proof by contradiction* of a statement $S$ proceeds in three steps:
 
 1. Find a suitable mathematical statement $T$.
@@ -1062,7 +1062,7 @@ In many cases, the proof steps appear in a different order: One starts from assu
 
 The soundness of this principle is explained by the following lemma of propositional logic which can again be proved by comparing the truth tables of the involved formulas.
 
-::: info Lemma 2.9.{#lemma-2-9}
+::: proposition Lemma 2.9.{#lemma-2-9}
 ($\neg A\to B$) $\wedge\neg B$ = $A$.
 
 Since $¬A → B$ is equivalent to $A ∨ B$, the principle of a proof by contradiction can alternatively be described as follows: To prove $S$, one proves for some statement $T$ that either $S$ or $T$ is true (or both) and that $T$ is false. This is justified because we have
@@ -1073,7 +1073,7 @@ $(A\lor B)\land\neg B\quad\models\quad A$.
 </center>
 :::
 
-::: tip Example 2.28.{#example-2-28}
+::: example Example 2.28.{#example-2-28}
 We discuss the classical proof of three statement that $\sqrt{2}$ is irrational. (This is the statement $S$ to be proved.) Recall (from basic number theory) that a number $a$ is rational if and only if $a = m/n$ (i.e., $m = a\times n$) for two relatively prime[^33] integers $m$ and $n$ (i.e., with $gcd(m, n) = 1$).[^34]
 
 The proof by contradiction starts by assuming that $S$ is false and deriving, from this assumption, a false statement $T$. In the following derivation we may use formulas as a compact way of writing statements, but the derivation itself is "normal" mathematical reasoning and is not to be understood as a formula-based logical reasoning.[^35]
@@ -1120,11 +1120,11 @@ This concludes the proof by contradiction. <span class="right">$\Box$</span>
 
 ### **2.6.7 Existence Proofs**
 
-::: info Definition 2.18. Existence Proofs{#definition-2-18}
+::: definition Definition 2.18. Existence Proofs{#definition-2-18}
 Consider a universe $\mathcal X$ of parameters and consider for each $x$ in $\mathcal X$ a statement, denoted $S_x$. An *existence proof* is a proof of the statement that $S_x$ is true for at least one $x ∈ \mathcal{X}$. An existence proof is **constructive** if it exhibits an $a$ for which $S_a$ is true, and otherwise it is **non-constructive**.
 :::
 
-::: tip Example 2.29.{#example-2-29}
+::: example Example 2.29.{#example-2-29}
 Prove that there exists a prime[^36] number $n$ such that $n − 10$ and $n + 10$ are also primes, i.e., prove
 
 <center>
@@ -1135,7 +1135,7 @@ $\exists n \bigl(\underbrace{{\mathtt{prime}(n) \land \mathtt{prime}(n-10) \land
 A constructive proof is obtained by giving the example $n = 13$ and verifying that $S_{13}$ is true.
 :::
 
-::: tip Example 2.30.{#example-2-30}
+::: example Example 2.30.{#example-2-30}
 We prove that there are infinitely many primes by involving a non-constructive existence proof.[^37] This statement can be rephrased as follows: For every number $m$ there exists a prime $p$ greater than $m$; as a formula:
 
 <center>
@@ -1163,7 +1163,7 @@ The following simple but powerful fact is known as the **pigeonhole principle**[
 
 [^40]:This principle is often described as follows: If there are more pigeons than pigeon holes, then there must be at least one pigeon hole with more than one pigeon in it. Hence the name of the principle.
 
-::: info Theorem 2.10. Pigeonhole Principle{#theorem-2-10}
+::: proposition Theorem 2.10. Pigeonhole Principle{#theorem-2-10}
 *If a set of* $n$ *objects is partitioned into* $k < n$ *sets, then at least one of these sets contains at least* $⌈ \frac{n}{k} ⌉$ *objects.*[^41]
 
 **Proof:** The proof is by contradiction. Suppose that all sets in the partition have at most $⌈ \frac{n}{k} ⌉ − 1$ objects. Then the total number of objects is at most $k(⌈ \frac{n}{k} ⌉ − 1$ , which is smaller than $n$ because
@@ -1175,13 +1175,13 @@ $k\left(\left\lceil\frac{n}{k}\right\rceil-1\right)\ <\ k\left(\left(\frac{n}{k}
 </center>
 :::
 
-::: tip Example 2.31.{#example-2-31}
+::: example Example 2.31.{#example-2-31}
 **Claim:** Among $100$ people, there are at least nine who were born in the same month. The claim can be equivalently stated as an existence claim: Considering any $100$ people, *there exists* a month in which at least nine of them have their birthday.
 
 **Proof:** Set $n = 100$ and $k = 12$, and observe that $⌈100/12⌉ = 9$.
 :::
 
-::: tip Example 2.32.{#example-2-32}
+::: example Example 2.32.{#example-2-32}
 **Claim:** In any subset $A$ of $\{1, 2, … , 2n\}$ of size $|A| = n + 1$, there exist distinct $a, b ∈ A$ such that $a \mid b$ ($a$ divides $b$).[^42]
 
 For example, in the set {2, 3, 5, 7, 9, 10} we see that 3 | 9.
@@ -1189,7 +1189,7 @@ For example, in the set {2, 3, 5, 7, 9, 10} we see that 3 | 9.
 **Proof:** We write every $a_i ∈ A$ as $2^{e_i}u_i$ with $u_i$ odd. There are only $n$ possible values $\{1, 3, 5, . . ., 2n − 1\}$ for $u_i$. Thus there must exist two numbers $a_i$ and $a_j$ with the same odd part ($u_i = u_j$). Therefore one of them has fewer factors $2$ than the other and must hence divide it.
 :::
 
-::: tip Example 2.33.{#example-2-33}
+::: example Example 2.33.{#example-2-33}
 Let $a_1, a_2, … , a_n$ be a sequence of numbers (real or integer). A subsequence of length k of this sequence is a sequence of the form $a_{i_1}, a_{i_2} , … , a_{i_k}$ , where $1 ≤ i_1 < i_2 < \cdots < i_k ≤ n$. A sequence is called strictly increasing (decreasing) if each term is strictly greater (smaller) than the preceding one. For example, the sequence $3, 8, 2, 11, 1, 5, 7, 4, 14, 9$ contains the increasing subsequences $3, 5, 7, 9$ and $2, 5, 7, 14$ and the decreasing subsequences $3, 2, 1$ and $8, 5, 4$.
 
 **Claim:** Every sequence of $m^2 + 1$ *distinct* numbers (real or integer) contains either an increasing or a decreasing subsequence of length $m + 1$. (Note that in the above example, $m = 3$ and $m^2 + 1 = 10$, and there is indeed an increasing subsequence of length $4$.)
@@ -1205,13 +1205,13 @@ Let $a_1, a_2, … , a_n$ be a sequence of numbers (real or integer). A subseque
 
 Proofs by counterexample are a specific type of constructive existence proof, namely the proof that a counterexample exists.
 
-::: info Definition 2.19. Proof by Counterexample{#definition-2-19}
+::: definition Definition 2.19. Proof by Counterexample{#definition-2-19}
 Consider a universe $\mathcal{X}$ of parameters and consider for each $x$ in $\mathcal{X}$ a statement, denoted $S_x$. A *proof by counterexample* is a proof of the statement that $S_x$ is not true for all $x ∈ X$, by exhibiting an a (called *counterexample*) such that $S_a$ is false.
 :::
 
 Note that a proof by counterexample corresponds to an existence proof.
 
-::: tip Example 2.34.{#example-2-34}
+::: example Example 2.34.{#example-2-34}
 Prove or disprove that for every integer $n$, the number $n^2−n+41$ is prime, i.e., prove
 
 $$\forall n\;\;\mathtt{{\tt~prime}}(n^{2}-n+41).$$
@@ -1223,7 +1223,7 @@ $$\lnot\forall n\ \mathtt{prime}(n^{2}-n+41),$$
 it suffices to exhibit a counterexample, i.e., an a such that $¬\mathtt{prime}(a^2 − a + 41)$. The smallest such $a$ is $a = 41$; note that $41^2 − 41 + 41 = 41^2$ is not a prime.
 :::
 
-::: tip Example 2.35.{#example-2-35}
+::: example Example 2.35.{#example-2-35}
 Prove or disprove that every positive integer $≥ 10$ can be written as the sum of at most three squares (e.g. $10 = 3^2 + 1^2$, $11 = 3^2 + 1^2 + 1^2$, $12 = 2^2 + 2^2 + 2^2$, $13 = 3^2 + 2^2$, and $14 = 3^2 + 2^2 + 1^2$). The statement can be written as
 
 <center>
@@ -1251,7 +1251,7 @@ A proof by induction consists of two steps:
 
 The induction step is performed by assuming $P(n)$ (for an arbitrary $n$) and deriving $P(n+1)$. This proof technique is justified by the following theorem.[^44]
 
-::: info Theorem 2.11. Principle of Mathematical Induction{#theorem-2-11}
+::: proposition Theorem 2.11. Principle of Mathematical Induction{#theorem-2-11}
 *For the universe* $ℕ$ *and an arbitrary unary predicate* $P$ *we have*
 
 <center>
@@ -1262,7 +1262,7 @@ $P(0)~∧~∀n~(P(n) → P(n+1))  \implies  ∀n P(n)$.
 
 Let us discuss a few examples of proofs by induction.
 
-::: tip Example 2.36.{#example-2-36}
+::: example Example 2.36.{#example-2-36}
 Prove that $\sum^n_{i=0}2^i = 2^{n+1} - 1$ holds for all $n$. To do a proof by induction, let $P(n)$ be defined by $P(n) = 1$ if and only if $\sum^n_{ i=0} 2^i = 2^{n+1} − 1$.  
 Step 1 is to prove $P(0)$; this holds trivially because the sum consists of the single term $2^0 = 1$ and we also have $2^{0+1} − 1 = 2 − 1 = 1$.  
 Step 2 is to prove that for an arbitrary $n$, under the assumption $P(n)$, i.e., $\sum^n_{i=0}2^i = 2^{n+1} − 1$, also $P(n + 1)$ is true, i.e., $\sum^{n+1}_{i=0}2^i = 2^{(n+1)+1} − 1$:
@@ -1275,7 +1275,7 @@ $\displaystyle\sum^n_{i=0}2^i = \displaystyle\sum_{i=0}^n2^i + 2^{n+1} = (2^{n+1
 This concludes the proof of $∀n~P(n)$.
 :::
 
-::: tip Example 2.37.{#example-2-37}
+::: example Example 2.37.{#example-2-37}
 Determine the set of postages you can generate using only 4-cent stamps and 5-cent stamps!
 
 Obviously $1$, $2$, $3$, $6$, $7$, and $11$ cents cannot be obtained, while $4$, $5$, $8 = 4 + 4$, $9 = 4 + 5$, $10 = 5 + 5$, $12 = 4 + 4 + 4$, $13 = 4 + 4 + 5$, $14 = 4 + 5 + 5$, and $15 = 5 + 5 + 5$, can be obtained. One can prove by induction that all amounts of $15$ or more cents can indeed be obtained.

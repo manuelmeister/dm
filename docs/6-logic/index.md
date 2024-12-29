@@ -62,13 +62,13 @@ $\mathcal{S} = \mathcal{P} = \{0, 1\}^∗$,
 
 with the understanding that any string in $\{0, 1\}^∗$ can be interpreted as a statement by defining syntactically wrong statements as being false statements.
 
-::: info Definition 6.1.{#definition-6-1}
+::: definition Definition 6.1.{#definition-6-1}
 A **proof system**[^6] is a quadruple $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$, as above.
 :::
 
 We now discuss the two fundamental requirements for proof systems.
 
-::: info Definition 6.2.{#definition-6-2}
+::: definition Definition 6.2.{#definition-6-2}
 A proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ is **sound**[^7] if no false statement has a proof, i.e., if for all $s ∈ \mathcal{S}$ for which there exists $p ∈ \mathcal{P}$ with $\phi(s, p) = 1$, we have $τ(s) = 1$.
 :::
 
@@ -92,7 +92,7 @@ In addition to soundness and completeness, one requires that the function $\phi$
 
 ### 6.2.2. Examples
 
-::: tip Example 6.1.
+::: example Example 6.1.
 An undirected *graph* consists of a set V of nodes and a set E of edges between nodes. Suppose that $V = \{0,$ … $, n − 1\}$. A graph can then be described by the so-called *adjacency matrix*, an $n×n$-matrix $M$ with $\{0, 1\}$-entries, where $M_{i,j} = 1$ if and only if there is an edge between nodes $i$ and $j$. A graph with $n$ nodes can hence be represented by a bit-string of length $n^2$ , by reading out the entries of the matrix row by row.
 
 We are now interested in proving that a given graph has a so-called *Hamiltonian cycle*, i.e., that there is a closed path from $node~1$ back to $node~1$, following edges between nodes, and visiting every node exactly once. We are also interested in the problem of proving the negation of this statement, i.e., that a given graph has no Hamiltonian cycle. Deciding whether a given graph has a Hamiltonian cycle or not is considered a computationally very hard decision problem (for large graphs).[^11]
@@ -118,17 +118,17 @@ This function $\phi$ is efficiently computable. The proof system is sound becaus
 
 [^12]:Note that $τ$ defines the meaning of the strings in $S$, namely that they are meant to encode graphs and that we are interested in whether a given graph has a Hamiltonian cycle.
 
-::: tip Example 6.2.
+::: example Example 6.2.
 Let us now consider the opposite problem of proving the inexistence of a Hamiltonian cycle in a given graph. In other words, in the above example we define $τ(s) = 1$ if and only if $|s| = n^2$ for some $n$ and the $n^2$ bits
 
 of s encode the adjacency matrix of a graph not containing Hamiltonian cycle. In this case, no sound and complete proof system (with reasonably short and efficiently verifiable proofs) is known. It is believed that no such proof system exists.
 :::
 
-::: tip Example 6.3.{#example-6-3}
+::: example Example 6.3.{#example-6-3}
 Let again $\mathcal{S} = \mathcal{P} = \{0, 1\}^∗$ , and for $s ∈ \{0, 1\}^∗$ let $n(s)$ denote the natural number whose (standard) binary representation is $s$, with the convention that leading $0$'s are ignored. (For example, $n(101011) = 43$ and $n(00101) = 5$.) Now, let $τ$ be the function defined as follows: $τ(s) = 1$ if and only if $n(s)$ is not a prime number. Moreover, let $\phi$ be the function defined by $\phi(s, p) = 1$ if and only if $n(s) = 0$, or if $n(s) = 1$, or if $n(p)$ divides $n(s)$ and $1 < n(p) < n(s)$. This function $\phi$ is efficiently computable. This is a proof system for the non-primality (i.e., compositeness) of natural numbers. It is sound because every $s$ corresponding to a prime number $n(s)$ has no proof since $n(s) ≠ 0$ and $n(s) ≠ 1$ and $n(s)$ has no divisor $d$ satisfying $1 < d < n(s)$. The proof system is complete because every natural number $n$ greater than $1$ is either prime or has a prime factor $q$ satisfying $1 < q < n$ (whose binary representation can serve as a proof).
 :::
 
-::: tip Example 6.4.{#example-6-4}
+::: example Example 6.4.{#example-6-4}
 Let us consider the opposite problem, i.e., proving primality of a number $n(s)$ represented by $s$. In other words, in the previous example we replace "not a prime" by "a prime". It is far from clear how one can define a verification function $\phi$ such that the proof system is sound and complete. However, such an efficiently computable function $\phi$ indeed exists. Very briefly, the proof that a number $n(s)$ (henceforth we simply write $n$) is prime consists of (adequate representations of):
 
 1. the list $p_1, … , p_k$ of distinct prime factors of $n − 1$, 
@@ -210,7 +210,7 @@ In standard treatments of logic, the syntax of $\mathcal{S}$ and the semantics (
 
 A *logic* is defined by the *syntax* and the *semantics*. The basic concept in any logic is that of a *formula*[^18] .
 
-::: info Definition 6.4.{#definition-6-4}
+::: definition Definition 6.4.{#definition-6-4}
 The **syntax** of a logic defines an alphabet $\Lambda$ (of allowed symbols) and specifies which strings in $\Lambda^*$ are formulas (i.e., are syntactically correct).
 :::
 
@@ -226,7 +226,7 @@ Some of the symbols in $\Lambda$ (e.g. the symbols A and B in propositional logi
 
 ### 6.3.3. Semantics
 
-::: info Definition 6.5.{#definition-6-5}
+::: definition Definition 6.5.{#definition-6-5}
 The **semantics** of a logic defines (among other things, see below) a function free which assigns to each formula $F = (f_1, f_2, … , f_k) ∈ \Lambda^∗$ a subset $free(F) ⊆ \{1, … , k\}$ of the indices. If $i ∈ free(F)$, then the symbol f_i is said to occur *free* in F. [^20]
 :::
 
@@ -234,17 +234,17 @@ The same symbol $β ∈ Λ$ can occur free in one place of $F$ (say $f_3 = β$ w
 
 The free symbols of a formula denote kind of variables which need to be assigned fixed values in their respective associated domains before the formula has a truth value. This assignment of values is called an interpretation:
 
-::: info Definition 6.6.{#definition-6-6}
+::: definition Definition 6.6.{#definition-6-6}
 An **interpretation** consists of a set $\mathcal{Z} ⊆ Λ$ of symbols of $Λ$, a domain (a set of possible values) for each symbol in $\mathcal{Z}$, and a function that assigns to each symbol in $\mathcal{Z}$ a value in its associated domain.[^21]
 ::: 
 
 Often (but not in propositional logic), the domains are defined in terms of a so-called *universe* $U$, and the domain for a symbol in $Λ$ can for example be $U$, or a function $U^k → U$ (for some $k$), or a function $U^k → \{0, 1\}$ (for some $k$).
 
-::: info Definition 6.7.{#definition-6-7}
+::: definition Definition 6.7.{#definition-6-7}
 An interpretation is *suitable*[^22] for a formula $F$ if it assigns a value to all symbols $β ∈ Λ$ occurring free in $F$. [^23]
 :::
 
-::: info Definition 6.8.{#definition-6-8}
+::: definition Definition 6.8.{#definition-6-8}
 The **semantics** of a logic also defines a function[^24] $σ$ assigning to each formula $F$, and each interpretation $\mathcal{A}$ suitable for $F$, a truth value $σ(F, \mathcal{A})$ in {0, 1}. [^25] In treatments of logic one often writes $\mathcal{A}(F)$ instead of $σ(F, \mathcal{A})$ and calls $\mathcal{A}(F)$ *the truth value of* $F$ *under interpretation* $\mathcal{A}$. [^26]
 :::
 
@@ -262,7 +262,7 @@ The **semantics** of a logic also defines a function[^24] $σ$ assigning to each
 
 [^26]:This notation in the literature is unfortunately a bit ambiguous since $\mathcal{A}$ is used for two different things, namely for an interpretation as well as for the function induced by the interpretation which assigns to every formula the truth value (under that interpretation). We nevertheless use the notation $\mathcal{A}(F)$ instead of $σ(F, \mathcal{A})$ in order to be compatible with most of the literature.
 
-::: info Definition 6.9.
+::: definition Definition 6.9.
 A (suitable) interpretation $\mathcal{A}$ for which a formula $F$ is true, (i.e., $\mathcal{A}(F) = 1$) is called a *model* for $F$, and one also writes
 
 $\mathcal{A} \models F$.
@@ -285,7 +285,7 @@ First we should remark that one can treat logic in a similarly informal manner a
 
 ### 6.3.5. Satisfiability, Tautology, Consequence, Equivalence
 
-::: info Definition 6.10.{#definition-6-10}
+::: definition Definition 6.10.{#definition-6-10}
 A formula $F$ (or set $M$ of formulas) is called *satisfiable*[^27] if there exists a model for $F$ (or $M$),[^28] and *unsatisfiable* otherwise. The symbol $⊥$ is used for an unsatisfiable formula.[^29]
 :::
 
@@ -295,13 +295,13 @@ A formula $F$ (or set $M$ of formulas) is called *satisfiable*[^27] if there exi
 
 [^29]:The symbol $⊥$ is not a formula itself, i.e., it is not part of the syntax of a logic, but if used in expressions like $F ≡ ⊥$ it is to be understood as standing for an arbitrary unsatisfiable formula. For example, $F ≡ ⊥$ means that $F$ is unsatisfiable.
 
-::: info Definition 6.11.{#definition-6-11}
+::: definition Definition 6.11.{#definition-6-11}
 A formula $F$ is called a *tautology*[^30] or *valid*[^31] if it is true for every suitable interpretation. The symbol $⊤$ is used for a tautology.
 :::
 
 The symbol $⊥$ is sometimes called *falsum*, and $⊤$ is sometimes called *verum*.
 
-::: info Definition 6.12.{#definition-6-12}
+::: definition Definition 6.12.{#definition-6-12}
 A formula $G$ is a *logical consequence*[^32] of a formula $F$ (or a set $M$ of formulas), denoted
 
 <center>
@@ -313,7 +313,7 @@ $F \models G$ (or $M \models G$),
 if every interpretation suitable for both $F$ (or $M$) and $G$, which is a model for $F$ (for $M$), is also a model for $G$. [^33]
 :::
 
-::: info Definition 6.13.{#definition-6-13}
+::: definition Definition 6.13.{#definition-6-13}
 **Definition 6.13.** Two formulas $F$ and $G$ are *equivalent*, denoted $F ≡ G$, if every interpretation suitable for both $F$ and $G$ yields the same truth value for $F$ and $G$, i.e., if each one is a logical consequence of the other:
 
 <center>
@@ -333,7 +333,7 @@ That $F$ is unsatisfiable can be written as $F \models ⊥$.
 
 Essentially all logics contain the following recursive definitions as part of the syntax definition.
 
-::: info Definition 6.15.{#definition-6-15}
+::: definition Definition 6.15.{#definition-6-15}
 If $F$ and $G$ are formulas, then also $¬F$, $(F ∧ G)$, and $(F ∨ G)$ are formulas.
 :::
 
@@ -355,7 +355,7 @@ The implication introduced in Section 2.3 can be understood simply as a notation
 
 The semantics of the logical operators $∧$, $∨$, and $¬$ is defined as follows (in any logic where these operators exist):
 
-::: info Definition 6.16.{#definition-6-16}
+::: definition Definition 6.16.{#definition-6-16}
 
 <div class="grid-cols"><div>
 
@@ -386,7 +386,7 @@ if and only if $\mathcal{A}(F) = 0$.
 
 Some basic equivalences were already discussed in [Section 2.3.2]() and are now stated for any logic that includes the logical operators $∧$, $∨$, and $¬$:
 
-::: info Lemma 6.1.{#lemma-6-1}
+::: proposition Lemma 6.1.{#lemma-6-1}
 *For any formulas* $F$, $G$, *and* $H$ *we have*
 
 1) $F ∧ F ≡ F$ and $F ∨ F ≡ F$ *(idempotence)*;
@@ -422,11 +422,11 @@ $¬(F ∧ G) ≡ ¬F ∨ ¬G$ follows from the fact that for any suitable interp
 
 We state the following facts without proofs, which are rather obvious. These lemmas are needed for example to make use of the resolution calculus ([see Section 6.5.5](#_6-5-5-the-resolution-calculus-for-propositional-logic)), which allows to prove the unsatisfiability of a set of formulas, to also be able to prove that a formula $F$ is a tautology, or to prove that a formula $G$ is logical consequence of a given set $\{F_1, F_2, … , F_k\}$ of formulas.
 
-::: info Lemma 6.2.{#lemma-6-2}
+::: proposition Lemma 6.2.{#lemma-6-2}
 *A formula* $F$ *is a tautology if and only if* $¬F$ *is unsatisfiable.*
 :::
 
-::: info Lemma 6.3.{#lemma-6-3}
+::: proposition Lemma 6.3.{#lemma-6-3}
 *The following three statements are equivalent:*
 
 - 1. $\{F_1, F_2, … , F_k\} \models G$,
@@ -451,7 +451,7 @@ is called a *theorem* in theory $T$ . For example, the axioms of group theory ar
 
 Consider two theories $T$ and $T^′$ , where $T^′$ contains all the axioms of $T$ plus one or more additional axioms. Then every theorem in $T$ is also a theorem in $T^′$ (but not vice versa). In the special case where $T = ∅$, a theorem in $T = \emptyset$ is a tautology in the logic. Tautologies are useful because they are theorems in any theory, i.e., for any set of axioms.
 
-::: tip Example 6.5.{#example-6-5}
+::: example Example 6.5.{#example-6-5}
 The formula $¬∃x∀y( P(y, x) ↔ ¬P(y, y))$ is a tautology in predicate logic, as proved in [Section 6.6.9.](#_6-6-9-an-example-theorem-and-its-interpretations)
 :::
 
@@ -473,7 +473,7 @@ It is beyond the scope of this course to provide an extensive treatment of vario
 
 As mentioned, there are different types of logical calculi. For the perhaps most intuitive type of calculus, the syntactic objects that are manipulated are formulas. This is sometimes called a Hilbert-style calculus. There is also another type of calculi, often called *sequent calculi* (which we will not discuss in this course), where the syntactic objects are more complex objects than just formulas. The following refers to Hilbert-style calculi.
 
-::: info Definition 6.17.{#definition-6-17}
+::: definition Definition 6.17.{#definition-6-17}
 A **derivation rule** or **inference rule** [^36] is a rule for deriving a formula from a set of formulas (called the precondition or premises). We write
 
 $$\{F_{1},\ldots,F_{k}\}\;\;\vdash_{R}\;G$$
@@ -493,14 +493,14 @@ where spaces separate the formulas above the bar.
 
 Derivation is a purely syntactic concept. Derivation rules apply to syntactically correct (sets of) formulas. Some derivation rules (e.g. resolution, see [Section 6.5.5](#_6-5-5-the-resolution-calculus-for-propositional-logic)) require the formulas to be in a specific format.
 
-::: info Definition 6.18.{#definition-6-18}
+::: definition Definition 6.18.{#definition-6-18}
 The *application of a derivation rule* $R$ to a set $M$ of formulas means
 
 1. Select a subset $N$ of $M$ such that $N ⊢_R G$ for some formula $G$.
 2. Add $G$ to the set $M$ (i.e., replace $M$ by $M ∪ \{G\}$).
 :::
 
-::: info Definition 6.19.{#definition-6-19}
+::: definition Definition 6.19.{#definition-6-19}
 A (logical) *calculus*[^37] $K$ is a finite set of derivation rules: $K = \{R_1, … , R_m\}$. [^38]
 :::
 
@@ -510,7 +510,7 @@ A (logical) *calculus*[^37] $K$ is a finite set of derivation rules: $K = \{R_1,
 
 [^38]:A calculus also corresponds to a relation from the power set of the set of formulas to the set of formulas, namely the union of the relations corresponding the rules of the calculus.
 
-::: info Definition 6.20.{#definition-6-20}
+::: definition Definition 6.20.{#definition-6-20}
 A *derivation*[^39] of a formula $G$ from a set $M$ of formulas in a calculus $K$ is a finite sequence (of some length $n$) of applications of rules in $K$ (see [Def. 6.18](#definition-6-18)), leading to $G$. More precisely, we have
 
 - $M_0 := M$,
@@ -528,7 +528,7 @@ The above treatment of syntactic derivation is not completely general. In some c
 
 Typically such a derivation rule is defined as a rule that involves *place-holders* for formulas (such as $F$ and $G$), which can be instantiated with any concrete formulas. In order to apply such a rule one must instantiate each place-holder with a concrete formula.
 
-::: tip Example 6.6. {#example-6-6}
+::: example Example 6.6. {#example-6-6}
 Two derivation rules for propositional and predicate logic are
 
 <center>
@@ -554,7 +554,7 @@ A main goal of logic is to formalize reasoning and proofs. One wants to perform 
 
 [^39]:German: Herleitung
 
-::: info Definition 6.21.{#definition-6-21}
+::: definition Definition 6.21.{#definition-6-21}
 A derivation rule $R$ is *correct* if for every set $M$ of formulas and every formula $F$, $M ⊢_R F$ implies $M \models F$:
 
 <center>
@@ -564,7 +564,7 @@ $M ⊢_R F \implies M \models F$.
 </center>
 :::
 
-::: tip Example 6.7. {#example-6-7}
+::: example Example 6.7. {#example-6-7}
 The two rules of [Example 6.6](#example-6-6) are correct, but the rule
 
 $${F → G, G → F} ⊢ F ∧ G$$
@@ -572,7 +572,7 @@ $${F → G, G → F} ⊢ F ∧ G$$
 is not correct. To see this, note that if F and G are both false, then F → G and G → F are true while F ∧ G is false.
 :::
 
-::: info Definition 6.22.{#definition-6-22}
+::: definition Definition 6.22.{#definition-6-22}
 A calculus $K$ is **sound**[^40] or **correct** if for every set $M$ of formulas and every formula $F$, if $F$ can be derived from $M$ then $F$ is also a logical consequence of $M$:
 
 <center>
@@ -640,7 +640,7 @@ called "tertium non datur (TND)" (in English: "there is no third [alternative]")
 
 $$\vdash\ \lnot(F\leftrightarrow\lnot F).$$
 
-::: tip Example 6.8.{#example-6-8}
+::: example Example 6.8.{#example-6-8}
 The following rule can be understood as capturing the principle of proof by contradiction. (Why?)
 
 <center>
@@ -672,7 +672,7 @@ $$\vdash(F\to G),$$
 
 which is sound. Here $F$ and $G$ can be expressions involving place-holders for formulas.
 
-::: tip Example 6.9.{#example-6-9}
+::: example Example 6.9.{#example-6-9}
 As a toy example, consider the rules $¬¬F ⊢ F$ and $¬(F∨G) ⊢ ¬F$. Let $H$ be an arbitrary formula. Using the second rule (and setting $F = ¬H$) we can obtain $¬(¬H ∨G) ⊢ ¬¬H$. Thus, using the first rule (and setting $F = H$) we can obtain $¬¬H ⊢ H$. Hence we have proved $¬(¬H ∨ G) ⊢ H$. As usual, this holds for arbitrary formulas $G$ and $H$ and hence can be understood as a rule. When stated in the usual form (with place holders $F$ and $G$, the rule would be stated as $¬(¬F ∨ G) ⊢ F$.
 
 More generally, we can derive a formula $G$ from several assumptions, for example
@@ -696,7 +696,7 @@ We also refer to [Section 2.3]() where some basics of propositional logic were i
 
 ### 6.5.1. Syntax
 
-::: info Definition 6.23. **(Syntax)**{#definition-6-23} 
+::: definition Definition 6.23. **(Syntax)**{#definition-6-23} 
 An *atomic formula* is a symbol of the form $A_i$ with $i ∈ ℕ$. [^43] A *formula* is defined as follows, where the second point is a restatement (for convenience) of [Definition 6.15](#definition-6-15):
 
 - An atomic formula is a formula.
@@ -711,7 +711,7 @@ A formula built according to this inductive definition corresponds naturally to 
 
 Recall [Definitions 6.5](#definition-6-5) and [6.6](#definition-6-6). *In propositional logic, the free symbols of a formula are all the atomic formulas.* For example, the truth value of the formula $A ∧ B$ is determined only after we specify the truth values of $A$ and $B$. In propositional logic, an interpretation is called a truth assignment (see below).
 
-::: info Definition 6.24. **(Semantics)**{#definition-6-24} 
+::: definition Definition 6.24. **(Semantics)**{#definition-6-24} 
 For a set $Z$ of atomic formulas, an interpretation $\mathcal{A}$, called *truth assignment*[^44], is a function $\mathcal{A}: Z → \{0, 1\}$. A truth assignment $\mathcal{A}$ is suitable for a formula $F$ if $Z$ contains all atomic formulas appearing in $F$ (see [Definition 6.7](#definition-6-7)). The semantics (i.e., the truth value $\mathcal{A}(F)$ of a formula $F$ under interpretation $\mathcal{A}$) is defined by $\mathcal{A}(F) = \mathcal{A}(A_i)$ for any atomic formula $F = A_i$ , and by [Definition 6.16](#definition-6-16) (restated here for convenience):
 
 <div class="grid-cols"><div>
@@ -741,7 +741,7 @@ if and only if $\mathcal{A}(F) = 0$.
 </div></div>
 :::
 
-::: tip Example 6.10.{#example-6-10}
+::: example Example 6.10.{#example-6-10}
 Consider the formula
 
 $$F = (A ∧ ¬B) ∨ (B ∧ ¬C)$$
@@ -759,7 +759,7 @@ Specializing [Definition 6.13](#definition-6-13) to the case of propositional lo
 
 Specializing [Definition 6.12](#definition-6-12) to the case of propositional logic, we see that $G$ is a logical consequence of $F$, i.e., $F \models G$, if the function table of $G$ contains a $1$ for at least all argument for which the function table of $F$ contains a $1$. [^45]
 
-::: tip Example 6.11.{#example-6-11}
+::: example Example 6.11.{#example-6-11}
 $F = (A ∧ ¬B) ∨ (B ∧ ¬C)$ is a logical consequence of $A$ and $¬C$, i.e., $\{A, ¬C\} \models F$. In contrast, $F$ is not a logical consequence of $A$ and $B$, i.e., $\{A, B\} \not\models F$.
 :::
 
@@ -767,11 +767,11 @@ The basic equivalences of [Lemma 6.1](#lemma-6-1) apply in particular to proposi
 
 ### 6.5.4. Normal Forms
 
-::: info Definition 6.25. {#definition-6-25}
+::: definition Definition 6.25. {#definition-6-25}
 A **literal** is an atomic formula or the negation of an atomic formula.
 :::
 
-::: info Definition 6.26. {#definition-6-26}
+::: definition Definition 6.26. {#definition-6-26}
 A formula $F$ is in **conjunctive normal form (CNF)** if it is a conjunction of disjunctions of literals, i.e., if it is of the form
 
 $$F = (L_{11} ∨ \cdots ∨ L_{1m_1} ) ∧ \cdots ∧ (L_{n1} ∨ \cdots ∨ L_{nm_n} )$$
@@ -779,11 +779,11 @@ $$F = (L_{11} ∨ \cdots ∨ L_{1m_1} ) ∧ \cdots ∧ (L_{n1} ∨ \cdots ∨ L_
 for some literals $L_{ij}$.
 :::
 
-::: tip Example 6.12.{#example-6-12}
+::: example Example 6.12.{#example-6-12}
 The formula $(A ∨ ¬B) ∧ (¬A ∨ B ∨ ¬D) ∧ ¬C$ is in CNF.
 :::
 
-::: info Definition 6.27. {#definition-6-27}
+::: definition Definition 6.27. {#definition-6-27}
 A formula F is in *disjunctive normal form (DNF)* if it is a disjunction of conjunctions of literals, i.e., if it is of the form
 
 $$F = (L_{11} ∧ \cdots ∧ L_{1m_1} ) ∨ \cdots ∨ (L_{n1} ∧ \cdots ∧ L_{nm_n} )$$
@@ -791,11 +791,11 @@ $$F = (L_{11} ∧ \cdots ∧ L_{1m_1} ) ∨ \cdots ∨ (L_{n1} ∧ \cdots ∧ L_
 for some literals $L_{ij}$.
 :::
 
-::: tip Example 6.13.{#example-6-13}
+::: example Example 6.13.{#example-6-13}
 The formula $(B ∧ C) ∨ (¬A ∧ B ∧ ¬C)$ is in DNF.
 :::
 
-::: info Theorem 6.4. {#theorem-6-4}
+::: proposition Theorem 6.4. {#theorem-6-4}
 *Every formula is equivalent to a formula in CNF and also to a formula in DNF.*
 :::
 
@@ -807,7 +807,7 @@ Given such a formula $F$, one can use the truth table of $F$ to derive an equiva
 
 Given such a formula $F$, one can also use the truth table of $F$ to derive an equivalent formula in CNF, as follows. For every row of the function table evaluating to $0$ one takes the disjunction of the $n$ literals defined as follows: If $A_i = 0$ in the row, one takes the literal $A_i$ , otherwise the literal $¬A_i$ . This disjunction is a formula whose function table is $0$ exactly for the row under consideration (and $1$ for all other rows). Then one takes the conjunction of all these (row-wise) disjunctions. $F$ is false if and only if all the disjunctions are false, i.e., the truth table of this formula in CNF is identical to that of $F$.
 
-::: tip Example 6.14.{#example-6-14}
+::: example Example 6.14.{#example-6-14}
 Consider the formula $F = (A ∧ ¬B) ∨ (B ∧ ¬C)$ from above. The function table is
 
 | $A$ | $B$ | $C$ | $(A ∧ ¬B) ∨ (B ∧ ¬C)$ |
@@ -836,7 +836,7 @@ It is often useful to transform a given formula into an equivalent formula in a 
 
 A transformation to CNF or DNF can also be carried out by making use of the basic equivalences of propositional logic.
 
-::: tip Example 6.15.{#example-6-15}
+::: example Example 6.15.{#example-6-15}
 For the formula $¬((A∧¬B)∨(B∧C))∨D$ we derive an equivalent formula in CNF, using the basic equivalences of [Lemma 6.1](#lemma-6-1):
 
 $$
@@ -862,15 +862,15 @@ The resolution calculus assumes that all formulas of $M$ are given in conjunctiv
 
 Recall ([Definition 6.25](#definition-6-25)) that a literal is an atomic formula or the negation of an atomic formula. For example $A$ and $¬B$ are literals.
 
-::: info Definition 6.28. {#definition-6-28}
+::: definition Definition 6.28. {#definition-6-28}
 A **clause** is a set of literals.
 :::
 
-::: tip Example 6.16.{#example-6-16}
+::: example Example 6.16.{#example-6-16}
 $\{A, ¬B, ¬D\}$ and $\{B, C, ¬C, ¬D, E\}$ are clauses, and the empty set $∅$ is also a clause.
 :::
 
-::: info Definition 6.29. {#definition-6-29}
+::: definition Definition 6.29. {#definition-6-29}
 The set of clauses associated to a formula
 
 $$
@@ -892,13 +892,13 @@ The idea behind this definition is that a clause is satisfied by a truth assignm
 
 Note that for a given formula (not necessarily in CNF) there are many equivalent formulas in CNF and hence many equivalent sets of clauses. Conversely, to a given set $\mathcal{K}$ of clauses one can associate many formulas which are, however, all equivalent. Therefore, one can naturally think of a set of clauses as a (canonical) formula, and the notions of satisfiability, equivalence, and logical consequence carry over immediately from formulas to clause sets.
 
-::: info Definition 6.30. {#definition-6-30}
+::: definition Definition 6.30. {#definition-6-30}
 A clause $K$ is a **resolvent** of clauses $K_1$ and $K_2$ if there is a literal $L$ such that $L ∈ K_1$, $¬L ∈ K_2$, and [^46]
 
 $K=(K_{1}\setminus\{L\})\cup(K_{2}\setminus\{-L\})$. (6.1)
 :::
 
-::: tip Example 6.17.{#example-6-17}
+::: example Example 6.17.{#example-6-17}
 The clauses $\{A, ¬B, ¬C\}$ and $\{¬A, C, D, ¬E\}$ have two resolvents: If $A$ is eliminated, we obtain the clause $\{¬B, ¬C, C, D, ¬E\}$, and if $C$ is eliminated, we obtain the clause $\{A, ¬B, ¬A, D, ¬E\}$. Note that clauses are sets and we can write the elements in arbitrary order. In particular, we could write the latter clause as $\{A, ¬A, ¬B, D, ¬E\}$.
 
 It is important to point out that resolution steps must be carried out one by one; one cannot perform two steps at once. For instance, in the above example, $\{¬B, D, ¬E\}$ is not a resolvent and can also not be obtained by two resolution steps, even though $\{¬B, D, ¬E\}$ would result from $\{A, ¬B, ¬C\}$ and $\{¬A, C, D, ¬E\}$ by eliminating $A$ and $¬C$ from the first clause and $¬A$ and $C$ from the second clause. [^47]
@@ -926,7 +926,7 @@ $\mathsf{Res} = \{\mathsf{res}\}$.
 
 Recall that we write $\mathcal{K} ⊢_\mathsf{Res} K$ if $K$ can be derived from K using a finite number of resolution steps.[^49]
 
-::: info Lemma 6.5. {#lemma-6-5}
+::: proposition Lemma 6.5. {#lemma-6-5}
 *The resolution calculus is sound, i.e., if* $K ⊢_\mathsf{Res} K$ *then* $K \models K$. [^50]
 :::
 
@@ -944,7 +944,7 @@ We refer to [Definition 6.30](#definition-6-30) and distinguish two cases. If $\
 
 The goal of a derivation in the resolution calculus is to derive the empty clause $∅$ by an appropriate sequence of resolution steps. The following theorem states that the resolution calculus is complete with respect to the task of proving unsatisfiability.
 
-::: info Theorem 6.6. {#theorem-6-6}
+::: proposition Theorem 6.6. {#theorem-6-6}
 *A set* $M$ *of formulas is unsatisfiable if and only if* $\mathcal{K}(M) ⊢_\mathsf{Res} \emptyset$.
 :::
 
@@ -979,7 +979,7 @@ We also refer to [Section 2.4]() where some basics of predicate logic were intro
 
 ### **6.6.1 Syntax**
 
-::: info Definition 6.31. **(Syntax of predicate logic)**{#definition-6-31}
+::: definition Definition 6.31. **(Syntax of predicate logic)**{#definition-6-31}
 
 - A **variable symbol** is of the form $x_i$ with $i ∈ ℕ$. [^51]
 - A **function symbol** is of the form $f^{(k)}_i$ with $i,k ∈ ℕ$, where $k$ denotes the number of arguments of the function. Function symbols for $k = 0$ are called **constants**.
@@ -999,7 +999,7 @@ To simplify notation, one usually uses function symbols $f$, $g$, $h$, where the
 
 ### **6.6.2 Free Variables and Variable Substitution**
 
-::: info Definition 6.32.{#definition-6-32}
+::: definition Definition 6.32.{#definition-6-32}
 Every occurrence of a variable in a formula is either *bound* or *free*. If a variable $x$ occurs in a (sub-)formula of the form $∀x~G$ or $∃x~G$, then it is bound, otherwise it is free.[^52] A formula is *closed*[^53] if it contains no free variables.
 
 [^51]:$x_0$ is usually not used.
@@ -1009,7 +1009,7 @@ Every occurrence of a variable in a formula is either *bound* or *free*. If a va
 Note that the same variable can occur bound and free in a formula. One can draw the construction tree (see lecture) of a formula showing how a formula is constructed according to the rules of [Definition 6.31](#definition-6-31). Within the subtree corresponding to $∀x$ or $∃x$, all occurrences of $x$ are bound.
 :::
 
-::: tip Example 6.18.{#example-6-18}
+::: example Example 6.18.{#example-6-18}
 In the formula
 
 <center>
@@ -1022,11 +1022,11 @@ the first two occurrences of $x$ are free, the other occurrences are bound. The 
 
 :::
 
-::: info Definition 6.33.{#definition-6-33}
+::: definition Definition 6.33.{#definition-6-33}
 For a formula $F$, a variable $x$ and a term $t$, $F[x/t]$ denotes the formula obtained from $F$ by substituting every free occurrence of $x$ by $t$.
 :::
 
-::: tip Example 6.19.{#example-6-19}
+::: example Example 6.19.{#example-6-19}
 For the formula F of [Example 6.18](#example-6-19) we have
 
 <center>
@@ -1040,7 +1040,7 @@ $F[x/g(a, z)] = Q(g(a, z)) ∨ ∀y P(f(g(a, z), y)) ∧ ∃x R(x, y)$.
 
 Recall [Definitions 6.5](#definition-6-5) and [6.6](#definition-6-6). *In predicate logic, the free symbols of a formula are all predicate symbols, all function symbols, and all occurrences of free variables.* An interpretation, called *structure* in the context of predicate logic, must hence define a universe and the meaning of all these free symbols.
 
-::: info Definition 6.34. (Interpretation) {#definition-6-34}
+::: definition Definition 6.34. (Interpretation) {#definition-6-34}
 An *interpretation* or *structure* is a tuple $\mathcal{A} = (U, φ, ψ, ξ)$ where
 
 - $U$ is a non-empty **universe**,
@@ -1055,11 +1055,11 @@ For notational convenience, for a structure $\mathcal{A} = (U, φ, ψ, ξ)$ and 
 
 We instantiate [Definition 6.7](#definition-6-7) for predicate logic:
 
-::: info Definition 6.35. (Suitable Structure) {#definition-6-35}
+::: definition Definition 6.35. (Suitable Structure) {#definition-6-35}
 A interpretation (structure) $\mathcal{A}$ is *suitable* for a formula $F$ if it defines all function symbols, predicate symbols, and freely occurring variables of $F$.
 :::
 
-::: tip Example 6.20. {#example-6-20}
+::: example Example 6.20. {#example-6-20}
 For the formula
 
 $$F=\forall x\ {\big(}P(x)\lor P(f(x,a)){\big)}$$
@@ -1083,7 +1083,7 @@ For this structure, $F$ evaluates to false (since, for example, $x = −2$ makes
 
 The semantics of a formula is now defined in the natural way as already implicitly discussed in [Section 2.4]().
 
-::: info Definition 6.36. (Semantics) {#definition-6-36}
+::: definition Definition 6.36. (Semantics) {#definition-6-36}
 For an interpretation (structure) $\mathcal{A} = (U, φ, ψ, ξ)$, we define the value (in $U$) of terms and the truth value of formulas under that structure.
 
 - The value $\mathcal{A}(t)$ of a term $t$ is defined recursively as follows:
@@ -1122,7 +1122,7 @@ Reexamining the syntax of predicate logic it may surprise that the equality symb
 
 In addition to the equivalences stated in Lemma 6.1), we have:
 
-::: info Lemma 6.7. {#lemma-6-7}
+::: proposition Lemma 6.7. {#lemma-6-7}
 *For any formulas* $F$, $G$, *and* $H$*, where* $x$ *does not occur free in* $H$*, we have*
 
 1) $\neg(\forall x\,F) \equiv \exists x\,\neg F$;
@@ -1158,11 +1158,11 @@ To prove the other direction, i.e. $∀x (F ∧ H) \models (∀x F) ∧ H$, supp
 
 The following natural lemma is stated without proof.
 
-::: info Lemma 6.8. {#lemma-6-8}
+::: proposition Lemma 6.8. {#lemma-6-8}
 *If one replaces a sub-formula* $G$ *of a formula* $F$ *by an equivalent (to* $G$) *formula* $H$*, then the resulting formula is equivalent to* $F$.
 :::
 
-::: tip Example 6.21. {#example-6-21}
+::: example Example 6.21. {#example-6-21}
 $∀y~Q(x, y)$ is a sub-formula of $∃x~(P(x) ∨ ∀y~Q(x, y))$. Therefore
 
 $$\exists x\;(P(x)\;\vee\;\forall y\;Q(x,y))\;\;\equiv\;\;\exists x\;(P(x)\;\vee\;\neg\exists y\;\neg Q(x,y))$$
@@ -1174,7 +1174,7 @@ because $∀y~Q(x, y) ≡ ¬∃y~¬Q(x, y)$.
 
 The following lemma states that the name of a bound variable carries no semantic meaning and can therefore be replaced by any other variable name that does not occur elsewhere. This is called *bound substitution*.
 
-::: info Lemma 6.9. {#lemma-6-9}
+::: proposition Lemma 6.9. {#lemma-6-9}
 *For a formula* $G$ *in which* $y$ *does not occur, we have*
 
 - $∀x~G ≡ ∀y~G[x/y]$,
@@ -1189,11 +1189,11 @@ $${\mathcal A}_{[x\to u]}(G)\;=\;{\mathcal A}_{[y\to u]}(G[x/y]).$$
 
 Therefore $∀x~G$ is true for exactly the same structures for which $∀y~G[x/y]$ is true.
 
-::: tip Example 6.22. {#example-6-22}
+::: example Example 6.22. {#example-6-22}
 The formula $∀x~∃y~(P(x, f(y)) ∨ Q(g(x), a))$ is equivalent to the formula $∀u~∃v~(P(u, f(v)) ∨ Q(g(u), a))$ obtained by substituting $x$ by $u$ and $y$ by $v$.
 :::
 
-::: info Definition 6.37. (Rectified form) {#definition-6-37}
+::: definition Definition 6.37. (Rectified form) {#definition-6-37}
 A formula in which no variable occurs both as a bound and as a free variable and in which all variables appearing after the quantifiers are distinct is said to be in *rectified*[^55] form.
 :::
 
@@ -1203,7 +1203,7 @@ By appropriately renaming quantified variables one can transform any formula int
 
 It is often useful to transform a formula into an equivalent formula of a specific form, called a normal form. This is analogous to the conjunctive and disjunctive normal forms for formulas in propositional logic.
 
-::: info Definition 6.38. (Prenex form) {#definition-6-38}
+::: definition Definition 6.38. (Prenex form) {#definition-6-38}
 A formula of the form
 
 $$Q_{1}x_{1}\;Q_{2}x_{2}\;\cdots~Q_{n}x_{n}\;G,$$
@@ -1211,13 +1211,13 @@ $$Q_{1}x_{1}\;Q_{2}x_{2}\;\cdots~Q_{n}x_{n}\;G,$$
 where the $Q_i$ are arbitrary quantifiers ($∀$ or $∃$) and $G$ is a formula free of quantifiers, is said to be in *prenex form* [^56].
 :::
 
-::: info Theorem 6.10. {#theorem-6-10}
+::: proposition Theorem 6.10. {#theorem-6-10}
 *For every formula there is an equivalent formula in prenex form.*
 :::
 
 **Proof:** One first transforms the formula into an equivalent formula in rectified form and then applies the equivalences of [Lemma 6.7](#lemma-6-7) move up all quantifiers in the formula tree, resulting in a prenex form of the formula.
 
-::: tip Example 6.23. {#example-6-23}
+::: example Example 6.23. {#example-6-23}
 
 $$
 \begin{aligned}
@@ -1251,7 +1251,7 @@ $$\forall x F\ \vdash\ F[x/t]$$
 
 This rule is justified by the following lemma (proof left as an exercise).
 
-::: info Lemma 6.11. {#lemma-6-11}
+::: proposition Lemma 6.11. {#lemma-6-11}
 *For any formula* $F$ *and any term* $t$ *we have*
 
 <center>
@@ -1268,7 +1268,7 @@ The following apparently innocent theorem is a powerful statement from which sev
 
 that one can prove a general theorem in predicate logic and, because it is a tautology, it can then be instantiated for different structures (i.e., interpretations), for each of which it is true.
 
-::: info Theorem 6.12. {#theorem-6-12}
+::: proposition Theorem 6.12. {#theorem-6-12}
 $$¬∃x∀y~(P(y, x) ↔ ¬P(y, y))$$
 :::
 
@@ -1313,7 +1313,7 @@ as was to be shown.
 
 Let us now interpret [Theorem 6.12](#theorem-6-12). We can instantiate it for different universes and predicates. The first interpretation is Russel's paradox:
 
-::: info Corollary 6.13. {#corollary-6-13}
+::: proposition Corollary 6.13. {#corollary-6-13}
 *There exists no set that contains all sets* $S$ *that do not contain themselves, i.e.,* $\{S| S \not∈ S\}$ *is not a set.*
 :::
 
@@ -1325,13 +1325,13 @@ This formula states that there is no set $R$ such that for a set (say $S$) to be
 
 It is interesting to observe that Russell's paradox is a fact that holds more generally than in the universe of sets and where $P(x, y)$ is defined as $x ∈ y$. We state another corollary:
 
-::: tip Example 6.24. {#example-6-24}
+::: example Example 6.24. {#example-6-24}
 The reader can investigate as an exercise that [Theorem 6.12](#theorem-6-12) also explains the so-called barber paradox (e.g. see Wikipedia) which considers a town with a single barber as well as the set of men that do not shave themselves.
 :::
 
 The following corollary was already stated as [Theorem 3.23]().
 
-::: info Corollary 6.14. {#corollary-6-14}
+::: proposition Corollary 6.14. {#corollary-6-14}
 *The set* $\{0, 1\}^∞$ *is uncountable.*
 :::
 
@@ -1347,7 +1347,7 @@ We discuss a further use of the theorem. If we understand a program as describab
 
 [^59]:The particular variable names ($R$ and $S$) are not relevant and are chosen simply to be compatible with the chapter on set theory where sets were denoted by capital letters and Russel's proposed set was called $R$. Here we have deviated from the convention to use only small letters for variables.
 
-::: info Corollary 6.15. {#corollary-6-15}
+::: proposition Corollary 6.15. {#corollary-6-15}
 *There are uncomputable functions* $ℕ → \{0, 1\}$.
 :::
 
@@ -1355,7 +1355,7 @@ We discuss a further use of the theorem. If we understand a program as describab
 
 The above corollary was already discussed as [Corollary 3.24](#corollary-3-24), as a direct consequence of [Corollary 6.14](#corollary-6-14) (i.e., of [Theorem 3.23]()). The proof given here is stronger in the sense that it provides a concrete function, namely the function $y ↦ ¬P(y, y)$, that is not computable.[^61] We state this as a corollary:
 
-::: info Corollary 6.16 {#corollary-6-16}
+::: proposition Corollary 6.16 {#corollary-6-16}
 *The function* $ℕ → \{0, 1\}$ *assigning to each* $y ∈ ℕ$ *the complement of what program* $y$ *outputs on input* $y$*, is uncomputable.*
 :::
 
