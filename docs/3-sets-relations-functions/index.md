@@ -1,4 +1,13 @@
-# **Chapter 3**: Sets, Relations, and Functions
+---
+prev:
+    text: Mathematical Reasoning, Proofs, and a First Approach to Logic
+    link: /2-reasoning-proofs
+next:
+    text: Number Theory
+    link: /4-number-theory
+---
+
+# <small>Chapter 3:</small><br> Sets, Relations, and Functions
 
 In this chapter we provide a treatment of the elementary concepts of set theory, with the goal of being able to use sets in later parts of the course, for example to define relations and functions. We will be more precise than the typical (very informal) treatment of set theory in highschool, but we will also avoid the intricacies of a full-fledged axiomatic treatment of set theory, showing only minor parts of it.
 

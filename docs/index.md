@@ -32,7 +32,7 @@ features:
   - icon: 🧮
     title: Chapter 5
     details: Algebra
-    link: javascript:alert('Coming soon!')
+    link: 5-algebra
     target: _self
   - icon: 🧠
     title: Chapter 6

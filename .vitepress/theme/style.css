@@ -160,10 +160,33 @@ sup.footnote-ref {
     break-before: avoid;
 }
 
-.lower-roman {
+.vp-doc .lower-roman {
     list-style-type: lower-roman !important;
+    counter-reset: lrlist;
+    padding-left: 1.75rem;
+    li {
+        counter-increment: lrlist;
+    }
+
     ::marker {
-        font-weight: bold;
+        content: "(" counter(lrlist, lower-roman) ")  ";
+        font-weight: 600;
+    }
+}
+
+.vp-doc .numbered {
+    list-style-type: decimal !important;
+    counter-reset: numlist;
+    padding-left: 1.5rem;
+
+    li {
+        counter-increment: numlist;
+        font-variant-numeric: tabular-nums;
+    }
+
+    ::marker {
+        content: "(" counter(numlist, decimal) ")  ";
+        font-variant-numeric: tabular-nums;
     }
 }
 
@@ -206,6 +229,12 @@ sup.footnote-ref {
     flex-wrap: wrap;
     column-gap: 42px;
     row-gap: 8px;
+}
+
+.vp-doc figure figcaption {
+    font-size: 0.85em;
+    color: var(--vp-c-text-2);
+    text-align: center;
 }
 
 .right {

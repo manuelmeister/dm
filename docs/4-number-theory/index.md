@@ -1,3 +1,12 @@
+---
+prev:
+    text: Sets, Relations, and Functions
+    link: 3-sets-relations-functions
+next:
+    text: Algebra
+    link: 5-algebra
+---
+
 # <small>Chapter 4:</small><br> Number Theory 
 
 <div v-pre>
@@ -732,7 +741,7 @@ k_{AB}\ \equiv_p\ y^{x_A}_B\ \equiv_p\ (g^{x_B})^{x_A}\ \equiv_p\ g^{x_A x_B}\ \
 \end{array}
 $$
 
-<figcaption style="text-align: center">
+<figcaption>
 Figure 4.1: The Diffie-Hellman key agreement protocol.
 </figcaption>
 </figure>

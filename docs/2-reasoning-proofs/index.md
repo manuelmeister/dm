@@ -1,5 +1,13 @@
-# <small>Chapter 2</small><br>Mathematical Reasoning, Proofs, and a First Approach to Logic
+---
+next: 
+  link: /3-sets-relations-functions
+  text: Sets, Relations, and Functions
+prev: 
+  link: /intro
+  text: Introduction and Motivation
+---
 
+# <small>Chapter 2:</small><br> Mathematical Reasoning, Proofs, and a First Approach to Logic
 
 ## 2.1. Mathematical Statements
 

@@ -1,4 +1,10 @@
-# <small>Chapter 6</small><br> Logic
+---
+prev:
+  text: Algebra
+  link: /5-algebra
+---
+
+# <small>Chapter 6:</small><br> Logic
 
 ## 6.1. Introduction
 
