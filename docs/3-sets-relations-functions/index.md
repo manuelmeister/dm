@@ -939,6 +939,8 @@ The Hasse diagram is a graph with directed edges. It is usually drawn such that 
 ::: example Example 3.42{#example-3-42}
 The Hasse diagram of the poset $(\{2, 3, 4, 5, 6, 7, 8, 9\}; |)$ is shown in Figure 3.1 on the left.
 
+<figure id="figure-3-1-left">
+
 <svg class="center" width="130" height="120" viewBox="0 0 391 364" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="52"  cy="301" r="10" fill="currentColor"/>
 <circle cx="52"  cy="301" r="10" fill="currentColor"/>
@@ -959,6 +961,9 @@ The Hasse diagram of the poset $(\{2, 3, 4, 5, 6, 7, 8, 9\}; |)$ is shown in Fig
 <text fill="currentColor" font-size="36" font-weight="bold"><tspan x="0.601562" y="176.091">4</tspan></text>
 <path d="M53 22.5V161.5V301.5L162 161.5V301.5L271 161.5V301.5" stroke="currentColor" stroke-width="3.45"/>
 </svg>
+
+<figcaption>Figure 3.1: on the left</figcaption>
+</figure>
 :::
 
 [^28]:German: vergleichbar
@@ -967,6 +972,8 @@ The Hasse diagram of the poset $(\{2, 3, 4, 5, 6, 7, 8, 9\}; |)$ is shown in Fig
 
 ::: example Example 3.43{#example-3-43}
 A nicer diagram is obtained when $A$ is the set of all divisors of an integer $n$. The Hasse diagram of the poset $(\{1, 2, 3, 4, 6, 8, 12, 24\}; |)$ is shown in Figure 3.1 in the middle.
+
+<figure id="figure-3-1-middle">
 
 <svg class="center" width="120" height="240" viewBox="0 0 341 677" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="162" cy="614" r="10" fill="currentColor"/>
@@ -988,10 +995,15 @@ A nicer diagram is obtained when $A$ is the set of all divisors of an integer $n
 <text fill="currentColor" font-size="36" font-weight="bold"><tspan x="0.601562" y="351.091">4</tspan></text>
 <text fill="currentColor" font-size="36" font-weight="bold"><tspan x="2.32422" y="488.091">2</tspan></text>
 </svg>
+
+<figcaption>Figure 3.1: in the middle</figcaption>
+</figure>
 :::
 
 ::: example Example 3.44{#example-3-44}
 The Hasse diagram of the poset $(\cf P(\{a, b, c\}); ⊆)$ is shown in Figure 3.1 on the right.
+
+<figure id="figure-3-1-right">
 
 <svg class="center" width="180" height="220" viewBox="0 0 499 549" fill="none" xmlns="http://www.w3.org/2000/svg">
 <text fill="currentColor" font-size="36" font-weight="bold"><tspan x="194.422" y="35.0909">{a,b,c}</tspan></text>
@@ -1012,12 +1024,17 @@ The Hasse diagram of the poset $(\cf P(\{a, b, c\}); ⊆)$ is shown in Figure 3.
 <circle cx="251" cy="486" r="10" fill="currentColor"/>
 <path d="M252.5 488V348.5M252.5 488L393.5 348.5M252.5 488L111.5 348.5M252.5 348.5L393.5 208.5M252.5 348.5L111.5 208.5M393.5 208.5L252.5 68.5M393.5 208.5V348.5M252.5 68.5L111.5 208.5M252.5 68.5V208.5M111.5 208.5V348.5M111.5 348.5L252.5 208.5M252.5 208.5L393.5 348.5" stroke="currentColor" stroke-width="3.45"/>
 </svg>
+
+<figcaption>Figure 3.1: on the right</figcaption>
+</figure>
 :::
 
 ::: example Example 3.45{#example-3-45}
-For the two Hasse diagrams in Figure 3.2, give a realization as the divisibility poset of a set of integers.
+For the two Hasse diagrams in [Figure 3.2](#figure-3-2), give a realization as the divisibility poset of a set of integers.
 
-<svg class="center" id="figure-3-2" width="280" height="180" viewBox="0 0 757 433" fill="none" xmlns="http://www.w3.org/2000/svg">
+<figure id="figure-3-2">
+
+<svg class="center" width="280" height="180" viewBox="0 0 757 433" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="120" cy="422" r="10" fill="currentColor"/>
 <circle cx="120" cy="422" r="10" fill="currentColor"/>
 <circle cx="120" cy="10" r="10" fill="currentColor"/>
@@ -1035,6 +1052,9 @@ For the two Hasse diagrams in Figure 3.2, give a realization as the divisibility
 <circle cx="636" cy="146" r="10" fill="currentColor"/>
 <path d="M636.567 422.218V283.669M636.567 146L748 216.5L636.567 283.669M636.567 146L526.617 216.5L636.567 283.669M636.567 146V11.2832" stroke="currentColor" stroke-width="3.45044"/>
 </svg>
+
+<figcaption>Figure 3.2: Two Hasse diagrams.</figcaption>
+</figure>
 
 
 :::

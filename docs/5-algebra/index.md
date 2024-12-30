@@ -237,7 +237,10 @@ $$\langle G_{1}\times\cdots\times G_{n};\star\rangle,$$
 
 where the operation $\star$ is component-wise:
 
+<center>
+
 $(a_{1},\ldots,a_{n})\star(b_{1},\ldots,b_{n})=(a_{1}\ast_{1}b_{1},\ldots,a_{n}\ast_{n}b_{n})$.
+</center>
 :::
 
 ::: proposition Lemma 5.4.{#lemma-5-4}
