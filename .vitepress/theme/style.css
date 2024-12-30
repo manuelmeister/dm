@@ -139,6 +139,10 @@
  * Component: Algolia
  * -------------------------------------------------------------------------- */
 
+html {
+    scroll-padding: var(--vp-nav-height);
+}
+
 .DocSearch {
     --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
