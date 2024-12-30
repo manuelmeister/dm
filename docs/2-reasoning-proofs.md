@@ -1122,7 +1122,7 @@ This concludes the proof by contradiction. <span class="right">$\Box$</span>
 
 [^33]:German: teilerfremd
 
-[^34]:$\operatorname{gcd}(m, n)$ denotes the greatest common divisor of $m$ and $n$ (see [Section 4.2.3](/4#_4-2-3)).
+[^34]:$\operatorname{gcd}(m, n)$ denotes the greatest common divisor of $m$ and $n$ (see [Section 4.2.3](/4-number-theory#_4-2-3)).
 
 [^35]:We can write $\dot\iff$ if the implication holds in both directions, but it would be sufficient to always replace $\dot\iff$ by $\dot\implies$.
 

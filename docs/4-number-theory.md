@@ -4,7 +4,7 @@ prev:
     link: 3-sets-relations-functions
 next:
     text: Algebra
-    link: 5-algebra
+    link: /5-algebra
 ---
 
 # <small>Chapter 4:</small><br> Number Theory 

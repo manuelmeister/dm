@@ -426,7 +426,7 @@ In fact, we use $\langle g\rangle$ as our standard notation of a cyclic group of
 
 ### 5.3.6. Application: Diffie-Hellman for General Groups
 
-The Diffie-Hellman protocol was described in [Section 4.6](/4-number-theory/#_4-6-application-diffie-hellman-key-agreement) for the group $ℤ_p^*$ (this notation is defined below), but the concept of a group was not yet introduced there. As an application of general cyclic groups we mention that the Diffie-Hellman protocol works just as well in any cyclic group $G = \langle g\rangle$ for which computing $x$ from $g^x$ (i.e., the *discrete logarithm problem*) is computationally infeasible. Of course, one needs to apply a suitable mapping from $G$ to a reasonable key space.
+The Diffie-Hellman protocol was described in [Section 4.6](/4-number-theory#_4-6-application-diffie-hellman-key-agreement) for the group $ℤ_p^*$ (this notation is defined below), but the concept of a group was not yet introduced there. As an application of general cyclic groups we mention that the Diffie-Hellman protocol works just as well in any cyclic group $G = \langle g\rangle$ for which computing $x$ from $g^x$ (i.e., the *discrete logarithm problem*) is computationally infeasible. Of course, one needs to apply a suitable mapping from $G$ to a reasonable key space.
 
 Elliptic curves (not discussed here) are an important class of cyclic groups used in cryptography.
 
@@ -468,7 +468,7 @@ Groups of prime order play a very important role in cryptography.
 
 #### **5.3.8 The Group** $ℤ^∗_m$ **and Euler's Function**
 
-We noted earlier that the set $ℤ_m = \{0, \ldots, m − 1\}$ is a group with respect to addition modulo $m$, denoted $⊕$. We also noted that multiplication modulo $m$, denoted $⊙$ (where the modulus $m$ is usually clear from the context), is of interest as well. However, $ℤ_m$ is not a group with respect to multiplication modulo $m$. For example, in $ℤ_{12}$, $8$ has no inverse. We remember (see [Section 4.5.3](/4-number-theory/#_4-5-3-multiplicative-inverses)) that $a ∈ ℤ_m$ has a multiplicative inverse if and only if $\gcd(a, m) = 1$. In order to obtain a group, we must exclude those $a$ from $ℤ_m$ for which $\gcd(a, m) ≠ 1$. Thus we define
+We noted earlier that the set $ℤ_m = \{0, \ldots, m − 1\}$ is a group with respect to addition modulo $m$, denoted $⊕$. We also noted that multiplication modulo $m$, denoted $⊙$ (where the modulus $m$ is usually clear from the context), is of interest as well. However, $ℤ_m$ is not a group with respect to multiplication modulo $m$. For example, in $ℤ_{12}$, $8$ has no inverse. We remember (see [Section 4.5.3](/4-number-theory#_4-5-3-multiplicative-inverses)) that $a ∈ ℤ_m$ has a multiplicative inverse if and only if $\gcd(a, m) = 1$. In order to obtain a group, we must exclude those $a$ from $ℤ_m$ for which $\gcd(a, m) ≠ 1$. Thus we define
 
 ::: definition Definition 5.16.{#definition-5-16}
 <center>
@@ -514,7 +514,7 @@ $\langle ℤ^∗_m; ⊙, \;^{−1}, 1\rangle$ *is a group.*
 
 **Proof:** $ℤ^∗_m$ is closed under $⊙$ because if $\gcd(a, m) = 1$ and $\gcd(b, m) = 1$, then $\gcd(ab, m) = 1$. This is true since if $ab$ and $m$ have a common divisor $> 1$, then they also have a common prime divisor $> 1$, which would be a divisor of either $a$ or $b$, and hence a common divisor of $a$ and $m$ or of $b$ and $m$, contradicting that $\gcd(a, m) = 1$ and $\gcd(b, m) = 1$. 
 
-The associativity of $⊙$ is inherited from the associativity of multiplication in $ℤ$. Moreover, $1$ is a neutral element and inverses exist (see [Section 4.5.3](/4-number-theory/#_4-5-3-multiplicative-inverses)). Thus $\langle ℤ^∗_m; ⊙, \;^{−1}, 1\rangle$ is a group. <span class="right">$\Box$</span>
+The associativity of $⊙$ is inherited from the associativity of multiplication in $ℤ$. Moreover, $1$ is a neutral element and inverses exist (see [Section 4.5.3](/4-number-theory#_4-5-3-multiplicative-inverses)). Thus $\langle ℤ^∗_m; ⊙, \;^{−1}, 1\rangle$ is a group. <span class="right">$\Box$</span>
 :::
 
 ::: example Example 5.30.{#example-5-30}
@@ -777,7 +777,7 @@ $ℝ^∗ = ℝ \setminus \{0\}$.
 :::
 
 ::: example Example 5.38.{#example-5-38}
-The ring of Gaussian integers (see [Example 4.5](/4-number-theory/#example-4-5)) contains four units: $1$, $i$, $-1$, and $-i$. For example, the inverse of $i$ is $-i$.
+The ring of Gaussian integers (see [Example 4.5](/4-number-theory#example-4-5)) contains four units: $1$, $i$, $-1$, and $-i$. For example, the inverse of $i$ is $-i$.
 :::
 
 ::: example Example 5.39.{#example-5-39}
@@ -824,7 +824,7 @@ Thus $c = be = (ad)e = a(de) \implies a \operatorname| c$.
 The proofs of (ii) and (iii) are left as an exercise. <span class="right">$\Box$</span>
 :::
 
-As mentioned in [Section 4.2.3](/4-number-theory/#_4-2-3-greatest-common-divisors), the concept of a greatest common divisor not only applies to integers, but to any commutative ring:
+As mentioned in [Section 4.2.3](/4-number-theory#_4-2-3-greatest-common-divisors), the concept of a greatest common divisor not only applies to integers, but to any commutative ring:
 
 ::: definition Definition 5.22.{#definition-5-22}
 For ring elements $a$ and $b$ (not both $0$), a ring element $d$ is called a **greatest common divisor** of $a$ and $b$ if $d$ divides both $a$ and $b$ and if every common divisor of $a$ and $b$ divides $d$, i.e., if
@@ -847,7 +847,7 @@ An *integral domain*[^30] $D$ is a (nontrivial[^31]) commutative ring without ze
 **Definition 5.24.** An *integral domain*[^30] D is a (nontrivial[^31]) commutative ring without zerodivisors: For all a, b ∈ D we have ab = 0 =⇒ a = 0 ∨ b = 0.
 
 
-[^26]:Recall that this definition was already stated as [Definition 4.1](/4-number-theory/#definition-4-1) for the special case of integers. 
+[^26]:Recall that this definition was already stated as [Definition 4.1](/4-number-theory#definition-4-1) for the special case of integers. 
 
 [^27]:German: Teiler
 
@@ -1432,7 +1432,7 @@ $F[x]_{m(x)}$ is a monoid with respect to polynomial multiplication. The neutral
 
 [^45]: It is important to point out that we are considering three algebraic systems, namely $F$, $F[x]$, and $F[x]_{m(x)}$. Each system has an addition and a multiplication operation, and we use the same symbols "$+$" and "$·$" in each case, letting the context decide which one we mean. This should cause no confusion. The alternative would have been to always use different symbols, but this would be too cumbersome. Note that, as mentioned above, addition (but not multiplication) in $F[x]$ and $F[x]_{m(x)}$ are identical.
 
-The following lemma can be proved in analogy to [Lemma 4.18](/4-number-theory/#lemma-4-18).
+The following lemma can be proved in analogy to [Lemma 4.18](/4-number-theory#lemma-4-18).
 
 ::: proposition Lemma 5.36.{#lemma-5-36}
 *The congruence equation (for a given* $a(x)$*)*

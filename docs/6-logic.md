@@ -390,7 +390,7 @@ if and only if $\mathcal{A}(F) = 0$.
 </div></div>
 :::
 
-Some basic equivalences were already discussed in [Section 2.3.2]() and are now stated for any logic that includes the logical operators $∧$, $∨$, and $¬$:
+Some basic equivalences were already discussed in [Section 2.3.2](/2-reasoning-proofs#_2-3-2-formulas-as-functions) and are now stated for any logic that includes the logical operators $∧$, $∨$, and $¬$:
 
 ::: proposition Lemma 6.1.{#lemma-6-1}
 *For any formulas* $F$, $G$, *and* $H$ *we have*
@@ -698,7 +698,7 @@ In a proof system allowing to prove statements of the form $M \models G$, one ca
 
 ## 6.5. Propositional Logic
 
-We also refer to [Section 2.3]() where some basics of propositional logic were introduced informally and many examples were already given. This section concentrates on the formal aspects and the connection to [Section 6.3](#_6-3-elementary-general-concepts-in-logic).
+We also refer to [Section 2.3](/2-reasoning-proofs#_2-3-a-first-introduction-to-propositional-logic) where some basics of propositional logic were introduced informally and many examples were already given. This section concentrates on the formal aspects and the connection to [Section 6.3](#_6-3-elementary-general-concepts-in-logic).
 
 ### 6.5.1. Syntax
 
@@ -752,14 +752,14 @@ Consider the formula
 
 $$F = (A ∧ ¬B) ∨ (B ∧ ¬C)$$
 
-already discussed in [Section 2.3.]() The truth assignment $\mathcal{A} : Z → \{0, 1\}$ for $Z = \{A, B\}$ that assigns $\mathcal{A}(A) = 0$ and $\mathcal{A}(B) = 1$ is not suitable for $F$ because no truth value is assigned to $C$, and the truth assignment $\mathcal{A} : Z → \{0, 1\}$ for $Z = \{A, B, C, D\}$ that assigns $\mathcal{A}(A) = 0$, $\mathcal{A}(B) = 1$, $\mathcal{A}(C) = 0$, and $\mathcal{A}(D) = 1$ is suitable and also a model for $F$. $F$ is satisfiable but not a tautology.
+already discussed in [Section 2.3.](/2-reasoning-proofs#_2-3-a-first-introduction-to-propositional-logic) The truth assignment $\mathcal{A} : Z → \{0, 1\}$ for $Z = \{A, B\}$ that assigns $\mathcal{A}(A) = 0$ and $\mathcal{A}(B) = 1$ is not suitable for $F$ because no truth value is assigned to $C$, and the truth assignment $\mathcal{A} : Z → \{0, 1\}$ for $Z = \{A, B, C, D\}$ that assigns $\mathcal{A}(A) = 0$, $\mathcal{A}(B) = 1$, $\mathcal{A}(C) = 0$, and $\mathcal{A}(D) = 1$ is suitable and also a model for $F$. $F$ is satisfiable but not a tautology.
 :::
 
 ### 6.5.3. Brief Discussion of General Logic Concepts
 
 We briefly discuss the basic concepts from [Section 6.3.5](#_6-3-5-satisfiability-tautology-consequence-equivalence) in the context of propositional logic.
 
-Specializing [Definition 6.13](#definition-6-13) to the case of propositional logic, we confirm [Definition 2.6](): Two formulas $F$ and $G$ are equivalent if, when both formulas are considered as functions $M → \{0, 1\}$, where $M$ is the union of the atomic formulas of $F$ and $G$, then the two functions are identical (i.e., have the same function table).
+Specializing [Definition 6.13](#definition-6-13) to the case of propositional logic, we confirm [Definition 2.6](/2-reasoning-proofs#definition-2-6): Two formulas $F$ and $G$ are equivalent if, when both formulas are considered as functions $M → \{0, 1\}$, where $M$ is the union of the atomic formulas of $F$ and $G$, then the two functions are identical (i.e., have the same function table).
 
 [^44]:German: (Wahrheits-)Belegung
 
@@ -981,7 +981,7 @@ If in any of the two cases we have a derivation of $∅$ from $\mathcal K$, we a
 
 ## **6.6 Predicate Logic (First-order Logic)**
 
-We also refer to [Section 2.4]() where some basics of predicate logic were introduced informally. Predicate logic is an extension of propositional logic, i.e., propositional logic is embedded in predicate logic as a special case.
+We also refer to [Section 2.4](/2-reasoning-proofs#_2-4-a-first-introduction-to-predicate-logic) where some basics of predicate logic were introduced informally. Predicate logic is an extension of propositional logic, i.e., propositional logic is embedded in predicate logic as a special case.
 
 ### **6.6.1 Syntax**
 
@@ -1087,7 +1087,7 @@ $P^{\mathcal{A}}(x) = 1$ if and only if $x ≥ 0$ (i.e., $P^{\mathcal{A}}$ is th
 For this structure, $F$ evaluates to false (since, for example, $x = −2$ makes $P(x)$ and $P(f(x, a)) = P(2x)$ false).
 :::
 
-The semantics of a formula is now defined in the natural way as already implicitly discussed in [Section 2.4]().
+The semantics of a formula is now defined in the natural way as already implicitly discussed in [Section 2.4](/2-reasoning-proofs#_2-4-a-first-introduction-to-predicate-logic).
 
 ::: definition Definition 6.36. (Semantics) {#definition-6-36}
 For an interpretation (structure) $\mathcal{A} = (U, φ, ψ, ξ)$, we define the value (in $U$) of terms and the truth value of formulas under that structure.
@@ -1335,7 +1335,7 @@ It is interesting to observe that Russell's paradox is a fact that holds more ge
 The reader can investigate as an exercise that [Theorem 6.12](#theorem-6-12) also explains the so-called barber paradox (e.g. see Wikipedia) which considers a town with a single barber as well as the set of men that do not shave themselves.
 :::
 
-The following corollary was already stated as [Theorem 3.23]().
+The following corollary was already stated as [Theorem 3.23](/3-sets-relations-functions#theorem-3-23).
 
 ::: proposition Corollary 6.14. {#corollary-6-14}
 *The set* $\{0, 1\}^∞$ *is uncountable.*
@@ -1347,7 +1347,7 @@ We prove the equivalent statement: Every enumeration of elements of $\{0, 1\}^�
 
 Note that the proof of this corollary contains Cantor's diagonalization argument, which is hence implicite in [Theorem 6.12](#theorem-6-12).
 
-We discuss a further use of the theorem. If we understand a program as describable by a finite bit-string, or, equivalently, a natural number (since there is a bijection between finite bit-strings and natural numbers), and if we consider programs that take a natural number as input and output $0$ or $1$, then we obtain the following theorem. (Here we ignore programs that do not halt (i.e., loop forever), or, equivalently, we interpret looping as output $0$.) The following corollary was already stated as [Corollary 3.24](). [^60]
+We discuss a further use of the theorem. If we understand a program as describable by a finite bit-string, or, equivalently, a natural number (since there is a bijection between finite bit-strings and natural numbers), and if we consider programs that take a natural number as input and output $0$ or $1$, then we obtain the following theorem. (Here we ignore programs that do not halt (i.e., loop forever), or, equivalently, we interpret looping as output $0$.) The following corollary was already stated as [Corollary 3.24](/3-sets-relations-functions#corollary-3-24). [^60]
 
 [^58]:The universe of all sets is not a set itself. Formally, the universe in predicate logic need not be a set (in the sense of set theory), it can be a "collection" of objects.
 
@@ -1359,7 +1359,7 @@ We discuss a further use of the theorem. If we understand a program as describab
 
 **Proof:** We consider the universe $ℕ$, and a program is thought of as represented by a natural number. Let $P(y, x) = 1$ if and only if the bit that program $x$ outputs for input $y$ is $1$. [Theorem 6.12](#theorem-6-12), $¬∃x∀y~(P(y, x) ↔ ¬P(y, y))$, states that there exists no program $x$ that (for all inputs $y$) computes the function $y \mapsto ¬P(y, y)$, i.e., this function is uncomputable. <span class="right">$\Box$</span>
 
-The above corollary was already discussed as [Corollary 3.24](#corollary-3-24), as a direct consequence of [Corollary 6.14](#corollary-6-14) (i.e., of [Theorem 3.23]()). The proof given here is stronger in the sense that it provides a concrete function, namely the function $y ↦ ¬P(y, y)$, that is not computable.[^61] We state this as a corollary:
+The above corollary was already discussed as [Corollary 3.24](#corollary-3-24), as a direct consequence of [Corollary 6.14](#corollary-6-14) (i.e., of [Theorem 3.23](/3-sets-relations-functions#theorem-3-23)). The proof given here is stronger in the sense that it provides a concrete function, namely the function $y ↦ ¬P(y, y)$, that is not computable.[^61] We state this as a corollary:
 
 ::: proposition Corollary 6.16 {#corollary-6-16}
 *The function* $ℕ → \{0, 1\}$ *assigning to each* $y ∈ ℕ$ *the complement of what program* $y$ *outputs on input* $y$*, is uncomputable.*

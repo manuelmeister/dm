@@ -97,7 +97,7 @@ Since a set is specified by its elements, we can conclude that if two sets, each
 ::: proposition Lemma 3.1 {#lemma-3-1}
 _For any (sets) $a$ and $b$, $\{a\}=\{b\}\implies a=b$ ._
 
-**Proof:** Consider any fixed $a$ and $b$. The statement is an implication, which we prove indirectly. Assume that $a ≠ b$. Then $\{a\} ≠ \{b\}$ because there exists an element, namely $a$, that is contained in the first set, but not in the second. Thus we have proved that $a ≠ b \implies \{a\} ≠ \{b\}$. According to [Definition 2.14](/2-reasoning-proofs/#definition-2-14), this proves $\{a\} = \{b\} \implies a = b$.
+**Proof:** Consider any fixed $a$ and $b$. The statement is an implication, which we prove indirectly. Assume that $a ≠ b$. Then $\{a\} ≠ \{b\}$ because there exists an element, namely $a$, that is contained in the first set, but not in the second. Thus we have proved that $a ≠ b \implies \{a\} ≠ \{b\}$. According to [Definition 2.14](/2-reasoning-proofs#definition-2-14), this proves $\{a\} = \{b\} \implies a = b$.
 :::
 
 [^5]: Indeed, mathematicians are still working on fundamental questions regarding the theory of sets (but not questions relevant to us).
@@ -282,7 +282,7 @@ A set A is called *empty* if it contains no elements, i.e., if $∀x~¬(x ∈ A)
 
 **Proof:** The proof is by contradiction: Assume that there is a set $A$ for which $∅ \not⊆ A$. This means that there exists an $x$ for which $x ∈ ∅$ but $x \not∈ A$. But such an $x$ cannot exist because $∅$ contains no element, which is a contradiction. <span class=right>$\Box$</span>
 
-**Alternative Proof:** The above is a valid proof. Just to illustrate (as an example) that the same proof could be made more formal and more precise we can write the proof as follows, making use of logical transformation rules for formulas with quantifiers. Let $A$ be an arbitrary (but fixed) set. The proof is by contradiction (see [Definition 2.17](/2-reasoning-proofs/#definition-2-17)), where the statement $S$ to be proved is $∅ ⊆ A$ and as the statement $T$ we choose ¬$∀x~(x \not∈ ∅)$, which is false because it is the negation of the definition of $∅$. The proof that the negation of $S$ implies $T$ (step 3 in [Definition 2.17](/2-reasoning-proofs/#definition-2-17)) is as follows:
+**Alternative Proof:** The above is a valid proof. Just to illustrate (as an example) that the same proof could be made more formal and more precise we can write the proof as follows, making use of logical transformation rules for formulas with quantifiers. Let $A$ be an arbitrary (but fixed) set. The proof is by contradiction (see [Definition 2.17](/2-reasoning-proofs#definition-2-17)), where the statement $S$ to be proved is $∅ ⊆ A$ and as the statement $T$ we choose ¬$∀x~(x \not∈ ∅)$, which is false because it is the negation of the definition of $∅$. The proof that the negation of $S$ implies $T$ (step 3 in [Definition 2.17](/2-reasoning-proofs#definition-2-17)) is as follows:
 
 $$
 \begin{align*}
@@ -450,7 +450,7 @@ The relation $≡_m$ on $ℤ$ is defined as follows:
 $a\equiv_{m}b\quad{\stackrel{\mathrm{def}}{\iff}}\quad a-b=k m$&emsp; for some $k$,
 </center>
 
-i.e., $a ≡_m b$ if and only if $a$ and $b$ have the same remainder when divided by $m$. (See [Section 4.2.](/4-number-theory/#section-4-2))
+i.e., $a ≡_m b$ if and only if $a$ and $b$ have the same remainder when divided by $m$. (See [Section 4.2.](/4-number-theory#section-4-2))
 :::
 
 [^12]:Note that the relation takes can change over time, and in such an example we consider the relation at a certain point in time.

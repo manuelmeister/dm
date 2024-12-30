@@ -39,7 +39,7 @@ export default defineConfig({
     base: "/dm/",
     description: "Interactive script",
     srcDir: 'docs',
-    ignoreDeadLinks: true,
+    mpa: true,
     sitemap: {
         hostname: 'https://manuelmeister.github.io/dm/',
         transformItems: (items) => {

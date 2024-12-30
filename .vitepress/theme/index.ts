@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import tippy from "tippy.js";
 import {onContentUpdated} from "vitepress";
+import CustomLayout from "./CustomLayout.vue";
 
 const tooltip = ref(null);
 const observer = ref(null);
@@ -13,7 +14,7 @@ const headlines = () => document.querySelectorAll('h1, h2, h3, h4, h5, h6');
 export default {
     extends: DefaultTheme,
     Layout: () => {
-        return h(DefaultTheme.Layout, null, {
+        return h(CustomLayout, null, {
             // https://vitepress.dev/guide/extending-default-theme#layout-slots
         })
     },
