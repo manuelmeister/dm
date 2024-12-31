@@ -38,7 +38,15 @@ export default defineConfig({
     title: "Diskrete Mathematik",
     base: "/dm/",
     description: "Interactive script",
+    lang: "en-US",
     srcDir: 'docs',
+    head: [
+        ['meta', { property: 'og:url', content: 'https://manuelmeister.github.io/dm/' }],
+        ['meta', { property: 'og:type', content: 'website' }],
+        ['meta', { property: 'og:title', content: 'Diskrete Mathematik' }],
+        ['meta', { property: 'og:description', content: 'Skript von Ueli Maurer, digitalisiert von Studierenden' }],
+        ['meta', { property: 'og:image', content: 'https://manuelmeister.github.io/dm/social.png'}],
+    ],
     sitemap: {
         hostname: 'https://manuelmeister.github.io/dm/',
         transformItems: (items) => {
