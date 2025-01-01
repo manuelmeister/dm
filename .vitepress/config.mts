@@ -145,7 +145,7 @@ export default defineConfig({
             level: [2, 3],
         },
         footer: {
-            message: "No guarantee for correctness or completeness. Use at your own risk.<br> All rights belong to the Ueli Maurer and respective authors.",
+            message: "No guarantee for correctness or completeness. Use at your own risk.<br> All rights belong to Ueli Maurer and respective authors.",
         },
         lastUpdated: true,
         docFooter: {
