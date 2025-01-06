@@ -116,6 +116,7 @@ export default defineConfig({
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
+            {text: 'Refs', link: '/refs'},
             {
                 text: 'Chapters', items: [
                     {text: '2. Reasoning & Proofs', link: '/2-reasoning-proofs'},
