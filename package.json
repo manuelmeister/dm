@@ -15,5 +15,6 @@
     "tippy.js": "^6.3.7",
     "vite": "^6.0.3",
     "vitepress-plugin-theme-override": "^0.1.0"
-  }
+  },
+  "type": "module"
 }
