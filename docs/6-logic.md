@@ -78,7 +78,7 @@ We now discuss the two fundamental requirements for proof systems.
 A proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ is **sound**[^7] if no false statement has a proof, i.e., if for all $s ∈ \mathcal{S}$ for which there exists $p ∈ \mathcal{P}$ with $\phi(s, p) = 1$, we have $τ(s) = 1$.
 :::
 
-:::info Definition 6.3.{#definition-6-3}
+::: definition Definition 6.3.{#definition-6-3}
 A proof system $Π = (\mathcal{S},\mathcal{P}, τ, \phi)$ is **complete**[^8] if every true statement has a proof, i.e., if for all $s ∈ \mathcal{S}$ with $τ(s) = 1$, there exists $p ∈ \mathcal{P}$ with $\phi(s, p) = 1$.
 :::
 
@@ -268,7 +268,7 @@ The **semantics** of a logic also defines a function[^24] $σ$ assigning to each
 
 [^26]:This notation in the literature is unfortunately a bit ambiguous since $\mathcal{A}$ is used for two different things, namely for an interpretation as well as for the function induced by the interpretation which assigns to every formula the truth value (under that interpretation). We nevertheless use the notation $\mathcal{A}(F)$ instead of $σ(F, \mathcal{A})$ in order to be compatible with most of the literature.
 
-::: definition Definition 6.9.
+::: definition Definition 6.9.{#definition-6-9}
 A (suitable) interpretation $\mathcal{A}$ for which a formula $F$ is true, (i.e., $\mathcal{A}(F) = 1$) is called a *model* for $F$, and one also writes
 
 $\mathcal{A} \models F$.
@@ -331,7 +331,9 @@ $F ≡ G \overset{_{~def}}\iff F \models G$ and $G \overset{_~}\models F$.
 
 A set $M$ of formulas can be interpreted as the conjunction (AND) of all formulas in M since an interpretation is a model for M if and only if it is a model for all formulas in M. [^34] If M is the empty set, then, by definition, every interpretation is a model for M, i.e., the empty set of formulas corresponds to a tautology.
 
-**Definition 6.14.** If $F$ is a tautology, one also writes $\models F$.
+::: definition Definition 6.14. {#definition-6-14}
+If $F$ is a tautology, one also writes $\models F$.
+:::
 
 That $F$ is unsatisfiable can be written as $F \models ⊥$.
 
@@ -702,7 +704,7 @@ We also refer to [Section 2.3](/2-reasoning-proofs#_2-3-a-first-introduction-to-
 
 ### 6.5.1. Syntax
 
-::: definition Definition 6.23. **(Syntax)**{#definition-6-23} 
+::: definition Definition 6.23. **(Syntax)** {#definition-6-23}
 An *atomic formula* is a symbol of the form $A_i$ with $i ∈ ℕ$. [^43] A *formula* is defined as follows, where the second point is a restatement (for convenience) of [Definition 6.15](#definition-6-15):
 
 - An atomic formula is a formula.
@@ -717,7 +719,7 @@ A formula built according to this inductive definition corresponds naturally to 
 
 Recall [Definitions 6.5](#definition-6-5) and [6.6](#definition-6-6). *In propositional logic, the free symbols of a formula are all the atomic formulas.* For example, the truth value of the formula $A ∧ B$ is determined only after we specify the truth values of $A$ and $B$. In propositional logic, an interpretation is called a truth assignment (see below).
 
-::: definition Definition 6.24. **(Semantics)**{#definition-6-24} 
+::: definition Definition 6.24. **(Semantics)**{#definition-6-24}
 For a set $Z$ of atomic formulas, an interpretation $\mathcal{A}$, called *truth assignment*[^44], is a function $\mathcal{A}: Z → \{0, 1\}$. A truth assignment $\mathcal{A}$ is suitable for a formula $F$ if $Z$ contains all atomic formulas appearing in $F$ (see [Definition 6.7](#definition-6-7)). The semantics (i.e., the truth value $\mathcal{A}(F)$ of a formula $F$ under interpretation $\mathcal{A}$) is defined by $\mathcal{A}(F) = \mathcal{A}(A_i)$ for any atomic formula $F = A_i$ , and by [Definition 6.16](#definition-6-16) (restated here for convenience):
 
 <div class="grid-cols"><div>
