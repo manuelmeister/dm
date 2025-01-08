@@ -479,7 +479,7 @@ $Z^∗_m  \stackrel{\text{def}}{=}  \{a ∈ ℤ_m~|~\gcd(a, m) = 1\}$.
 
 [^10]:i.e., $|G| = p$ for some prime $p$.
 
-::: definition Definition 5.17. Euler Function{#definition-5-17}
+::: definition Definition 5.17. Euler Function $\varphi${#definition-5-17}
 The *Euler function* $\varphi : ℤ^+ → ℤ^+$ is defined as the cardinality of $ℤ^∗_m$:
 
 <center>
