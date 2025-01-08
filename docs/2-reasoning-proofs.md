@@ -245,7 +245,7 @@ In the lecture we demonstrate the proof of [Example 2.2](#example-2-2) in the ab
 
 There is a common informal understanding of what constitutes a proof of a mathematical statement S. Informally, we could define a proof as follows:
 
-::: definition Definition 2.2. *(Informal.)*
+::: definition Definition 2.2. *(Informal.)* {#definition-2-2}
 A *proof* of a statement $S$ is a sequence of simple, easily verifiable, consecutive steps. The proof starts from a set of axioms (things postulated to be true) and known (previously proved) facts. Each step corresponds to the application of a derivation rule to a few already proven statements, resulting in a newly proved statement, until the final step results in $S$.
 :::
 
@@ -386,7 +386,7 @@ A slightly more complicated example is $(A ∧ (¬B)) ∨ (B ∧ (¬C))$ with fu
 
 </div>
 
-:::info Definition 2.5. {#definition-2-5}
+::: definition Definition 2.5. {#definition-2-5}
 A correctly formed expression involving the propositional symbols $A, B, C,$ … and logical operators is called a *formula* (of propositional logic).
 :::
 
@@ -637,11 +637,11 @@ The formula $(A∧¬A)∧(B ∨C)$ is unsatisfiable, and the formula $A ∧ B$ i
 
 The following lemmas state two simple facts that follow immediately from the definitions. We only prove the second one.
 
-:::info Lemma 2.2.{#lemma-2-2}
+::: proposition Lemma 2.2.{#lemma-2-2}
 *A formula* $F$ *is a tautology if and only if* $¬F$ *is unsatisfiable.*
 :::
 
-:::info Lemma 2.3.{#lemma-2-3}
+::: proposition Lemma 2.3.{#lemma-2-3}
 *For any formulas* $F$ *and* $G$, $F → G$ *is a tautology if and only if* $F \models G$.
 :::
 

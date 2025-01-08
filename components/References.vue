@@ -25,8 +25,8 @@ export default {
     return {
       entries: data.map((post) => ({
             url: withBase(post.url),
-            defs: [...post.src.matchAll(/^::: definition (?<title>.+)\{#(?<anchor>.+)}$/gm)].map(({groups}) => groups),
-            props: [...post.src.matchAll(/^::: proposition (?<title>.+)\{#(?<anchor>.+)}$/gm)].map(({groups}) => groups),
+            defs: [...post.src.matchAll(/^::: definition (?<title>.+)\{#(?<anchor>.+)}\s*$/gm)].map(({groups}) => groups),
+            props: [...post.src.matchAll(/^::: proposition (?<title>.+)\{#(?<anchor>.+)}\s*$/gm)].map(({groups}) => groups),
             //examples: [...post.src.matchAll(/^::: example (?<title>.+)\{#(?<anchor>.+)}$/gm)].map(({groups}) => groups)
           })
       )
