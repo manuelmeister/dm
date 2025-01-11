@@ -1405,7 +1405,7 @@ The next theorem provides some other important sets that are countable.
 ::: proposition Theorem 3.22{#theorem-3-22}
 Let $A$ and $A_i$ for $i ∈ ℕ$ *be countable sets.*
 1. *For any* $n ∈ ℕ$, *the set* $A^n$ *of $n$-tuples over* $A$ *is countable.*
-2. *The union* $∪_{i∈N}A_i$ *of a countable list* $A_0, A_1, A_2, …$ *of countable sets is countable.*
+2. *The union* $∪_{i∈ℕ}A_i$ *of a countable list* $A_0, A_1, A_2, …$ *of countable sets is countable.*
 3. *The set* $A^*$ *of finite sequences of elements from* $A$ *is countable.*
 
 {.lower-roman}
