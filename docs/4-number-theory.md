@@ -188,7 +188,7 @@ For $a, b ∈ ℤ$ *there exists* $d ∈ ℤ$ *such that* $(a, b) = (d)$.
 
 The following corollary follows from [Lemmas 4.3](#lemma-4-3) and [4.4](#lemma-4-4).
 
-::: proposition Corollary 4.1.{#corollary-4-1}
+::: proposition Corollary 4.5.{#corollary-4-5}
 *For* $a, b ∈ ℤ$ (*not both* $0$*), there exist* $u, v ∈ ℤ$ *such that*
 
 <center>
