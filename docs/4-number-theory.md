@@ -132,7 +132,7 @@ The concept of a greatest common divisor applies not only to $ℤ$, but to more 
 [^6]:Note that the term "greatest" does not refer to the order relation $≤$ but to the divisibility relation.
 
 ::: definition Definition 4.3.{#definition-4-3}
-For $a, b ∈ ℤ$ (not both $0$) one denotes the unique positive greatest common divisor by $\operatorname{gcd}(a, b)$ and usually calls it the greatest common divisor. If $\operatorname{gcd}(a, b) = 1$, then $a$ and $b$ are called *relatively prime*[^7].
+For $a, b ∈ ℤ$ (not both $0$) one denotes the unique positive greatest common divisor by $\operatorname{gcd}(a, b)$ and usually calls it **the** greatest common divisor. If $\operatorname{gcd}(a, b) = 1$, then $a$ and $b$ are called *relatively prime*[^7].
 :::
 
 ::: proposition Lemma 4.1.{#lemma-4-1}
