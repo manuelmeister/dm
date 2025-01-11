@@ -135,7 +135,7 @@ The concept of a greatest common divisor applies not only to $ℤ$, but to more 
 For $a, b ∈ ℤ$ (not both $0$) one denotes the unique positive greatest common divisor by $\operatorname{gcd}(a, b)$ and usually calls it ***the** greatest common divisor*. If $\operatorname{gcd}(a, b) = 1$, then $a$ and $b$ are called *relatively prime*[^7].
 :::
 
-::: proposition Lemma 4.1.{#lemma-4-1}
+::: proposition Lemma 4.2.{#lemma-4-2}
 *For any integers* $m$, $n$ and $q$*, we have*
 
 <center>
