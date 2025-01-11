@@ -1391,7 +1391,7 @@ $$
 \end{align*}
 $$
 
-Using $A × B ⪯ ℕ × ℕ$ (just proved) and $ℕ × N ⪯ N$ ([Theorem 3.19](#theorem-3-19)) now gives $A × B ⪯ ℕ$ because is transitive ([Lemma 3.15(i)](#lemma-3-15)). <span class=right>$\Box$</span>
+Using $A × B ⪯ ℕ × ℕ$ (just proved) and $ℕ × ℕ ⪯ ℕ$ ([Theorem 3.19](#theorem-3-19)) now gives $A × B ⪯ ℕ$ because is transitive ([Lemma 3.15(i)](#lemma-3-15)). <span class=right>$\Box$</span>
 :::
 
 ::: proposition Corollary 3.21{#corollary-3-21}
