@@ -299,7 +299,7 @@ and
 
 <center>
 
-$\operatorname{lcm}(a,b)=\prod_{i}p_{i}^{\operatorname*{max}(e_{i}\,,\,f_{i})}$.
+$\operatorname{lcm}(a,b)=\displaystyle\prod_{i}p_{i}^{\operatorname*{max}(e_{i}\,,\,f_{i})}$.
 </center>
 
 It is easy to see that
