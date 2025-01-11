@@ -192,7 +192,8 @@ The following corollary follows from [Lemmas 4.3](#lemma-4-3) and [4.4](#lemma-4
 *For* $a, b ∈ ℤ$ (*not both* $0$*), there exist* $u, v ∈ ℤ$ *such that*
 
 <center>
-$\operatorname*{gcd}(a,b)=ua+vb$.
+
+$\operatorname{gcd}(a,b)=ua+vb$.
 </center>
 :::
 
