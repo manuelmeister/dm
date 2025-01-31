@@ -1197,7 +1197,7 @@ $(x^{4}+x^{3}+x^{2}+1):(x^{2}+1)=x^{2}+x$ &ensp;with remainder $x+1$.
 Note that in $\operatorname{GF}(2)$, $-1 = 1$. For example, $-x = x$ and $-x^{2} = x^{2}$.
 :::
 
-### 5.6.3. Analogies Between $ℤ$ and $F[x], Euclidean Domains<sup>*</sup>
+### 5.6.3. Analogies Between $ℤ$ and $F[x]$, Euclidean Domains<sup>*</sup>
 
 In this section we describe the abstraction underlying both $ℤ$ and $F[x]$.
 
