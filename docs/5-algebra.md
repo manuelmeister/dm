@@ -980,7 +980,7 @@ A *field*[^35] is a nontrivial commutative ring $F$ in which every nonzero eleme
 In other words, a ring $F$ is a field if and only if $\langle F \setminus \{0\}; \;\cdot\; ,\,^{−1}, 1\rangle$ is a abelian group.
 
 ::: example Example 5.44.{#example-5-44}
-$ℚ$, $ℝ$, and $ℂ$ are fields, but $ℤ$ and $ℝ[x]$ (for any ring $R$) are not fields.
+$ℚ$, $ℝ$, and $ℂ$ are fields, but $ℤ$ and $R[x]$ (for any ring $R$) are not fields.
 :::
 
 ::: proposition Theorem 5.23.{#theorem-5-23}
