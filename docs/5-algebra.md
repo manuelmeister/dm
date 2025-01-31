@@ -32,7 +32,7 @@ An *operation* on a set $S$ is a function[^1] $S^n → S$, where $n ≥ 0$ is ca
 Operations with arity $1$ and $2$ are called unary and binary operations, respectively. An operation with arity $0$ is called a constant; it is a fixed element from the set $S$, for instance the special element $1$ in $ℤ$. In many cases, only binary operations are actually listed explicitly,
 
 ::: definition Definition 5.2.{#definition-5-2}
-An *algebra* (or *algebraic structure* or $\Omega$*-algebra*) is a pair $(S; Ω)$ where $S$ is a set (the *carrier*[^3] of the algebra) and $Ω = (ω_1, \ldots, ω_n)$ is a list of operations on $S$. [^4]
+An *algebra* (or *algebraic structure* or $\Omega$*-algebra*) is a pair $\langle S; Ω\rangle$ where $S$ is a set (the *carrier*[^3] of the algebra) and $Ω = (ω_1, \ldots, ω_n)$ is a list of operations on $S$. [^4]
 :::
 
 ### 5.1.3. Some Examples of Algebras
@@ -167,6 +167,8 @@ Some standard examples of groups are $\langle ℤ; +, −, 0\rangle$, $\langle �
 ::: definition Definition 5.8. Commutativity{#definition-5-8}
 A group $\langle G; ∗\rangle$ (or monoid) is called *commutative* or *abelian*[^6] if $a ∗ b = b ∗ a$ for all $a, b ∈ G$.
 :::
+
+[^6]:Named after the Norwegian mathematician Niels Henrik Abel (1802–1829). 
 
 We summarize a few facts we encountered already earlier for the special case of the integers $ℤ$. The group is the right level of abstraction for describing these facts. The proofs are left as exercises.
 
@@ -844,8 +846,6 @@ An element $a ≠ 0$ of a commutative ring $R$ is called a *zerodivisor*[^29] if
 ::: definition Definition 5.24. Integral Domain{#definition-5-24}
 An *integral domain*[^30] $D$ is a (nontrivial[^31]) commutative ring without zerodivisors: For all $a, b ∈ D$ we have $ab = 0 \implies a = 0 \lor b = 0$.
 :::
-**Definition 5.24.** An *integral domain*[^30] D is a (nontrivial[^31]) commutative ring without zerodivisors: For all a, b ∈ D we have ab = 0 =⇒ a = 0 ∨ b = 0.
-
 
 [^26]:Recall that this definition was already stated as [Definition 4.1](/4-number-theory#definition-4-1) for the special case of integers. 
 
