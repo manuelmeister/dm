@@ -1699,7 +1699,7 @@ A very powerful class of codes is obtained by polynomial interpolation if $\cf A
 [^50]:For example the list of symbols received after transmission of a codeword over a noisy channel or read from a storage medium like a CD.
 
 ::: proposition Theorem 5.42.{#theorem-5-42}
-Let $A = \operatorname{GF}(q)$ and let $α_0, \ldots, α_{n-1}$ be arbitrary distinct elements of $\operatorname{GF}(q)$. Consider the encoding function
+Let $\mathcal{A} = \operatorname{GF}(q)$ and let $α_0, \ldots, α_{n-1}$ be arbitrary distinct elements of $\operatorname{GF}(q)$. Consider the encoding function
 
 <center>
 
