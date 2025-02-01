@@ -233,7 +233,7 @@ Some of the symbols in $\Lambda$ (e.g. the symbols A and B in propositional logi
 ### 6.3.3. Semantics
 
 ::: definition Definition 6.5.{#definition-6-5}
-The **semantics** of a logic defines (among other things, see below) a function $\operatorname{free}$ which assigns to each formula $F = (f_1, f_2, … , f_k) ∈ \Lambda^∗$ a subset $\operatorname{free}(F) ⊆ \{1, … , k\}$ of the indices. If $i ∈ \operatorname{free}(F)$, then the symbol $f_i$ is said to occur *free* in F. [^20]
+The **semantics** of a logic defines (among other things, see below) a function $\operatorname{free}$ which assigns to each formula $F = (f_1, f_2, … , f_k) ∈ \Lambda^∗$ a subset $\operatorname{free}(F) ⊆ \{1, … , k\}$ of the indices. If $i ∈ \operatorname{free}(F)$, then the symbol $f_i$ is said to occur **free** in F. [^20]
 :::
 
 The same symbol $β ∈ Λ$ can occur free in one place of $F$ (say $f_3 = β$ where $3 ∈ \operatorname{free}(F)$) and not free in another place (say $f_5 = β$ where $5 \not∈ \operatorname{free}(F)$).
