@@ -924,7 +924,7 @@ $\{K_1, K_2\} ⊢_\mathsf{res} K$,
 
 </center>
 
-where equation (6.1) must be satisfied. The resolution calculus, denoted Res, consists of a single rule:
+where equation (6.1) must be satisfied. The resolution calculus, denoted $\mathsf{Res}$, consists of a single rule:
 
 <center>
 
