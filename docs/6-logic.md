@@ -577,7 +577,7 @@ The two rules of [Example 6.6](#example-6-6) are correct, but the rule
 
 $${F → G, G → F} ⊢ F ∧ G$$
 
-is not correct. To see this, note that if F and G are both false, then F → G and G → F are true while F ∧ G is false.
+is not correct. To see this, note that if $F$ and $G$ are both false, then $F → G$ and $G → F$ are true while $F ∧ G$ is false.
 :::
 
 ::: definition Definition 6.22.{#definition-6-22}
